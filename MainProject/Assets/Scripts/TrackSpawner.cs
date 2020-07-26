@@ -207,6 +207,9 @@ public class TrackSpawner : MonoBehaviour
                 {
                     movePlayer(playerNumber, -2, false);
                 }
+                else {
+                    ready = true;
+                }
                 
             }
         
@@ -263,12 +266,25 @@ public class TrackSpawner : MonoBehaviour
            }).OnComplete(() =>
            {
                current_Player.GetComponent<Animator>().SetBool("jump", false);
-               ready = true;
+               
            }).SetEase(curve);
             StartCoroutine(animationtimer(playerNumber, pos, current_Player));
         }
         else {
-           StartCoroutine( animationFall(track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), current_Player));
+
+            current_Player.transform.GetComponent<Rigidbody>().DOMove(
+           track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), 3f).OnStart(() =>
+           {
+               current_Player.GetComponent<Animator>().SetBool("fall", true);
+                    print("Animation started");
+            }).OnComplete(() =>
+           {
+               print("Animation ended");
+               current_Player.GetComponent<Animator>().SetBool("fall", false);
+               ready = true;
+           });
+
+           // StartCoroutine( animationFall(track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), current_Player));
         }
         
         m_player_pos.Remove("player_" + playerNumber);
@@ -296,8 +312,9 @@ public class TrackSpawner : MonoBehaviour
         Ready_popup.gameObject.SetActive(false);
         gameObject.GetComponent<SwitchCamera>().ShootCameraEnable(true);
         Controller.Instance.DisplayCursor(false);
-        resetWeapon.Invoke();
         StartCountdown = true;
+        resetWeapon.Invoke();
+       
        // GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>().Reset();
     }
 
