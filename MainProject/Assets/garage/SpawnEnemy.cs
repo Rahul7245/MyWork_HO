@@ -163,8 +163,9 @@ public class SpawnEnemy : MonoBehaviour
                 tempTime = TimeAmount;
                 timerFilling.color = Color.green;
                 Clock.SetActive(false);
+                yield return new WaitForSeconds(2f);
                 impactManager.InvokeTheEvent(impactManager.m_points);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(6f);
                 impactManager.OkButtonClicked();
             }
         }
