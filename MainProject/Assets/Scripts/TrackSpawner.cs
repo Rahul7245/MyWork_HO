@@ -177,7 +177,7 @@ public class TrackSpawner : MonoBehaviour
         Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_" + turn;
         Ready_popup.gameObject.SetActive(true);
         askingPlayer = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         ReadyButtonPressed();
     }
 

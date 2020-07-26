@@ -347,6 +347,8 @@ public class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         impactManager.InvokeTheEvent(bvalue);
+        yield return new WaitForSeconds(6f);
+        impactManager.OkButtonClicked();
     }
 
     void ProjectileShot()
