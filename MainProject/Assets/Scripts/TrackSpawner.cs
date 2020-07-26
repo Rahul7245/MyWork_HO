@@ -207,12 +207,14 @@ public class TrackSpawner : MonoBehaviour
                 {
                     movePlayer(playerNumber, -2, false);
                 }
-                else {
-                    ready = true;
-                }
+                
                 
             }
-        
+            else
+            {
+                ready = true;
+            }
+
         }
 
     }
