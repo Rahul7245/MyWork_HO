@@ -27,8 +27,8 @@ public class TrackSpawner : MonoBehaviour
     Dictionary<string, GameObject> m_players = new Dictionary<string, GameObject>();
     Dictionary<string, int> m_player_pos = new Dictionary<string, int>();
     Dictionary<string, Hurdle[]> m_player_pow = new Dictionary<string, Hurdle[]>();
-    int turn;
-    bool ready, askingPlayer;
+    int m_turn;
+    bool m_ready, m_askingPlayer;
     public bool StartCountdown = false;
 
     ResetWeapon resetWeapon = new ResetWeapon();
@@ -38,18 +38,9 @@ public class TrackSpawner : MonoBehaviour
     {
          InstantiateTrack();
          InstantiatePlayers();
-       // RandomPowerPosition(1);
-        /* GameObject[] obj =null;
-         if (m_tracks.TryGetValue("player_2_Track", out obj)) {
-             obj[21].transform.position = obj[21].transform.position+ Vector3.up;
-         }*/
-
-        /*
-         * Instatiate character
-         */
-       
-        turn = 1;
-        ready = true;
+ 
+        m_turn = 1;
+        m_ready = true;
         //askingPlayer = true;
         //Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_"+turn;
         StartCoroutine(StartGame());
@@ -166,7 +157,7 @@ public class TrackSpawner : MonoBehaviour
     }
     private void Update()
     {
-        if (ready&&!askingPlayer)
+        if (m_ready&&!m_askingPlayer)
         {
             StartCoroutine(StartGame());
         }        
@@ -174,26 +165,26 @@ public class TrackSpawner : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_" + turn;
+        Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_" + m_turn;
         Ready_popup.gameObject.SetActive(true);
-        askingPlayer = true;
+        m_askingPlayer = true;
         yield return new WaitForSeconds(3.5f);
         ReadyButtonPressed();
     }
 
     void movePlayerListener(int stepsToMove) {
         print("movePlayerListener");
-        if (!ready) {
+        if (!m_ready) {
             return;
         }
-        ready = false;
-        askingPlayer = false;
-        movePlayer(turn, stepsToMove, true);
+        m_ready = false;
+        m_askingPlayer = false;
+        movePlayer(m_turn, stepsToMove, true);
         //  CheckForHurdle(turn,pos);
-        turn += 1;
-        if (turn > No_of_players)
+        m_turn += 1;
+        if (m_turn > No_of_players)
         {
-            turn = 1;
+            m_turn = 1;
         }
 
     }
@@ -206,16 +197,20 @@ public class TrackSpawner : MonoBehaviour
                 if (hurdle.power == 2 || hurdle.power == 4 || hurdle.power == 6)
                 {
                     movePlayer(playerNumber, -2, false);
+                    return;
                 }
-                
-                
+               else if (hurdle.power == 1 || hurdle.power == 3 || hurdle.power == 5)
+                {
+                    movePlayer(playerNumber, 2, true);
+                    return;
+                }
+
+
             }
-            else
-            {
-                ready = true;
-            }
+            
 
         }
+        m_ready = true;
 
     }
     int getPressedKey() {
@@ -283,7 +278,7 @@ public class TrackSpawner : MonoBehaviour
            {
                print("Animation ended");
                current_Player.GetComponent<Animator>().SetBool("fall", false);
-               ready = true;
+               m_ready = true;
            });
 
            // StartCoroutine( animationFall(track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), current_Player));
@@ -294,7 +289,7 @@ public class TrackSpawner : MonoBehaviour
         return pos;
         
     }
-    IEnumerator animationFall(Vector3 finalPos, GameObject current_Player) {
+   /* IEnumerator animationFall(Vector3 finalPos, GameObject current_Player) {
         current_Player.GetComponent<Animator>().SetBool("fall", true);
         yield return new WaitForSeconds(.5f);
         yield return new WaitForSeconds(2f);
@@ -302,7 +297,7 @@ public class TrackSpawner : MonoBehaviour
         current_Player.GetComponent<Animator>().SetBool("fall",false);
         current_Player.transform.position = finalPos;
 
-    }
+    }*/
     IEnumerator animationtimer(int playerNumber,int currentPosition, GameObject current_Player) {
         yield return new WaitForSeconds(.5f);
         yield return new WaitWhile(() => current_Player.GetComponent<Animator>().GetBool("jump") == true);
