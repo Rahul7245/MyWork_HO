@@ -8,7 +8,6 @@ public class Burgler : MonoBehaviour
     public int m_value;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
