@@ -122,7 +122,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Update()
     {
-      //  StartCoroutine(WaitAndCount());
+        StartCoroutine(WaitAndCount());
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -138,9 +138,9 @@ public class SpawnEnemy : MonoBehaviour
 
     IEnumerator WaitAndCount()
     {
-        while (trackSpawner.StartCountdown != false)
-        {
-            print("while called");
+        //while (trackSpawner.StartCountdown != false)
+        //{
+            //print("while called");
         if (trackSpawner.StartCountdown)
         {
             impactManager = GameObject.FindObjectOfType<ImpactManager>();
@@ -166,13 +166,13 @@ public class SpawnEnemy : MonoBehaviour
                 tempTime = TimeAmount;
                 timerFilling.color = Color.green;
                 Clock.SetActive(false);
-                yield return new WaitForSeconds(2f);
+                //yield return new WaitForSeconds(2f);
                 impactManager.InvokeTheEvent(impactManager.m_points);
                 yield return new WaitForSeconds(6f);
                 print("waitAndCount");
                 //  impactManager.OkButtonClick();
             }
-        }
+        //}
     }
 
     }
