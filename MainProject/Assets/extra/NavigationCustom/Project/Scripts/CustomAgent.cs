@@ -72,6 +72,7 @@ public class CustomAgent : MonoBehaviour
     {
         //RestartRandom();
 
+        transform.LookAt(Camera.main.transform);
         if (isWalkable)
         {
             //UniqueRandom();
@@ -85,26 +86,23 @@ public class CustomAgent : MonoBehaviour
             return;
 
         if (!PlayerAgent.pathPending && PlayerAgent.remainingDistance < 0.1f && !isReached)
-        {
-            isReached = true;
-            StartCoroutine(GotoNextPoint());
-            if (indexvalue >= GoalPoints.Length)
-                PlayerAgent.isStopped = true;
-        }
+            GotoNextPoint();
     }
 
-    IEnumerator GotoNextPoint()
+    private void GotoNextPoint()
     {
-        PlayerAgent.updateRotation = false;
-        PlayerAgent.isStopped = true;
-        anim.Play("Stand");
-        yield return new WaitForSeconds(0.1f);
-
-        PlayerAgent.isStopped = false;
-        anim.Play("Walk");
-        //UniqueRandom();
-        AnimateCharacter();
-        isReached = false;
+        if (indexvalue < GoalPoints.Length)
+        {
+            isReached = true;
+            PlayerAgent.updateRotation = false;
+            anim.Play("Stand");
+            AnimateCharacter();
+        }
+        else
+        {
+            anim.Play("Shooting");
+            transform.LookAt(Camera.main.transform);
+        }
     }
 
     private void RotateTowards(Transform target) // Method to turn the navmesh agent manually in place
@@ -151,6 +149,7 @@ public class CustomAgent : MonoBehaviour
     {
         isDead = false;
         indexvalue++;
+        isReached = false;
         if (indexvalue < GoalPoints.Length && !isDead)
             StartCoroutine(ManageAnimations());
     }
@@ -163,13 +162,10 @@ public class CustomAgent : MonoBehaviour
         anim.Play("Walk");
 
         yield return new WaitForSeconds(1f);
-        //PlayerAgent.isStopped = true;
         PlayerAgent.speed = 0f;
-        //anim.Play("LookBack");
 
         yield return new WaitForSeconds(2f);
-        //PlayerAgent.isStopped = false;
-        PlayerAgent.speed = 3.5f;
+        PlayerAgent.speed = 1.5f;
     }
 
     public void DieEffect()
