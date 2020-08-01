@@ -14,7 +14,7 @@ computer
 
 public class NavUI : MonoBehaviour
 {
-    int[] disabledButton = {2,3 };
+    int[] disabledButton = {2,3,1 };
     int m_state=-1;
     int m_bet = -1;
     GameObject m_bet_button;
