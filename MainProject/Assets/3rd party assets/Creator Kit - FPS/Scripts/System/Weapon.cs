@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.Rendering.PostProcessing;
 //using System;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -252,7 +253,7 @@ public class Weapon : MonoBehaviour
 
         //the state will only change next frame, so we set it right now.
         m_CurrentState = WeaponState.Firing;
-
+        
         m_Animator.SetTrigger("fire");
 
         m_Source.pitch = Random.Range(0.7f, 1.0f);
@@ -290,6 +291,8 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
+                Time.timeScale = 0.3f;
+                VigneteEffect.Instance.VigneteEffectStart();
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burgler burgler = hit.transform.gameObject.GetComponent<Burgler>();
                 CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
@@ -297,6 +300,7 @@ public class Weapon : MonoBehaviour
                 bvalue = burgler.getValue();
                 customAgent.DieEffect();
                 StartCoroutine(DelayPopup());
+                ScopeDisable();
             }
 
             //if too close, the trail effect would look weird if it arced to hit the wall, so only correct it if far
@@ -531,6 +535,15 @@ public class Weapon : MonoBehaviour
         scopeOvrlay.SetActive(true);
         Controller.Instance.WeaponCamera.gameObject.SetActive(false);
         Controller.Instance.MainCamera.fieldOfView = 20;
+
+
+    }
+    void ScopeDisable()
+    {
+        m_Animator.SetBool("scope", false);
+        scopeOvrlay.SetActive(false);
+        Controller.Instance.MainCamera.fieldOfView = 60;
+        Controller.Instance.WeaponCamera.gameObject.SetActive(true);
 
 
     }
