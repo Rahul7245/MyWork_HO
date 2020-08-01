@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
@@ -64,6 +64,51 @@ MonoBehaviour:
   settings:
   - {fileID: -3401032343081332183}
   - {fileID: 8546293495984150685}
+  - {fileID: 6375132748106645591}
+--- !u!114 &6375132748106645591
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 0.5283019, g: 0.21181916, b: 0.22360694, a: 1}
+  center:
+    overrideState: 1
+    value: {x: 0.5, y: 0.5}
+  intensity:
+    overrideState: 1
+    value: 0
+  smoothness:
+    overrideState: 1
+    value: 0.83
+  roundness:
+    overrideState: 0
+    value: 0.153
+  rounded:
+    overrideState: 0
+    value: 0
+  mask:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 23beebf49d7668645bc313caf3b66cd6, type: 3}
+    defaultState: 1
+  opacity:
+    overrideState: 1
+    value: 0.566
 --- !u!114 &8546293495984150685
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -129,7 +174,7 @@ MonoBehaviour:
     value: 180
   saturation:
     overrideState: 0
-    value: 55.4
+    value: -100
   brightness:
     overrideState: 0
     value: 0
@@ -171,10 +216,10 @@ MonoBehaviour:
     value: {x: 0.953221, y: 0.9303617, z: 1, w: -0.04926109}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.13370878}
+    value: {x: 1, y: 1, z: 1, w: 0.21815635}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.51372284}
+    value: {x: 1, y: 1, z: 1, w: 0.06333571}
   masterCurve:
     overrideState: 0
     value:

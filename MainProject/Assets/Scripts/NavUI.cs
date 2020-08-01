@@ -23,6 +23,7 @@ public class NavUI : MonoBehaviour
     public GameObject playButton;
     public GameObject preMainScreen;
     public GameObject mainScreen;
+    public GameObject character;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,12 +81,14 @@ public class NavUI : MonoBehaviour
     {
         preMainScreen.SetActive(false);
         mainScreen.SetActive(true);
+        character.SetActive(false);
     }
 
     public void BackButtonClicked()
     {
         preMainScreen.SetActive(true);
         mainScreen.SetActive(false);
+        character.SetActive(true);
     }
 
 
