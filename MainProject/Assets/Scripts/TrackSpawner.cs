@@ -29,7 +29,6 @@ public class TrackSpawner : MonoBehaviour
     Dictionary<string, Hurdle[]> m_player_pow = new Dictionary<string, Hurdle[]>();
     int m_turn;
     bool m_ready, m_askingPlayer;
-    public bool StartCountdown = false;
 
     ResetWeapon resetWeapon = new ResetWeapon();
     float trackDistance = 3.8f;
@@ -309,7 +308,6 @@ public class TrackSpawner : MonoBehaviour
         Ready_popup.gameObject.SetActive(false);
         gameObject.GetComponent<SwitchCamera>().ShootCameraEnable(true);
         Controller.Instance.DisplayCursor(false);
-        StartCountdown = true;
         resetWeapon.Invoke();
        
        // GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>().Reset();
