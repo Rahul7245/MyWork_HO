@@ -75,6 +75,11 @@ public class SpawnEnemy : MonoBehaviour
     /// </summary>
     public GameObject Clock;
 
+    /// <summary>
+    /// boolean value to start timer
+    /// </summary>
+    public bool StartCountdown = false;
+
     private void Awake()
     {
         SpawnPositions = GameObject.FindGameObjectWithTag("SpawnPos");
@@ -122,7 +127,8 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(WaitAndCount());
+        if (StartCountdown)
+            CountingTime();   
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -136,45 +142,30 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator WaitAndCount()
-    {
-        //while (trackSpawner.StartCountdown != false)
-        //{
-            //print("while called");
-        if (trackSpawner.StartCountdown)
-        {
-            impactManager = GameObject.FindObjectOfType<ImpactManager>();
-            Clock.SetActive(true);
-            for (int i = 0; i < NoofEnemies; i++)
-            {
-                this.transform.GetChild(i).GetComponent<CustomAgent>().enabled = true;
-            }
 
-            yield return new WaitForSeconds(0.5f);
-            if (tempTime > 0 && impactManager.m_points <= 0 && !impactManager.ClipsizeText.activeInHierarchy)
-            {
-                tempTime -= Time.fixedDeltaTime;
-                timerFilling.fillAmount = tempTime / TimeAmount;
-                timeText.text = tempTime.ToString("0");
-                if (timerFilling.fillAmount <= 0.25f) // when 3/4th of time filler is done shows alert color
-                    timerFilling.color = Color.red;
-            }
-            else
-            {
-                trackSpawner.StartCountdown = false;
-                timerFilling.fillAmount = 1;
-                tempTime = TimeAmount;
-                timerFilling.color = Color.green;
-                Clock.SetActive(false);
-                //yield return new WaitForSeconds(2f);
-                impactManager.InvokeTheEvent(impactManager.m_points);
-                yield return new WaitForSeconds(6f);
-                print("waitAndCount");
-                //  impactManager.OkButtonClick();
-            }
-        //}
+    public void CountingTime()
+    {
+        tempTime -= Time.deltaTime;
+        timerFilling.fillAmount = tempTime / TimeAmount;
+        timeText.text = tempTime.ToString("0");
+        StartCoroutine(DisableTimer());
+        if (timerFilling.fillAmount <= 0.25f) // when 3/4th of time filler is done shows alert color
+            timerFilling.color = Color.red;
     }
 
+    IEnumerator DisableTimer()
+    {
+        //print("Disable timer called");
+        if (tempTime <= 0 || impactManager.ClipsizeText.activeInHierarchy || impactManager.m_points>0)
+        {
+            print("Disable timer called in if");
+            StartCountdown = false;
+            Clock.SetActive(false);
+            yield return new WaitForSeconds(2f); // To show dead animation of burgler
+            impactManager.InvokeTheEvent(impactManager.m_points);
+            yield return new WaitForSeconds(6f);
+            impactManager.OkButtonClick();
+        }
     }
 
     public void Hide(int integer)
@@ -186,17 +177,15 @@ public class SpawnEnemy : MonoBehaviour
             obj.gameObject.SetActive(false);
             obj.GetComponent<CustomAgent>().indexvalue = 0;
         }
-    }
-
-    public void Reset()
-    {
-       
+        StartCountdown = false;
         timerFilling.fillAmount = 1;
         tempTime = TimeAmount;
         timerFilling.color = Color.green;
         Clock.SetActive(false);
-        StartCoroutine(WaitAndCount());
+    }
 
+    public void Reset()
+    {
         foreach (Transform child in this.transform)
         {
             child.transform.gameObject.SetActive(true);
@@ -204,6 +193,14 @@ public class SpawnEnemy : MonoBehaviour
             {
                 child.GetComponent<CustomAgent>().AnimateCharacter();
             }
+        }
+
+        StartCountdown = true;
+        impactManager = GameObject.FindObjectOfType<ImpactManager>();
+        Clock.SetActive(true);
+        for (int i = 0; i < NoofEnemies; i++)
+        {
+            this.transform.GetChild(i).GetComponent<CustomAgent>().enabled = true;
         }
     }
 }
