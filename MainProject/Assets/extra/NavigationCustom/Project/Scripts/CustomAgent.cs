@@ -70,14 +70,9 @@ public class CustomAgent : MonoBehaviour
 
     public void Check()
     {
-        //RestartRandom();
-
         transform.LookAt(Camera.main.transform);
         if (isWalkable)
-        {
-            //UniqueRandom();
             AnimateCharacter();
-        }
     }
 
     private void Update()
@@ -86,22 +81,24 @@ public class CustomAgent : MonoBehaviour
             return;
 
         if (!PlayerAgent.pathPending && PlayerAgent.remainingDistance < 0.1f && !isReached)
+        {
             GotoNextPoint();
+        }
     }
 
     private void GotoNextPoint()
     {
+        isReached = true;
         if (indexvalue < GoalPoints.Length)
         {
-            isReached = true;
             PlayerAgent.updateRotation = false;
             anim.Play("Stand");
             AnimateCharacter();
         }
         else
         {
-            anim.Play("Shooting");
             transform.LookAt(Camera.main.transform);
+            anim.Play("Shooting");
         }
     }
 
@@ -122,29 +119,6 @@ public class CustomAgent : MonoBehaviour
             NumberPool.Add(i);
         }
     }
-
-    //public void UniqueRandom()
-    //{
-    //    if (NumberPool.Count == 0)
-    //        RestartRandom();
-
-    //    int index = Random.Range(0, NumberPool.Count);
-    //    anim.Play("Walk");
-    //    if (PrevIndex == index) //If Previous random number is same as present
-    //    {
-    //        UniqueRandom();
-    //    }
-    //    else
-    //    {
-    //        CurrRandomIndex = NumberPool[index];
-    //        NumberPool.RemoveAt(index);
-    //        PrevIndex = index;
-
-    //        PlayerAgent.destination = GoalPoints[CurrRandomIndex].position;
-    //        RotateTowards(GoalPoints[CurrRandomIndex]);
-    //    }
-    //}
-
     public void AnimateCharacter()
     {
         isDead = false;
@@ -166,6 +140,7 @@ public class CustomAgent : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         PlayerAgent.speed = 1.5f;
+        Debug.Log("With speed of 1.5");
     }
 
     public void DieEffect()
