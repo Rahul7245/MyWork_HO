@@ -14,7 +14,7 @@ computer
 
 public class NavUI : MonoBehaviour
 {
-    int[] disabledButton = {2,3 };
+    int[] disabledButton = {2,3,1 };
     int m_state=-1;
     int m_bet = -1;
     GameObject m_bet_button;
@@ -23,6 +23,7 @@ public class NavUI : MonoBehaviour
     public GameObject playButton;
     public GameObject preMainScreen;
     public GameObject mainScreen;
+    public GameObject character;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,12 +81,14 @@ public class NavUI : MonoBehaviour
     {
         preMainScreen.SetActive(false);
         mainScreen.SetActive(true);
+        character.SetActive(false);
     }
 
     public void BackButtonClicked()
     {
         preMainScreen.SetActive(true);
         mainScreen.SetActive(false);
+        character.SetActive(true);
     }
 
 
