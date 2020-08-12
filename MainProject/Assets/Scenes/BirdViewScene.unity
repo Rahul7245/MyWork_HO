@@ -300,7 +300,7 @@ MonoBehaviour:
     type: 3}
   track: {fileID: 1538637335}
   No_of_players: 6
-  player: {fileID: 5365319602880892772, guid: d806a278a14ed1147aa779281b9cdbb2, type: 3}
+  player: {fileID: 735283202123743360, guid: 1347a607b02c1814eb23f1552e16bdb8, type: 3}
   no_of_hurdles: 3
   Ready_popup: {fileID: 1465936440}
 --- !u!4 &722346531
@@ -7674,9 +7674,37 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6923787349551257058}
-  m_Mesh: {fileID: 2521202470130555524, guid: 0d40cac948332a14ea7ddcb5783ae782, type: 3}
---- !u!23 &4458516464959855838
+  m_GameObject: {fileID: 2889693695416468741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8386dea776a14a74fb78f5b34af4ed04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackSpawner: {fileID: 0}
+  impactManager: {fileID: 0}
+  Enemy: {fileID: 1183391238287397833, guid: 950fc3dbb26c11943ab083cdb1ffa681, type: 3}
+  SpawnPositions: {fileID: 0}
+  NoofEnemies: 5
+  spawnInstructions:
+  - Targetpoints: 0000000005000000
+    Name: Burgler_1
+  - Targetpoints: 0100000006000000
+    Name: Burgler_2
+  - Targetpoints: 0200000007000000
+    Name: Burgler_3
+  - Targetpoints: 0300000008000000
+    Name: Burgler_4
+  - Targetpoints: 0400000009000000
+    Name: Burgler_5
+  WalkableEn:
+  - Burgler_1
+  - Burgler_3
+  Environment: {fileID: 8261495675346042373}
+  timerFilling: {fileID: 6875981428159610502}
+  TimeAmount: 10
+  timeText: {fileID: 6875981427659543819}
+  Clock: {fileID: 6875981428614272354}
+--- !u!23 &2892404248456227371
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
