@@ -300,7 +300,7 @@ MonoBehaviour:
     type: 3}
   track: {fileID: 1538637335}
   No_of_players: 6
-  player: {fileID: 735283202123743360, guid: 1347a607b02c1814eb23f1552e16bdb8, type: 3}
+  player: {fileID: 62567583707957934, guid: be8e0c68d542ad948b9474fb2bf5bd17, type: 3}
   no_of_hurdles: 3
   Ready_popup: {fileID: 1465936440}
 --- !u!4 &722346531
@@ -3917,7 +3917,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7247531541613656206}
   - component: {fileID: 7312792571820470407}
-  - component: {fileID: 2892404248456227371}
   m_Layer: 8
   m_Name: Generator_v1
   m_TagString: Untagged
@@ -6086,6 +6085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2889693695416468742}
   - component: {fileID: 2889693695416468743}
+  - component: {fileID: 4416854620218683967}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -6121,7 +6121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackSpawner: {fileID: 0}
   impactManager: {fileID: 0}
-  Enemy: {fileID: 8131219140913890912, guid: 5f0eec0ff8cffb648a7e8a8ed61702d4, type: 3}
+  Enemy: {fileID: 1183391238287397833, guid: 950fc3dbb26c11943ab083cdb1ffa681, type: 3}
   SpawnPositions: {fileID: 0}
   NoofEnemies: 5
   spawnInstructions:
@@ -6150,7 +6150,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670264431050015772}
+  m_GameObject: {fileID: 7843280552070670428}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -6162,7 +6162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6685f806a55994a45abb0461049cd8b0, type: 2}
+  - {fileID: 2100000, guid: 6b5c5038dbda3fe40b324de89ae3a710, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7675,74 +7675,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2889693695416468741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8386dea776a14a74fb78f5b34af4ed04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackSpawner: {fileID: 0}
-  impactManager: {fileID: 0}
-  Enemy: {fileID: 1183391238287397833, guid: 950fc3dbb26c11943ab083cdb1ffa681, type: 3}
-  SpawnPositions: {fileID: 0}
-  NoofEnemies: 5
-  spawnInstructions:
-  - Targetpoints: 0000000005000000
-    Name: Burgler_1
-  - Targetpoints: 0100000006000000
-    Name: Burgler_2
-  - Targetpoints: 0200000007000000
-    Name: Burgler_3
-  - Targetpoints: 0300000008000000
-    Name: Burgler_4
-  - Targetpoints: 0400000009000000
-    Name: Burgler_5
-  WalkableEn:
-  - Burgler_1
-  - Burgler_3
-  Environment: {fileID: 8261495675346042373}
-  timerFilling: {fileID: 6875981428159610502}
-  TimeAmount: 10
-  timeText: {fileID: 6875981427659543819}
-  Clock: {fileID: 6875981428614272354}
---- !u!23 &2892404248456227371
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7843280552070670428}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 6b5c5038dbda3fe40b324de89ae3a710, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_Mesh: {fileID: 0}
 --- !u!33 &4463747424516624710
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10686,7 +10619,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4746310517946670242}
-  - component: {fileID: 4416854620218683967}
   - component: {fileID: 7580073881738932225}
   m_Layer: 8
   m_Name: Barrel_v2_single1
@@ -11679,7 +11611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141150024014025286}
   - component: {fileID: 2783771201264094222}
-  - component: {fileID: 4458516464959855838}
+  - component: {fileID: 2892404248456227371}
   m_Layer: 8
   m_Name: polySurface112
   m_TagString: Untagged
