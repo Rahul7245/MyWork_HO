@@ -299,8 +299,10 @@ MonoBehaviour:
   hurdleCube: {fileID: 5150237030549391728, guid: b081549a9b85a064a9b12b1453c5281b,
     type: 3}
   track: {fileID: 1538637335}
-  No_of_players: 6
-  player: {fileID: 62567583707957934, guid: be8e0c68d542ad948b9474fb2bf5bd17, type: 3}
+  No_of_players: 2
+  player:
+  - {fileID: 735283202123743360, guid: 1347a607b02c1814eb23f1552e16bdb8, type: 3}
+  - {fileID: 62567583707957934, guid: be8e0c68d542ad948b9474fb2bf5bd17, type: 3}
   no_of_hurdles: 3
   Ready_popup: {fileID: 1465936440}
 --- !u!4 &722346531

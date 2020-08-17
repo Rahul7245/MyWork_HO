@@ -291,7 +291,7 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                Time.timeScale = 0.3f;
+                Time.timeScale = 0.6f;
                 VigneteEffect.Instance.VigneteEffectStart();
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burgler burgler = hit.transform.gameObject.GetComponent<Burgler>();
