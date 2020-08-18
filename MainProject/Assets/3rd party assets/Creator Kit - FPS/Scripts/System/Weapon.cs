@@ -531,7 +531,7 @@ public class Weapon : MonoBehaviour
     }
     IEnumerator ScopeEnable()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(0.8f);
         scopeOvrlay.SetActive(true);
         Controller.Instance.WeaponCamera.gameObject.SetActive(false);
         Controller.Instance.MainCamera.fieldOfView = 20;

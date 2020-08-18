@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: c8605b743942112489280a12cf067d72,
+  m_Motion: {fileID: -203655887218126122, guid: 5ff4ed88eff04154ab4d0aede1985837,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -113,7 +113,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: character_01
+  m_Name: character_02
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: jump
@@ -121,13 +121,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: fall
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -187,7 +187,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0209dab94f619b542849ee1ffd5c1280,
+  m_Motion: {fileID: -203655887218126122, guid: 2d57df16126801040991fa77f0fc0313,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -215,7 +215,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 6f863f918f76b6646b85dea35d3f9168,
+  m_Motion: {fileID: -203655887218126122, guid: 764336091692e804bbeb98a0f85bbed5,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
