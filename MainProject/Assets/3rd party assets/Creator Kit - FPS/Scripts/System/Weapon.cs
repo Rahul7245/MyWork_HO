@@ -291,7 +291,7 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                Time.timeScale = 0.3f;
+                Time.timeScale = 0.6f;
                 VigneteEffect.Instance.VigneteEffectStart();
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burgler burgler = hit.transform.gameObject.GetComponent<Burgler>();
@@ -531,7 +531,7 @@ public class Weapon : MonoBehaviour
     }
     IEnumerator ScopeEnable()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(0.8f);
         scopeOvrlay.SetActive(true);
         Controller.Instance.WeaponCamera.gameObject.SetActive(false);
         Controller.Instance.MainCamera.fieldOfView = 20;
