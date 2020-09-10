@@ -19,7 +19,7 @@ public class TrackSpawner : MonoBehaviour
     public GameObject hurdleCube;
     public GameObject track;
     public int No_of_players;
-    public GameObject player;
+    public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
     // Start is called before the first frame update
@@ -58,7 +58,7 @@ public class TrackSpawner : MonoBehaviour
             GameObject[] obj = null;
             if (m_tracks.TryGetValue("player_" + i + "_Track", out obj))
             {
-                GameObject pl = Instantiate(player, obj[0].transform.position + new Vector3(0, characterYaxisOffset, 0), Quaternion.identity);
+                GameObject pl = Instantiate(player[i-1], obj[0].transform.position + new Vector3(0, characterYaxisOffset, 0), Quaternion.identity);
                 pl.name = "player_" + i;
                 m_players.Add("player_" + i, pl);
                 m_player_pos.Add("player_" + i, 0);
@@ -74,11 +74,12 @@ public class TrackSpawner : MonoBehaviour
             /*
             Instantiate tracks 
              */
+            
             GameObject[] playerTrackArr = new GameObject[22];
             GameObject playerTrack = new GameObject("player_" + j + "_Track");
             // Instantiate(playerTrack);
             Vector3 pos = new Vector3(0, 0, 0);
-            GameObject st = Instantiate(startPoint, pos + new Vector3(j * 3, 0, 0), Quaternion.identity);
+            GameObject st = Instantiate(startPoint, pos + new Vector3(j * 5+3, 0, 0), Quaternion.identity);
             pos = st.transform.position;
             st.transform.parent = playerTrack.transform;
             st.name = "start_pos_" + j;
