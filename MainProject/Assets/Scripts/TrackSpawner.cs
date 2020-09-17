@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Cinemachine;
 
 public class Hurdle
 {
@@ -31,8 +32,10 @@ public class TrackSpawner : MonoBehaviour
     bool m_ready, m_askingPlayer;
 
     ResetWeapon resetWeapon = new ResetWeapon();
-    float trackDistance = 3.8f;
+    float trackDistance = 6f;
     float characterYaxisOffset = 0.7f;
+   public CinemachineVirtualCamera vcam;
+    public CinemachineVirtualCamera sideVcam;
     void Start()
     {
          InstantiateTrack();
@@ -46,6 +49,7 @@ public class TrackSpawner : MonoBehaviour
         EventManager.AddShootListener(movePlayerListener);
         EventManager.AddReloadWeaponInvoker(this);
         
+
     }
     public void AddResetWeaponListener(UnityAction listener)
     {
@@ -165,6 +169,13 @@ public class TrackSpawner : MonoBehaviour
 
     IEnumerator StartGame()
     {
+        GameObject current_Player;
+        m_players.TryGetValue("player_" + m_turn, out current_Player);
+        vcam.m_LookAt = current_Player.transform;
+        vcam.m_Follow = current_Player.transform;
+        sideVcam.m_Priority = 9;
+        sideVcam.m_LookAt = current_Player.transform;
+        sideVcam.m_Follow = current_Player.transform;
         Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_" + m_turn;
         Ready_popup.gameObject.SetActive(true);
         m_askingPlayer = true;
@@ -180,6 +191,7 @@ public class TrackSpawner : MonoBehaviour
         m_ready = false;
         m_askingPlayer = false;
         movePlayer(m_turn, stepsToMove, true);
+        sideVcam.m_Priority = 11;
         //  CheckForHurdle(turn,pos);
         m_turn += 1;
         if (m_turn > No_of_players)
