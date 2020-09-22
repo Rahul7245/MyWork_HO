@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using Cinemachine;
+using TMPro;
 
 public class Hurdle
 {
@@ -23,6 +24,8 @@ public class TrackSpawner : MonoBehaviour
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
+    public GameObject[] playerPositionCanvas;
+    public GameObject currentPlayerCanvas;
     // Start is called before the first frame update
     Dictionary<string, GameObject[]> m_tracks = new Dictionary<string, GameObject[]>();
     Dictionary<string, GameObject> m_players = new Dictionary<string, GameObject>();
@@ -48,7 +51,12 @@ public class TrackSpawner : MonoBehaviour
         StartCoroutine(StartGame());
         EventManager.AddShootListener(movePlayerListener);
         EventManager.AddReloadWeaponInvoker(this);
+        foreach(var playerPosCan in playerPositionCanvas) {
+            playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+        }
         
+
+
 
     }
     public void AddResetWeaponListener(UnityAction listener)
@@ -82,7 +90,7 @@ public class TrackSpawner : MonoBehaviour
             GameObject[] playerTrackArr = new GameObject[22];
             GameObject playerTrack = new GameObject("player_" + j + "_Track");
             // Instantiate(playerTrack);
-            Vector3 pos = new Vector3(0, 0, 0);
+            Vector3 pos = new Vector3(10, 0, 0);
             GameObject st = Instantiate(startPoint, pos + new Vector3(j * 5+3, 0, 0), Quaternion.identity);
             pos = st.transform.position;
             st.transform.parent = playerTrack.transform;
@@ -176,7 +184,7 @@ public class TrackSpawner : MonoBehaviour
         sideVcam.m_Priority = 9;
         sideVcam.m_LookAt = current_Player.transform;
         sideVcam.m_Follow = current_Player.transform;
-        Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_" + m_turn;
+        Ready_popup.GetComponentInChildren<TextMeshProUGUI>().text = "Are you Ready Player_" + m_turn;
         Ready_popup.gameObject.SetActive(true);
         m_askingPlayer = true;
         yield return new WaitForSeconds(3.5f);
@@ -258,10 +266,14 @@ public class TrackSpawner : MonoBehaviour
     int movePlayer(int playerNumber, int steps,bool movingForward) {
       //  print("movePlayer called");
         GameObject current_Player;
+        
         m_players.TryGetValue("player_" + playerNumber, out current_Player);
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
         pos += steps;
+        playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
+        currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
+        currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         GameObject[] track;
         m_tracks.TryGetValue("player_" + playerNumber + "_Track", out track);
         //StartCoroutine(animationtimer(steps, current_Player));

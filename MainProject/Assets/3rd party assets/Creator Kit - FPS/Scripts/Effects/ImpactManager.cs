@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -100,7 +101,7 @@ public class ImpactManager : MonoBehaviour
     public void InvokeTheEvent(int points) {
         PointsCanvas.SetActive(true);
         m_points = points;
-        PointsCanvas.GetComponentInChildren<Text>().text ="You Shot "+points;
+        PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text ="You Shot "+points;
         Controller.Instance.DisplayCursor(true);
     }
     public void OkButtonClick() {

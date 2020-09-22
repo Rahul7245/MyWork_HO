@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Threading;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class SpawnEnemy : MonoBehaviour
     /// <summary>
     /// Text to show countdown
     /// </summary>
-    public Text timeText;
+    public TextMeshProUGUI timeText;
 
     /// <summary>
     /// Clock
@@ -149,8 +150,8 @@ public class SpawnEnemy : MonoBehaviour
         timerFilling.fillAmount = tempTime / TimeAmount;
         timeText.text = tempTime.ToString("0");
         StartCoroutine(DisableTimer());
-        if (timerFilling.fillAmount <= 0.25f) // when 3/4th of time filler is done shows alert color
-            timerFilling.color = Color.red;
+      //  if (timerFilling.fillAmount <= 0.25f) // when 3/4th of time filler is done shows alert color
+            //timerFilling.color = Color.red;
     }
 
     IEnumerator DisableTimer()
@@ -182,7 +183,7 @@ public class SpawnEnemy : MonoBehaviour
         StartCountdown = false;
         timerFilling.fillAmount = 1;
         tempTime = TimeAmount;
-        timerFilling.color = Color.green;
+       // timerFilling.color = Color.green;
         Clock.SetActive(false);
     }
 
