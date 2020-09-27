@@ -165,7 +165,7 @@ public class SpawnEnemy : MonoBehaviour
             yield return new WaitForSeconds(2f); // To show dead animation of burgler
             Time.timeScale = 1f;
             impactManager.InvokeTheEvent(impactManager.m_points);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             VigneteEffect.Instance.ResetVignete();
             impactManager.OkButtonClick();
         }

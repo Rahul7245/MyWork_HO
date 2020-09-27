@@ -241,7 +241,7 @@ public class Weapon : MonoBehaviour
         if (m_ClipContent == 0)
         {
             impactManager.ClipsizeText.SetActive(true);
-
+            
             impactManager.InvokeTheEvent(impactManager.m_points);
         }
         m_ShotTimer = fireRate;
@@ -349,9 +349,9 @@ public class Weapon : MonoBehaviour
 
     IEnumerator DelayPopup()
     {
-        yield return new WaitForSeconds(2f);
+       // yield return new WaitForSeconds(2f);
         impactManager.InvokeTheEvent(bvalue);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
         print("DelayPopup");
         impactManager.OkButtonClick();
     }
@@ -419,7 +419,7 @@ public class Weapon : MonoBehaviour
     public void Reset()
     {
         print("it is called");
-        m_ClipContent = 3;
+        m_ClipContent = 1;
         impactManager.ClipsizeText.SetActive(false);
         if (AmmoDisplay)
             AmmoDisplay.UpdateAmount(m_ClipContent, clipSize);

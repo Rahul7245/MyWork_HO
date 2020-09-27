@@ -35,7 +35,7 @@ public class TrackSpawner : MonoBehaviour
     bool m_ready, m_askingPlayer;
 
     ResetWeapon resetWeapon = new ResetWeapon();
-    float trackDistance = 6f;
+    float trackDistance = 8f;
     float characterYaxisOffset = 0.7f;
    public CinemachineVirtualCamera vcam;
     public CinemachineVirtualCamera sideVcam;
@@ -81,6 +81,7 @@ public class TrackSpawner : MonoBehaviour
 
     }
     void InstantiateTrack() {
+        Hurdle[] hurdles = RandomPowerPosition(0);
         for (int j = 1; j <= No_of_players; j++)
         {
             /*
@@ -96,7 +97,7 @@ public class TrackSpawner : MonoBehaviour
             st.transform.parent = playerTrack.transform;
             st.name = "start_pos_" + j;
             playerTrackArr[0] = st;
-           Hurdle[] hurdles= RandomPowerPosition(j);
+          // Hurdle[] hurdles= RandomPowerPosition(j);
             for (int i = 1; i <= 21; i++)
             {
                 GameObject tc = Instantiate(trackCube, pos + new Vector3(0, 0, i * trackDistance), Quaternion.identity);
@@ -148,7 +149,7 @@ public class TrackSpawner : MonoBehaviour
                 {
                     for (int j = 0; j < i-1; j++)
                     {
-                        if (Mathf.Abs(hurdle.pos - hurdles[j].pos) <= 3)
+                        if (Mathf.Abs(hurdle.pos - hurdles[j].pos) < 3)
                         {
                             hurdle.pos = UnityEngine.Random.Range(2, 20);
                             goto Loopback;
@@ -210,7 +211,7 @@ public class TrackSpawner : MonoBehaviour
     }
     void CheckForHurdle(int playerNumber, int currentPosition) {
         Hurdle[] hurdles;
-        m_player_pow.TryGetValue("player_" + playerNumber + "_pow", out hurdles);
+        m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
         foreach (var hurdle in hurdles) {
             if (currentPosition == hurdle.pos) {
                 print("playerNumber: " + playerNumber + " power " + hurdle.power);
