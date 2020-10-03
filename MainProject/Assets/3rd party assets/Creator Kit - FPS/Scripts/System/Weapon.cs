@@ -294,7 +294,7 @@ public class Weapon : MonoBehaviour
                 Time.timeScale = 0.6f;
                 VigneteEffect.Instance.VigneteEffectStart();
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
-                Burgler burgler = hit.transform.gameObject.GetComponent<Burgler>();
+                Burglar burgler = hit.transform.gameObject.GetComponent<Burglar>();
                 CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
                 customAgent.GetComponent<NavMeshAgent>().isStopped = true;
                 bvalue = burgler.getValue();

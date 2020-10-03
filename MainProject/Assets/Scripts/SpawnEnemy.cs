@@ -105,7 +105,7 @@ public class SpawnEnemy : MonoBehaviour
             GameObject Clone = Instantiate(Enemy, SpawnPositions.transform.GetChild(i).position, Quaternion.identity, this.transform);
             Clone.name = spawnInstructions[i].Name;
             //Adding Burger script with its value
-            Clone.GetComponent<Burgler>().m_value = i + 1;
+            Clone.GetComponent<Burglar>().m_value = i + 1;
 
             //Assigning waypoint for movement
             int length = spawnInstructions[i].Targetpoints.Count;
