@@ -1,20 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootSceneScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject PointsCanvas;
     public Burglar[] m_burglar;
+    GroupOfPoints pointGroup;
+    private void Awake()
+    {
+        
+
+    }
     void Start()
     {
-        GroupOfPoints pointGroup= GaragePoints.Instance.getEnvironmentPoints();
-        m_burglar[0].SetDestination(pointGroup.groupOfPoints[4].endPoints[0].transform);
-    }
+        pointGroup = GaragePoints.Instance.getEnvironmentPoints();
+        ShootSceneStateManager.Instance.ToggleAppState(ShootState.Start);
 
+
+
+    }
+    public void InitializeScene() {
+        setBurglarStartPoint();
+        setBurglarEndPoint();
+    }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void setBurglarStartPoint() {
+        for (int i = 0; i < 5; i++)
+        {
+            
+            m_burglar[i].transform.position = pointGroup.groupOfPoints[i].startPoint.transform.position;
+            m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
+        }
+    }
+    void setBurglarEndPoint()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if(pointGroup.groupOfPoints[i].endPoints.Count>0)
+            m_burglar[i].SetDestination(pointGroup.groupOfPoints[i].endPoints[0].transform);
+        }
+    }
+
+   public void AddShotEffects() {
+        Time.timeScale = 0.6f;
+        VigneteEffect.Instance.VigneteEffectStart();
+    }
+
+    public void CameraEffect() {
+        StartCoroutine(AfterDieEffect());
+    }
+    IEnumerator AfterDieEffect() {
+        yield return new WaitForSeconds(4f);
+        DisplayPoints();
+    }
+    public void DisplayPoints() {
+        PointsCanvas.SetActive(true);
+       
+        PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "You Shot " + PlayerPrefs.GetInt("Score");
+
     }
 }

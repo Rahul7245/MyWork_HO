@@ -42,6 +42,10 @@ public class Burglar : MonoBehaviour
         navAgent.isStopped = true;
         anim.SetTrigger("ShootPosition");
     }
+    public void DieAnimation() {
+        navAgent.isStopped = true;
+        anim.SetTrigger("Die");
+    }
 
 
 }

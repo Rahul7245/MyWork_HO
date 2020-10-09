@@ -108,7 +108,7 @@ public class ImpactManager : MonoBehaviour
         PointsCanvas.SetActive(false);
         switchCameraEvent.Invoke(false);
         print("shotEventInvoke");
-        shotEvent.Invoke(m_points);
+       // shotEvent.Invoke(m_points);
         m_points = 0;
         
     }

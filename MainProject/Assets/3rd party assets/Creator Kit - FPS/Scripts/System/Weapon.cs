@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
     public WeaponState CurrentState => m_CurrentState;
     public int ClipContent => m_ClipContent;
     public Controller Owner => m_Owner;
-    private int bvalue = 0;
+  //  private int bvalue = 0;
     Controller m_Owner;
 
     Animator m_Animator;
@@ -233,6 +233,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
+        print("Fire");
         //  print("m_ClipContent::" + m_ClipContent);
         if (m_CurrentState != WeaponState.Idle || m_ShotTimer > 0 || m_ClipContent == 0)
             return;
@@ -241,8 +242,12 @@ public class Weapon : MonoBehaviour
         if (m_ClipContent == 0)
         {
             impactManager.ClipsizeText.SetActive(true);
-            
-            impactManager.InvokeTheEvent(impactManager.m_points);
+
+            if (PlayerPrefs.HasKey("Score")) {
+                PlayerPrefs.DeleteKey("Score");
+            }
+            PlayerPrefs.SetInt("Score", 0);
+          //  impactManager.InvokeTheEvent(impactManager.m_points);
         }
         m_ShotTimer = fireRate;
 
@@ -277,6 +282,7 @@ public class Weapon : MonoBehaviour
 
     void RaycastShot()
     {
+        print("RaycastShot");
         //compute the ratio of our spread angle over the fov to know in viewport space what is the possible offset from center
         float spreadRatio = advancedSettings.spreadAngle / Controller.Instance.MainCamera.fieldOfView;
 
@@ -291,15 +297,23 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                Time.timeScale = 0.6f;
-                VigneteEffect.Instance.VigneteEffectStart();
+                print("burgler hit");
+                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
-                Burglar burgler = hit.transform.gameObject.GetComponent<Burglar>();
-                CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
-                customAgent.GetComponent<NavMeshAgent>().isStopped = true;
-                bvalue = burgler.getValue();
-                customAgent.DieEffect();
-                StartCoroutine(DelayPopup());
+                Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
+                if (PlayerPrefs.HasKey("Score"))
+                {
+                    PlayerPrefs.DeleteKey("Score");
+                }
+                PlayerPrefs.SetInt("Score", burglar.getValue());
+                burglar.DieAnimation();
+                //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
+                // customAgent.GetComponent<NavMeshAgent>().isStopped = true;
+
+                //  bvalue = burglar.getValue();
+                //  customAgent.DieEffect();
+                //  StartCoroutine(DelayPopup());
+                print("Score"+PlayerPrefs.GetInt("Score"));
                 ScopeDisable();
             }
 
@@ -350,7 +364,7 @@ public class Weapon : MonoBehaviour
     IEnumerator DelayPopup()
     {
        // yield return new WaitForSeconds(2f);
-        impactManager.InvokeTheEvent(bvalue);
+       // impactManager.InvokeTheEvent(bvalue);
         yield return new WaitForSeconds(3f);
         print("DelayPopup");
         impactManager.OkButtonClick();

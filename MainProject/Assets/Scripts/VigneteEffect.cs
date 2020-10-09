@@ -26,7 +26,7 @@ public class VigneteEffect : MonoBehaviour
     }
     void VigneteEffectFill() {
         
-        if(vignette.intensity.value<0.318f)
+        if(vignette.intensity.value<0.512f)
             vignette.intensity.value += 0.2f*Time.deltaTime;
     }
     public void VigneteEffectStart() {
