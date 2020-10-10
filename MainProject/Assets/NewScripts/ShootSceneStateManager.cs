@@ -62,6 +62,7 @@ public class ShootSceneStateManager : MonoBehaviour
             gameObject.GetComponent<Timer>().stopTimer();
             shootSceneScript.AddShotEffects();
             shootSceneScript.CameraEffect();
+            shootSceneScript.LoadScene();
 
 
 

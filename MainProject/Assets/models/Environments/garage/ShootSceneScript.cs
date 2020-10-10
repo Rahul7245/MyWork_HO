@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ShootSceneScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ShootSceneScript : MonoBehaviour
     public GameObject PointsCanvas;
     public Burglar[] m_burglar;
     GroupOfPoints pointGroup;
+    public Canvas loadingSceneCanvas;
     private void Awake()
     {
         
@@ -67,5 +69,17 @@ public class ShootSceneScript : MonoBehaviour
        
         PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "You Shot " + PlayerPrefs.GetInt("Score");
 
+    }
+    public void LoadScene() {
+        StartCoroutine(LoadBirdViewScene());
+    }
+    IEnumerator LoadBirdViewScene() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadSceneAsync(0);
+        DontDestroyOnLoad(loadingSceneCanvas);
+        loadingSceneCanvas.gameObject.SetActive(true);
+        SceneManager.UnloadSceneAsync(1);
+        
+    
     }
 }
