@@ -71,14 +71,14 @@ public class ShootSceneScript : MonoBehaviour
 
     }
     public void LoadScene() {
-        StartCoroutine(LoadBirdViewScene());
+       // StartCoroutine(LoadBirdViewScene());
     }
     IEnumerator LoadBirdViewScene() {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadSceneAsync(0);
         DontDestroyOnLoad(loadingSceneCanvas);
         loadingSceneCanvas.gameObject.SetActive(true);
-        SceneManager.UnloadSceneAsync(1);
+       // SceneManager.UnloadSceneAsync(1);
         
     
     }
