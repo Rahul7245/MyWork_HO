@@ -41,16 +41,16 @@ public class TrackSpawner : MonoBehaviour
     public CinemachineVirtualCamera sideVcam;
     void Start()
     {
-         InstantiateTrack();
-         InstantiatePlayers();
+         /*InstantiateTrack();
+         InstantiatePlayers();*/
  
         m_turn = 1;
         m_ready = true;
         //askingPlayer = true;
         //Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_"+turn;
-        StartCoroutine(StartGame());
+     //   StartCoroutine(StartGame());
         EventManager.AddShootListener(movePlayerListener);
-        EventManager.AddReloadWeaponInvoker(this);
+        
         foreach(var playerPosCan in playerPositionCanvas) {
             playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         }
@@ -64,7 +64,7 @@ public class TrackSpawner : MonoBehaviour
 
         resetWeapon.AddListener(listener);
     }
-    void InstantiatePlayers() {
+  public void InstantiatePlayers() {
         for (int i = 1; i <= No_of_players; i++)
         {
             GameObject[] obj = null;
@@ -80,7 +80,7 @@ public class TrackSpawner : MonoBehaviour
 
 
     }
-    void InstantiateTrack() {
+    public void InstantiateTrack() {
         Hurdle[] hurdles = RandomPowerPosition(0);
         for (int j = 1; j <= No_of_players; j++)
         {
@@ -172,7 +172,7 @@ public class TrackSpawner : MonoBehaviour
     {
         if (m_ready&&!m_askingPlayer)
         {
-            StartCoroutine(StartGame());
+           // StartCoroutine(StartGame());
         }        
     }
 

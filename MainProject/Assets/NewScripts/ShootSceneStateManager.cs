@@ -6,6 +6,9 @@ public enum ShootState
 {
     None=0,
     Start,
+    PlayerTurn,
+    SwitchCamera,
+    StartShooting,
     Shooting,
     Shoot_Complete
 }
@@ -14,16 +17,20 @@ public class ShootSceneStateManager : MonoBehaviour
     public static ShootSceneStateManager Instance { get; protected set; }
     private ShootState m_currentState;
     ShootSceneScript shootSceneScript;
+    BirdViewSceneScript birdViewSceneScript;
+
     // Start is called before the first frame update
     private void Awake()
     {
         Instance = this;
         shootSceneScript = gameObject.GetComponent<ShootSceneScript>();
+        birdViewSceneScript = gameObject.GetComponent<BirdViewSceneScript>();
     }
    
     void Start()
     {
-        
+        ShootSceneStateManager.Instance.ToggleAppState(ShootState.Start);
+
     }
 
     // Update is called once per frame
@@ -44,8 +51,18 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             return;
         }
-        // if have old state first exit then enter bew state
         if (appState.Equals(ShootState.Start)) {
+            m_currentState = appState;
+            birdViewSceneScript.GenerateTracks();
+            birdViewSceneScript.PlayerTurnTimer();
+        }
+        if (appState.Equals(ShootState.SwitchCamera))
+        {
+            m_currentState = appState;
+            birdViewSceneScript.SwitchScene();
+        }
+        // if have old state first exit then enter bew state
+        if (appState.Equals(ShootState.StartShooting)) {
             m_currentState = appState;
             shootSceneScript.InitializeScene();
             ToggleAppState(ShootState.Shooting);

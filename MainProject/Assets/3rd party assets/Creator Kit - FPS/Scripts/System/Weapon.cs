@@ -432,7 +432,7 @@ public class Weapon : MonoBehaviour
     }
     public void Reset()
     {
-        print("it is called");
+        print("Reset called");
         m_ClipContent = 1;
         impactManager.ClipsizeText.SetActive(false);
         if (AmmoDisplay)

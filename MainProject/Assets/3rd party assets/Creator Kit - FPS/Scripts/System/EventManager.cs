@@ -12,7 +12,7 @@ public static class EventManager
     static ImpactManager cameraSwitchInvoker;
     static UnityAction<bool> cameraSwitchListener;
 
-    static TrackSpawner reloadWeaponInvoker;
+    static BirdViewSceneScript reloadWeaponInvoker;
     static UnityAction reloadWeaponListener;
    static int i=0;
     public static void  AddShotInvoker(ImpactManager script) 
@@ -54,7 +54,7 @@ public static class EventManager
 
 
 
-    public static void AddReloadWeaponInvoker(TrackSpawner script)
+    public static void AddReloadWeaponInvoker(BirdViewSceneScript script)
     {
         reloadWeaponInvoker = script;
         if (reloadWeaponListener != null)
