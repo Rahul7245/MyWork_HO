@@ -60,6 +60,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             birdViewSceneScript.SwitchScene();
+            ToggleAppState(ShootState.StartShooting);
         }
         // if have old state first exit then enter bew state
         if (appState.Equals(ShootState.StartShooting)) {
