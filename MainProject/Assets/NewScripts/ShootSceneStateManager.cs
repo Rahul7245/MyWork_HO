@@ -14,6 +14,7 @@ public enum ShootState
 }
 public class ShootSceneStateManager : MonoBehaviour
 {
+    public GameObject SceneManager;
     public static ShootSceneStateManager Instance { get; protected set; }
     private ShootState m_currentState;
     ShootSceneScript shootSceneScript;
@@ -23,7 +24,14 @@ public class ShootSceneStateManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        shootSceneScript = gameObject.GetComponent<ShootSceneScript>();
+        shootSceneScript = SceneManager.GetComponent<ShootSceneScript>();
+        if (shootSceneScript) {
+            print("yes shootSceneScript ");
+        }
+        else 
+        {
+            print("no shootSceneScript ");
+        }
         birdViewSceneScript = gameObject.GetComponent<BirdViewSceneScript>();
     }
    
@@ -72,12 +80,12 @@ public class ShootSceneStateManager : MonoBehaviour
         else if (appState.Equals(ShootState.Shooting))
         {
                  m_currentState = appState;
-            gameObject.GetComponent<Timer>().startTimer();
+            SceneManager.GetComponent<Timer>().startTimer();
         }
         else if (appState.Equals(ShootState.Shoot_Complete))
         {
             m_currentState = appState;
-            gameObject.GetComponent<Timer>().stopTimer();
+            SceneManager.GetComponent<Timer>().stopTimer();
             shootSceneScript.AddShotEffects();
             shootSceneScript.CameraEffect();
             shootSceneScript.LoadScene();

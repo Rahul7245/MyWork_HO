@@ -20,7 +20,6 @@ public class ShootSceneScript : MonoBehaviour
     void Start()
     {
         pointGroup = GaragePoints.Instance.getEnvironmentPoints();
-        ShootSceneStateManager.Instance.ToggleAppState(ShootState.StartShooting);
 
 
 
