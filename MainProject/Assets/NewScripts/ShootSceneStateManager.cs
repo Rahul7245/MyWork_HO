@@ -10,7 +10,8 @@ public enum ShootState
     SwitchCamera,
     StartShooting,
     Shooting,
-    Shoot_Complete
+    Shoot_Complete,
+    Result
 }
 public class ShootSceneStateManager : MonoBehaviour
 {
@@ -25,13 +26,6 @@ public class ShootSceneStateManager : MonoBehaviour
     {
         Instance = this;
         shootSceneScript = SceneManager.GetComponent<ShootSceneScript>();
-        if (shootSceneScript) {
-            print("yes shootSceneScript ");
-        }
-        else 
-        {
-            print("no shootSceneScript ");
-        }
         birdViewSceneScript = gameObject.GetComponent<BirdViewSceneScript>();
     }
    
@@ -62,8 +56,15 @@ public class ShootSceneStateManager : MonoBehaviour
         if (appState.Equals(ShootState.Start)) {
             m_currentState = appState;
             birdViewSceneScript.GenerateTracks();
+            ToggleAppState(ShootState.PlayerTurn);
+        }
+        if (appState.Equals(ShootState.PlayerTurn))
+        {
+            m_currentState = appState;
+      
             birdViewSceneScript.PlayerTurnTimer();
         }
+
         if (appState.Equals(ShootState.SwitchCamera))
         {
             m_currentState = appState;
@@ -86,12 +87,22 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             SceneManager.GetComponent<Timer>().stopTimer();
-            shootSceneScript.AddShotEffects();
+            if (PlayerPrefs.GetInt("Score") > 0) { shootSceneScript.AddShotEffects(); }
+            
             shootSceneScript.CameraEffect();
             shootSceneScript.LoadScene();
 
 
 
+        }
+
+        else if (appState.Equals(ShootState.Result))
+        {
+            m_currentState = appState;
+            VigneteEffect.Instance.ResetVignete();
+            shootSceneScript.setBurglerNoneAnimation();
+
+            ToggleAppState(ShootState.PlayerTurn);
         }
     }
 }

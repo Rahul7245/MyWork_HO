@@ -30,6 +30,7 @@ public class Burglar : MonoBehaviour
         return m_value;
     }
     public void SetDestination(Transform endPoint) {
+        navAgent.isStopped = false;
         navAgent.destination = endPoint.position;
          anim.SetTrigger("Run");
         StartCoroutine(StopRunning());
@@ -38,13 +39,18 @@ public class Burglar : MonoBehaviour
     IEnumerator StopRunning()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => navAgent.remainingDistance <= 0.1f);
+        yield return new WaitUntil(() => navAgent.remainingDistance <= 0.1f|| navAgent.isStopped);
         navAgent.isStopped = true;
         anim.SetTrigger("ShootPosition");
     }
     public void DieAnimation() {
         navAgent.isStopped = true;
         anim.SetTrigger("Die");
+    }
+
+    public void NoneAnimation() {
+        navAgent.isStopped = true;
+        anim.SetTrigger("Idle");
     }
 
 

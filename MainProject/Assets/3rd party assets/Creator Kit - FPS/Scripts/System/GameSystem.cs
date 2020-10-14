@@ -39,7 +39,6 @@ public class GameSystem : MonoBehaviour
         foreach (var prefab in StartPrefabs)
         {
             if (prefab.name == "GameUI") {
-                print(prefab.name);
                 Instantiate(prefab,gameObject.transform);
             }
             else { Instantiate(prefab); }

@@ -41,6 +41,7 @@ public class BirdViewSceneScript : MonoBehaviour
     }
     IEnumerator ResetPopUp()
     {
+
         readyPlayerPopUp.SetActive(true);
         yield return new WaitForSeconds(3);
         readyPlayerPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "3";

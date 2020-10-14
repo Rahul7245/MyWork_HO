@@ -233,7 +233,6 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        print("Fire");
         //  print("m_ClipContent::" + m_ClipContent);
         if (m_CurrentState != WeaponState.Idle || m_ShotTimer > 0 || m_ClipContent == 0)
             return;
@@ -247,7 +246,8 @@ public class Weapon : MonoBehaviour
                 PlayerPrefs.DeleteKey("Score");
             }
             PlayerPrefs.SetInt("Score", 0);
-          //  impactManager.InvokeTheEvent(impactManager.m_points);
+            ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+            //  impactManager.InvokeTheEvent(impactManager.m_points);
         }
         m_ShotTimer = fireRate;
 
@@ -282,7 +282,7 @@ public class Weapon : MonoBehaviour
 
     void RaycastShot()
     {
-        print("RaycastShot");
+
         //compute the ratio of our spread angle over the fov to know in viewport space what is the possible offset from center
         float spreadRatio = advancedSettings.spreadAngle / Controller.Instance.MainCamera.fieldOfView;
 
@@ -297,7 +297,7 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                print("burgler hit");
+
                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
@@ -313,7 +313,7 @@ public class Weapon : MonoBehaviour
                 //  bvalue = burglar.getValue();
                 //  customAgent.DieEffect();
                 //  StartCoroutine(DelayPopup());
-                print("Score"+PlayerPrefs.GetInt("Score"));
+
                 ScopeDisable();
             }
 
@@ -432,7 +432,6 @@ public class Weapon : MonoBehaviour
     }
     public void Reset()
     {
-        print("Reset called");
         m_ClipContent = 1;
         impactManager.ClipsizeText.SetActive(false);
         if (AmmoDisplay)
@@ -518,7 +517,6 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2"))
         {
-            print(m_Animator.GetBool("scope"));
             m_Animator.SetBool("scope", !m_Animator.GetBool("scope"));
             if (m_Animator.GetBool("scope"))
                 StartCoroutine(ScopeEnable());

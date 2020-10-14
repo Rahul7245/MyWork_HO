@@ -23,7 +23,8 @@ public class Timer : MonoBehaviour
 
         timerText.text = (totalTime-(int)elapsed).ToString();
         if (elapsed >= totalTime) {
-            stopTimer();
+            ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+           // stopTimer();
         }
         
     }

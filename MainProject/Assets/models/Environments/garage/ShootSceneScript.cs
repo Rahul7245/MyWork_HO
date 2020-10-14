@@ -12,6 +12,7 @@ public class ShootSceneScript : MonoBehaviour
     public Burglar[] m_burglar;
     GroupOfPoints pointGroup;
     public Canvas loadingSceneCanvas;
+    public GameObject gameManager; 
     private void Awake()
     {
         
@@ -34,10 +35,18 @@ public class ShootSceneScript : MonoBehaviour
         
     }
 
+   public  void setBurglerNoneAnimation() {
+        for (int i = 0; i < 5; i++)
+        {
+
+            m_burglar[i].NoneAnimation();
+            
+        }
+    }
     void setBurglarStartPoint() {
         for (int i = 0; i < 5; i++)
         {
-            
+            m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
             m_burglar[i].transform.position = pointGroup.groupOfPoints[i].startPoint.transform.position;
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
@@ -60,8 +69,9 @@ public class ShootSceneScript : MonoBehaviour
         StartCoroutine(AfterDieEffect());
     }
     IEnumerator AfterDieEffect() {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         DisplayPoints();
+        Time.timeScale = 1f;
     }
     public void DisplayPoints() {
         PointsCanvas.SetActive(true);
@@ -70,15 +80,13 @@ public class ShootSceneScript : MonoBehaviour
 
     }
     public void LoadScene() {
-       // StartCoroutine(LoadBirdViewScene());
+        StartCoroutine(LoadBirdViewScene());
     }
-    IEnumerator LoadBirdViewScene() {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadSceneAsync(0);
-        DontDestroyOnLoad(loadingSceneCanvas);
-        loadingSceneCanvas.gameObject.SetActive(true);
-       // SceneManager.UnloadSceneAsync(1);
-        
-    
+     IEnumerator LoadBirdViewScene() {
+        yield return new WaitForSeconds(5);
+        PointsCanvas.SetActive(false);
+        gameManager.GetComponent<SwitchCamera>().ShootCameraEnable(false);
+        ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
+
     }
 }
