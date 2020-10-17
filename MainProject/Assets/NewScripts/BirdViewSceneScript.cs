@@ -49,10 +49,20 @@ public class BirdViewSceneScript : MonoBehaviour
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.SwitchCamera);
         
     }
-
+    public void SetReadyPopUpText() {
+        readyPlayerPopUp.GetComponentsInChildren<TextMeshProUGUI>()[1].text = "Are you Ready Player_" + PlayerPrefs.GetInt("Turn");
+    }
     public void SwitchScene() {
         gameObject.GetComponent<SwitchCamera>().ShootCameraEnable(true);
         resetWeapon.Invoke();
 
+    }
+
+    public void MovePlayer(int noOfSteps) {
+        trackSpawner.movePlayer(PlayerPrefs.GetInt("Turn"), noOfSteps, true);
+    }
+    public void SetCameraToCurrentPlayer()
+    {
+        trackSpawner.setCameraToNormal(PlayerPrefs.GetInt("Turn"));
     }
 }

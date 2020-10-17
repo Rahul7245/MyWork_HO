@@ -211,16 +211,19 @@ public class TrackSpawner : MonoBehaviour
     }
     void CheckForHurdle(int playerNumber, int currentPosition) {
         Hurdle[] hurdles;
+        bool hurdleFound = false;
         m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
         foreach (var hurdle in hurdles) {
-            if (currentPosition == hurdle.pos) {
+            if (currentPosition == hurdle.pos)
+            {
+                hurdleFound = true;
                 print("playerNumber: " + playerNumber + " power " + hurdle.power);
                 if (hurdle.power == 2 || hurdle.power == 4 || hurdle.power == 6)
                 {
                     movePlayer(playerNumber, -2, false);
                     return;
                 }
-               else if (hurdle.power == 1 || hurdle.power == 3 || hurdle.power == 5)
+                else if (hurdle.power == 1 || hurdle.power == 3 || hurdle.power == 5)
                 {
                     movePlayer(playerNumber, 2, true);
                     return;
@@ -229,7 +232,11 @@ public class TrackSpawner : MonoBehaviour
 
             }
             
+            
 
+        }
+        if (!hurdleFound) {
+                ShootSceneStateManager.Instance.setNextTurnFlag(true);
         }
         m_ready = true;
 
@@ -263,9 +270,19 @@ public class TrackSpawner : MonoBehaviour
         }
         return steps;
     }
+    public void setCameraToNormal(int turn) {
+        GameObject current_Player;
+        m_players.TryGetValue("player_" + turn, out current_Player);
+        vcam.m_LookAt = current_Player.transform;
+        vcam.m_Follow = current_Player.transform;
+        sideVcam.m_Priority = 9;
+        sideVcam.m_LookAt = current_Player.transform;
+        sideVcam.m_Follow = current_Player.transform;
 
-    int movePlayer(int playerNumber, int steps,bool movingForward) {
-      //  print("movePlayer called");
+    }
+   public int movePlayer(int playerNumber, int steps,bool movingForward) {
+        //  print("movePlayer called");
+        sideVcam.m_Priority = 11;
         GameObject current_Player;
         
         m_players.TryGetValue("player_" + playerNumber, out current_Player);
@@ -303,6 +320,7 @@ public class TrackSpawner : MonoBehaviour
            {
                print("Animation ended");
                current_Player.GetComponent<Animator>().SetBool("fall", false);
+               ShootSceneStateManager.Instance.setNextTurnFlag(true);
                m_ready = true;
            });
 

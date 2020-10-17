@@ -17,9 +17,11 @@ public class ShootSceneStateManager : MonoBehaviour
 {
     public GameObject SceneManager;
     public static ShootSceneStateManager Instance { get; protected set; }
+    private bool m_readyFornextTurn;
     private ShootState m_currentState;
     ShootSceneScript shootSceneScript;
     BirdViewSceneScript birdViewSceneScript;
+    int totalPlayer = 2;
 
     // Start is called before the first frame update
     private void Awake()
@@ -36,10 +38,7 @@ public class ShootSceneStateManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public ShootState getCurrentShootstate {
         get
         {
@@ -56,12 +55,26 @@ public class ShootSceneStateManager : MonoBehaviour
         if (appState.Equals(ShootState.Start)) {
             m_currentState = appState;
             birdViewSceneScript.GenerateTracks();
+            if (PlayerPrefs.HasKey("Turn")) {
+                PlayerPrefs.DeleteKey("Turn");
+                
+            }
+            PlayerPrefs.SetInt("Turn", 0);
+            
             ToggleAppState(ShootState.PlayerTurn);
         }
         if (appState.Equals(ShootState.PlayerTurn))
         {
+            m_readyFornextTurn = false;
             m_currentState = appState;
-      
+            if (PlayerPrefs.HasKey("Turn"))
+            {
+                int turn = PlayerPrefs.GetInt("Turn");
+                PlayerPrefs.DeleteKey("Turn");
+                PlayerPrefs.SetInt("Turn", (turn + 1)> totalPlayer ? 1:(turn+1));
+            }
+            birdViewSceneScript.SetCameraToCurrentPlayer();
+            birdViewSceneScript.SetReadyPopUpText();
             birdViewSceneScript.PlayerTurnTimer();
         }
 
@@ -99,11 +112,20 @@ public class ShootSceneStateManager : MonoBehaviour
 
         else if (appState.Equals(ShootState.Result))
         {
+            birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
             m_currentState = appState;
             VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
+            StartCoroutine(WaitTillTurnOver());
 
-            ToggleAppState(ShootState.PlayerTurn);
+            
         }
+    }
+    IEnumerator WaitTillTurnOver() {
+        yield return new WaitUntil(() => m_readyFornextTurn == true);
+        ToggleAppState(ShootState.PlayerTurn);
+    }
+    public void setNextTurnFlag(bool flag) {
+        m_readyFornextTurn = flag;
     }
 }
