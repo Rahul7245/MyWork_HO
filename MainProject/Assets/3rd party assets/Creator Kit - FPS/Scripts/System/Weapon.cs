@@ -246,7 +246,8 @@ public class Weapon : MonoBehaviour
                 PlayerPrefs.DeleteKey("Score");
             }
             PlayerPrefs.SetInt("Score", 0);
-            ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+            print("clip");
+           // ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             //  impactManager.InvokeTheEvent(impactManager.m_points);
         }
         m_ShotTimer = fireRate;
@@ -298,7 +299,7 @@ public class Weapon : MonoBehaviour
             if (hit.transform.gameObject.tag == "Burgler")
             {
 
-                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
@@ -306,6 +307,7 @@ public class Weapon : MonoBehaviour
                     PlayerPrefs.DeleteKey("Score");
                 }
                 PlayerPrefs.SetInt("Score", burglar.getValue());
+                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
                 burglar.DieAnimation();
                 //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
                 // customAgent.GetComponent<NavMeshAgent>().isStopped = true;
@@ -315,6 +317,9 @@ public class Weapon : MonoBehaviour
                 //  StartCoroutine(DelayPopup());
 
                 ScopeDisable();
+            }
+            else {
+                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             }
 
             //if too close, the trail effect would look weird if it arced to hit the wall, so only correct it if far

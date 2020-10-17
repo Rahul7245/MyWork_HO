@@ -87,6 +87,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             SceneManager.GetComponent<Timer>().stopTimer();
+            print(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0) { shootSceneScript.AddShotEffects(); }
             
             shootSceneScript.CameraEffect();
