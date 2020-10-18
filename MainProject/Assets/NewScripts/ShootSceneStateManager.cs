@@ -101,7 +101,9 @@ public class ShootSceneStateManager : MonoBehaviour
             m_currentState = appState;
             SceneManager.GetComponent<Timer>().stopTimer();
             print(PlayerPrefs.GetInt("Score"));
-            if (PlayerPrefs.GetInt("Score") > 0) { shootSceneScript.AddShotEffects(); }
+            if (PlayerPrefs.GetInt("Score") > 0) { shootSceneScript.AddShotEffects();
+                
+            }
             
             shootSceneScript.CameraEffect();
             shootSceneScript.LoadScene();
@@ -113,6 +115,11 @@ public class ShootSceneStateManager : MonoBehaviour
         else if (appState.Equals(ShootState.Result))
         {
             birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+            if (PlayerPrefs.HasKey("Score")){
+                PlayerPrefs.DeleteKey("Score");
+                PlayerPrefs.SetInt("Score", 0);
+            }
+            
             m_currentState = appState;
             VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();

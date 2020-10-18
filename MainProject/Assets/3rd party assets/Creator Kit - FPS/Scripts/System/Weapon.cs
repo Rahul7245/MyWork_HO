@@ -318,7 +318,8 @@ public class Weapon : MonoBehaviour
 
                 ScopeDisable();
             }
-            else {
+            else
+            {
                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             }
 
@@ -332,6 +333,9 @@ public class Weapon : MonoBehaviour
                 Target target = hit.collider.gameObject.GetComponent<Target>();
                 target.Got(damage);
             }
+        }
+        else {
+            ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
         }
 
         if (Bullet != null)

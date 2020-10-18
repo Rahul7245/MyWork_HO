@@ -301,11 +301,13 @@ public class TrackSpawner : MonoBehaviour
             track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), (float)steps*.7f+.8f).OnStart(() =>
            {
                current_Player.GetComponent<Animator>().SetBool("jump", true);
+               current_Player.GetComponent<DustEffect>().PlayParticle();
           //     print("Animation started");
            }).OnComplete(() =>
            {
                current_Player.GetComponent<Animator>().SetBool("jump", false);
-               
+               current_Player.GetComponent<DustEffect>().StopParticle();
+
            }).SetEase(curve);
             StartCoroutine(animationtimer(playerNumber, pos, current_Player));
         }
