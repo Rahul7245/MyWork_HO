@@ -146,7 +146,15 @@ public class ShootSceneStateManager : MonoBehaviour
 
         else if (appState.Equals(ShootState.Result))
         {
-            birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+            if (player.LastPointScored != 0)
+            {
+                birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+            }
+            else
+            {
+                setNextTurnFlag(true);
+            }
+            
             if (PlayerPrefs.HasKey("Score"))
             {
                 PlayerPrefs.DeleteKey("Score");
