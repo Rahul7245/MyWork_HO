@@ -74,10 +74,6 @@ public class TrackSpawner : MonoBehaviour
         foreach(var playerPosCan in playerPositionCanvas) {
             playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         }
-        
-
-
-
     }
     public void AddResetWeaponListener(UnityAction listener)
     {
