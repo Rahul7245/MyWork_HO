@@ -139,9 +139,6 @@ public class ShootSceneStateManager : MonoBehaviour
 
             shootSceneScript.CameraEffect();
             shootSceneScript.LoadScene();
-
-
-
         }
 
         else if (appState.Equals(ShootState.Result))
