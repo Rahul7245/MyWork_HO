@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 4310804917243514870}
   - component: {fileID: 4310804917243514869}
   - component: {fileID: 110289659126405413}
+  - component: {fileID: 5069191532963578055}
   m_Layer: 0
   m_Name: character02_female
   m_TagString: Untagged
@@ -1244,6 +1245,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127e134d71f46d6479b33a29769b9e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5069191532963578055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968348478136103642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ceed391b48a984e9418bb94b6486b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Bot
+  playerType: 1
 --- !u!1 &4164752409552735693
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,11 @@ using UnityEngine.Events;
 using Cinemachine;
 using TMPro;
 
+public enum GameType
+{
+    VSComputer
+}
+
 public class Hurdle
 {
     public int pos, power;
@@ -14,13 +19,15 @@ public class Hurdle
 
 public class TrackSpawner : MonoBehaviour
 {
+    // type of game user is playing
+    // for first milstone its VSComputer fixed
+    public GameType gameType = GameType.VSComputer;
     public AnimationCurve curve;
     public GameObject startPoint;
     public GameObject trackCube;
     public GameObject powerCube;
     public GameObject hurdleCube;
     public GameObject track;
-    public int No_of_players;
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
@@ -37,8 +44,21 @@ public class TrackSpawner : MonoBehaviour
     ResetWeapon resetWeapon = new ResetWeapon();
     float trackDistance = 8f;
     float characterYaxisOffset = 0.7f;
-   public CinemachineVirtualCamera vcam;
+    public CinemachineVirtualCamera vcam;
     public CinemachineVirtualCamera sideVcam;
+
+    public static int NoOfPlayerNeeded(GameType gameType)
+    {
+        switch (gameType)
+        {
+            case GameType.VSComputer:
+                return 2;
+            default:
+                return 2;
+        }
+
+    }
+
     void Start()
     {
          /*InstantiateTrack();
@@ -65,7 +85,7 @@ public class TrackSpawner : MonoBehaviour
         resetWeapon.AddListener(listener);
     }
   public void InstantiatePlayers() {
-        for (int i = 1; i <= No_of_players; i++)
+        for (int i = 1; i <= NoOfPlayerNeeded(gameType); i++)
         {
             GameObject[] obj = null;
             if (m_tracks.TryGetValue("player_" + i + "_Track", out obj))
@@ -82,7 +102,7 @@ public class TrackSpawner : MonoBehaviour
     }
     public void InstantiateTrack() {
         Hurdle[] hurdles = RandomPowerPosition(0);
-        for (int j = 1; j <= No_of_players; j++)
+        for (int j = 1; j <= NoOfPlayerNeeded(gameType); j++)
         {
             /*
             Instantiate tracks 
@@ -203,7 +223,7 @@ public class TrackSpawner : MonoBehaviour
         sideVcam.m_Priority = 11;
         //  CheckForHurdle(turn,pos);
         m_turn += 1;
-        if (m_turn > No_of_players)
+        if (m_turn > NoOfPlayerNeeded(gameType))
         {
             m_turn = 1;
         }
