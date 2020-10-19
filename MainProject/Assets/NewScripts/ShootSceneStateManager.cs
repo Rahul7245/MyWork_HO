@@ -137,7 +137,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 shootSceneScript.AddShotEffects();
             }
 
-            shootSceneScript.CameraEffect();
+            shootSceneScript.CameraEffect(player.playerName +" Shot "+ player.LastPointScored);
             shootSceneScript.LoadScene();
         }
 

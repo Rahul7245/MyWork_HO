@@ -65,18 +65,18 @@ public class ShootSceneScript : MonoBehaviour
         VigneteEffect.Instance.VigneteEffectStart();
     }
 
-    public void CameraEffect() {
-        StartCoroutine(AfterDieEffect());
+    public void CameraEffect(string msg) {
+        StartCoroutine(AfterDieEffect(msg));
     }
-    IEnumerator AfterDieEffect() {
+    IEnumerator AfterDieEffect(string msg) {
         yield return new WaitForSeconds(2f);
-        DisplayPoints();
+        DisplayPoints(msg);
         Time.timeScale = 1f;
     }
-    public void DisplayPoints() {
+    public void DisplayPoints(string msg) {
         PointsCanvas.SetActive(true);
        
-        PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text = "You Shot " + PlayerPrefs.GetInt("Score");
+        PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text = msg;
 
     }
     public void LoadScene() {

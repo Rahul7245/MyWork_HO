@@ -75,7 +75,8 @@ public class ShootingBot
         // a pro is playing so our bot will at level hard or medium
         if (avg >= 4)
         {
-            // if random number genrated is even the hard level
+            botLevel = BotLevel.Hard;
+            /*// if random number genrated is even the hard level
             if (rand % 2 == 0)
             {
                 botLevel = BotLevel.Hard;
@@ -84,13 +85,14 @@ public class ShootingBot
             else
             {
                 botLevel = BotLevel.Medium;
-            }
+            }*/
         }
         // if we get an avarage between 2 to 4 that means
         // a intermidiate is playing so our bot will at level medium or easy
         else if (avg >= 2)
         {
-            // if avg is above 3 that means a good intermidate player 
+            botLevel = BotLevel.Medium;
+            /*// if avg is above 3 that means a good intermidate player 
             if(avg > 3.0)
             {
                 botLevel = BotLevel.Medium;
@@ -107,7 +109,7 @@ public class ShootingBot
                 {
                     botLevel = BotLevel.Easy;
                 }
-            }
+            }*/
         }
         // if we get an avarage of less than 2 that means
         // a noob is playing so our bot will at level easy
