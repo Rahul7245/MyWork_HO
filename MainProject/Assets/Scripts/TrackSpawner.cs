@@ -297,7 +297,6 @@ public class TrackSpawner : MonoBehaviour
 
     }
    public int movePlayer(int playerNumber, int steps,bool movingForward) {
-        Debug.Log("@#@ movePlayer called by player : " + playerNumber + " steps to move : " + steps + " moving forward : " + movingForward);
         sideVcam.m_Priority = 11;
         GameObject current_Player;
         
@@ -311,18 +310,14 @@ public class TrackSpawner : MonoBehaviour
                 steps -= (player.PlayerScore - 21);
             }
         }
-        Debug.Log("@!# Steps : " + steps);
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
-        Debug.Log("!@# pos : " + pos);
         pos += steps;
-        Debug.Log("!@# pos : " + pos);
         playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
         currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         GameObject[] track;
         m_tracks.TryGetValue("player_" + playerNumber + "_Track", out track);
-        //StartCoroutine(animationtimer(steps, current_Player));
         if (movingForward)
         {
             

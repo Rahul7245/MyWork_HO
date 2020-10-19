@@ -83,7 +83,7 @@ public class ShootSceneStateManager : MonoBehaviour
             player = playerPlaying?.GetComponent<Player>();
 
             birdViewSceneScript.SetCameraToCurrentPlayer();
-            birdViewSceneScript.SetReadyPopUpText();
+            birdViewSceneScript.SetReadyPopUpText(player.playerName+"`s Turn");
             birdViewSceneScript.PlayerTurnTimer();
         }
 
@@ -180,7 +180,6 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No winner continuse the game !!!");
             ToggleAppState(ShootState.PlayerTurn);
         }
     }
