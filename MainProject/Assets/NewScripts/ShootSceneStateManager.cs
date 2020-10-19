@@ -176,7 +176,7 @@ public class ShootSceneStateManager : MonoBehaviour
         bool winnerResult = trackSpawner.CheckForWinner(out winner);
         if (winnerResult)
         {
-            birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!");
+            birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!", true);
         }
         else
         {

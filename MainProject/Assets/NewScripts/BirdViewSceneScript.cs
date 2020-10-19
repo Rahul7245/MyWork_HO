@@ -49,7 +49,12 @@ public class BirdViewSceneScript : MonoBehaviour
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.SwitchCamera);
         
     }
-    public void SetReadyPopUpText(string msg) {
+    public void SetReadyPopUpText(string msg, bool forceToShowPopup = false) {
+        if (forceToShowPopup)
+        {
+            readyPlayerPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            readyPlayerPopUp.SetActive(true);
+        }
         readyPlayerPopUp.GetComponentsInChildren<TextMeshProUGUI>()[1].text = msg;
     }
     public void SwitchScene() {
