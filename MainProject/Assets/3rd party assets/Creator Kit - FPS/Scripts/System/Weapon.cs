@@ -13,6 +13,7 @@ using UnityEditor;
 
 public class Weapon : MonoBehaviour
 {
+    public static List<int> points = new List<int>();
     static RaycastHit[] s_HitInfoBuffer = new RaycastHit[8];
     private ImpactManager impactManager;
     public enum TriggerType
@@ -307,6 +308,9 @@ public class Weapon : MonoBehaviour
                     PlayerPrefs.DeleteKey("Score");
                 }
                 PlayerPrefs.SetInt("Score", burglar.getValue());
+                Debug.Log("@#$ Scroe : " + PlayerPrefs.GetInt("Score"));
+                points.Add(PlayerPrefs.GetInt("Score"));
+
                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
                 burglar.DieAnimation();
                 //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();

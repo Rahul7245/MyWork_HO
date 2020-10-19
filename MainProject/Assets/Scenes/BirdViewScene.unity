@@ -7063,6 +7063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc913cc378d9b44b8bc80d56ab7ec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameType: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -7096,7 +7097,6 @@ MonoBehaviour:
   hurdleCube: {fileID: 5150237030549391728, guid: b081549a9b85a064a9b12b1453c5281b,
     type: 3}
   track: {fileID: 1538637335}
-  No_of_players: 2
   player:
   - {fileID: 6655663426783626291, guid: 2c85a78ecb4e07241a165259e4087ca8, type: 3}
   - {fileID: 3968348478136103642, guid: 2699cf8219de9c84d9ebc5840946f87a, type: 3}
@@ -7366,6 +7366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneManager: {fileID: 1357872170}
+  trackSpawner: {fileID: 722346530}
 --- !u!1001 &767818070
 PrefabInstance:
   m_ObjectHideFlags: 0

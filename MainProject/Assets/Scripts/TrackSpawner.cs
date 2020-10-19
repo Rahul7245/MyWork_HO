@@ -374,5 +374,11 @@ public class TrackSpawner : MonoBehaviour
        
        // GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>().Reset();
     }
-
+    public GameObject GetPlayer()
+    {
+        int playerIndex = PlayerPrefs.GetInt("Turn");
+        GameObject player = null;
+        m_players.TryGetValue("player_" + playerIndex, out player);
+        return player;
+    }
 }
