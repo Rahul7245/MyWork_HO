@@ -127,16 +127,11 @@ public class ShootSceneStateManager : MonoBehaviour
             SceneManager.GetComponent<Timer>().stopTimer();
             if(player.playerType == PlayerType.Computer)
             {
-                Debug.Log("#@$ Bot is shooting !#@");
                 int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray());
                 PlayerPrefs.SetInt("Score", computerScore);
-                Debug.Log("#@$ Bot Done shooting !#@");
             }
-            else
-            {
-                Debug.Log("#@$ Player Done shooting !#@");
-            }
-            print(PlayerPrefs.GetInt("Score"));
+            player.LastPointScored = PlayerPrefs.GetInt("Score");
+            player.AddToScore(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0)
             {
                 shootSceneScript.AddShotEffects();

@@ -215,6 +215,7 @@ public class TrackSpawner : MonoBehaviour
         }
         m_ready = false;
         m_askingPlayer = false;
+        Debug.Log("!@# TrackSpwaner movePlayerListener called with steps : " + stepsToMove);
         movePlayer(m_turn, stepsToMove, true);
         sideVcam.m_Priority = 11;
         //  CheckForHurdle(turn,pos);
@@ -233,7 +234,6 @@ public class TrackSpawner : MonoBehaviour
             if (currentPosition == hurdle.pos)
             {
                 hurdleFound = true;
-                print("playerNumber: " + playerNumber + " power " + hurdle.power);
                 if (hurdle.power == 2 || hurdle.power == 4 || hurdle.power == 6)
                 {
                     movePlayer(playerNumber, -2, false);
@@ -297,11 +297,19 @@ public class TrackSpawner : MonoBehaviour
 
     }
    public int movePlayer(int playerNumber, int steps,bool movingForward) {
-        //  print("movePlayer called");
         sideVcam.m_Priority = 11;
         GameObject current_Player;
         
         m_players.TryGetValue("player_" + playerNumber, out current_Player);
+        GameObject playerPlaying = GetPlayer();
+        Player player = playerPlaying?.GetComponent<Player>();
+        if (player != null)
+        {
+            if (player.PlayerScore > 21)
+            {
+                steps -= (player.PlayerScore - 21);
+            }
+        }
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
         pos += steps;
@@ -313,6 +321,7 @@ public class TrackSpawner : MonoBehaviour
         //StartCoroutine(animationtimer(steps, current_Player));
         if (movingForward)
         {
+            
             current_Player.transform.GetComponent<Rigidbody>().DOMove(
             track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), (float)steps*.7f+.8f).OnStart(() =>
            {

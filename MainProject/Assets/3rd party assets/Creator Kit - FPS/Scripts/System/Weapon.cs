@@ -247,7 +247,6 @@ public class Weapon : MonoBehaviour
                 PlayerPrefs.DeleteKey("Score");
             }
             PlayerPrefs.SetInt("Score", 0);
-            print("clip");
            // ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             //  impactManager.InvokeTheEvent(impactManager.m_points);
         }
@@ -308,7 +307,6 @@ public class Weapon : MonoBehaviour
                     PlayerPrefs.DeleteKey("Score");
                 }
                 PlayerPrefs.SetInt("Score", burglar.getValue());
-                Debug.Log("@#$ Scroe : " + PlayerPrefs.GetInt("Score"));
                 points.Add(PlayerPrefs.GetInt("Score"));
 
                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);

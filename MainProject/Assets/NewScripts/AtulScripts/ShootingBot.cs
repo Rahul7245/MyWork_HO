@@ -115,7 +115,6 @@ public class ShootingBot
         {
             botLevel = BotLevel.Easy;
         }
-        Debug.Log("@#$ Bot Level is " + botLevel);
         return botLevel;
     }
 
