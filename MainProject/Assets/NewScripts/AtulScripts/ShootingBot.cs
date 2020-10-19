@@ -90,15 +90,23 @@ public class ShootingBot
         // a intermidiate is playing so our bot will at level medium or easy
         else if (avg >= 2)
         {
-            // if random number genrated is even the Medium level
-            if (rand % 2 == 0)
+            // if avg is above 3 that means a good intermidate player 
+            if(avg > 3.0)
             {
                 botLevel = BotLevel.Medium;
             }
-            // else random number genrated is odd the Easy level
             else
             {
-                botLevel = BotLevel.Easy;
+                // if random number genrated is even the Medium level
+                if (rand % 2 == 0)
+                {
+                    botLevel = BotLevel.Medium;
+                }
+                // else random number genrated is odd the Easy level
+                else
+                {
+                    botLevel = BotLevel.Easy;
+                }
             }
         }
         // if we get an avarage of less than 2 that means
@@ -107,6 +115,7 @@ public class ShootingBot
         {
             botLevel = BotLevel.Easy;
         }
+        Debug.Log("@#$ Bot Level is " + botLevel);
         return botLevel;
     }
 
