@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -43,11 +45,17 @@ public class ShootSceneScript : MonoBehaviour
             
         }
     }
+    List<int> listEndPoints = new List<int>();
     void setBurglarStartPoint() {
+        List<int> list = new List<int>{ 0,  1, 2, 3, 4 };
+        int rint;
         for (int i = 0; i < 5; i++)
         {
-            m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
-            m_burglar[i].transform.position = pointGroup.groupOfPoints[i].startPoint.transform.position;
+             m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
+             rint = Random.Range(0, list.Count - 1);
+            m_burglar[i].transform.position = pointGroup.groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
+            listEndPoints.Add(list.ElementAt(rint));
+            list.RemoveAt(rint);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
     }
@@ -55,9 +63,10 @@ public class ShootSceneScript : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            if(pointGroup.groupOfPoints[i].endPoints.Count>0)
-            m_burglar[i].SetDestination(pointGroup.groupOfPoints[i].endPoints[0].transform);
+            if(pointGroup.groupOfPoints[listEndPoints[i]].endPoints.Count>0)
+            m_burglar[i].SetDestination(pointGroup.groupOfPoints[listEndPoints[i]].endPoints[0].transform);
         }
+        listEndPoints.Clear();
     }
 
    public void AddShotEffects() {
