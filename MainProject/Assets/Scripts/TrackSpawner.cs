@@ -230,26 +230,26 @@ public class TrackSpawner : MonoBehaviour
         Hurdle[] hurdles;
         bool hurdleFound = false;
         m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
+        Player _currentPlayer = GetPlayer().GetComponent<Player>();
         foreach (var hurdle in hurdles) {
             if (currentPosition == hurdle.pos)
             {
                 hurdleFound = true;
                 if (hurdle.power == 2 || hurdle.power == 4 || hurdle.power == 6)
                 {
+                    _currentPlayer.LastPointScored = -2;
+                    _currentPlayer.AddToScore(-2);
                     movePlayer(playerNumber, -2, false);
                     return;
                 }
                 else if (hurdle.power == 1 || hurdle.power == 3 || hurdle.power == 5)
                 {
+                    _currentPlayer.LastPointScored = 2;
+                    _currentPlayer.AddToScore(2);
                     movePlayer(playerNumber, 2, true);
                     return;
                 }
-
-
             }
-            
-            
-
         }
         if (!hurdleFound) {
                 ShootSceneStateManager.Instance.setNextTurnFlag(true);
@@ -297,6 +297,7 @@ public class TrackSpawner : MonoBehaviour
 
     }
    public int movePlayer(int playerNumber, int steps,bool movingForward) {
+        Debug.Log("@#@ movePlayer called by player : " + playerNumber + " steps to move : " + steps + " moving forward : " + movingForward);
         sideVcam.m_Priority = 11;
         GameObject current_Player;
         
@@ -310,9 +311,12 @@ public class TrackSpawner : MonoBehaviour
                 steps -= (player.PlayerScore - 21);
             }
         }
+        Debug.Log("@!# Steps : " + steps);
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
+        Debug.Log("!@# pos : " + pos);
         pos += steps;
+        Debug.Log("!@# pos : " + pos);
         playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
         currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
@@ -389,5 +393,22 @@ public class TrackSpawner : MonoBehaviour
         GameObject player = null;
         m_players.TryGetValue("player_" + playerIndex, out player);
         return player;
+    }
+
+    public bool CheckForWinner(out Player player)
+    {
+        player = null;
+        bool result = false;
+        foreach (var item in m_players)
+        {
+            player = item.Value.GetComponent<Player>();
+            if(player.PlayerScore >= 21)
+            {
+                result = true;
+                break;
+            }
+        }
+
+        return result;
     }
 }

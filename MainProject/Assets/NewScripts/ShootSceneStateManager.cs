@@ -66,7 +66,7 @@ public class ShootSceneStateManager : MonoBehaviour
 
             }
             PlayerPrefs.SetInt("Turn", 0);
-
+            Weapon.points.Clear();
             ToggleAppState(ShootState.PlayerTurn);
         }
         if (appState.Equals(ShootState.PlayerTurn))
@@ -170,7 +170,19 @@ public class ShootSceneStateManager : MonoBehaviour
     IEnumerator WaitTillTurnOver()
     {
         yield return new WaitUntil(() => m_readyFornextTurn == true);
-        ToggleAppState(ShootState.PlayerTurn);
+
+        // check for any winner before other player start playing
+        Player winner = null;
+        bool winnerResult = trackSpawner.CheckForWinner(out winner);
+        if (winnerResult)
+        {
+            Debug.Log(winner.playerName + " is the winner !!!");
+        }
+        else
+        {
+            Debug.Log("No winner continuse the game !!!");
+            ToggleAppState(ShootState.PlayerTurn);
+        }
     }
     public void setNextTurnFlag(bool flag)
     {
