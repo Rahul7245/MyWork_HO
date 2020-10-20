@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum ShootState
 {
@@ -17,6 +18,7 @@ public class ShootSceneStateManager : MonoBehaviour
 {
     [SerializeField]
     private ManagerHandler managerHandler;
+    public TextMeshProUGUI displayMsg;
     public GameObject SceneManager;
     public TrackSpawner trackSpawner;
     public static ShootSceneStateManager Instance { get; protected set; }
@@ -60,6 +62,7 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         if (appState.Equals(ShootState.Start))
         {
+            displayMsg.text = "";
             m_currentState = appState;
             birdViewSceneScript.GenerateTracks();
             if (PlayerPrefs.HasKey("Turn"))
@@ -85,6 +88,7 @@ public class ShootSceneStateManager : MonoBehaviour
             player = playerPlaying?.GetComponent<Player>();
 
             birdViewSceneScript.SetCameraToCurrentPlayer();
+            displayMsg.text = player.playerName + "`s Turn";
             birdViewSceneScript.SetReadyPopUpText(player.playerName + "`s Turn");
             birdViewSceneScript.PlayerTurnTimer();
         }
@@ -96,6 +100,7 @@ public class ShootSceneStateManager : MonoBehaviour
             {
                 if (player.playerType == PlayerType.Computer)
                 {
+                    displayMsg.text = player.playerName + " is Playing";
                     ToggleAppState(ShootState.StartShooting);
                 }
                 else
@@ -140,7 +145,6 @@ public class ShootSceneStateManager : MonoBehaviour
             {
                 shootSceneScript.AddShotEffects();
             }
-
             shootSceneScript.CameraEffect(player.playerName + " Shot " + player.LastPointScored);
             shootSceneScript.LoadScene();
         }
@@ -165,6 +169,7 @@ public class ShootSceneStateManager : MonoBehaviour
             m_currentState = appState;
             VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
+            displayMsg.text = "";
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
 
@@ -181,8 +186,9 @@ public class ShootSceneStateManager : MonoBehaviour
         bool winnerResult = trackSpawner.CheckForWinner(out winner);
         if (winnerResult)
         {
+            displayMsg.text = winner.playerName + " is the winner !!!";
             birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!", true);
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(5f);
             managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
         }
         else
