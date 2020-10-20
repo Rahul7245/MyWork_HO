@@ -60,12 +60,16 @@ public abstract class State : MonoBehaviour
 
     protected virtual void Awake()
     {
-        CurrentScreenGameObject.SetActive(false);
+        //CurrentScreenGameObject.SetActive(false);
     }
     public virtual void OnEnter()
     {
+        currentCanvasGrup.alpha = 1;
+        CurrentScreenGameObject.SetActive(true);
     }
     public virtual void OnExit()
     {
+        currentCanvasGrup.alpha = 0;
+        CurrentScreenGameObject.SetActive(false);
     }
 }

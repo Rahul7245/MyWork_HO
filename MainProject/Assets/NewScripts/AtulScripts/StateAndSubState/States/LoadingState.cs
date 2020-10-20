@@ -12,15 +12,11 @@ public class LoadingState : State
 
     public override void OnEnter()
     {
-        CurrentScreenGameObject.SetActive(true);
         base.OnEnter();
-        currentCanvasGrup.alpha = 1;
         managerHandler.introCanvasHandler.StartLoadingBar();
     }
     public override void OnExit()
     {
         base.OnExit();
-        currentCanvasGrup.alpha = 0;
-        CurrentScreenGameObject.SetActive(false);
     }
 }

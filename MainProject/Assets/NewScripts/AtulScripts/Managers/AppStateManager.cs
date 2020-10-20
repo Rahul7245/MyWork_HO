@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AppStateManager : MonoBehaviour
 {
+    [SerializeField]
+    private ManagerHandler managerHandler;
     public static AppStateManager instance;
     [SerializeField]
     private float m_duration = 0.5f;
@@ -53,12 +55,14 @@ public class AppStateManager : MonoBehaviour
     }
     public void ToggleApp(AppState appState, AppSubState appSubState)
     {
+        Debug.Log("ToggleApp called with appState : " + appState + " appSubState : " + appSubState);
         ToggleAppState(appState);
         ToggleAppSubState(appState, appSubState);
     }
 
     private void ToggleAppState(AppState appState)
     {
+        Debug.Log("ToggleAppState called with appState : " + appState);
         if (currentAppState == appState)
         {
             return;
@@ -78,6 +82,7 @@ public class AppStateManager : MonoBehaviour
 
     private void ToggleAppSubState(AppState appState, AppSubState appSubState)
     {
+        Debug.Log("ToggleAppSubState called with appState : " + appState + " appSubState : " + appSubState);
         if (currentAppSubState == appSubState)
         {
             return;
