@@ -167,7 +167,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             m_currentState = appState;
-            VigneteEffect.Instance.ResetVignete();
+         //   VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
             displayMsg.text = "";
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);

@@ -166,7 +166,7 @@ public class SpawnEnemy : MonoBehaviour
             Time.timeScale = 1f;
             impactManager.InvokeTheEvent(impactManager.m_points);
             yield return new WaitForSeconds(1f);
-            VigneteEffect.Instance.ResetVignete();
+           // VigneteEffect.Instance.ResetVignete();
             impactManager.OkButtonClick();
         }
     }
