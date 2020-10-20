@@ -350,8 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa75bf766f7a734ab17d8c11cec1213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnterTransition: 0
+  showExitTransition: 1
   appSubState: 8
   currentCanvasGrup: {fileID: 2868898035266590898}
+  subStateTranistionCanvasGrup: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!1 &2868898036014602552
 GameObject:

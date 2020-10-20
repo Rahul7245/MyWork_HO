@@ -32,6 +32,8 @@ public abstract class State : MonoBehaviour
     [SerializeField]
     protected CanvasGroup currentCanvasGrup;
     [SerializeField]
+    protected CanvasGroup stateTranistionCanvasGrup;
+    [SerializeField]
     protected ManagerHandler managerHandler;
 
     public GameObject CurrentScreenGameObject
