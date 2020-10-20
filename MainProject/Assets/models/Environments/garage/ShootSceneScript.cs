@@ -71,7 +71,7 @@ public class ShootSceneScript : MonoBehaviour
 
    public void AddShotEffects() {
         Time.timeScale = 0.6f;
-        VigneteEffect.Instance.VigneteEffectStart();
+       // VigneteEffect.Instance.VigneteEffectStart();
     }
 
     public void CameraEffect(string msg) {
