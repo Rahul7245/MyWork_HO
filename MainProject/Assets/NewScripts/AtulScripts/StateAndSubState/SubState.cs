@@ -73,7 +73,8 @@ public abstract class SubState : MonoBehaviour
         CurrentScreenGameObject.SetActive(true);
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
         managerHandler.appStateManager.ToggleFade(currentCanvasGrup, 1, 1, null);
-        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0,2, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); });
+        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, ()=> { managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 2, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); }); });
+        
     }
 
     private void SubStateExitTransitionEffect()
@@ -83,6 +84,6 @@ public abstract class SubState : MonoBehaviour
         CurrentScreenGameObject.SetActive(true);
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
         managerHandler.appStateManager.ToggleFade(currentCanvasGrup, 0,1, null);
-        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 1, 0.2f, ()=> { managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, () => { running = false; subStateTranistionCanvasGrup.gameObject.SetActive(false); }); });
+        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 1, 0.2f, ()=> { managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); }); });
     }
 }
