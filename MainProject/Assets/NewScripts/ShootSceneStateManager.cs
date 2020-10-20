@@ -165,6 +165,7 @@ public class ShootSceneStateManager : MonoBehaviour
             m_currentState = appState;
             VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
+            managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
 
 
@@ -186,7 +187,6 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         else
         {
-            managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             ToggleAppState(ShootState.PlayerTurn);
         }
     }
