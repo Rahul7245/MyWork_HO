@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4357243929486401434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4357243929486401436}
+  - component: {fileID: 4357243929486401435}
+  - component: {fileID: 4357243929486401437}
+  - component: {fileID: 4357243929486401438}
+  - component: {fileID: 4357243929486401439}
+  m_Layer: 0
+  m_Name: ManagersnAndHandlers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4357243929486401436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 31.731537, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4357243929486401435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9908eadae592c14692ffcd395f47950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_progressBar: {fileID: 0}
+  m_barFillDuration: 5.5
+  managerHandler: {fileID: 4357243929486401437}
+--- !u!114 &4357243929486401437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c492dae2ab1c6684f89a22397b0a90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introCanvasHandler: {fileID: 4357243929486401435}
+  appStateManager: {fileID: 4357243929486401438}
+  uIInputHandlerManager: {fileID: 4357243929486401439}
+  shootSceneStateManager: {fileID: 0}
+--- !u!114 &4357243929486401438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87ddee10aa016140bc40351959ec87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  m_duration: 0.5
+  appStates:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentAppState: 0
+  currentAppSubState: 0
+--- !u!114 &4357243929486401439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4e6b38b189954438b3d05cf9d17850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  LoginButton: {fileID: 0}
+  playWithCompButton: {fileID: 0}
+  StartGameButton: {fileID: 0}
+  OpenSettingButton: {fileID: 0}
+  OpenCharaSelectionButton: {fileID: 0}
+  HomeButton: {fileID: 0}
+  HomeButtonSetting: {fileID: 0}
+  HomeButtonCharater: {fileID: 0}
