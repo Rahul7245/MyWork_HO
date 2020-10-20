@@ -28,6 +28,18 @@ public abstract class State : MonoBehaviour
     protected AppState appState;
     [SerializeField]
     protected List<SubState> appSubStates;
+    [SerializeField]
+    protected CanvasGroup currentCanvasGrup;
+    [SerializeField]
+    protected ManagerHandler managerHandler;
+
+    public GameObject CurrentScreenGameObject
+    {
+        get
+        {
+            return this.gameObject;
+        }
+    }
 
     public AppState AppState
     {
