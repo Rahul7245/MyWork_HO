@@ -13,6 +13,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button OpenSettingButton;
     public Button OpenCharaSelectionButton;
     public Button HomeButton;
+    public Button HomeButtonSetting;
+    public Button HomeButtonCharater;
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class UIInputHandlerManager : MonoBehaviour
         OpenSettingButton.onClick.AddListener(OpenSettings);
         OpenCharaSelectionButton.onClick.AddListener(OpenCharaterSelection);
         HomeButton.onClick.AddListener(HandleLogin);
+        HomeButtonSetting.onClick.AddListener(HandleLogin);
+        HomeButtonCharater.onClick.AddListener(HandleLogin);
     }
     private void HandleLogin()
     {
