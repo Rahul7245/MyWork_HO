@@ -40,11 +40,11 @@ public abstract class SubState : MonoBehaviour
         //CurrentScreenGameObject.SetActive(false);
     }
 
-    public async virtual void OnEnter()
+    public virtual void OnEnter()
     {
         if (showEnterTransition)
         {
-            await SubStateEnterTransitionEffect();
+            SubStateEnterTransitionEffect();
         }
         else
         {
@@ -52,11 +52,11 @@ public abstract class SubState : MonoBehaviour
             CurrentScreenGameObject.SetActive(true);
         }
     }
-    public async virtual void OnExit()
+    public  virtual void OnExit()
     {
         if (showExitTransition)
         {
-            await SubStateExitTransitionEffect();
+            SubStateExitTransitionEffect();
         }
         else
         {
@@ -66,7 +66,7 @@ public abstract class SubState : MonoBehaviour
             
     }
 
-    private async Task SubStateEnterTransitionEffect()
+    private void SubStateEnterTransitionEffect()
     {
         currentCanvasGrup.alpha = 0;
         subStateTranistionCanvasGrup.alpha = 1;
@@ -76,14 +76,13 @@ public abstract class SubState : MonoBehaviour
         managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0,2, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); });
     }
 
-    private async Task SubStateExitTransitionEffect()
+    private void SubStateExitTransitionEffect()
     {
         currentCanvasGrup.alpha = 1;
         subStateTranistionCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(true);
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
         managerHandler.appStateManager.ToggleFade(currentCanvasGrup, 0,1, null);
-        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 1, 0.2f, ()=> { managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); }); });
-        
+        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 1, 0.2f, ()=> { managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, () => { running = false; subStateTranistionCanvasGrup.gameObject.SetActive(false); }); });
     }
 }
