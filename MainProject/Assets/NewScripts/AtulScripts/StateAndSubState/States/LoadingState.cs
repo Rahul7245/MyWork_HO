@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LoadingState : State
 {
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         appState = AppState.LoadingScreen;
     }
 

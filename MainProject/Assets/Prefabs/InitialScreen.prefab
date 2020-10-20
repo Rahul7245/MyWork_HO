@@ -401,6 +401,8 @@ GameObject:
   - component: {fileID: 1418440269919034241}
   - component: {fileID: 1418440269919034271}
   - component: {fileID: 1418440269919034270}
+  - component: {fileID: 2437645709526056912}
+  - component: {fileID: 7881396009627214203}
   m_Layer: 5
   m_Name: InitialScreen
   m_TagString: Untagged
@@ -467,6 +469,33 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2437645709526056912
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418440269919034240}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7881396009627214203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418440269919034240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9ac0b5dae04f74da24033c50a8f918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appSubState: 3
+  currentCanvasGrup: {fileID: 2437645709526056912}
+  managerHandler: {fileID: 0}
 --- !u!1 &1418440269946517793
 GameObject:
   m_ObjectHideFlags: 0

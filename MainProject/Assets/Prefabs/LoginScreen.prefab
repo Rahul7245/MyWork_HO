@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 2254017648339808179}
   - component: {fileID: 2254017648339808177}
   - component: {fileID: 2254017648339808176}
+  - component: {fileID: 8974538968499371565}
   m_Layer: 5
   m_Name: LoginScreen
   m_TagString: Untagged
@@ -1447,6 +1448,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8974538968499371565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254017648339808178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caeafeacd7b57a847915e61f71b98d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appSubState: 1
+  currentCanvasGrup: {fileID: 0}
+  managerHandler: {fileID: 0}
 --- !u!1 &2254017648636098172
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CanvasGroup))]
 public abstract class SubState : MonoBehaviour
 {
     [SerializeField]
@@ -25,6 +26,11 @@ public abstract class SubState : MonoBehaviour
         {
             return appSubState;
         }
+    }
+
+    protected virtual void Awake()
+    {
+        CurrentScreenGameObject.SetActive(false);
     }
 
     public virtual void OnEnter()

@@ -22,6 +22,7 @@ public enum AppSubState
     GameScreen_BirdviewMode,
     GameScreen_ShootingMode
 }
+[RequireComponent(typeof(CanvasGroup))]
 public abstract class State : MonoBehaviour
 {
     [SerializeField]
@@ -57,6 +58,10 @@ public abstract class State : MonoBehaviour
         }
     }
 
+    protected virtual void Awake()
+    {
+        CurrentScreenGameObject.SetActive(false);
+    }
     public virtual void OnEnter()
     {
     }
