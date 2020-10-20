@@ -7,4 +7,5 @@ public class ManagerHandler : MonoBehaviour
     public IntroCanvasHandler introCanvasHandler;
     public AppStateManager appStateManager;
     public UIInputHandlerManager uIInputHandlerManager;
+    public ShootSceneStateManager shootSceneStateManager;
 }

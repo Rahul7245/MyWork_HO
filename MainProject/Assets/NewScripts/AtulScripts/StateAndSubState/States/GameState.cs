@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class GameState : State
 {
-    
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        managerHandler.shootSceneStateManager.StartGame();
+    }
 }
