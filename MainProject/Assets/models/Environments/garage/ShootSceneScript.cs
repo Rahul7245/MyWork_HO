@@ -23,7 +23,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     void Start()
     {
-        pointGroup = GaragePoints.Instance.getBarEnvironmentPoints();
+        pointGroup = GaragePoints.Instance.getTrainEnvironmentPoints();
 
 
 
