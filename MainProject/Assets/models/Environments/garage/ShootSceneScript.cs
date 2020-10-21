@@ -14,7 +14,8 @@ public class ShootSceneScript : MonoBehaviour
     public Burglar[] m_burglar;
     GroupOfPoints pointGroup;
     public Canvas loadingSceneCanvas;
-    public GameObject gameManager; 
+    public GameObject gameManager;
+    public GameObject character;
     private void Awake()
     {
         
@@ -22,12 +23,13 @@ public class ShootSceneScript : MonoBehaviour
     }
     void Start()
     {
-        pointGroup = GaragePoints.Instance.getEnvironmentPoints();
+        pointGroup = GaragePoints.Instance.getBarEnvironmentPoints();
 
 
 
     }
     public void InitializeScene() {
+        setShootPoint();
         setBurglarStartPoint();
         setBurglarEndPoint();
     }
@@ -36,7 +38,10 @@ public class ShootSceneScript : MonoBehaviour
     {
         
     }
-
+    void setShootPoint() {
+        print(pointGroup.shootPositions[0].transform.position);
+        character.transform.position = pointGroup.shootPositions[0].transform.position;
+    }
    public  void setBurglerNoneAnimation() {
         for (int i = 0; i < 5; i++)
         {

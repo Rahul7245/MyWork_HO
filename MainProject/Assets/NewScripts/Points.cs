@@ -10,6 +10,7 @@ public class Points
 }
 [System.Serializable]
 public class GroupOfPoints {
+    public List<GameObject> shootPositions;
   public  List<Points> groupOfPoints;
 }
 
