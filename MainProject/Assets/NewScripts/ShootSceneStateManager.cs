@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public enum ShootState
 {
@@ -29,7 +30,7 @@ public class ShootSceneStateManager : MonoBehaviour
     int totalPlayer = 2;
     GameObject playerPlaying = null;
     Player player = null;
-
+    int EnvironmentNum = -1;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -121,7 +122,13 @@ public class ShootSceneStateManager : MonoBehaviour
         if (appState.Equals(ShootState.StartShooting))
         {
             m_currentState = appState;
-            shootSceneScript.InitializeScene();
+            if (player.playerType == PlayerType.Human) {
+                EnvironmentNum += 1;
+                if (EnvironmentNum > 3) {
+                    EnvironmentNum = 0;
+                }
+            }
+            shootSceneScript.InitializeScene(EnvironmentNum);
             ToggleAppState(ShootState.Shooting);
             return;
         }
