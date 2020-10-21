@@ -88,7 +88,7 @@ public class LightingTest : MonoBehaviour
             cam4.enabled = false;
             cam5.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             LightmapSettings.lightmaps = lightmapData3;
             RenderSettings.skybox = train;
@@ -98,7 +98,7 @@ public class LightingTest : MonoBehaviour
             cam4.enabled = true;
             cam5.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             LightmapSettings.lightmaps = lightmapData3;
             RenderSettings.skybox = country_side;
