@@ -194,7 +194,7 @@ public class ShootSceneStateManager : MonoBehaviour
         if (winnerResult)
         {
             displayMsg.text = winner.playerName + " is the winner !!!";
-            birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!", true);
+            //birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!", true);
             yield return new WaitForSecondsRealtime(5f);
             managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
         }
