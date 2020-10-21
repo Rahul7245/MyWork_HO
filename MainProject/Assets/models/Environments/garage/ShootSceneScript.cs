@@ -16,6 +16,7 @@ public class ShootSceneScript : MonoBehaviour
     public Canvas loadingSceneCanvas;
     public GameObject gameManager;
     public GameObject character;
+    public LightingTest lightingTest;
     
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     int EnvironmentNum;
    void setEnvironment(int en) {
+        lightingTest.ChangeLightingData(en);
         EnvironmentNum = en;
     }
     public void InitializeScene(int en) {
@@ -109,6 +111,7 @@ public class ShootSceneScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
         gameManager.GetComponent<SwitchCamera>().ShootCameraEnable(false);
+        lightingTest.ChangeLightingData(1);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
 
     }

@@ -19,11 +19,7 @@ public class LightingTest : MonoBehaviour
     public Material ship;
     public Material train;
     public Material country_side;
-    public Camera cam1;
-    public Camera cam2;
-    public Camera cam3;
-    public Camera cam4;
-    public Camera cam5;
+
 
     private LightmapData[] lightmapData1 = new LightmapData[1];
     private LightmapData[] lightmapData2 = new LightmapData[1];
@@ -56,57 +52,29 @@ public class LightingTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void ChangeLightingData(int i)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        switch (i)
         {
-            LightmapSettings.lightmaps = lightmapData1;
-            RenderSettings.skybox = bar;
-            cam1.enabled = true;
-            cam2.enabled = false;
-            cam3.enabled = false;
-            cam4.enabled = false;
-            cam5.enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            LightmapSettings.lightmaps = lightmapData2;
-            RenderSettings.skybox = garge;
-            cam1.enabled = false;
-            cam2.enabled = true;
-            cam3.enabled = false;
-            cam4.enabled = false;
-            cam5.enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            LightmapSettings.lightmaps = lightmapData3;
-            RenderSettings.skybox = ship;
-            cam1.enabled = false;
-            cam2.enabled = false;
-            cam3.enabled = true;
-            cam4.enabled = false;
-            cam5.enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            LightmapSettings.lightmaps = lightmapData3;
-            RenderSettings.skybox = train;
-            cam1.enabled = false;
-            cam2.enabled = false;
-            cam3.enabled = false;
-            cam4.enabled = true;
-            cam5.enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            LightmapSettings.lightmaps = lightmapData3;
-            RenderSettings.skybox = country_side;
-            cam1.enabled = false;
-            cam2.enabled = false;
-            cam3.enabled = false;
-            cam4.enabled = false;
-            cam5.enabled = true;
+            case 0:
+                LightmapSettings.lightmaps = lightmapData2;
+                RenderSettings.skybox = garge;
+                break;
+
+            case 1:
+                LightmapSettings.lightmaps = lightmapData3;
+                RenderSettings.skybox = country_side;
+                break;
+            case 2:
+                LightmapSettings.lightmaps = lightmapData4;
+                RenderSettings.skybox = train;
+                break;
+            case 3:
+                LightmapSettings.lightmaps = lightmapData1;
+                RenderSettings.skybox = bar;
+                break;
+
+
         }
 
     }
