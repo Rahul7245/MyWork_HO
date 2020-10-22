@@ -63,13 +63,14 @@ public class Controller : MonoBehaviour
 
     void Awake()
     {
+        Input.multiTouchEnabled = false;
         Instance = this;
     }
     
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        /*Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;*/
 
         m_IsPaused = false;
         m_Grounded = true;
@@ -103,6 +104,9 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)) {
+            return;
+        }
        /* if (CanPause && Input.GetButtonDown("Menu"))
         {
             PauseMenu.Instance.Display();
@@ -186,7 +190,7 @@ public class Controller : MonoBehaviour
             currentAngles.x = m_VerticalAngle;
             CameraPosition.transform.localEulerAngles = currentAngles;
   
-            m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
+           // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
 
@@ -236,12 +240,14 @@ public class Controller : MonoBehaviour
             FootstepPlayer.PlayClip(LandingAudioClip, 0.8f,1.1f);
         }
     }
-
+  public  void FireButton() {
+        m_Weapons[m_CurrentWeapon].OnFireButtonClick();
+    }
     public void DisplayCursor(bool display)
     {
-        m_IsPaused = display;
+       /* m_IsPaused = display;
         Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = display;
+        Cursor.visible = display;*/
     }
 
     void PickupWeapon(Weapon prefab)

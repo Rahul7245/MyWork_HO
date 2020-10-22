@@ -526,7 +526,7 @@ public class Weapon : MonoBehaviour
                     Reload();
             }
         }
-        if (Input.GetButtonDown("Fire2"))
+       /* if (Input.GetButtonDown("Fire2"))
         {
             m_Animator.SetBool("scope", !m_Animator.GetBool("scope"));
             if (m_Animator.GetBool("scope"))
@@ -537,8 +537,8 @@ public class Weapon : MonoBehaviour
                 Controller.Instance.MainCamera.fieldOfView = 60;
                 Controller.Instance.WeaponCamera.gameObject.SetActive(true);
             }
-        }
-        if (triggerDown)
+        }*/
+       /* if (triggerDown)
         {
             if (triggerType == TriggerType.Auto)
             {
@@ -550,7 +550,23 @@ public class Weapon : MonoBehaviour
             }
             else
                 Fire();
-        }
+        }*/
+    }
+    public void OnFireButtonClick() {
+        Fire();
+    }
+    public void OnScopeButtonClick() {
+        
+            m_Animator.SetBool("scope", !m_Animator.GetBool("scope"));
+            if (m_Animator.GetBool("scope"))
+                StartCoroutine(ScopeEnable());
+            else
+            {
+                scopeOvrlay.SetActive(false);
+                Controller.Instance.MainCamera.fieldOfView = 60;
+                Controller.Instance.WeaponCamera.gameObject.SetActive(true);
+            }
+        
     }
     IEnumerator ScopeEnable()
     {
