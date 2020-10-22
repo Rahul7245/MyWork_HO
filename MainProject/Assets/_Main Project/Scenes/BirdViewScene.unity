@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6948808, g: 0.6233542, b: 0.55641264, a: 1}
+  m_IndirectSpecularColor: {r: 0.76918274, g: 0.58764106, b: 0.45148593, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9094,7 +9094,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 1, w: 2}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -9630,7 +9630,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -1, y: 0.86958486, z: 0.33619183, w: 0.83231235}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -16528,7 +16528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563844541}
   m_LocalRotation: {x: 0.027304515, y: 0.013805773, z: -0.00036390504, w: 0.99953175}
-  m_LocalPosition: {x: 2.6599998, y: 0.6600003, z: -12.6}
+  m_LocalPosition: {x: 1.2199999, y: 0.77000046, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663262433}
@@ -17258,7 +17258,7 @@ PrefabInstance:
     - target: {fileID: 7613899786359585239, guid: 2ed704c3f544ab441a9caed9fedcc9b0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7613899786418007882, guid: 2ed704c3f544ab441a9caed9fedcc9b0,
         type: 3}
@@ -18791,21 +18791,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235538941208284322, guid: ac14362d805fe364caccc51e69c3c839,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 2.0387484e-38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235538941208284322, guid: ac14362d805fe364caccc51e69c3c839,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 2.3785394e-38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235538941208284322, guid: ac14362d805fe364caccc51e69c3c839,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 38.283722
       objectReference: {fileID: 0}
     - target: {fileID: 3235538942265718824, guid: ac14362d805fe364caccc51e69c3c839,
         type: 3}
@@ -44394,16 +44379,6 @@ PrefabInstance:
       propertyPath: managerHandler
       value: 
       objectReference: {fileID: 63376661}
-    - target: {fileID: 3408242717390530196, guid: 4d0e03532357ed046b50fc26e19000ce,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -357
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851373506266861319, guid: 4d0e03532357ed046b50fc26e19000ce,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -356.99994
-      objectReference: {fileID: 0}
     - target: {fileID: 4194646284932374430, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -44447,7 +44422,7 @@ PrefabInstance:
     - target: {fileID: 5962655286732068989, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.10307
+      value: 225.10309
       objectReference: {fileID: 0}
     - target: {fileID: 6941092736756970773, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -44544,16 +44519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7123875349853673857, guid: 4d0e03532357ed046b50fc26e19000ce,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -356.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328133217417218921, guid: 4d0e03532357ed046b50fc26e19000ce,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -357
-      objectReference: {fileID: 0}
     - target: {fileID: 7749348075824958029, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -44573,11 +44538,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953306549465054546, guid: 4d0e03532357ed046b50fc26e19000ce,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -227.00002
       objectReference: {fileID: 0}
     - target: {fileID: 7974392535809590917, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
