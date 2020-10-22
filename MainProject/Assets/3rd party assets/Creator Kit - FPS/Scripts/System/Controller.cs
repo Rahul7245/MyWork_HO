@@ -63,7 +63,6 @@ public class Controller : MonoBehaviour
 
     void Awake()
     {
-        Input.multiTouchEnabled = false;
         Instance = this;
     }
     
@@ -101,18 +100,20 @@ public class Controller : MonoBehaviour
         m_VerticalAngle = 0.0f;
         m_HorizontalAngle = transform.localEulerAngles.y;
     }
-
+    bool pressed=false;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)||Input.GetMouseButtonDown(1)) {
+            pressed = true;
             return;
         }
+        
        /* if (CanPause && Input.GetButtonDown("Menu"))
         {
             PauseMenu.Instance.Display();
         }*/
-        
-       // FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
+
+        // FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
 
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
@@ -143,15 +144,15 @@ public class Controller : MonoBehaviour
         if (!m_IsPaused && !LockControl)
         {
             // Jump (we do it first as 
-           /* if (m_Grounded && Input.GetButtonDown("Jump"))
-            {
-                m_VerticalSpeed = JumpSpeed;
-                m_Grounded = false;
-                loosedGrounding = true;
-                FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
-            }*/
-            
-           // bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
+            /* if (m_Grounded && Input.GetButtonDown("Jump"))
+             {
+                 m_VerticalSpeed = JumpSpeed;
+                 m_Grounded = false;
+                 loosedGrounding = true;
+                 FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
+             }*/
+
+            // bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
             //float actualSpeed = running ? RunningSpeed : PlayerSpeed;
 
             /*if (loosedGrounding)
@@ -160,36 +161,44 @@ public class Controller : MonoBehaviour
             }*/
 
             // Move around with WASD
-           /*move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-            if (move.sqrMagnitude > 1.0f)
-                move.Normalize();
+            /*move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+             if (move.sqrMagnitude > 1.0f)
+                 move.Normalize();
 
-            float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
-            
-            move = move * usedSpeed * Time.deltaTime;
-            
-            move = transform.TransformDirection(move);
-            m_CharacterController.Move(move);*/
-            
+             float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
+
+             move = move * usedSpeed * Time.deltaTime;
+
+             move = transform.TransformDirection(move);
+             m_CharacterController.Move(move);*/
+
             // Turn player
-            float turnPlayer =  Input.GetAxis("Mouse X") * MouseSensitivity;
-            m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
+            if (Input.mousePosition.x < Screen.width / 2&& Input.touchCount<=1)
+            {
+                
+                float turnPlayer = Input.GetAxis("Mouse X") * MouseSensitivity;
+                m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
 
-            if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
-            if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
-            
-            Vector3 currentAngles = transform.localEulerAngles;
-            currentAngles.y = m_HorizontalAngle;
-            transform.localEulerAngles = currentAngles;
+                if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
+                if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
 
-            // Camera look up/down
-            var turnCam = -Input.GetAxis("Mouse Y");
-            turnCam = turnCam * MouseSensitivity;
-            m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
-            currentAngles = CameraPosition.transform.localEulerAngles;
-            currentAngles.x = m_VerticalAngle;
-            CameraPosition.transform.localEulerAngles = currentAngles;
-  
+                Vector3 currentAngles = transform.localEulerAngles;
+                currentAngles.y = m_HorizontalAngle;
+                transform.localEulerAngles = currentAngles;
+
+                // Camera look up/down
+                var turnCam = -Input.GetAxis("Mouse Y");
+                turnCam = turnCam * MouseSensitivity;
+                m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
+                currentAngles = CameraPosition.transform.localEulerAngles;
+                currentAngles.x = m_VerticalAngle;
+                if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+                {
+                    pressed = false;
+                    return;
+                }
+                CameraPosition.transform.localEulerAngles = currentAngles;
+            }
            // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);

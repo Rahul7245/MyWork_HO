@@ -17,16 +17,18 @@ public class ShootSceneScript : MonoBehaviour
     public GameObject gameManager;
     public GameObject character;
     public LightingTest lightingTest;
+    CharacterController ch;
     
     private void Awake()
     {
         pointGroup = new GroupOfPoints[4];
+        ch = character.GetComponentInChildren<CharacterController>();
 
     }
     void Start()
     {
-        pointGroup[0] = GaragePoints.Instance.getEnvironmentPoints();
-        pointGroup[1] = GaragePoints.Instance.getCSEnvironmentPoints();
+        pointGroup[1] = GaragePoints.Instance.getEnvironmentPoints();
+        pointGroup[0] = GaragePoints.Instance.getCSEnvironmentPoints();
         pointGroup[2] = GaragePoints.Instance.getTrainEnvironmentPoints();
         pointGroup[3] = GaragePoints.Instance.getBarEnvironmentPoints();
 
@@ -50,6 +52,9 @@ public class ShootSceneScript : MonoBehaviour
         EnvironmentNum = en;
         print(pointGroup[EnvironmentNum].shootPositions[0].transform.position);
         character.transform.position = pointGroup[EnvironmentNum].shootPositions[0].transform.position;
+        ch.gameObject.transform.rotation= Quaternion.Euler(0, 0, 0);
+        // character.transform.rotation = pointGroup[EnvironmentNum].shootPositions[0].transform.rotation;
+
     }
    public  void setBurglerNoneAnimation() {
         for (int i = 0; i < 5; i++)
@@ -109,7 +114,8 @@ public class ShootSceneScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
         gameManager.GetComponent<SwitchCamera>().ShootCameraEnable(false);
-        lightingTest.ChangeLightingData(4);
+        lightingTest.ChangeLightingData(4); 
+        
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
 
     }
