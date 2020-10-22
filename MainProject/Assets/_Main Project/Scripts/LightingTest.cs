@@ -4,50 +4,60 @@ using UnityEngine;
 
 public class LightingTest : MonoBehaviour
 {
-    public Texture2D a1;
-    public Texture2D aa1;
-    public Texture2D a2;
-    public Texture2D aa2;
-    public Texture2D a3;
-    public Texture2D aa3;
-    public Texture2D a4;
-    public Texture2D aa4;
-    public Texture2D a5;
-    public Texture2D aa5;
+    public Texture2D agarge;
+    public Texture2D aagarge;
+    public Texture2D abar;
+    public Texture2D aabar;
+    public Texture2D acountry_side;
+    public Texture2D aacountry_side;
+    public Texture2D atrain;
+    public Texture2D aatrain;
+    public Texture2D aship;
+    public Texture2D aaship;
+    public Texture2D abirdview;
+    public Texture2D aaabirdview;
     public Material garge;
     public Material bar;
-    public Material ship;
-    public Material train;
     public Material country_side;
+    public Material train;
+    public Material ship;
+    public Material birdview;
 
 
-    private LightmapData[] lightmapData1 = new LightmapData[1];
-    private LightmapData[] lightmapData2 = new LightmapData[1];
-    private LightmapData[] lightmapData3 = new LightmapData[1];
-    private LightmapData[] lightmapData4 = new LightmapData[1];
-    private LightmapData[] lightmapData5 = new LightmapData[1];
+
+
+    private LightmapData[] lightmapDatagarge = new LightmapData[1];
+    private LightmapData[] lightmapDatabar = new LightmapData[1];
+    private LightmapData[] lightmapDatacountry_side = new LightmapData[1];
+    private LightmapData[] lightmapDatatrain = new LightmapData[1];
+    private LightmapData[] lightmapDataship = new LightmapData[1];
+    private LightmapData[] lightmapDatabirdview = new LightmapData[1];
     // Start is called before the first frame update
     void Start()
     {
-        lightmapData1[0] = new LightmapData();
-        lightmapData1[0].lightmapDir = a1;
-        lightmapData1[0].lightmapColor = aa1;
+        lightmapDatagarge[0] = new LightmapData();
+        lightmapDatagarge[0].lightmapDir = agarge;
+        lightmapDatagarge[0].lightmapColor = aagarge;
 
-        lightmapData2[0] = new LightmapData();
-        lightmapData2[0].lightmapDir = a2;
-        lightmapData2[0].lightmapColor = aa2;
+        lightmapDatabar[0] = new LightmapData();
+        lightmapDatabar[0].lightmapDir = abar;
+        lightmapDatabar[0].lightmapColor = aabar;
 
-        lightmapData3[0] = new LightmapData();
-        lightmapData3[0].lightmapDir = a3;
-        lightmapData3[0].lightmapColor = aa3;
+        lightmapDatacountry_side[0] = new LightmapData();
+        lightmapDatacountry_side[0].lightmapDir = acountry_side;
+        lightmapDatacountry_side[0].lightmapColor = aacountry_side;
 
-        lightmapData4[0] = new LightmapData();
-        lightmapData4[0].lightmapDir = a4;
-        lightmapData4[0].lightmapColor = aa4;
+        lightmapDatatrain[0] = new LightmapData();
+        lightmapDatatrain[0].lightmapDir = atrain;
+        lightmapDatatrain[0].lightmapColor = aatrain;
 
-        lightmapData5[0] = new LightmapData();
-        lightmapData5[0].lightmapDir = a5;
-        lightmapData5[0].lightmapColor = aa5;
+        lightmapDataship[0] = new LightmapData();
+        lightmapDataship[0].lightmapDir = aship;
+        lightmapDataship[0].lightmapColor = aaship;
+
+        lightmapDatabirdview[0] = new LightmapData();
+        lightmapDatabirdview[0].lightmapDir = abirdview;
+        lightmapDatabirdview[0].lightmapColor = aaabirdview;
 
     }
 
@@ -57,21 +67,25 @@ public class LightingTest : MonoBehaviour
         switch (i)
         {
             case 0:
-                LightmapSettings.lightmaps = lightmapData2;
+                LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
                 break;
 
             case 1:
-                LightmapSettings.lightmaps = lightmapData3;
-                RenderSettings.skybox = country_side;
+                LightmapSettings.lightmaps = lightmapDatabar;
+                RenderSettings.skybox = bar;
                 break;
             case 2:
-                LightmapSettings.lightmaps = lightmapData4;
-                RenderSettings.skybox = train;
+                LightmapSettings.lightmaps = lightmapDatacountry_side;
+                RenderSettings.skybox = country_side;
                 break;
             case 3:
-                LightmapSettings.lightmaps = lightmapData1;
-                RenderSettings.skybox = bar;
+                LightmapSettings.lightmaps = lightmapDatatrain;
+                RenderSettings.skybox = train;
+                break;
+            case 4:
+                LightmapSettings.lightmaps = lightmapDatabirdview;
+                RenderSettings.skybox = birdview;
                 break;
 
 

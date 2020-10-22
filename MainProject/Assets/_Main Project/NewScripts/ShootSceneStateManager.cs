@@ -127,8 +127,9 @@ public class ShootSceneStateManager : MonoBehaviour
                 if (EnvironmentNum > 3) {
                     EnvironmentNum = 0;
                 }
+                shootSceneScript.InitializeScene(EnvironmentNum);
             }
-            shootSceneScript.InitializeScene(EnvironmentNum);
+            
             ToggleAppState(ShootState.Shooting);
             return;
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.76918274, g: 0.58764106, b: 0.45148593, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16528,7 +16528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563844541}
   m_LocalRotation: {x: 0.027304515, y: 0.013805773, z: -0.00036390504, w: 0.99953175}
-  m_LocalPosition: {x: 2.6599998, y: 0.6600003, z: -12.6}
+  m_LocalPosition: {x: 1.2199999, y: 0.77000046, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663262433}
@@ -20206,21 +20206,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e94d6a93b3f40a42abbdfcc0cd23784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a1: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
-  aa1: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
-  a2: {fileID: 2800000, guid: 805d35ff570d1fb44bd875a79b4f36b4, type: 3}
-  aa2: {fileID: 2800000, guid: d258eae89cd31c24fac6d550c631cea4, type: 3}
-  a3: {fileID: 2800000, guid: 9183eca97432f74499d3c6d9d2fdaf2b, type: 3}
-  aa3: {fileID: 2800000, guid: 20d8fe092867d954580bbda1f22003c0, type: 3}
-  a4: {fileID: 2800000, guid: f104a9fb0f8d1fe439a24197ae33ed6e, type: 3}
-  aa4: {fileID: 2800000, guid: 363fe917bc36eea4284f205eccdd15f9, type: 3}
-  a5: {fileID: 2800000, guid: b10a7e2fe0d0afc4a99463e6c55ac23a, type: 3}
-  aa5: {fileID: 2800000, guid: 4bd5abd857976a24c893a12ed90d0d70, type: 3}
+  agarge: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
+  aagarge: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
+  abar: {fileID: 2800000, guid: 805d35ff570d1fb44bd875a79b4f36b4, type: 3}
+  aabar: {fileID: 2800000, guid: d258eae89cd31c24fac6d550c631cea4, type: 3}
+  acountry_side: {fileID: 2800000, guid: b10a7e2fe0d0afc4a99463e6c55ac23a, type: 3}
+  aacountry_side: {fileID: 2800000, guid: 4bd5abd857976a24c893a12ed90d0d70, type: 3}
+  atrain: {fileID: 2800000, guid: f104a9fb0f8d1fe439a24197ae33ed6e, type: 3}
+  aatrain: {fileID: 2800000, guid: 363fe917bc36eea4284f205eccdd15f9, type: 3}
+  aship: {fileID: 2800000, guid: 9183eca97432f74499d3c6d9d2fdaf2b, type: 3}
+  aaship: {fileID: 2800000, guid: 20d8fe092867d954580bbda1f22003c0, type: 3}
+  abirdview: {fileID: 2800000, guid: d1a19e7d1f9382746a9529fd6c9f38f4, type: 3}
+  aaabirdview: {fileID: 2800000, guid: c4a1b4229218772499521c433c6acaab, type: 3}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  ship: {fileID: 2100000, guid: e9affea1465dacb4f861372f18aae88e, type: 2}
-  train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
   country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}
+  train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
+  ship: {fileID: 2100000, guid: e9affea1465dacb4f861372f18aae88e, type: 2}
+  birdview: {fileID: 2100000, guid: 2704110f43ebe9640af96558d3245ee0, type: 2}
 --- !u!4 &1925481975
 Transform:
   m_ObjectHideFlags: 0

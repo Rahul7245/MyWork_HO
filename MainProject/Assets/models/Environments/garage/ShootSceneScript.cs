@@ -26,9 +26,9 @@ public class ShootSceneScript : MonoBehaviour
     void Start()
     {
         pointGroup[0] = GaragePoints.Instance.getEnvironmentPoints();
-        pointGroup[1] = GaragePoints.Instance.getCSEnvironmentPoints();
-        pointGroup[2] = GaragePoints.Instance.getTrainEnvironmentPoints();
-        pointGroup[3] = GaragePoints.Instance.getBarEnvironmentPoints();
+        pointGroup[2] = GaragePoints.Instance.getCSEnvironmentPoints();
+        pointGroup[3] = GaragePoints.Instance.getTrainEnvironmentPoints();
+        pointGroup[1] = GaragePoints.Instance.getBarEnvironmentPoints();
 
 
 
@@ -39,17 +39,15 @@ public class ShootSceneScript : MonoBehaviour
         EnvironmentNum = en;
     }
     public void InitializeScene(int en) {
+        Debug.Log("EN " + en);
         setEnvironment(en);
-        setShootPoint();
+        setShootPoint(en);
         setBurglarStartPoint();
         setBurglarEndPoint();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void setShootPoint() {
+    
+    void setShootPoint(int en) {
+        EnvironmentNum = en;
         print(pointGroup[EnvironmentNum].shootPositions[0].transform.position);
         character.transform.position = pointGroup[EnvironmentNum].shootPositions[0].transform.position;
     }
@@ -111,7 +109,7 @@ public class ShootSceneScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
         gameManager.GetComponent<SwitchCamera>().ShootCameraEnable(false);
-        lightingTest.ChangeLightingData(1);
+        lightingTest.ChangeLightingData(4);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
 
     }
