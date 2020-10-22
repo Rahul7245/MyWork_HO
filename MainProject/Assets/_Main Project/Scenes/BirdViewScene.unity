@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.69503057, g: 0.6227299, b: 0.55452025, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e6dfa65d40bdf8b4caa617770bc526a0,
+  m_LightingDataAsset: {fileID: 112000000, guid: 111f4d2acabe0414b82652f13f4d5a54,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -20218,9 +20218,9 @@ MonoBehaviour:
   aa5: {fileID: 2800000, guid: 4bd5abd857976a24c893a12ed90d0d70, type: 3}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  ship: {fileID: 2100000, guid: 40572aac00d671a4fa31a7afbb090009, type: 2}
-  train: {fileID: 2100000, guid: 23727f82bb2555f4dba21399b9f6632d, type: 2}
-  country_side: {fileID: 2100000, guid: 170ef8d9ffdbdea46b4b15c01640b578, type: 2}
+  ship: {fileID: 2100000, guid: e9affea1465dacb4f861372f18aae88e, type: 2}
+  train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
+  country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}
 --- !u!4 &1925481975
 Transform:
   m_ObjectHideFlags: 0
@@ -44444,7 +44444,7 @@ PrefabInstance:
     - target: {fileID: 6941092737749390596, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 353.99988
+      value: 354
       objectReference: {fileID: 0}
     - target: {fileID: 6941092737824610149, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -44569,7 +44569,7 @@ PrefabInstance:
     - target: {fileID: 8202656444223537145, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 146.08334
+      value: 146.08337
       objectReference: {fileID: 0}
     - target: {fileID: 8202656444223537145, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
