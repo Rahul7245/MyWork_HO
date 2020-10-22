@@ -117,6 +117,7 @@ MonoBehaviour:
   appSubStates:
   - {fileID: 6701934512675267558}
   currentCanvasGrup: {fileID: 2416737873762910916}
+  stateTranistionCanvasGrup: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!225 &2416737873762910916
 CanvasGroup:
@@ -156,6 +157,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2416737873762910912}
     m_Modifications:
+    - target: {fileID: 484577901703805591, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3ddc05f70e57d744a3aa98554383603,
+        type: 3}
     - target: {fileID: 2254017647160191300, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -316,6 +323,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8596269395761458162, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3ddc05f70e57d744a3aa98554383603,
+        type: 3}
+    - target: {fileID: 8889976686132047344, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3ddc05f70e57d744a3aa98554383603,
+        type: 3}
     - target: {fileID: 8974538968499371565, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
         type: 3}
       propertyPath: currentCanvasGrup
