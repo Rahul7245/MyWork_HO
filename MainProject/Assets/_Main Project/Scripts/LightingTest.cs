@@ -71,15 +71,15 @@ public class LightingTest : MonoBehaviour
                 RenderSettings.skybox = garge;
                 break;
 
-            case 1:
+            case 3:
                 LightmapSettings.lightmaps = lightmapDatabar;
                 RenderSettings.skybox = bar;
                 break;
-            case 2:
+            case 1:
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
                 RenderSettings.skybox = country_side;
                 break;
-            case 3:
+            case 2:
                 LightmapSettings.lightmaps = lightmapDatatrain;
                 RenderSettings.skybox = train;
                 break;
