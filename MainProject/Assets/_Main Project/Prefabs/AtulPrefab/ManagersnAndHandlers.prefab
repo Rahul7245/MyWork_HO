@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4357243929486401437}
   - component: {fileID: 4357243929486401438}
   - component: {fileID: 4357243929486401439}
+  - component: {fileID: 5651299337745803641}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MonoBehaviour:
   appStateManager: {fileID: 4357243929486401438}
   uIInputHandlerManager: {fileID: 4357243929486401439}
   shootSceneStateManager: {fileID: 0}
+  lightingManager: {fileID: 5651299337745803641}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
-  m_duration: 0.5
   appStates:
   - {fileID: 0}
   - {fileID: 0}
@@ -107,3 +108,34 @@ MonoBehaviour:
   HomeButton: {fileID: 0}
   HomeButtonSetting: {fileID: 0}
   HomeButtonCharater: {fileID: 0}
+--- !u!114 &5651299337745803641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e94d6a93b3f40a42abbdfcc0cd23784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  agarge: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
+  aagarge: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
+  abar: {fileID: 2800000, guid: 805d35ff570d1fb44bd875a79b4f36b4, type: 3}
+  aabar: {fileID: 2800000, guid: d258eae89cd31c24fac6d550c631cea4, type: 3}
+  acountry_side: {fileID: 2800000, guid: b10a7e2fe0d0afc4a99463e6c55ac23a, type: 3}
+  aacountry_side: {fileID: 2800000, guid: 4bd5abd857976a24c893a12ed90d0d70, type: 3}
+  atrain: {fileID: 2800000, guid: f104a9fb0f8d1fe439a24197ae33ed6e, type: 3}
+  aatrain: {fileID: 2800000, guid: 363fe917bc36eea4284f205eccdd15f9, type: 3}
+  aship: {fileID: 2800000, guid: 9183eca97432f74499d3c6d9d2fdaf2b, type: 3}
+  aaship: {fileID: 2800000, guid: 20d8fe092867d954580bbda1f22003c0, type: 3}
+  abirdview: {fileID: 2800000, guid: d1a19e7d1f9382746a9529fd6c9f38f4, type: 3}
+  aaabirdview: {fileID: 2800000, guid: c4a1b4229218772499521c433c6acaab, type: 3}
+  garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}
+  train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
+  ship: {fileID: 2100000, guid: e9affea1465dacb4f861372f18aae88e, type: 2}
+  birdview: {fileID: 2100000, guid: 2704110f43ebe9640af96558d3245ee0, type: 2}

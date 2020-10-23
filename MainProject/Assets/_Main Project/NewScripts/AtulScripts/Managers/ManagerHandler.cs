@@ -8,4 +8,5 @@ public class ManagerHandler : MonoBehaviour
     public AppStateManager appStateManager;
     public UIInputHandlerManager uIInputHandlerManager;
     public ShootSceneStateManager shootSceneStateManager;
+    public LightingManager lightingManager;
 }
