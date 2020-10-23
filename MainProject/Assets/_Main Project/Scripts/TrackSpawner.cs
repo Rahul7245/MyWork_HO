@@ -80,7 +80,7 @@ public class TrackSpawner : MonoBehaviour
 
         resetWeapon.AddListener(listener);
     }
-  public void InstantiatePlayers() {
+    public void InstantiatePlayers() {
         for (int i = 1; i <= NoOfPlayerNeeded(gameType); i++)
         {
             GameObject[] obj = null;
@@ -184,14 +184,7 @@ public class TrackSpawner : MonoBehaviour
         return hurdles;
     
     }
-    private void Update()
-    {
-        if (m_ready&&!m_askingPlayer)
-        {
-           // StartCoroutine(StartGame());
-        }        
-    }
-
+    
     IEnumerator StartGame()
     {
         GameObject current_Player;
