@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public PlayerType playerType;
     public int LastPointScored;
     public int PlayerScore = 0;
-
+    public Hurdle[] hurdles;
     public void AddToScore(int point)
     {
         PlayerScore += point;
