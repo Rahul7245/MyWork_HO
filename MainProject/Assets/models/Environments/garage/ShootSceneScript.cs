@@ -16,7 +16,7 @@ public class ShootSceneScript : MonoBehaviour
     public Canvas loadingSceneCanvas;
     public GameObject gameManager;
     public GameObject character;
-    public LightingTest lightingTest;
+    public LightingManager lightingTest;
     CharacterController ch;
     
     private void Awake()

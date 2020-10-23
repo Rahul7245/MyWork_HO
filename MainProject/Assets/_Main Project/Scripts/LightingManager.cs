@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightingTest : MonoBehaviour
+public class LightingManager : MonoBehaviour
 {
+    public ManagerHandler managerHandler;
     public Texture2D agarge;
     public Texture2D aagarge;
     public Texture2D abar;
