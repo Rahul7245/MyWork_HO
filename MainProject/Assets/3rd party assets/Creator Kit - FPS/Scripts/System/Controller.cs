@@ -265,6 +265,9 @@ public class Controller : MonoBehaviour
   public  void FireButton() {
         m_Weapons[m_CurrentWeapon].OnFireButtonClick();
     }
+    public void ScopeButton() {
+        m_Weapons[m_CurrentWeapon].OnScopeButtonClick();
+    }
     public void DisplayCursor(bool display)
     {
        /* m_IsPaused = display;
