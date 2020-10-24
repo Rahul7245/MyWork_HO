@@ -52,7 +52,7 @@ public class ShootSceneScript : MonoBehaviour
         EnvironmentNum = en;
         print(pointGroup[EnvironmentNum].shootPositions[0].transform.position);
         character.transform.position = pointGroup[EnvironmentNum].shootPositions[0].transform.position;
-        ch.gameObject.transform.rotation= Quaternion.Euler(0, 0, 0);
+        ch.gameObject.transform.rotation = pointGroup[EnvironmentNum].shootPositions[0].transform.rotation;
         // character.transform.rotation = pointGroup[EnvironmentNum].shootPositions[0].transform.rotation;
 
     }

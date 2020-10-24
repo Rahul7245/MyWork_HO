@@ -103,15 +103,11 @@ public class Controller : MonoBehaviour
     bool pressed=false;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)||Input.GetMouseButtonDown(1)) {
-            pressed = true;
-            return;
-        }
-        
-       /* if (CanPause && Input.GetButtonDown("Menu"))
-        {
-            PauseMenu.Instance.Display();
-        }*/
+
+        /* if (CanPause && Input.GetButtonDown("Menu"))
+         {
+             PauseMenu.Instance.Display();
+         }*/
 
         // FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
 
@@ -173,7 +169,7 @@ public class Controller : MonoBehaviour
              m_CharacterController.Move(move);*/
 
             // Turn player
-            if (Input.mousePosition.x < Screen.width / 2&& Input.touchCount<=1)
+            if (Input.mousePosition.x < Screen.width / 2&& Input.touches[0].phase==TouchPhase.Moved)
             {
                 
                 float turnPlayer = Input.GetAxis("Mouse X") * MouseSensitivity;
@@ -192,11 +188,6 @@ public class Controller : MonoBehaviour
                 m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
                 currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.x = m_VerticalAngle;
-                if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
-                {
-                    pressed = false;
-                    return;
-                }
                 CameraPosition.transform.localEulerAngles = currentAngles;
             }
            // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
