@@ -97,12 +97,17 @@ public class Controller : MonoBehaviour
             m_AmmoInventory[startingAmmo[i].ammoType] = startingAmmo[i].amount;
         }
 
-        m_VerticalAngle = 0.0f;
-        m_HorizontalAngle = transform.localEulerAngles.y;
+       // m_VerticalAngle = 0.0f;
+       // m_HorizontalAngle = transform.localEulerAngles.y;
     }
     bool pressed=false;
+    public void setMRotations() {
+        m_VerticalAngle = CameraPosition.transform.localEulerAngles.x;
+        m_HorizontalAngle = CameraPosition.transform.localEulerAngles.y;
+    }
     void Update()
     {
+       
 
         /* if (CanPause && Input.GetButtonDown("Menu"))
          {
@@ -167,20 +172,34 @@ public class Controller : MonoBehaviour
 
              move = transform.TransformDirection(move);
              m_CharacterController.Move(move);*/
-
+            if (Input.GetMouseButtonUp(1)) {
+                return;
+            }
             // Turn player
-            if (Input.mousePosition.x < Screen.width / 2&& Input.touches[0].phase==TouchPhase.Moved)
+            if (Input.touchCount > 1) {
+                return;
+            }
+            
+                if (Input.mousePosition.x < Screen.width / 2&& Input.touches[0].phase==TouchPhase.Moved)
             {
                 
                 float turnPlayer = Input.GetAxis("Mouse X") * MouseSensitivity;
-                m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
+              /*  if (Input.touchCount >= 1||Input.touches[1].phase==TouchPhase.Ended)
+                { }
+                else {*/ 
+                     m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
+               // }
+              
 
                 if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
                 if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
 
-                Vector3 currentAngles = transform.localEulerAngles;
+                Vector3 currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.y = m_HorizontalAngle;
-                transform.localEulerAngles = currentAngles;
+                
+                    CameraPosition.transform.localEulerAngles = currentAngles;
+                
+                
 
                 // Camera look up/down
                 var turnCam = -Input.GetAxis("Mouse Y");
@@ -188,7 +207,10 @@ public class Controller : MonoBehaviour
                 m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
                 currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.x = m_VerticalAngle;
-                CameraPosition.transform.localEulerAngles = currentAngles;
+               
+                    CameraPosition.transform.localEulerAngles = currentAngles;
+                
+                
             }
            // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 

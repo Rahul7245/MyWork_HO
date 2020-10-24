@@ -17,18 +17,19 @@ public class ShootSceneScript : MonoBehaviour
     public GameObject gameManager;
     public GameObject character;
     public LightingManager lightingTest;
-    CharacterController ch;
+    CameraShaker ch;
+    Controller con;
     
     private void Awake()
     {
         pointGroup = new GroupOfPoints[4];
-        ch = character.GetComponentInChildren<CharacterController>();
-
+        ch = character.GetComponentInChildren<CameraShaker>();
+        con = character.GetComponentInChildren<Controller>();
     }
     void Start()
     {
-        pointGroup[1] = GaragePoints.Instance.getEnvironmentPoints();
-        pointGroup[0] = GaragePoints.Instance.getCSEnvironmentPoints();
+        pointGroup[0] = GaragePoints.Instance.getEnvironmentPoints();
+        pointGroup[1] = GaragePoints.Instance.getCSEnvironmentPoints();
         pointGroup[2] = GaragePoints.Instance.getTrainEnvironmentPoints();
         pointGroup[3] = GaragePoints.Instance.getBarEnvironmentPoints();
 
@@ -52,7 +53,8 @@ public class ShootSceneScript : MonoBehaviour
         EnvironmentNum = en;
         print(pointGroup[EnvironmentNum].shootPositions[0].transform.position);
         character.transform.position = pointGroup[EnvironmentNum].shootPositions[0].transform.position;
-        ch.gameObject.transform.rotation = pointGroup[EnvironmentNum].shootPositions[0].transform.rotation;
+        ch.gameObject.transform.localRotation = pointGroup[EnvironmentNum].shootPositions[0].transform.localRotation;
+        con.setMRotations();
         // character.transform.rotation = pointGroup[EnvironmentNum].shootPositions[0].transform.rotation;
 
     }
