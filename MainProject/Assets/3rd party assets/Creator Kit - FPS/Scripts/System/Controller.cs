@@ -105,6 +105,8 @@ public class Controller : MonoBehaviour
         m_VerticalAngle = CameraPosition.transform.localEulerAngles.x;
         m_HorizontalAngle = CameraPosition.transform.localEulerAngles.y;
     }
+    float m_turnX = 0f;
+    float m_turnY = 0f;
     void Update()
     {
        
@@ -172,43 +174,50 @@ public class Controller : MonoBehaviour
 
              move = transform.TransformDirection(move);
              m_CharacterController.Move(move);*/
-            if (Input.GetMouseButtonUp(1)) {
-                return;
-            }
+
             // Turn player
-            if (Input.touchCount > 1) {
-                return;
-            }
+            /* if (Input.touchCount > 1) {
+                 return;
+             }*/
+            
             
                 if (Input.mousePosition.x < Screen.width / 2&& Input.touches[0].phase==TouchPhase.Moved)
             {
-                
-                float turnPlayer = Input.GetAxis("Mouse X") * MouseSensitivity;
-              /*  if (Input.touchCount >= 1||Input.touches[1].phase==TouchPhase.Ended)
-                { }
-                else {*/ 
+                Debug.LogError("Rahul Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y"));
+                /*  if (Input.touchCount > 1) {
+                      Debug.LogError("Rahul touchCount Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y")+"touchPhase:"+
+                          Input.touches[1].phase);
+
+                  }*/
+                float turnPlayer= Input.GetAxis("Mouse X");
+                if (turnPlayer > 6) turnPlayer = m_turnX;
+                if (turnPlayer < -6) turnPlayer = m_turnX;
+                m_turnX = turnPlayer;
+                turnPlayer = turnPlayer * MouseSensitivity;
                      m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
-               // }
               
 
                 if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
                 if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
 
                 Vector3 currentAngles = CameraPosition.transform.localEulerAngles;
-                currentAngles.y = m_HorizontalAngle;
                 
-                    CameraPosition.transform.localEulerAngles = currentAngles;
+                
+                  //  CameraPosition.transform.localEulerAngles = currentAngles;
                 
                 
 
                 // Camera look up/down
                 var turnCam = -Input.GetAxis("Mouse Y");
+                if (turnCam > 6) turnCam = m_turnY;
+                if (turnCam < -6) turnCam = m_turnY;
+                m_turnY = turnCam;
                 turnCam = turnCam * MouseSensitivity;
                 m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
-                currentAngles = CameraPosition.transform.localEulerAngles;
+               // currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.x = m_VerticalAngle;
-               
-                    CameraPosition.transform.localEulerAngles = currentAngles;
+                currentAngles.y = m_HorizontalAngle;
+                CameraPosition.transform.localEulerAngles = currentAngles;
                 
                 
             }
