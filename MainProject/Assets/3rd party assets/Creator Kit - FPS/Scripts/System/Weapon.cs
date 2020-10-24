@@ -555,6 +555,10 @@ public class Weapon : MonoBehaviour
     public void OnFireButtonClick() {
         Fire();
     }
+    public void InactiveScopeOverlay() {
+        if(!m_Animator.GetBool("scope"))
+        OnScopeButtonClick();
+    }
     public void OnScopeButtonClick() {
         
             m_Animator.SetBool("scope", !m_Animator.GetBool("scope"));

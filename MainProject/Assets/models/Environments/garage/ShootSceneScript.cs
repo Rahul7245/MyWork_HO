@@ -96,6 +96,7 @@ public class ShootSceneScript : MonoBehaviour
     }
 
     public void CameraEffect(string msg) {
+        con.InactiveScope();
         StartCoroutine(AfterDieEffect(msg));
     }
     IEnumerator AfterDieEffect(string msg) {

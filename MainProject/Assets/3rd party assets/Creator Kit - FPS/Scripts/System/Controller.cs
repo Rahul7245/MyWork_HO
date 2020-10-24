@@ -277,6 +277,11 @@ public class Controller : MonoBehaviour
     public void ScopeButton() {
         m_Weapons[m_CurrentWeapon].OnScopeButtonClick();
     }
+    public void InactiveScope()
+    {
+      
+        m_Weapons[m_CurrentWeapon].InactiveScopeOverlay();
+    }
     public void DisplayCursor(bool display)
     {
        /* m_IsPaused = display;
