@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class LightingManager : MonoBehaviour
 {
+    public GameObject soundManager;
+    public AudioSource audioSource;
+    public AudioClip audioClipShip;
+    public AudioClip audioClipTrain;
+    public AudioClip audioClipGerag;
+    public AudioClip audioClipCS;
+    public AudioClip audioClipbar;
     public ManagerHandler managerHandler;
     public Texture2D agarge;
     public Texture2D aagarge;
@@ -70,21 +77,35 @@ public class LightingManager : MonoBehaviour
             case 0:
                 LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
+                soundManager.SetActive(false);
+                audioSource.clip = audioClipGerag;
+                audioSource.Play();
                 break;
 
             case 3:
                 LightmapSettings.lightmaps = lightmapDatabar;
                 RenderSettings.skybox = bar;
+                soundManager.SetActive(false);
+                audioSource.clip = audioClipbar;
+                audioSource.Play();
                 break;
             case 1:
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
                 RenderSettings.skybox = country_side;
+                soundManager.SetActive(false);
+                audioSource.clip = audioClipCS;
+                audioSource.Play();
                 break;
             case 2:
                 LightmapSettings.lightmaps = lightmapDatatrain;
                 RenderSettings.skybox = train;
+                soundManager.SetActive(false);
+                audioSource.clip = audioClipTrain;
+                audioSource.Play();
                 break;
             case 4:
+                audioSource.Stop();
+                soundManager.SetActive(true);
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
                 break;
