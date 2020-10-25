@@ -107,6 +107,10 @@ public class Controller : MonoBehaviour
     }
     float m_turnX = 0f;
     float m_turnY = 0f;
+    public static float mouse;
+    public void ChangeMouseSensitivity(float mouseSensitivity) {
+        MouseSensitivity = mouseSensitivity;
+    }
     void Update()
     {
        

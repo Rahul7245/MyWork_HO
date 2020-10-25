@@ -68,7 +68,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     List<int> listEndPoints = new List<int>();
     void setBurglarStartPoint() {
-        List<int> list = new List<int>{ 0, 2, 5, 7, 6, 3, 1, 4 };
+        List<int> list = new List<int>{ 19, 12, 0, 18, 2, 11, 17, 5, 20, 7, 16, 10, 6, 15, 3, 9, 1, 14, 8, 4, 13 };
         int rint;
         for (int i = 0; i < 5; i++)
         {
