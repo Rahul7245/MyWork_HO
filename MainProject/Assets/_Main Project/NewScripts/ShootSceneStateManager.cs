@@ -200,7 +200,7 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(3.5f);
             ToggleAppState(ShootState.PlayerTurn);
         }
     }

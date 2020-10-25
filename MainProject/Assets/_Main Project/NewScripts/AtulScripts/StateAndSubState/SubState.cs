@@ -74,8 +74,8 @@ public abstract class SubState : MonoBehaviour
     {
         subStateTranistionCanvasGrup.alpha = 1;
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(1.5f);
-        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 1f, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(3f);
+        managerHandler.appStateManager.ToggleFade(subStateTranistionCanvasGrup, 0, 0.5f, () => { subStateTranistionCanvasGrup.gameObject.SetActive(false);
             currentCanvasGrup.alpha = 0;
             CurrentScreenGameObject.SetActive(false);
         });
