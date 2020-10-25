@@ -112,12 +112,6 @@ public class ShootSceneStateManager : MonoBehaviour
                     ToggleAppState(ShootState.StartShooting);
                 }
             }
-            else
-            {
-                birdViewSceneScript.SwitchScene();
-                managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
-                ToggleAppState(ShootState.StartShooting);
-            }
         }
         // if have old state first exit then enter bew state
         if (appState.Equals(ShootState.StartShooting))
@@ -156,7 +150,15 @@ public class ShootSceneStateManager : MonoBehaviour
         else if (appState.Equals(ShootState.Shooting))
         {
             m_currentState = appState;
-            SceneManager.GetComponent<Timer>().startTimer();
+            if (player.playerType == PlayerType.Human)
+            {
+                StartCoroutine(TimerStart());
+            }
+            else
+            {
+                SceneManager.GetComponent<Timer>().startTimer();
+            }
+
         }
         else if (appState.Equals(ShootState.Shoot_Complete))
         {
@@ -202,6 +204,12 @@ public class ShootSceneStateManager : MonoBehaviour
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
         }
+    }
+
+    private IEnumerator TimerStart()
+    {
+        yield return new WaitForSecondsRealtime(3.5f);
+        SceneManager.GetComponent<Timer>().startTimer();
     }
 
     IEnumerator WaitTillTurnOver()
