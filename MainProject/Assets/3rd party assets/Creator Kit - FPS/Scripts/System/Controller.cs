@@ -20,10 +20,10 @@ public class Controller : MonoBehaviour
 
     public Camera MainCamera;
     public Camera WeaponCamera;
-    
+
     public Transform CameraPosition;
     public Transform WeaponPosition;
-    
+
     public Weapon[] startingWeapons;
 
     //this is only use at start, allow to grant ammo in the inspector. m_AmmoInventory is used during gameplay
@@ -39,11 +39,11 @@ public class Controller : MonoBehaviour
     public RandomPlayer FootstepPlayer;
     public AudioClip JumpingAudioCLip;
     public AudioClip LandingAudioClip;
-    
+
     float m_VerticalSpeed = 0.0f;
     bool m_IsPaused = false;
     int m_CurrentWeapon;
-    
+
     float m_VerticalAngle, m_HorizontalAngle;
     public float Speed { get; private set; } = 0.0f;
 
@@ -65,7 +65,7 @@ public class Controller : MonoBehaviour
     {
         Instance = this;
     }
-    
+
     void Start()
     {
         /*Cursor.lockState = CursorLockMode.Locked;
@@ -73,7 +73,7 @@ public class Controller : MonoBehaviour
 
         m_IsPaused = false;
         m_Grounded = true;
-        
+
         MainCamera.transform.SetParent(CameraPosition, false);
         MainCamera.transform.localPosition = Vector3.zero;
         MainCamera.transform.localRotation = Quaternion.identity;
@@ -88,7 +88,7 @@ public class Controller : MonoBehaviour
         {
             ChangeAmmo(startingAmmo[i].ammoType, startingAmmo[i].amount);
         }
-        
+
         m_CurrentWeapon = -1;
         ChangeWeapon(0);
 
@@ -97,23 +97,25 @@ public class Controller : MonoBehaviour
             m_AmmoInventory[startingAmmo[i].ammoType] = startingAmmo[i].amount;
         }
 
-       // m_VerticalAngle = 0.0f;
-       // m_HorizontalAngle = transform.localEulerAngles.y;
+        // m_VerticalAngle = 0.0f;
+        // m_HorizontalAngle = transform.localEulerAngles.y;
     }
-    bool pressed=false;
-    public void setMRotations() {
+    bool pressed = false;
+    public void setMRotations()
+    {
         m_VerticalAngle = CameraPosition.transform.localEulerAngles.x;
         m_HorizontalAngle = CameraPosition.transform.localEulerAngles.y;
     }
     float m_turnX = 0f;
     float m_turnY = 0f;
     public static float mouse;
-    public void ChangeMouseSensitivity(float mouseSensitivity) {
+    public void ChangeMouseSensitivity(float mouseSensitivity)
+    {
         MouseSensitivity = mouseSensitivity;
     }
     void Update()
     {
-       
+
 
         /* if (CanPause && Input.GetButtonDown("Menu"))
          {
@@ -124,7 +126,7 @@ public class Controller : MonoBehaviour
 
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
-        
+
         //we define our own grounded and not use the Character controller one as the character controller can flicker
         //between grounded/not grounded on small step and the like. So we actually make the controller "not grounded" only
         //if the character controller reported not being grounded for at least .5 second;
@@ -183,9 +185,13 @@ public class Controller : MonoBehaviour
             /* if (Input.touchCount > 1) {
                  return;
              }*/
-            
-            
-                if (Input.mousePosition.x < Screen.width / 2&& Input.touches[0].phase==TouchPhase.Moved)
+
+            //For Android use touch
+#if UNITY_EDITOR
+            if (Input.mousePosition.x < Screen.width / 2)
+#else
+            if (Input.mousePosition.x < Screen.width / 2 && Input.touches[0].phase == TouchPhase.Moved)
+#endif
             {
                 Debug.LogError("Rahul Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y"));
                 /*  if (Input.touchCount > 1) {
@@ -193,72 +199,72 @@ public class Controller : MonoBehaviour
                           Input.touches[1].phase);
 
                   }*/
-                float turnPlayer= Input.GetAxis("Mouse X");
+                float turnPlayer = Input.GetAxis("Mouse X");
                 if (turnPlayer > 6) turnPlayer = m_turnX;
                 if (turnPlayer < -6) turnPlayer = m_turnX;
                 m_turnX = turnPlayer;
-                turnPlayer = turnPlayer * MouseSensitivity*(MainCamera.fieldOfView/100);
-                     m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
-              
+                turnPlayer = turnPlayer * MouseSensitivity * (MainCamera.fieldOfView / 100);
+                m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
+
 
                 if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
                 if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
 
                 Vector3 currentAngles = CameraPosition.transform.localEulerAngles;
-                
-                
-                  //  CameraPosition.transform.localEulerAngles = currentAngles;
-                
-                
+
+
+                //  CameraPosition.transform.localEulerAngles = currentAngles;
+
+
 
                 // Camera look up/down
                 var turnCam = -Input.GetAxis("Mouse Y");
                 if (turnCam > 6) turnCam = m_turnY;
                 if (turnCam < -6) turnCam = m_turnY;
                 m_turnY = turnCam;
-                turnCam = turnCam * MouseSensitivity*(MainCamera.fieldOfView / 100);
+                turnCam = turnCam * MouseSensitivity * (MainCamera.fieldOfView / 100);
                 m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
-               // currentAngles = CameraPosition.transform.localEulerAngles;
+                // currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.x = m_VerticalAngle;
                 currentAngles.y = m_HorizontalAngle;
                 CameraPosition.transform.localEulerAngles = currentAngles;
-                
-                
+
+
             }
-           // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
+            // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
 
-          /*  if (Input.GetButton("Reload"))
-                m_Weapons[m_CurrentWeapon].Reload();
+            /*  if (Input.GetButton("Reload"))
+                  m_Weapons[m_CurrentWeapon].Reload();
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            {
-                ChangeWeapon(m_CurrentWeapon - 1);
-            }
-            else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            {
-                ChangeWeapon(m_CurrentWeapon + 1);
-            }*/
-            
+              if (Input.GetAxis("Mouse ScrollWheel") < 0)
+              {
+                  ChangeWeapon(m_CurrentWeapon - 1);
+              }
+              else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+              {
+                  ChangeWeapon(m_CurrentWeapon + 1);
+              }*/
+
             //Key input to change weapon
 
-           /* for (int i = 0; i < 10; ++i)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha0 + i))
-                {
-                    int num = 0;
-                    if (i == 0)
-                        num = 10;
-                    else
-                        num = i - 1;
+            /* for (int i = 0; i < 10; ++i)
+             {
+                 if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+                 {
+                     int num = 0;
+                     if (i == 0)
+                         num = 10;
+                     else
+                         num = i - 1;
 
-                    if (num < m_Weapons.Count)
-                    {
-                        ChangeWeapon(num);
-                    }
-                }
-            }*/
+                     if (num < m_Weapons.Count)
+                     {
+                         ChangeWeapon(num);
+                     }
+                 }
+             }*/
         }
 
         // Fall down / gravity
@@ -272,25 +278,27 @@ public class Controller : MonoBehaviour
 
         if (!wasGrounded && m_Grounded)
         {
-            FootstepPlayer.PlayClip(LandingAudioClip, 0.8f,1.1f);
+            FootstepPlayer.PlayClip(LandingAudioClip, 0.8f, 1.1f);
         }
     }
-  public  void FireButton() {
+    public void FireButton()
+    {
         m_Weapons[m_CurrentWeapon].OnFireButtonClick();
     }
-    public void ScopeButton() {
+    public void ScopeButton()
+    {
         m_Weapons[m_CurrentWeapon].OnScopeButtonClick();
     }
     public void InactiveScope()
     {
-      
+
         m_Weapons[m_CurrentWeapon].InactiveScopeOverlay();
     }
     public void DisplayCursor(bool display)
     {
-       /* m_IsPaused = display;
-        Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = display;*/
+        /* m_IsPaused = display;
+         Cursor.lockState = display ? CursorLockMode.None : CursorLockMode.Locked;
+         Cursor.visible = display;*/
     }
 
     void PickupWeapon(Weapon prefab)
@@ -307,9 +315,9 @@ public class Controller : MonoBehaviour
             w.transform.localPosition = Vector3.zero;
             w.transform.localRotation = Quaternion.identity;
             w.gameObject.SetActive(false);
-            
+
             w.PickedUp(this);
-            
+
             m_Weapons.Add(w);
         }
     }
@@ -328,7 +336,7 @@ public class Controller : MonoBehaviour
             m_CurrentWeapon = m_Weapons.Count - 1;
         else if (m_CurrentWeapon >= m_Weapons.Count)
             m_CurrentWeapon = 0;
-        
+
         m_Weapons[m_CurrentWeapon].gameObject.SetActive(true);
         m_Weapons[m_CurrentWeapon].Selected();
     }
@@ -355,7 +363,7 @@ public class Controller : MonoBehaviour
             {//we just grabbed ammo for a weapon that add non left, so it's disabled right now. Reselect it.
                 m_Weapons[m_CurrentWeapon].Selected();
             }
-            
+
             WeaponInfoUI.Instance.UpdateAmmoAmount(GetAmmo(ammoType));
         }
     }
