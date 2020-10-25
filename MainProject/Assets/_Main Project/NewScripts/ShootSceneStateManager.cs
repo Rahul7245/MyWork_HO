@@ -181,8 +181,6 @@ public class ShootSceneStateManager : MonoBehaviour
             displayMsg.text = "";
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
-
-
         }
     }
 
@@ -202,6 +200,7 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSecondsRealtime(3f);
             ToggleAppState(ShootState.PlayerTurn);
         }
     }
