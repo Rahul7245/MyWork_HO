@@ -193,7 +193,7 @@ public class Controller : MonoBehaviour
             if (Input.mousePosition.x < Screen.width / 2 && Input.touches[0].phase == TouchPhase.Moved)
 #endif
             {
-                Debug.LogError("Rahul Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y"));
+             //   Debug.LogError("Rahul Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y"));
                 /*  if (Input.touchCount > 1) {
                       Debug.LogError("Rahul touchCount Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y")+"touchPhase:"+
                           Input.touches[1].phase);
