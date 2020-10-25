@@ -17,6 +17,7 @@ public enum ShootState
 }
 public class ShootSceneStateManager : MonoBehaviour
 {
+    public AudioSource CountDownSound;
     [SerializeField]
     private ManagerHandler managerHandler;
     public TextMeshProUGUI displayMsg;
@@ -163,6 +164,7 @@ public class ShootSceneStateManager : MonoBehaviour
         else if (appState.Equals(ShootState.Shoot_Complete))
         {
             m_currentState = appState;
+            CountDownSound.Stop();
             SceneManager.GetComponent<Timer>().stopTimer();
             if (player.playerType == PlayerType.Computer)
             {
@@ -209,6 +211,7 @@ public class ShootSceneStateManager : MonoBehaviour
     private IEnumerator TimerStart()
     {
         yield return new WaitForSecondsRealtime(3.5f);
+        CountDownSound.Play();
         SceneManager.GetComponent<Timer>().startTimer();
     }
 

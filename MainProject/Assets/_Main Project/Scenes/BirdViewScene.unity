@@ -16051,6 +16051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a680f8541cc129489b179c5984df1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CountDownSound: {fileID: 4357243929524212362}
   managerHandler: {fileID: 63376661}
   displayMsg: {fileID: 747289122}
   SceneManager: {fileID: 4988949828942907817}
@@ -56498,6 +56499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e94d6a93b3f40a42abbdfcc0cd23784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4357243929524212362 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1950171862250454166, guid: 3543697f13f145b4babca9dae081bf01,
+    type: 3}
+  m_PrefabInstance: {fileID: 4357243929524212360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4374424411306102263
 GameObject:
   m_ObjectHideFlags: 0
