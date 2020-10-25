@@ -31,6 +31,7 @@ public class ShootSceneStateManager : MonoBehaviour
     GameObject playerPlaying = null;
     Player player = null;
     int EnvironmentNum = -1;
+    bool startRandom = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -123,10 +124,28 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             if (player.playerType == PlayerType.Human) {
-                EnvironmentNum = UnityEngine.Random.Range(0,4);
+                int x = UnityEngine.Random.Range(0, 4);
+                if (startRandom)
+                {
+                    while (EnvironmentNum == x)
+                    {
+                        x = UnityEngine.Random.Range(0, 4);
+                        if (EnvironmentNum != x)
+                        {
+                            break;
+                        }
+                    }
+                    EnvironmentNum = x;
+                }
+                else
+                {
+                    EnvironmentNum += 1;
+                }
+                
                 Debug.Log("SHOWing ENv " + EnvironmentNum);
                 if (EnvironmentNum > 3) {
-                    EnvironmentNum = 0;
+                    startRandom = true;
+                    EnvironmentNum = UnityEngine.Random.Range(0, 4);
                 }
                 shootSceneScript.InitializeScene(EnvironmentNum);
             }
