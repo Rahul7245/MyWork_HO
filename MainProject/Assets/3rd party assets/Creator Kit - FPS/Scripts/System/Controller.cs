@@ -193,7 +193,7 @@ public class Controller : MonoBehaviour
                 if (turnPlayer > 6) turnPlayer = m_turnX;
                 if (turnPlayer < -6) turnPlayer = m_turnX;
                 m_turnX = turnPlayer;
-                turnPlayer = turnPlayer * MouseSensitivity;
+                turnPlayer = turnPlayer * MouseSensitivity*(MainCamera.fieldOfView/100);
                      m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
               
 
@@ -212,7 +212,7 @@ public class Controller : MonoBehaviour
                 if (turnCam > 6) turnCam = m_turnY;
                 if (turnCam < -6) turnCam = m_turnY;
                 m_turnY = turnCam;
-                turnCam = turnCam * MouseSensitivity;
+                turnCam = turnCam * MouseSensitivity*(MainCamera.fieldOfView / 100);
                 m_VerticalAngle = Mathf.Clamp(turnCam + m_VerticalAngle, -89.0f, 89.0f);
                // currentAngles = CameraPosition.transform.localEulerAngles;
                 currentAngles.x = m_VerticalAngle;

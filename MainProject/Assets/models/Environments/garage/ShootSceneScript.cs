@@ -75,6 +75,7 @@ public class ShootSceneScript : MonoBehaviour
              m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
              rint = Random.Range(0, list.Count - 1);
             m_burglar[i].transform.position = pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
+            m_burglar[i].SetStartPosition(pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform);
             listEndPoints.Add(list.ElementAt(rint));
             list.RemoveAt(rint);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;

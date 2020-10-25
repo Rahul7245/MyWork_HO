@@ -11,11 +11,13 @@ public class Burglar : MonoBehaviour
    // public GameObject endPoint;
     NavMeshAgent navAgent;
     Animator anim;
+    Transform startPoint;
     void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
        
         anim = GetComponent<Animator>();
+        navAgent.updatePosition = true;
         
     }
     private void Start()
@@ -35,13 +37,17 @@ public class Burglar : MonoBehaviour
          anim.SetTrigger("Run");
         StartCoroutine(StopRunning());
     }
-
+    public void SetStartPosition(Transform startPosition) {
+        startPoint = startPosition;
+    
+    }
     IEnumerator StopRunning()
     {
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => navAgent.remainingDistance <= 0.1f|| navAgent.isStopped);
-        navAgent.isStopped = true;
-        anim.SetTrigger("ShootPosition");
+        navAgent.destination = startPoint.position;
+        //  navAgent.isStopped = true;
+        //  anim.SetTrigger("ShootPosition");
     }
     public void DieAnimation() {
         navAgent.isStopped = true;
