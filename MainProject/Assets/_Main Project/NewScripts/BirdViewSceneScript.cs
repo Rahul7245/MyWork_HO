@@ -33,6 +33,7 @@ public class BirdViewSceneScript : MonoBehaviour
     public void GenerateTracks() {
         trackSpawner.InstantiateTrack();
         trackSpawner.InstantiatePlayers();
+        trackSpawner.startTour();
     }
 
     public void PlayerTurnTimer() {

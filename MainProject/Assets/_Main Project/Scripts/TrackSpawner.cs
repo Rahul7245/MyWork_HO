@@ -48,10 +48,15 @@ public class TrackSpawner : MonoBehaviour
 
     ResetWeapon resetWeapon = new ResetWeapon();
     float trackDistance = 8f;
-    float characterYaxisOffset = 0.7f;
+    float characterYaxisOffset = 0.0f;
     public CinemachineVirtualCamera vcam;
     public CinemachineVirtualCamera sideVcam;
+    public CinemachineVirtualCamera startCam;
 
+    public void startTour() {
+        startCam.gameObject.SetActive(true);
+        startCam.Priority = 8;
+    }
     public static int NoOfPlayerNeeded(GameType gameType)
     {
         switch (gameType)

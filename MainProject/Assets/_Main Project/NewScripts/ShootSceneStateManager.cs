@@ -57,6 +57,9 @@ public class ShootSceneStateManager : MonoBehaviour
         }
 
     }
+    public void AfterTour() {
+        ToggleAppState(ShootState.PlayerTurn);
+    }
     public void ToggleAppState(ShootState appState)
     {
         if (m_currentState == appState)
@@ -75,7 +78,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("Turn", 0);
             Weapon.points.Clear();
-            ToggleAppState(ShootState.PlayerTurn);
+            
         }
         if (appState.Equals(ShootState.PlayerTurn))
         {
