@@ -123,7 +123,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             if (player.playerType == PlayerType.Human) {
-                EnvironmentNum += 1;
+                EnvironmentNum = 0;
                 if (EnvironmentNum > 3) {
                     EnvironmentNum = 0;
                 }
@@ -147,6 +147,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray());
                 PlayerPrefs.SetInt("Score", computerScore);
             }
+            
             player.LastPointScored = PlayerPrefs.GetInt("Score");
             player.AddToScore(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0)

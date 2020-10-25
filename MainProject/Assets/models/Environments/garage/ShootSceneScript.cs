@@ -68,7 +68,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     List<int> listEndPoints = new List<int>();
     void setBurglarStartPoint() {
-        List<int> list = new List<int>{ 0,  1, 2, 3, 4 };
+        List<int> list = new List<int>{ 0, 2, 5, 7, 6, 3, 1, 4 };
         int rint;
         for (int i = 0; i < 5; i++)
         {
@@ -85,7 +85,7 @@ public class ShootSceneScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             if(pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count>0)
-            m_burglar[i].SetDestination(pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints[0].transform);
+            m_burglar[i].SetDestination(pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints[Random.Range(0, pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count-1)].transform);
         }
         listEndPoints.Clear();
     }
