@@ -34077,7 +34077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563844541}
   m_LocalRotation: {x: 0.027304515, y: 0.013805773, z: -0.00036390504, w: 0.99953175}
-  m_LocalPosition: {x: 1.2199999, y: 0.77000046, z: -12.6}
+  m_LocalPosition: {x: 2.6599998, y: 0.6600003, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663262433}
@@ -62027,85 +62027,409 @@ MonoBehaviour:
     - {fileID: 569809671}
     groupOfPoints:
     - startPoint: {fileID: 4988949827703103236}
-      endPoints: []
+      endPoints:
+      - {fileID: 1316330752}
     - startPoint: {fileID: 4988949828528126403}
       endPoints:
-      - {fileID: 0}
-      - {fileID: 0}
+      - {fileID: 706755926}
     - startPoint: {fileID: 4988949827621313589}
       endPoints:
       - {fileID: 4988949828742308882}
-      - {fileID: 1605728919}
     - startPoint: {fileID: 4988949827760002240}
       endPoints:
-      - {fileID: 4988949828197398698}
-      - {fileID: 616016478}
+      - {fileID: 1605728919}
     - startPoint: {fileID: 4988949829510668189}
       endPoints:
-      - {fileID: 4988949828847384264}
+      - {fileID: 4988949828197398698}
     - startPoint: {fileID: 433245262}
-      endPoints: []
+      endPoints:
+      - {fileID: 616016478}
     - startPoint: {fileID: 1469262540}
-      endPoints: []
+      endPoints:
+      - {fileID: 4988949828847384264}
     - startPoint: {fileID: 1174468804}
       endPoints:
       - {fileID: 610273210}
+    - startPoint: {fileID: 969564667}
+      endPoints:
       - {fileID: 1061455825}
+    - startPoint: {fileID: 940391687}
+      endPoints:
       - {fileID: 2097525993}
+    - startPoint: {fileID: 1978665411}
+      endPoints:
+      - {fileID: 612241534}
+    - startPoint: {fileID: 214111667}
+      endPoints:
+      - {fileID: 1377246545}
+    - startPoint: {fileID: 643906926}
+      endPoints:
+      - {fileID: 2059852410}
+    - startPoint: {fileID: 228333647}
+      endPoints:
+      - {fileID: 1515188449}
+    - startPoint: {fileID: 1323103593}
+      endPoints:
+      - {fileID: 900190644}
+    - startPoint: {fileID: 610173168}
+      endPoints:
+      - {fileID: 1185552454}
+    - startPoint: {fileID: 1179522169}
+      endPoints:
+      - {fileID: 1399042898}
+    - startPoint: {fileID: 1706179600}
+      endPoints:
+      - {fileID: 666944799}
+    - startPoint: {fileID: 722504938}
+      endPoints:
+      - {fileID: 722504938}
+    - startPoint: {fileID: 1607471900}
+      endPoints:
+      - {fileID: 1658693679}
   m_barEnvironmentPoints:
     shootPositions:
     - {fileID: 1694513642}
     groupOfPoints:
     - startPoint: {fileID: 1640124940}
-      endPoints: []
-    - startPoint: {fileID: 477048137}
-      endPoints: []
-    - startPoint: {fileID: 1454516910}
       endPoints:
       - {fileID: 174605957}
-    - startPoint: {fileID: 1863748622}
+    - startPoint: {fileID: 477048137}
       endPoints:
       - {fileID: 1918325540}
-    - startPoint: {fileID: 1714863638}
+    - startPoint: {fileID: 1454516910}
       endPoints:
       - {fileID: 350429545}
+    - startPoint: {fileID: 1863748622}
+      endPoints:
+      - {fileID: 7725465}
+    - startPoint: {fileID: 1714863638}
+      endPoints:
+      - {fileID: 1054960429}
+    - startPoint: {fileID: 778620521}
+      endPoints:
+      - {fileID: 752705962}
+    - startPoint: {fileID: 1674142016}
+      endPoints:
+      - {fileID: 1491843921}
+    - startPoint: {fileID: 49632542}
+      endPoints:
+      - {fileID: 196170998}
+    - startPoint: {fileID: 2025988529}
+      endPoints:
+      - {fileID: 480898114}
+    - startPoint: {fileID: 280567422}
+      endPoints:
+      - {fileID: 408765434}
+      - {fileID: 1589550462}
+    - startPoint: {fileID: 1140592870}
+      endPoints:
+      - {fileID: 893825681}
+    - startPoint: {fileID: 1427271283}
+      endPoints:
+      - {fileID: 940723131}
+    - startPoint: {fileID: 1287377620}
+      endPoints:
+      - {fileID: 1216160786}
+    - startPoint: {fileID: 236503670}
+      endPoints:
+      - {fileID: 516837982}
+    - startPoint: {fileID: 1920226698}
+      endPoints:
+      - {fileID: 1110183796}
+    - startPoint: {fileID: 2099798613}
+      endPoints:
+      - {fileID: 1779868041}
+    - startPoint: {fileID: 1528458600}
+      endPoints:
+      - {fileID: 1925140362}
+    - startPoint: {fileID: 1897453774}
+      endPoints:
+      - {fileID: 105662954}
+    - startPoint: {fileID: 1297735039}
+      endPoints:
+      - {fileID: 1939800094}
+    - startPoint: {fileID: 558633509}
+      endPoints:
+      - {fileID: 1957598134}
   m_CSEnvironmentPoints:
     shootPositions:
     - {fileID: 2018602758}
     groupOfPoints:
     - startPoint: {fileID: 625548197}
-      endPoints: []
-    - startPoint: {fileID: 1191754698}
-      endPoints: []
-    - startPoint: {fileID: 1141629983}
       endPoints:
       - {fileID: 516232295}
-    - startPoint: {fileID: 1690869022}
+      - {fileID: 868455132}
+      - {fileID: 2133869132}
+    - startPoint: {fileID: 1191754698}
+      endPoints:
+      - {fileID: 1878133435}
+      - {fileID: 1518072309}
+      - {fileID: 816317921}
+    - startPoint: {fileID: 1141629983}
       endPoints:
       - {fileID: 1045468359}
-    - startPoint: {fileID: 2028381649}
+      - {fileID: 1392019411}
+      - {fileID: 63169344}
+      - {fileID: 2092773628}
+      - {fileID: 420684781}
+    - startPoint: {fileID: 1690869022}
       endPoints:
       - {fileID: 491469471}
+      - {fileID: 509824956}
+      - {fileID: 63169344}
+      - {fileID: 2092773628}
+      - {fileID: 420684781}
+    - startPoint: {fileID: 2028381649}
+      endPoints:
+      - {fileID: 1003960083}
+      - {fileID: 188369119}
+      - {fileID: 1693348401}
+      - {fileID: 1689764179}
+      - {fileID: 38481837}
+    - startPoint: {fileID: 988320520}
+      endPoints:
+      - {fileID: 626341250}
+      - {fileID: 2121840204}
+      - {fileID: 1725826817}
+    - startPoint: {fileID: 304338550}
+      endPoints:
+      - {fileID: 1232994281}
+      - {fileID: 1118930357}
+      - {fileID: 700974078}
+      - {fileID: 855518727}
+    - startPoint: {fileID: 2112641870}
+      endPoints:
+      - {fileID: 2057187620}
+      - {fileID: 693478120}
+      - {fileID: 1414949859}
+      - {fileID: 338704030}
+    - startPoint: {fileID: 64828694}
+      endPoints:
+      - {fileID: 1061888890}
+      - {fileID: 63989735}
+      - {fileID: 431425883}
+    - startPoint: {fileID: 803315842}
+      endPoints:
+      - {fileID: 57139503}
+      - {fileID: 667034293}
+      - {fileID: 665179604}
+      - {fileID: 2019352157}
+    - startPoint: {fileID: 2053820801}
+      endPoints:
+      - {fileID: 1645400969}
+      - {fileID: 821873174}
+      - {fileID: 1739832746}
+      - {fileID: 528513438}
+    - startPoint: {fileID: 153265247}
+      endPoints:
+      - {fileID: 740704319}
+      - {fileID: 2079864313}
+      - {fileID: 176840952}
+      - {fileID: 2090205010}
+    - startPoint: {fileID: 1152775361}
+      endPoints:
+      - {fileID: 1608726759}
+      - {fileID: 573439732}
+      - {fileID: 1238153597}
+      - {fileID: 1523647931}
+    - startPoint: {fileID: 1965948966}
+      endPoints:
+      - {fileID: 222557083}
+      - {fileID: 405269280}
+      - {fileID: 9354465}
+    - startPoint: {fileID: 1810709075}
+      endPoints:
+      - {fileID: 196234854}
+      - {fileID: 1515480280}
+      - {fileID: 871331422}
+      - {fileID: 672411546}
+    - startPoint: {fileID: 782146927}
+      endPoints:
+      - {fileID: 942297331}
+      - {fileID: 1174513626}
+      - {fileID: 1876199586}
+      - {fileID: 879238145}
+    - startPoint: {fileID: 960424301}
+      endPoints:
+      - {fileID: 2128880126}
+      - {fileID: 979275146}
+      - {fileID: 246629313}
+    - startPoint: {fileID: 257674881}
+      endPoints:
+      - {fileID: 301026844}
+      - {fileID: 427857105}
+      - {fileID: 1715664759}
+    - startPoint: {fileID: 449535867}
+      endPoints:
+      - {fileID: 1561789868}
+      - {fileID: 1263743830}
+      - {fileID: 373138114}
+      - {fileID: 349236425}
+    - startPoint: {fileID: 996855057}
+      endPoints:
+      - {fileID: 2058514581}
+      - {fileID: 1546169130}
+      - {fileID: 1300283470}
   m_trainEnvironmentPoints:
     shootPositions:
     - {fileID: 1947774362}
     groupOfPoints:
     - startPoint: {fileID: 1542598625}
-      endPoints: []
-    - startPoint: {fileID: 1093146529}
-      endPoints: []
-    - startPoint: {fileID: 1051761675}
       endPoints:
       - {fileID: 1734918453}
-    - startPoint: {fileID: 525662174}
+      - {fileID: 1796308196}
+      - {fileID: 191375379}
+      - {fileID: 635567217}
+    - startPoint: {fileID: 1093146529}
       endPoints:
       - {fileID: 811851978}
-    - startPoint: {fileID: 1712207623}
+      - {fileID: 495190957}
+      - {fileID: 1615495306}
+    - startPoint: {fileID: 1051761675}
       endPoints:
       - {fileID: 238324058}
+      - {fileID: 1069215580}
+      - {fileID: 1159330479}
+      - {fileID: 936097898}
+    - startPoint: {fileID: 525662174}
+      endPoints:
+      - {fileID: 71394944}
+      - {fileID: 537111235}
+      - {fileID: 942756221}
+      - {fileID: 1726038217}
+    - startPoint: {fileID: 1712207623}
+      endPoints:
+      - {fileID: 1705707190}
+    - startPoint: {fileID: 354831055}
+      endPoints:
+      - {fileID: 1941441491}
+    - startPoint: {fileID: 898089751}
+      endPoints:
+      - {fileID: 529331202}
+    - startPoint: {fileID: 1698798911}
+      endPoints:
+      - {fileID: 1977152919}
+      - {fileID: 668627020}
+    - startPoint: {fileID: 1642890582}
+      endPoints:
+      - {fileID: 1393478229}
+      - {fileID: 352780193}
+      - {fileID: 63280299}
+      - {fileID: 1647610518}
+    - startPoint: {fileID: 832083168}
+      endPoints:
+      - {fileID: 1114354156}
+      - {fileID: 1508462931}
+      - {fileID: 1157355484}
+    - startPoint: {fileID: 1569566959}
+      endPoints:
+      - {fileID: 265555365}
+      - {fileID: 1759813789}
+    - startPoint: {fileID: 1806233795}
+      endPoints:
+      - {fileID: 1636310953}
+      - {fileID: 781164273}
+    - startPoint: {fileID: 2108283398}
+      endPoints:
+      - {fileID: 341379916}
+      - {fileID: 1945449109}
+      - {fileID: 760960886}
+    - startPoint: {fileID: 271497865}
+      endPoints:
+      - {fileID: 38886034}
+      - {fileID: 471343068}
+      - {fileID: 1903509320}
+    - startPoint: {fileID: 1289456290}
+      endPoints:
+      - {fileID: 1232794408}
+    - startPoint: {fileID: 1546323082}
+      endPoints:
+      - {fileID: 717598777}
+      - {fileID: 711625949}
+    - startPoint: {fileID: 2041836280}
+      endPoints:
+      - {fileID: 1689244723}
+      - {fileID: 1471133585}
+      - {fileID: 174049451}
+    - startPoint: {fileID: 1446634255}
+      endPoints:
+      - {fileID: 2073298850}
+      - {fileID: 916935569}
+      - {fileID: 1079717714}
+    - startPoint: {fileID: 1834692973}
+      endPoints:
+      - {fileID: 803722070}
+      - {fileID: 1355612527}
+      - {fileID: 1493002958}
+      - {fileID: 1168909881}
+    - startPoint: {fileID: 1499696977}
+      endPoints:
+      - {fileID: 1487958523}
+      - {fileID: 949578942}
+      - {fileID: 1720099741}
   m_shipEnvironmentPoints:
     shootPositions: []
-    groupOfPoints: []
+    groupOfPoints:
+    - startPoint: {fileID: 608095797}
+      endPoints:
+      - {fileID: 1373202246}
+    - startPoint: {fileID: 845093326}
+      endPoints:
+      - {fileID: 1154110966}
+    - startPoint: {fileID: 82321993}
+      endPoints:
+      - {fileID: 1396882459}
+    - startPoint: {fileID: 2137991163}
+      endPoints:
+      - {fileID: 358048794}
+    - startPoint: {fileID: 1145874794}
+      endPoints:
+      - {fileID: 1688178392}
+    - startPoint: {fileID: 1267414961}
+      endPoints:
+      - {fileID: 211100890}
+    - startPoint: {fileID: 515173548}
+      endPoints:
+      - {fileID: 2140559693}
+    - startPoint: {fileID: 539161241}
+      endPoints:
+      - {fileID: 1235407109}
+    - startPoint: {fileID: 1771234381}
+      endPoints:
+      - {fileID: 26776324}
+    - startPoint: {fileID: 778993245}
+      endPoints:
+      - {fileID: 1885661419}
+    - startPoint: {fileID: 997986166}
+      endPoints:
+      - {fileID: 2016297085}
+    - startPoint: {fileID: 204268146}
+      endPoints:
+      - {fileID: 1146973137}
+    - startPoint: {fileID: 1533643414}
+      endPoints:
+      - {fileID: 480984349}
+    - startPoint: {fileID: 1362567700}
+      endPoints:
+      - {fileID: 971009428}
+    - startPoint: {fileID: 207443586}
+      endPoints:
+      - {fileID: 661359681}
+    - startPoint: {fileID: 1812575302}
+      endPoints:
+      - {fileID: 2127893241}
+    - startPoint: {fileID: 686691685}
+      endPoints:
+      - {fileID: 497800383}
+    - startPoint: {fileID: 41783716}
+      endPoints:
+      - {fileID: 473620880}
+    - startPoint: {fileID: 599970157}
+      endPoints:
+      - {fileID: 1432337046}
+    - startPoint: {fileID: 401386195}
+      endPoints:
+      - {fileID: 2122067507}
 --- !u!114 &4988949828942907822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68921,7 +69245,7 @@ PrefabInstance:
     - target: {fileID: 5962655286732068989, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.10307
+      value: 225.10309
       objectReference: {fileID: 0}
     - target: {fileID: 6329517133479435234, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -69066,7 +69390,7 @@ PrefabInstance:
     - target: {fileID: 7953306549465054546, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -227.00002
+      value: -227.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7974392535809590917, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
