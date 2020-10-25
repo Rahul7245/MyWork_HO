@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+public enum AppSubState
+{
+    None = 0,
+    LoginScreen_LoginPage,
+    LoginScreen_SignupPage,
+    HomeScreen_HomePage,
+    HomeScreen_SettingPage,
+    HomeScreen_CharacterSelectionPage,
+    HomeScreen_PlayComputer,
+    GameScreen_BirdviewMode,
+    GameScreen_ShootingMode,
+    GameScreen_ScopeMode
+}
+
 [RequireComponent(typeof(CanvasGroup))]
 public abstract class SubState : MonoBehaviour
 {
