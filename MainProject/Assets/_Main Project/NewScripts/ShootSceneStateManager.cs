@@ -57,8 +57,7 @@ public class ShootSceneStateManager : MonoBehaviour
         }
 
     }
-    public void AfterTour()
-    {
+    public void AfterTour() {
         ToggleAppState(ShootState.PlayerTurn);
     }
     public void ToggleAppState(ShootState appState)
@@ -79,7 +78,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("Turn", 0);
             Weapon.points.Clear();
-
+            
         }
         if (appState.Equals(ShootState.PlayerTurn))
         {
@@ -122,35 +121,33 @@ public class ShootSceneStateManager : MonoBehaviour
         if (appState.Equals(ShootState.StartShooting))
         {
             m_currentState = appState;
-            if (player.playerType == PlayerType.Human)
-            {
-
+            if (player.playerType == PlayerType.Human) {
                 int x = UnityEngine.Random.Range(0, 4);
                 if (startRandom)
                 {
-                    x = UnityEngine.Random.Range(0, 4);
-                    if (EnvironmentNum == x)
+                    while (EnvironmentNum == x)
                     {
-                        x += 1;
-                    }
-                    if (x > 3)
-                    {
-                        x = 0;
+                        x = UnityEngine.Random.Range(0, 4);
+                        if (EnvironmentNum != x)
+                        {
+                            break;
+                        }
                     }
                     EnvironmentNum = x;
                 }
                 else
                 {
                     EnvironmentNum += 1;
-                    if (EnvironmentNum > 3)
-                    {
-                        //startRandom = true;
-                        EnvironmentNum = 0;
-                    }
+                }
+                
+                Debug.Log("SHOWing ENv " + EnvironmentNum);
+                if (EnvironmentNum > 3) {
+                    startRandom = true;
+                    EnvironmentNum = UnityEngine.Random.Range(0, 4);
                 }
                 shootSceneScript.InitializeScene(EnvironmentNum);
             }
-
+            
             ToggleAppState(ShootState.Shooting);
             return;
         }
@@ -177,7 +174,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray());
                 PlayerPrefs.SetInt("Score", computerScore);
             }
-
+            
             player.LastPointScored = PlayerPrefs.GetInt("Score");
             player.AddToScore(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0)
@@ -206,7 +203,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             m_currentState = appState;
-            //   VigneteEffect.Instance.ResetVignete();
+         //   VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
             displayMsg.text = "";
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
