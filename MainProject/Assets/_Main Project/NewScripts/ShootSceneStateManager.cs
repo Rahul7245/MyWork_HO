@@ -143,7 +143,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 Debug.Log("SHOWing ENv " + EnvironmentNum);
                 if (EnvironmentNum > 3) {
                     startRandom = true;
-                    EnvironmentNum = UnityEngine.Random.Range(0, 4);
+                    EnvironmentNum = 0;
                 }
                 shootSceneScript.InitializeScene(EnvironmentNum);
             }
