@@ -5,12 +5,12 @@ using UnityEngine;
 
 public enum EnviromentType
 {
-    BirdView = 4,
+    BirdView = 5,
     Garage = 0,
     CountrySide = 1,
     Train = 2,
     Bar = 3,
-    Ship = 5
+    Ship = 4
 }
 
 public class LightingManager : MonoBehaviour
