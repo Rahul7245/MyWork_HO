@@ -157,10 +157,12 @@ public class ShootSceneStateManager : MonoBehaviour
             m_currentState = appState;
             if (player.playerType == PlayerType.Human)
             {
+                SceneManager.GetComponent<Timer>().totalTime = 10;
                 StartCoroutine(TimerStart());
             }
             else
             {
+                SceneManager.GetComponent<Timer>().totalTime = UnityEngine.Random.Range(2, 5);
                 SceneManager.GetComponent<Timer>().startTimer();
             }
 
