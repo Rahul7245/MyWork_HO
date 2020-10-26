@@ -268,7 +268,7 @@ public class Controller : MonoBehaviour
         }
 
         // Fall down / gravity
-        m_VerticalSpeed = m_VerticalSpeed - 10.0f * Time.deltaTime;
+        /*m_VerticalSpeed = m_VerticalSpeed - 10.0f * Time.deltaTime;
         if (m_VerticalSpeed < -10.0f)
             m_VerticalSpeed = -10.0f; // max fall speed
         var verticalMove = new Vector3(0, m_VerticalSpeed * Time.deltaTime, 0);
@@ -279,7 +279,7 @@ public class Controller : MonoBehaviour
         if (!wasGrounded && m_Grounded)
         {
             FootstepPlayer.PlayClip(LandingAudioClip, 0.8f, 1.1f);
-        }
+        }*/
     }
     public void FireButton()
     {

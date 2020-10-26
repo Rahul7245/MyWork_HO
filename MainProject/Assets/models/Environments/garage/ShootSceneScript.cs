@@ -22,7 +22,7 @@ public class ShootSceneScript : MonoBehaviour
     
     private void Awake()
     {
-        pointGroup = new GroupOfPoints[4];
+        pointGroup = new GroupOfPoints[5];
         ch = character.GetComponentInChildren<CameraShaker>();
         con = character.GetComponentInChildren<Controller>();
     }
@@ -32,6 +32,7 @@ public class ShootSceneScript : MonoBehaviour
         pointGroup[1] = GaragePoints.Instance.getCSEnvironmentPoints();
         pointGroup[2] = GaragePoints.Instance.getTrainEnvironmentPoints();
         pointGroup[3] = GaragePoints.Instance.getBarEnvironmentPoints();
+        pointGroup[4] = GaragePoints.Instance.getShipEnvironmentPoints();
 
 
 
