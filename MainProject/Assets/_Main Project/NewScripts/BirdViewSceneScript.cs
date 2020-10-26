@@ -35,7 +35,10 @@ public class BirdViewSceneScript : MonoBehaviour
         trackSpawner.InstantiatePlayers();
         trackSpawner.startTour();
     }
-
+    public void endTour() {
+        print("wnd tour called");
+        trackSpawner.endTour();
+    }
     public void PlayerTurnTimer() {
         StartCoroutine(ResetPopUp());
 

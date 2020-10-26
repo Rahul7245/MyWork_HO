@@ -6,7 +6,7 @@ public class TourCameraScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public void AfterTourCall() {
-        ShootSceneStateManager.Instance.ToggleAppState(ShootState.PlayerTurn);
+        ShootSceneStateManager.Instance.AfterTour();
 
     }
 }

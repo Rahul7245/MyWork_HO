@@ -55,6 +55,11 @@ public class TrackSpawner : MonoBehaviour
 
     public void startTour() {
         startCam.gameObject.SetActive(true);
+        startCam.Priority = 12;
+    }
+    public void endTour()
+    {
+       // startCam.gameObject.SetActive(true);
         startCam.Priority = 8;
     }
     public static int NoOfPlayerNeeded(GameType gameType)
