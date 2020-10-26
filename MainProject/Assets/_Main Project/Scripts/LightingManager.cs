@@ -85,6 +85,13 @@ public class LightingManager : MonoBehaviour
     {
         switch (enviromentType)
         {
+            case EnviromentType.Ship:
+                LightmapSettings.lightmaps = lightmapDataship;
+                RenderSettings.skybox = ship;
+                soundManager.SetActive(false);
+                audioSource.clip = audioClipShip;
+                audioSource.Play();
+                break;
             case EnviromentType.Garage:
                 LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
