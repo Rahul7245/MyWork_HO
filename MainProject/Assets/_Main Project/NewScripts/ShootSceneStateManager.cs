@@ -58,6 +58,8 @@ public class ShootSceneStateManager : MonoBehaviour
 
     }
     public void AfterTour() {
+        print("called");
+        birdViewSceneScript.endTour();
         ToggleAppState(ShootState.PlayerTurn);
     }
     public void ToggleAppState(ShootState appState)
