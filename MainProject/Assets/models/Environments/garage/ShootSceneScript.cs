@@ -33,9 +33,6 @@ public class ShootSceneScript : MonoBehaviour
         pointGroup[2] = GaragePoints.Instance.getTrainEnvironmentPoints();
         pointGroup[3] = GaragePoints.Instance.getBarEnvironmentPoints();
         pointGroup[4] = GaragePoints.Instance.getShipEnvironmentPoints();
-
-
-
     }
     int EnvironmentNum;
    void setEnvironment(int en) {

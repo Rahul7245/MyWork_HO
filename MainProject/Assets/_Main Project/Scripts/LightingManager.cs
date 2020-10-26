@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum EnviromentType
+{
+    BirdView = 4,
+    Garage = 0,
+    CountrySide = 1,
+    Train = 2,
+    Bar = 3,
+    Ship = 5
+}
+
 public class LightingManager : MonoBehaviour
 {
     public GameObject soundManager;
@@ -70,11 +81,11 @@ public class LightingManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void ChangeLightingData(int i)
+    public void ChangeLightingData(EnviromentType enviromentType)
     {
-        switch (i)
+        switch (enviromentType)
         {
-            case 0:
+            case EnviromentType.Garage:
                 LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
                 soundManager.SetActive(false);
@@ -82,28 +93,28 @@ public class LightingManager : MonoBehaviour
                 audioSource.Play();
                 break;
 
-            case 3:
+            case EnviromentType.Bar:
                 LightmapSettings.lightmaps = lightmapDatabar;
                 RenderSettings.skybox = bar;
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipbar;
                 audioSource.Play();
                 break;
-            case 1:
+            case EnviromentType.CountrySide:
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
                 RenderSettings.skybox = country_side;
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipCS;
                 audioSource.Play();
                 break;
-            case 2:
+            case EnviromentType.Train:
                 LightmapSettings.lightmaps = lightmapDatatrain;
                 RenderSettings.skybox = train;
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipTrain;
                 audioSource.Play();
                 break;
-            case 4:
+            case EnviromentType.BirdView:
                 audioSource.Stop();
                 soundManager.SetActive(true);
                 LightmapSettings.lightmaps = lightmapDatabirdview;
