@@ -141,7 +141,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum += 1;
                 }
-                if (EnvironmentNum > 3) {
+                if (EnvironmentNum > 4) {
                     //startRandom = true;
                     EnvironmentNum = 0;
                 }
