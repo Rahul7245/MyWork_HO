@@ -295,7 +295,8 @@ public class TrackSpawner : MonoBehaviour
         {
             if (player.PlayerScore > 21)
             {
-                steps -= (player.PlayerScore - 21);
+                player.PlayerScore -= player.LastPointScored;
+                return 0;
             }
         }
         int pos;
