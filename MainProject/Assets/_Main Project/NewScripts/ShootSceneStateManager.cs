@@ -32,7 +32,6 @@ public class ShootSceneStateManager : MonoBehaviour
     GameObject playerPlaying = null;
     Player player = null;
     int EnvironmentNum = -1;
-    bool startRandom = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,7 +56,8 @@ public class ShootSceneStateManager : MonoBehaviour
         }
 
     }
-    public void AfterTour() {
+    public void AfterTour()
+    {
         print("called");
         birdViewSceneScript.endTour();
         ToggleAppState(ShootState.PlayerTurn);
@@ -80,7 +80,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("Turn", 0);
             Weapon.points.Clear();
-            
+
         }
         if (appState.Equals(ShootState.PlayerTurn))
         {
@@ -123,32 +123,27 @@ public class ShootSceneStateManager : MonoBehaviour
         if (appState.Equals(ShootState.StartShooting))
         {
             m_currentState = appState;
-            if (player.playerType == PlayerType.Human) {
-                int x = UnityEngine.Random.Range(0, 4);
-                if (startRandom)
+            if (player.playerType == PlayerType.Human)
+            {
+                int x = UnityEngine.Random.Range(0, 5);
+                if (EnvironmentNum == x)
                 {
-                    while (EnvironmentNum == x)
-                    {
-                        x = UnityEngine.Random.Range(0, 4);
-                        if (EnvironmentNum != x)
-                        {
-                            break;
-                        }
-                    }
-                    EnvironmentNum = x;
+                    x = UnityEngine.Random.Range(1, 4);
+                    EnvironmentNum += x;
                 }
                 else
                 {
-                    EnvironmentNum += 1;
+                    EnvironmentNum = x;
                 }
-                if (EnvironmentNum > 4) {
-                    //startRandom = true;
+
+                if (EnvironmentNum > 4)
+                {
                     EnvironmentNum = 0;
                 }
                 Debug.Log("SHOWing ENv " + EnvironmentNum);
                 shootSceneScript.InitializeScene(EnvironmentNum);
             }
-            
+
             ToggleAppState(ShootState.Shooting);
             return;
         }
@@ -177,7 +172,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray());
                 PlayerPrefs.SetInt("Score", computerScore);
             }
-            
+
             player.LastPointScored = PlayerPrefs.GetInt("Score");
             player.AddToScore(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0)
@@ -206,7 +201,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             m_currentState = appState;
-         //   VigneteEffect.Instance.ResetVignete();
+            //   VigneteEffect.Instance.ResetVignete();
             shootSceneScript.setBurglerNoneAnimation();
             displayMsg.text = "";
             managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
