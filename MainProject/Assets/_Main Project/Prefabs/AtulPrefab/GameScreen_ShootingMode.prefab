@@ -412,6 +412,7 @@ MonoBehaviour:
   appSubState: 8
   currentCanvasGrup: {fileID: 2868898035266590898}
   subStateTranistionCanvasGrup: {fileID: 0}
+  player: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!1 &2868898036014602552
 GameObject:
@@ -1069,7 +1070,7 @@ PrefabInstance:
     - target: {fileID: 5908581119722165024, guid: a3d3637fbf0e7614f906c949d166a3e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6775101518785270823, guid: a3d3637fbf0e7614f906c949d166a3e0,
         type: 3}

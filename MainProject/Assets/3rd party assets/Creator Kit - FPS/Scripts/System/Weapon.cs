@@ -135,7 +135,6 @@ public class Weapon : MonoBehaviour
     void Awake()
     {
         impactManager = GameObject.FindObjectOfType<ImpactManager>();
-        scopeOvrlay = GameObject.FindGameObjectWithTag("scopeOverLay");
         if (scopeOvrlay)
         {
             scopeOvrlay.SetActive(false);
@@ -170,7 +169,7 @@ public class Weapon : MonoBehaviour
     }
     private void Start()
     {
-
+        scopeOvrlay = ManagerHandler.managerHandler.uIInputHandlerManager.ScopeCanvas;
         EventManager.AddReloadWeapontListener(Reset);
     }
     public void PickedUp(Controller c)

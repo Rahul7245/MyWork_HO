@@ -15,6 +15,10 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button HomeButton;
     public Button HomeButtonSetting;
     public Button HomeButtonCharater;
+    /// <summary>
+    ///  Game object6s 
+    /// </summary>
+    public GameObject ScopeCanvas;
 
     private void Awake()
     {
