@@ -287,18 +287,7 @@ public class TrackSpawner : MonoBehaviour
     {
         sideVcam.m_Priority = 11;
         GameObject current_Player;
-
         m_players.TryGetValue("player_" + playerNumber, out current_Player);
-        GameObject playerPlaying = GetPlayer();
-        Player player = playerPlaying?.GetComponent<Player>();
-        if (player != null)
-        {
-            if (player.PlayerScore > 21)
-            {
-                player.PlayerScore -= player.LastPointScored;
-                return 0;
-            }
-        }
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
         pos += steps;

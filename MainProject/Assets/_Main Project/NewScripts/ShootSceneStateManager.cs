@@ -187,7 +187,15 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             if (player.LastPointScored != 0)
             {
-                birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+                if(player.PlayerScore > 21)
+                {
+                    player.PlayerScore -= player.LastPointScored;
+                    setNextTurnFlag(true);
+                }
+                else
+                {
+                    birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+                }
             }
             else
             {
