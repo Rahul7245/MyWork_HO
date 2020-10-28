@@ -1034,6 +1034,11 @@ PrefabInstance:
       propertyPath: subStateTranistionCanvasGrup
       value: 
       objectReference: {fileID: 1228835988097101299}
+    - target: {fileID: 6924414281357271262, guid: 7c8d28b0c513dfe4a85f8b5d67de3e1b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7170049215559549273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c8d28b0c513dfe4a85f8b5d67de3e1b, type: 3}
 --- !u!224 &6995211554983609439 stripped
@@ -1181,6 +1186,11 @@ PrefabInstance:
       propertyPath: subStateTranistionCanvasGrup
       value: 
       objectReference: {fileID: 1228835988097101299}
+    - target: {fileID: 2868898035266590899, guid: f3ba16fb849e6ed4fa74a1bf4b56f14b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7170049215559549273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ba16fb849e6ed4fa74a1bf4b56f14b, type: 3}
 --- !u!114 &2607501407605241122 stripped
@@ -1334,6 +1344,12 @@ RectTransform:
 --- !u!225 &1228835988097101299 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 851687836832993280, guid: b06fd91614cf19f4d9305f137dea3eff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1935560758310862323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &7170049215559549273 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 8745251075507043498, guid: b06fd91614cf19f4d9305f137dea3eff,
     type: 3}
   m_PrefabInstance: {fileID: 1935560758310862323}
   m_PrefabAsset: {fileID: 0}

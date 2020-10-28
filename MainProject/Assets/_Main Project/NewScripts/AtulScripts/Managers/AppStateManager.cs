@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AppStateManager : MonoBehaviour
 {
+    public float SubStateDelay = 2;
     [SerializeField]
     private ManagerHandler managerHandler;
     public static AppStateManager instance;
@@ -16,6 +17,8 @@ public class AppStateManager : MonoBehaviour
     [SerializeField]
     private AppSubState currentAppSubState;
     private SubState currentSubState;
+    private Coroutine StateCR;
+    private Coroutine SubStateCR;
 
     public AppState CurrentAppState
     {
@@ -53,46 +56,60 @@ public class AppStateManager : MonoBehaviour
     }
     public void ToggleApp(AppState appState, AppSubState appSubState)
     {
-        ToggleAppState(appState);
-        ToggleAppSubState(appState, appSubState);
+        if(StateCR != null)
+        {
+            StopCoroutine(StateCR);
+        }
+        StateCR = StartCoroutine(ToggleAppState(appState));
+        if (SubStateCR != null)
+        {
+            StopCoroutine(StateCR);
+        }
+        SubStateCR = StartCoroutine(ToggleAppSubState(appState, appSubState));
     }
 
-    private void ToggleAppState(AppState appState)
+    private IEnumerator ToggleAppState(AppState appState)
     {
         if (currentAppState == appState)
         {
-            return;
+            StateCR = null;
+            yield break;
         }
         // if have old state first exit then enter bew state
         if (currentState)
         {
-            currentState.OnExit();
+            yield return StartCoroutine(currentState.OnExit());
         }
         currentAppState = appState;
         currentState = GetTheState(appState);
+        yield return null;
         if (currentState)
         {
-            currentState.OnEnter();
+            yield return StartCoroutine(currentState.OnEnter()); ;
         }
+        StateCR = null;
     }
 
-    private void ToggleAppSubState(AppState appState, AppSubState appSubState)
+    private IEnumerator ToggleAppSubState(AppState appState, AppSubState appSubState)
     {
         if (currentAppSubState == appSubState)
         {
-            return;
+            SubStateCR = null;
+            yield break;
         }
         // if have old state first exit then enter bew state
         if (currentSubState)
         {
-            currentSubState.OnExit();
+            yield return StartCoroutine(currentSubState.OnExit());
         }
         currentAppSubState = appSubState;
         currentSubState = GetTheSubState(appState, appSubState);
+        yield return null;
         if (currentSubState)
         {
-            currentSubState.OnEnter();
+            yield return StartCoroutine(currentSubState.OnEnter());
         }
+        SubStateCR = null;
     }
 
     private State GetTheState(AppState state)

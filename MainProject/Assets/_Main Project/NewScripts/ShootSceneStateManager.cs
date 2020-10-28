@@ -113,9 +113,11 @@ public class ShootSceneStateManager : MonoBehaviour
                 }
                 else
                 {
-                    birdViewSceneScript.SwitchScene();
                     managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
-                    ToggleAppState(ShootState.StartShooting);
+                    StartCoroutine(StartShooting());
+                    /*birdViewSceneScript.SwitchScene();
+                    managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
+                    ToggleAppState(ShootState.StartShooting);*/
                 }
             }
         }
@@ -142,6 +144,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 }
                 Debug.Log("SHOWing ENv " + EnvironmentNum);
                 shootSceneScript.InitializeScene(EnvironmentNum);
+                
             }
 
             ToggleAppState(ShootState.Shooting);
@@ -153,7 +156,8 @@ public class ShootSceneStateManager : MonoBehaviour
             if (player.playerType == PlayerType.Human)
             {
                 SceneManager.GetComponent<Timer>().totalTime = 10;
-                StartCoroutine(TimerStart());
+                CountDownSound.Play();
+                SceneManager.GetComponent<Timer>().startTimer();
             }
             else
             {
@@ -217,11 +221,12 @@ public class ShootSceneStateManager : MonoBehaviour
         }
     }
 
-    private IEnumerator TimerStart()
+    private IEnumerator StartShooting()
     {
-        yield return new WaitForSecondsRealtime(3.5f);
-        CountDownSound.Play();
-        SceneManager.GetComponent<Timer>().startTimer();
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+        birdViewSceneScript.SwitchScene();
+        //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
+        ToggleAppState(ShootState.StartShooting);
     }
 
     IEnumerator WaitTillTurnOver()
@@ -240,7 +245,7 @@ public class ShootSceneStateManager : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSecondsRealtime(3.5f);
+            yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
             ToggleAppState(ShootState.PlayerTurn);
         }
     }

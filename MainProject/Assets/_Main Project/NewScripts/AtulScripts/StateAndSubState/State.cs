@@ -53,14 +53,16 @@ public abstract class State : MonoBehaviour
     {
         //CurrentScreenGameObject.SetActive(false);
     }
-    public virtual void OnEnter()
+    public virtual IEnumerator OnEnter()
     {
         currentCanvasGrup.alpha = 1;
         CurrentScreenGameObject.SetActive(true);
+        yield return null;
     }
-    public virtual void OnExit()
+    public virtual IEnumerator OnExit()
     {
         currentCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(false);
+        yield return null;
     }
 }
