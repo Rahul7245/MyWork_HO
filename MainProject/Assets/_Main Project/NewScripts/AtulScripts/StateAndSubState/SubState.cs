@@ -21,7 +21,9 @@ public enum AppSubState
 public abstract class SubState : MonoBehaviour
 {
     [SerializeField]
-    protected bool showExitTransition = false;
+    private bool showEnterTransition = false;
+    [SerializeField]
+    private bool showExitTransition = false;
     [SerializeField]
     protected AppSubState appSubState;
     [SerializeField]
@@ -48,6 +50,9 @@ public abstract class SubState : MonoBehaviour
             return appSubState;
         }
     }
+
+    public bool ShowExitTransition { get => showExitTransition; }
+    public bool ShowEnterTransition { get => showEnterTransition; }
 
     protected virtual void Awake()
     {

@@ -78,14 +78,27 @@ public class AppStateManager : MonoBehaviour
         // if have old state first exit then enter bew state
         if (currentState)
         {
-            yield return StartCoroutine(currentState.OnExit());
+            if (currentState.ShowExitTransition)
+            {
+                yield return StartCoroutine(currentState.OnExit());
+            }
+            else
+            {
+                StartCoroutine(currentState.OnExit());
+            }
         }
         currentAppState = appState;
         currentState = GetTheState(appState);
-        yield return null;
         if (currentState)
         {
-            yield return StartCoroutine(currentState.OnEnter()); ;
+            if (currentState.ShowEnterTransition)
+            {
+                yield return StartCoroutine(currentState.OnEnter());
+            }
+            else
+            {
+                StartCoroutine(currentState.OnEnter());
+            }
         }
         StateCR = null;
     }
@@ -100,14 +113,27 @@ public class AppStateManager : MonoBehaviour
         // if have old state first exit then enter bew state
         if (currentSubState)
         {
-            yield return StartCoroutine(currentSubState.OnExit());
+            if (currentSubState.ShowExitTransition)
+            {
+                yield return StartCoroutine(currentSubState.OnExit());
+            }
+            else
+            {
+                StartCoroutine(currentSubState.OnExit());
+            }
         }
         currentAppSubState = appSubState;
         currentSubState = GetTheSubState(appState, appSubState);
-        yield return null;
         if (currentSubState)
         {
-            yield return StartCoroutine(currentSubState.OnEnter());
+            if (currentSubState.ShowEnterTransition)
+            {
+                yield return StartCoroutine(currentSubState.OnEnter());
+            }
+            else
+            {
+                StartCoroutine(currentSubState.OnEnter());
+            }
         }
         SubStateCR = null;
     }
