@@ -43,6 +43,10 @@ public class LightingManager : MonoBehaviour
     public Texture2D aagarge8;
     public Texture2D agarge9;
     public Texture2D aagarge9;
+    public Texture2D agarge10;
+    public Texture2D aagarge10;
+    public Texture2D agarge11;
+    public Texture2D aagarge11;
     public Texture2D abar;
     public Texture2D aabar;
     public Texture2D abar1;
@@ -63,6 +67,10 @@ public class LightingManager : MonoBehaviour
     public Texture2D aabar8;
     public Texture2D abar9;
     public Texture2D aabar9;
+    public Texture2D abar10;
+    public Texture2D aabar10;
+    public Texture2D abar11;
+    public Texture2D aabar11;
     public Texture2D acountry_side;
     public Texture2D aacountry_side;
     public Texture2D acountry_side1;
@@ -83,6 +91,10 @@ public class LightingManager : MonoBehaviour
     public Texture2D aacountry_side8;
     public Texture2D acountry_side9;
     public Texture2D aacountry_side9;
+    public Texture2D acountry_side10;
+    public Texture2D aacountry_side10;
+    public Texture2D acountry_side11;
+    public Texture2D aacountry_side11;
     public Texture2D atrain;
     public Texture2D aatrain;
     public Texture2D atrain1;
@@ -103,6 +115,10 @@ public class LightingManager : MonoBehaviour
     public Texture2D aatrain8;
     public Texture2D atrain9;
     public Texture2D aatrain9;
+    public Texture2D atrain10;
+    public Texture2D aatrain10;
+    public Texture2D atrain11;
+    public Texture2D aatrain11;
     public Texture2D aship;
     public Texture2D aaship;
     public Texture2D aship1;
@@ -123,6 +139,10 @@ public class LightingManager : MonoBehaviour
     public Texture2D aaship8;
     public Texture2D aship9;
     public Texture2D aaship9;
+    public Texture2D aship10;
+    public Texture2D aaship10;
+    public Texture2D aship11;
+    public Texture2D aaship11;
     public Texture2D abirdview;
     public Texture2D aaabirdview;
     public Texture2D abirdview1;
@@ -143,14 +163,18 @@ public class LightingManager : MonoBehaviour
     public Texture2D aaabirdview8;
     public Texture2D abirdview9;
     public Texture2D aaabirdview9;
+    public Texture2D abirdview10;
+    public Texture2D aaabirdview10;
+    public Texture2D abirdview11;
+    public Texture2D aaabirdview11;
     public Material garge;
     public Material bar;
     public Material country_side;
     public Material train;
     public Material ship;
     public Material birdview;
-
-
+    public GameObject birdveiw_light;
+   
 
 
     private LightmapData[] lightmapDatagarge = new LightmapData[10];
@@ -192,6 +216,12 @@ public class LightingManager : MonoBehaviour
         lightmapDatagarge[9] = new LightmapData();
         lightmapDatagarge[9].lightmapDir = agarge9;
         lightmapDatagarge[9].lightmapColor = aagarge9;
+        lightmapDatagarge[10] = new LightmapData();
+        lightmapDatagarge[10].lightmapDir = agarge10;
+        lightmapDatagarge[10].lightmapColor = aagarge10;
+        lightmapDatagarge[11] = new LightmapData();
+        lightmapDatagarge[11].lightmapDir = agarge11;
+        lightmapDatagarge[11].lightmapColor = aagarge11;
 
 
         lightmapDatabar[0] = new LightmapData();
@@ -224,6 +254,12 @@ public class LightingManager : MonoBehaviour
         lightmapDatabar[9] = new LightmapData();
         lightmapDatabar[9].lightmapDir = abar9;
         lightmapDatabar[9].lightmapColor = aabar9;
+        lightmapDatabar[10] = new LightmapData();
+        lightmapDatabar[10].lightmapDir = abar10;
+        lightmapDatabar[10].lightmapColor = aabar10;
+        lightmapDatabar[11] = new LightmapData();
+        lightmapDatabar[11].lightmapDir = abar11;
+        lightmapDatabar[11].lightmapColor = aabar11;
 
         lightmapDatacountry_side[0] = new LightmapData();
         lightmapDatacountry_side[0].lightmapDir = acountry_side;
@@ -255,6 +291,12 @@ public class LightingManager : MonoBehaviour
         lightmapDatacountry_side[9] = new LightmapData();
         lightmapDatacountry_side[9].lightmapDir = acountry_side9;
         lightmapDatacountry_side[9].lightmapColor = aacountry_side9;
+        lightmapDatacountry_side[10] = new LightmapData();
+        lightmapDatacountry_side[10].lightmapDir = acountry_side10;
+        lightmapDatacountry_side[10].lightmapColor = aacountry_side10;
+        lightmapDatacountry_side[11] = new LightmapData();
+        lightmapDatacountry_side[11].lightmapDir = acountry_side11;
+        lightmapDatacountry_side[11].lightmapColor = aacountry_side11;
 
 
         lightmapDatatrain[0] = new LightmapData();
@@ -287,6 +329,12 @@ public class LightingManager : MonoBehaviour
         lightmapDatatrain[9] = new LightmapData();
         lightmapDatatrain[9].lightmapDir = atrain9;
         lightmapDatatrain[9].lightmapColor = aatrain9;
+        lightmapDatatrain[10] = new LightmapData();
+        lightmapDatatrain[10].lightmapDir = atrain10;
+        lightmapDatatrain[10].lightmapColor = aatrain10;
+        lightmapDatatrain[11] = new LightmapData();
+        lightmapDatatrain[11].lightmapDir = atrain11;
+        lightmapDatatrain[11].lightmapColor = aatrain11;
 
         lightmapDataship[0] = new LightmapData();
         lightmapDataship[0].lightmapDir = aship;
@@ -318,7 +366,13 @@ public class LightingManager : MonoBehaviour
         lightmapDataship[9] = new LightmapData();
         lightmapDataship[9].lightmapDir = aship9;
         lightmapDataship[9].lightmapColor = aaship9;
-        
+        lightmapDataship[10] = new LightmapData();
+        lightmapDataship[10].lightmapDir = aship10;
+        lightmapDataship[10].lightmapColor = aaship10;
+        lightmapDataship[11] = new LightmapData();
+        lightmapDataship[11].lightmapDir = aship11;
+        lightmapDataship[11].lightmapColor = aaship11;
+
         lightmapDatabirdview[0] = new LightmapData();
         lightmapDatabirdview[0].lightmapDir = abirdview;
         lightmapDatabirdview[0].lightmapColor = aaabirdview;
@@ -349,6 +403,12 @@ public class LightingManager : MonoBehaviour
         lightmapDatabirdview[9] = new LightmapData();
         lightmapDatabirdview[9].lightmapDir = abirdview9;
         lightmapDatabirdview[9].lightmapColor = aaabirdview9;
+        lightmapDatabirdview[10] = new LightmapData();
+        lightmapDatabirdview[10].lightmapDir = abirdview10;
+        lightmapDatabirdview[10].lightmapColor = aaabirdview10;
+        lightmapDatabirdview[11] = new LightmapData();
+        lightmapDatabirdview[11].lightmapDir = abirdview11;
+        lightmapDatabirdview[11].lightmapColor = aaabirdview11;
 
 
     }
@@ -356,6 +416,7 @@ public class LightingManager : MonoBehaviour
     // Update is called once per frame
     public void ChangeLightingData(EnviromentType enviromentType)
     {
+       
         switch (enviromentType)
         {
             case EnviromentType.Ship:
@@ -364,6 +425,7 @@ public class LightingManager : MonoBehaviour
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipShip;
                 audioSource.Play();
+                birdveiw_light.SetActive(false);
                 break;
             case EnviromentType.Garage:
                 LightmapSettings.lightmaps = lightmapDatagarge;
@@ -371,6 +433,7 @@ public class LightingManager : MonoBehaviour
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipGerag;
                 audioSource.Play();
+                birdveiw_light.SetActive(false);
                 break;
 
             case EnviromentType.Bar:
@@ -379,6 +442,7 @@ public class LightingManager : MonoBehaviour
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipbar;
                 audioSource.Play();
+                birdveiw_light.SetActive(false);
                 break;
             case EnviromentType.CountrySide:
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
@@ -386,6 +450,7 @@ public class LightingManager : MonoBehaviour
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipCS;
                 audioSource.Play();
+                birdveiw_light.SetActive(false);
                 break;
             case EnviromentType.Train:
                 LightmapSettings.lightmaps = lightmapDatatrain;
@@ -393,12 +458,14 @@ public class LightingManager : MonoBehaviour
                 soundManager.SetActive(false);
                 audioSource.clip = audioClipTrain;
                 audioSource.Play();
+                birdveiw_light.SetActive(false);
                 break;
             case EnviromentType.BirdView:
                 audioSource.Stop();
                 soundManager.SetActive(true);
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
+                birdveiw_light.SetActive(true);
                 break;
 
 
