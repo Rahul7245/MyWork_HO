@@ -177,12 +177,12 @@ public class LightingManager : MonoBehaviour
    
 
 
-    private LightmapData[] lightmapDatagarge = new LightmapData[10];
-    private LightmapData[] lightmapDatabar = new LightmapData[10];
-    private LightmapData[] lightmapDatacountry_side = new LightmapData[10];
-    private LightmapData[] lightmapDatatrain = new LightmapData[10];
-    private LightmapData[] lightmapDataship = new LightmapData[10];
-    private LightmapData[] lightmapDatabirdview = new LightmapData[10];
+    private LightmapData[] lightmapDatagarge = new LightmapData[12];
+    private LightmapData[] lightmapDatabar = new LightmapData[12];
+    private LightmapData[] lightmapDatacountry_side = new LightmapData[12];
+    private LightmapData[] lightmapDatatrain = new LightmapData[12];
+    private LightmapData[] lightmapDataship = new LightmapData[12];
+    private LightmapData[] lightmapDatabirdview = new LightmapData[12];
     // Start is called before the first frame update
     void Start()
     {
