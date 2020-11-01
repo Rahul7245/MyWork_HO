@@ -11,6 +11,8 @@ public class IntroCanvasHandler : MonoBehaviour
     #region Private Variables 
 
     [SerializeField]
+    private RenderTexture rt;
+    [SerializeField]
     private VideoPlayer startVideo;
     [SerializeField]
     private float videoDelay = 1;
@@ -25,6 +27,8 @@ public class IntroCanvasHandler : MonoBehaviour
 
     private void Awake()
     {
+        rt.DiscardContents();
+        rt.Release();
         m_progressBar.onValueChanged.AddListener((value) =>
         {
             if (value == 1)
@@ -33,6 +37,11 @@ public class IntroCanvasHandler : MonoBehaviour
                 startVideo.Stop();
             }
         });
+    }
+    private void OnDisable()
+    {
+        rt.DiscardContents();
+        rt.Release();
     }
 
     public void StartLoadingBar () 
