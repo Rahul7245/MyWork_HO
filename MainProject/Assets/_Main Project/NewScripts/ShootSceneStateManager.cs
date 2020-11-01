@@ -173,7 +173,7 @@ public class ShootSceneStateManager : MonoBehaviour
             SceneManager.GetComponent<Timer>().stopTimer();
             if (player.playerType == PlayerType.Computer)
             {
-                int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray());
+                int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray(), player.PlayerScore);
                 PlayerPrefs.SetInt("Score", computerScore);
             }
 

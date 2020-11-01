@@ -27,7 +27,7 @@ public class ShootingBot
     /// </summary>
     /// <param name="botLevel">levelOfBot</param>
     /// <returns></returns>
-    private static int BotShoot(BotLevel botLevel)
+    private static int BotShoot(BotLevel botLevel, int botScore)
     {
         int x = 0;
         switch (botLevel)
@@ -36,9 +36,20 @@ public class ShootingBot
                 x = Random.Range(easyBotLowerThreshold, easyBotUpperThreshold);
                 break;
             case BotLevel.Medium:
-                x = Random.Range(mediumBotLowerThreshold, mediumBotUpperThreshold);
+                if(botScore > 17)
+                {
+                    x = Random.Range(1, mediumBotUpperThreshold);
+                }
+                else
+                {
+                    x = Random.Range(mediumBotLowerThreshold, mediumBotUpperThreshold);
+                }
                 break;
             case BotLevel.Hard:
+                if (botScore > 15)
+                {
+                    x = Random.Range((21- botScore)-1 , (21 - botScore));
+                }
                 x = Random.Range(hardBotLowerThreshold, hardBotUpperThreshold);
                 break;
         }
@@ -126,8 +137,8 @@ public class ShootingBot
     /// </summary>
     /// <param name="points"></param>
     /// <returns></returns>
-    public static int BotPlay(int[] points)
+    public static int BotPlay(int[] points, int botScore)
     {
-        return BotShoot(DecideBotLevel(points));
+        return BotShoot(DecideBotLevel(points), botScore);
     }
 }
