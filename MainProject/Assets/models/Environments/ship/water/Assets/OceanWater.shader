@@ -81,7 +81,7 @@
           float4 d = tex2Dlod( _MainTex, float4( worldPos.x*0.08 + _Time.x, worldPos.z * 0.08, 0,0 ));
           float4 d2 = tex2Dlod( _MainTex, float4( worldPos.x*.12, worldPos.z*0.12 + _Time.x, 0,0 ));
 
-          v.vertex.z += (d + d2) * 0.5; 
+          v.vertex.z += (d + d2) * 0.7; 
 
           float3 nmp = UnpackNormal( tex2Dlod( _BumpMap, float4( worldPos.x*0.08 + _Time.x, worldPos.z * 0.08, 0,0 )) );
           float3 nmp2 = UnpackNormal( tex2Dlod( _BumpMap, float4( worldPos.x*.12, worldPos.z*0.12 + _Time.x, 0,0 )));
@@ -89,7 +89,7 @@
           float3 r = combineNormalMaps( nmp, nmp2 );
           v.normal = r;
          
-          o.worldUV = float2( worldPos.x, worldPos.z )/2;
+          o.worldUV = float2( worldPos.x, worldPos.z )/16;
           o.Height = clamp( pow( v.vertex.z, 3 ) - 0.4, 0, 1 );
       }
                 
