@@ -174,15 +174,40 @@ public class LightingManager : MonoBehaviour
     public Material ship;
     public Material birdview;
     public GameObject birdveiw_light;
-   
+    public GameObject birdveiw_Env;
+    public GameObject garge_Env;
+    public GameObject bar_Env;
+    public GameObject country_side_Env;
+    public GameObject train_Env;
+    public GameObject ship_Env;
 
 
+
+    private Dictionary<EnviromentType, GameObject> enviromentDic = new Dictionary<EnviromentType, GameObject>();
     private LightmapData[] lightmapDatagarge = new LightmapData[12];
     private LightmapData[] lightmapDatabar = new LightmapData[12];
     private LightmapData[] lightmapDatacountry_side = new LightmapData[12];
     private LightmapData[] lightmapDatatrain = new LightmapData[12];
     private LightmapData[] lightmapDataship = new LightmapData[12];
     private LightmapData[] lightmapDatabirdview = new LightmapData[12];
+
+    private void Awake()
+    {
+        enviromentDic.Add(EnviromentType.Bar, bar_Env);
+        enviromentDic.Add(EnviromentType.BirdView, birdveiw_Env);
+        enviromentDic.Add(EnviromentType.CountrySide, country_side_Env);
+        enviromentDic.Add(EnviromentType.Garage, garge_Env);
+        enviromentDic.Add(EnviromentType.Train, train_Env);
+        enviromentDic.Add(EnviromentType.Ship, ship_Env);
+        foreach (var item in enviromentDic)
+        {
+            if (item.Value != null)
+            {
+                item.Value.SetActive(false);
+            }
+        }
+        enviromentDic[EnviromentType.BirdView]?.SetActive(true);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -416,7 +441,7 @@ public class LightingManager : MonoBehaviour
     // Update is called once per frame
     public void ChangeLightingData(EnviromentType enviromentType)
     {
-       
+
         switch (enviromentType)
         {
             case EnviromentType.Ship:
@@ -426,6 +451,14 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipShip;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.Ship]?.SetActive(true);
                 break;
             case EnviromentType.Garage:
                 LightmapSettings.lightmaps = lightmapDatagarge;
@@ -434,6 +467,14 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipGerag;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.Garage]?.SetActive(true);
                 break;
 
             case EnviromentType.Bar:
@@ -443,6 +484,14 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipbar;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.Bar]?.SetActive(true);
                 break;
             case EnviromentType.CountrySide:
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
@@ -451,6 +500,14 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipCS;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.CountrySide]?.SetActive(true);
                 break;
             case EnviromentType.Train:
                 LightmapSettings.lightmaps = lightmapDatatrain;
@@ -459,6 +516,14 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipTrain;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.Train]?.SetActive(true);
                 break;
             case EnviromentType.BirdView:
                 audioSource.Stop();
@@ -466,6 +531,14 @@ public class LightingManager : MonoBehaviour
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
                 birdveiw_light.SetActive(true);
+                foreach (var item in enviromentDic)
+                {
+                    if (item.Value != null)
+                    {
+                        item.Value.SetActive(false);
+                    }
+                }
+                enviromentDic[EnviromentType.BirdView]?.SetActive(true);
                 break;
 
 
