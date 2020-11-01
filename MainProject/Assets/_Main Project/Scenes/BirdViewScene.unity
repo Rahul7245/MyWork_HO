@@ -67586,7 +67586,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 200
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -67701,7 +67701,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 200
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -87351,6 +87351,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: SENSITIVITY
       objectReference: {fileID: 0}
+    - target: {fileID: 6941092736666599261, guid: 4d0e03532357ed046b50fc26e19000ce,
+        type: 3}
+      propertyPath: far clip plane
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6941092736756970773, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: managerHandler
@@ -87570,6 +87575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357828755216725560, guid: 4d0e03532357ed046b50fc26e19000ce,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 480.72003
       objectReference: {fileID: 0}
     - target: {fileID: 8357828755718919128, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -91935,6 +91945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ParticleSystemLeaf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887475163635433872, guid: d0a460c791b1c284a91b43897390e3af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592484660140095092, guid: d0a460c791b1c284a91b43897390e3af,
         type: 3}

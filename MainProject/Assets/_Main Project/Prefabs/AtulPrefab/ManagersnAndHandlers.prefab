@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87ddee10aa016140bc40351959ec87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SubStateDelay: 0
   managerHandler: {fileID: 4357243929486401437}
   appStates:
   - {fileID: 0}
@@ -113,6 +114,7 @@ MonoBehaviour:
   HomeButton: {fileID: 0}
   HomeButtonSetting: {fileID: 0}
   HomeButtonCharater: {fileID: 0}
+  ScopeCanvas: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,32 +139,153 @@ MonoBehaviour:
   aagarge: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
   agarge1: {fileID: 0}
   aagarge1: {fileID: 0}
+  agarge2: {fileID: 0}
+  aagarge2: {fileID: 0}
+  agarge3: {fileID: 0}
+  aagarge3: {fileID: 0}
+  agarge4: {fileID: 0}
+  aagarge4: {fileID: 0}
+  agarge5: {fileID: 0}
+  aagarge5: {fileID: 0}
+  agarge6: {fileID: 0}
+  aagarge6: {fileID: 0}
+  agarge7: {fileID: 0}
+  aagarge7: {fileID: 0}
+  agarge8: {fileID: 0}
+  aagarge8: {fileID: 0}
+  agarge9: {fileID: 0}
+  aagarge9: {fileID: 0}
+  agarge10: {fileID: 0}
+  aagarge10: {fileID: 0}
+  agarge11: {fileID: 0}
+  aagarge11: {fileID: 0}
   abar: {fileID: 2800000, guid: 805d35ff570d1fb44bd875a79b4f36b4, type: 3}
   aabar: {fileID: 2800000, guid: d258eae89cd31c24fac6d550c631cea4, type: 3}
   abar1: {fileID: 0}
   aabar1: {fileID: 0}
+  abar2: {fileID: 0}
+  aabar2: {fileID: 0}
+  abar3: {fileID: 0}
+  aabar3: {fileID: 0}
+  abar4: {fileID: 0}
+  aabar4: {fileID: 0}
+  abar5: {fileID: 0}
+  aabar5: {fileID: 0}
+  abar6: {fileID: 0}
+  aabar6: {fileID: 0}
+  abar7: {fileID: 0}
+  aabar7: {fileID: 0}
+  abar8: {fileID: 0}
+  aabar8: {fileID: 0}
+  abar9: {fileID: 0}
+  aabar9: {fileID: 0}
+  abar10: {fileID: 0}
+  aabar10: {fileID: 0}
+  abar11: {fileID: 0}
+  aabar11: {fileID: 0}
   acountry_side: {fileID: 2800000, guid: b10a7e2fe0d0afc4a99463e6c55ac23a, type: 3}
   aacountry_side: {fileID: 2800000, guid: 4bd5abd857976a24c893a12ed90d0d70, type: 3}
   acountry_side1: {fileID: 0}
   aacountry_side1: {fileID: 0}
+  acountry_side2: {fileID: 0}
+  aacountry_side2: {fileID: 0}
+  acountry_side3: {fileID: 0}
+  aacountry_side3: {fileID: 0}
+  acountry_side4: {fileID: 0}
+  aacountry_side4: {fileID: 0}
+  acountry_side5: {fileID: 0}
+  aacountry_side5: {fileID: 0}
+  acountry_side6: {fileID: 0}
+  aacountry_side6: {fileID: 0}
+  acountry_side7: {fileID: 0}
+  aacountry_side7: {fileID: 0}
+  acountry_side8: {fileID: 0}
+  aacountry_side8: {fileID: 0}
+  acountry_side9: {fileID: 0}
+  aacountry_side9: {fileID: 0}
+  acountry_side10: {fileID: 0}
+  aacountry_side10: {fileID: 0}
+  acountry_side11: {fileID: 0}
+  aacountry_side11: {fileID: 0}
   atrain: {fileID: 2800000, guid: f104a9fb0f8d1fe439a24197ae33ed6e, type: 3}
   aatrain: {fileID: 2800000, guid: 363fe917bc36eea4284f205eccdd15f9, type: 3}
   atrain1: {fileID: 0}
   aatrain1: {fileID: 0}
+  atrain2: {fileID: 0}
+  aatrain2: {fileID: 0}
+  atrain3: {fileID: 0}
+  aatrain3: {fileID: 0}
+  atrain4: {fileID: 0}
+  aatrain4: {fileID: 0}
+  atrain5: {fileID: 0}
+  aatrain5: {fileID: 0}
+  atrain6: {fileID: 0}
+  aatrain6: {fileID: 0}
+  atrain7: {fileID: 0}
+  aatrain7: {fileID: 0}
+  atrain8: {fileID: 0}
+  aatrain8: {fileID: 0}
+  atrain9: {fileID: 0}
+  aatrain9: {fileID: 0}
+  atrain10: {fileID: 0}
+  aatrain10: {fileID: 0}
+  atrain11: {fileID: 0}
+  aatrain11: {fileID: 0}
   aship: {fileID: 2800000, guid: 9183eca97432f74499d3c6d9d2fdaf2b, type: 3}
   aaship: {fileID: 2800000, guid: 20d8fe092867d954580bbda1f22003c0, type: 3}
   aship1: {fileID: 0}
   aaship1: {fileID: 0}
+  aship2: {fileID: 0}
+  aaship2: {fileID: 0}
+  aship3: {fileID: 0}
+  aaship3: {fileID: 0}
+  aship4: {fileID: 0}
+  aaship4: {fileID: 0}
+  aship5: {fileID: 0}
+  aaship5: {fileID: 0}
+  aship6: {fileID: 0}
+  aaship6: {fileID: 0}
+  aship7: {fileID: 0}
+  aaship7: {fileID: 0}
+  aship8: {fileID: 0}
+  aaship8: {fileID: 0}
+  aship9: {fileID: 0}
+  aaship9: {fileID: 0}
+  aship10: {fileID: 0}
+  aaship10: {fileID: 0}
+  aship11: {fileID: 0}
+  aaship11: {fileID: 0}
   abirdview: {fileID: 2800000, guid: d1a19e7d1f9382746a9529fd6c9f38f4, type: 3}
   aaabirdview: {fileID: 2800000, guid: c4a1b4229218772499521c433c6acaab, type: 3}
   abirdview1: {fileID: 0}
   aaabirdview1: {fileID: 0}
+  abirdview2: {fileID: 0}
+  aaabirdview2: {fileID: 0}
+  abirdview3: {fileID: 0}
+  aaabirdview3: {fileID: 0}
+  abirdview4: {fileID: 0}
+  aaabirdview4: {fileID: 0}
+  abirdview5: {fileID: 0}
+  aaabirdview5: {fileID: 0}
+  abirdview6: {fileID: 0}
+  aaabirdview6: {fileID: 0}
+  abirdview7: {fileID: 0}
+  aaabirdview7: {fileID: 0}
+  abirdview8: {fileID: 0}
+  aaabirdview8: {fileID: 0}
+  abirdview9: {fileID: 0}
+  aaabirdview9: {fileID: 0}
+  abirdview10: {fileID: 0}
+  aaabirdview10: {fileID: 0}
+  abirdview11: {fileID: 0}
+  aaabirdview11: {fileID: 0}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}
   train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
   ship: {fileID: 2100000, guid: e9affea1465dacb4f861372f18aae88e, type: 2}
   birdview: {fileID: 2100000, guid: 2704110f43ebe9640af96558d3245ee0, type: 2}
+  birdveiw_light: {fileID: 0}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0

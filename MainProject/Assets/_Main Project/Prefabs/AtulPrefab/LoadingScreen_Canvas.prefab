@@ -185,7 +185,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 0
@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf7cb7f844a1574dafac729c0e918ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnterTransition: 0
+  showExitTransition: 0
   appState: 1
   appSubStates: []
   currentCanvasGrup: {fileID: 6224546363388796281}
