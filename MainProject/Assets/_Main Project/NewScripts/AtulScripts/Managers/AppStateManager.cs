@@ -38,6 +38,7 @@ public class AppStateManager : MonoBehaviour
 
     void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         if (instance != null)
         {
             Destroy(this);
