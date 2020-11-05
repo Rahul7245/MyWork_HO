@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: 2567804384652608431
     second: Gun_Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 3b30edafdd4b6b54eb8f7bc8160f6e7d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
