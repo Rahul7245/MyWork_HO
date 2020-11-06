@@ -50,8 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9908eadae592c14692ffcd395f47950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rt: {fileID: 8400000, guid: 96ab1e7585556b146b3ccd7874dd728f, type: 2}
-  startVideo: {fileID: 0}
   videoDelay: 0
   m_progressBar: {fileID: 0}
   m_barFillDuration: 5.5
@@ -85,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87ddee10aa016140bc40351959ec87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SubStateDelay: 0
+  SubStateDelay: 2
   managerHandler: {fileID: 4357243929486401437}
   appStates:
   - {fileID: 0}
@@ -115,6 +113,8 @@ MonoBehaviour:
   HomeButton: {fileID: 0}
   HomeButtonSetting: {fileID: 0}
   HomeButtonCharater: {fileID: 0}
+  videoTexture: {fileID: 8400000, guid: 96ab1e7585556b146b3ccd7874dd728f, type: 2}
+  startVideo: {fileID: 0}
   ScopeCanvas: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
@@ -160,6 +160,8 @@ MonoBehaviour:
   aagarge10: {fileID: 2800000, guid: 3e1b6e09621f35741b42bc24c58a8ccb, type: 3}
   agarge11: {fileID: 2800000, guid: 33ac09e10bfeb074abc3466aa8bdde84, type: 3}
   aagarge11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
+  agarge12: {fileID: 0}
+  aagarge12: {fileID: 0}
   abar: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
   aabar: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
   abar1: {fileID: 2800000, guid: 8c6568b412e1ac847829fd5bfedc6c56, type: 3}
@@ -184,6 +186,8 @@ MonoBehaviour:
   aabar10: {fileID: 2800000, guid: 3e1b6e09621f35741b42bc24c58a8ccb, type: 3}
   abar11: {fileID: 2800000, guid: 33ac09e10bfeb074abc3466aa8bdde84, type: 3}
   aabar11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
+  abar12: {fileID: 0}
+  aabar12: {fileID: 0}
   acountry_side: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aacountry_side: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   acountry_side1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -208,6 +212,8 @@ MonoBehaviour:
   aacountry_side10: {fileID: 2800000, guid: 9314c701f7fc1a544b4f57d2e4be43c3, type: 3}
   acountry_side11: {fileID: 2800000, guid: 91a76efeccacd9e4bb33e0cb8d792f62, type: 3}
   aacountry_side11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
+  acountry_side12: {fileID: 0}
+  aacountry_side12: {fileID: 0}
   atrain: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aatrain: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   atrain1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -232,6 +238,8 @@ MonoBehaviour:
   aatrain10: {fileID: 2800000, guid: 9314c701f7fc1a544b4f57d2e4be43c3, type: 3}
   atrain11: {fileID: 2800000, guid: 91a76efeccacd9e4bb33e0cb8d792f62, type: 3}
   aatrain11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
+  atrain12: {fileID: 0}
+  aatrain12: {fileID: 0}
   aship: {fileID: 2800000, guid: 58a3a964844eaf644b2771e864111a18, type: 3}
   aaship: {fileID: 2800000, guid: 30876d887ab11fb4bb344152d69960a4, type: 3}
   aship1: {fileID: 2800000, guid: c32490c0209157649abe0c4cbafc4a91, type: 3}
@@ -256,6 +264,8 @@ MonoBehaviour:
   aaship10: {fileID: 2800000, guid: cb62483c98e365447bd624a72333ea45, type: 3}
   aship11: {fileID: 2800000, guid: 00380e8e8ca918049acfb851a489ae0d, type: 3}
   aaship11: {fileID: 2800000, guid: 9c3d41964076900488fd8039c15f4196, type: 3}
+  aship12: {fileID: 0}
+  aaship12: {fileID: 0}
   abirdview: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aaabirdview: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   abirdview1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -280,6 +290,8 @@ MonoBehaviour:
   aaabirdview10: {fileID: 2800000, guid: 9314c701f7fc1a544b4f57d2e4be43c3, type: 3}
   abirdview11: {fileID: 2800000, guid: 91a76efeccacd9e4bb33e0cb8d792f62, type: 3}
   aaabirdview11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
+  abirdview12: {fileID: 0}
+  aaabirdview12: {fileID: 0}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}

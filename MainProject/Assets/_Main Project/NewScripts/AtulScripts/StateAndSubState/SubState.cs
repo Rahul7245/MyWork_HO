@@ -21,6 +21,8 @@ public enum AppSubState
 public abstract class SubState : MonoBehaviour
 {
     [SerializeField]
+    private float delayBetweenFade = 1.5f;
+    [SerializeField]
     private bool showEnterTransition = false;
     [SerializeField]
     private bool showExitTransition = false;
@@ -81,22 +83,27 @@ public abstract class SubState : MonoBehaviour
 
     private IEnumerator SubStateExitTransitionEffect()
     {
-        subStateTranistionCanvasGrup.alpha = 1;
+        managerHandler.uIInputHandlerManager.videoTexture.DiscardContents();
+        managerHandler.uIInputHandlerManager.videoTexture.Release();
+        subStateTranistionCanvasGrup.alpha = 0;
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
-        player.targetCameraAlpha = 0;
-        while(player.targetCameraAlpha < 1)
+        //player.targetCameraAlpha = 0;
+        while(subStateTranistionCanvasGrup.alpha < 1)
         {
             yield return null;
-            player.targetCameraAlpha += Time.fixedDeltaTime;
+            subStateTranistionCanvasGrup.alpha += Time.fixedDeltaTime;
         }
-        yield return new WaitForSecondsRealtime(1.5f);
-        while (player.targetCameraAlpha > 0)
+        yield return new WaitForSecondsRealtime(delayBetweenFade);
+        while (subStateTranistionCanvasGrup.alpha > 0)
         {
             yield return null;
-            player.targetCameraAlpha -= Time.fixedDeltaTime;
+            subStateTranistionCanvasGrup.alpha -= Time.fixedDeltaTime;
         }
+        subStateTranistionCanvasGrup.alpha = 0;
         subStateTranistionCanvasGrup.gameObject.SetActive(false);
         currentCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(false);
+        managerHandler.uIInputHandlerManager.videoTexture.DiscardContents();
+        managerHandler.uIInputHandlerManager.videoTexture.Release();
     }
 }

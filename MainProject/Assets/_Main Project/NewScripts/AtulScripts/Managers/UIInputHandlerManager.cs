@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UIInputHandlerManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button HomeButton;
     public Button HomeButtonSetting;
     public Button HomeButtonCharater;
+    public RenderTexture videoTexture;
+    public VideoPlayer startVideo;
     /// <summary>
     ///  Game object6s 
     /// </summary>
