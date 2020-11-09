@@ -40,6 +40,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public List<GameObject> CharacterImages;
     public List<GameObject> CharacterModels;
 
+    [Header("List of character prefabs in shooting screen")]
+    public List<GameObject> charactersPrefabsList;
 
     private void Awake()
     {

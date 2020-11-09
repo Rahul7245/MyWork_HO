@@ -6,15 +6,14 @@ using UnityEngine.Events;
 
 public class BirdViewSceneScript : MonoBehaviour
 {
-    TrackSpawner trackSpawner;
+    GameInitManager trackSpawner;
     public GameObject readyPlayerPopUp;
     ResetWeapon resetWeapon = new ResetWeapon();
 
     // Start is called before the first frame update
     private void Awake()
     {
-        
-       trackSpawner= gameObject.GetComponent<TrackSpawner>();
+       trackSpawner= gameObject.GetComponent<GameInitManager>();
     }
     void Start()
     {

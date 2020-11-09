@@ -22,7 +22,7 @@ public class ShootSceneStateManager : MonoBehaviour
     private ManagerHandler managerHandler;
     public TextMeshProUGUI displayMsg;
     public GameObject SceneManager;
-    public TrackSpawner trackSpawner;
+    public GameInitManager trackSpawner;
     public static ShootSceneStateManager Instance { get; protected set; }
     private bool m_readyFornextTurn;
     private ShootState m_currentState;

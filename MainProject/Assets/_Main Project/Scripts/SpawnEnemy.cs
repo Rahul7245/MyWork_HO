@@ -14,7 +14,7 @@ public class SpawnEnemy : MonoBehaviour
     /// <summary>
     /// Instance of track spawner
     /// </summary>
-    public TrackSpawner trackSpawner;
+    public GameInitManager trackSpawner;
 
     /// <summary>
     /// Instance of ImpactMAnager
@@ -84,7 +84,7 @@ public class SpawnEnemy : MonoBehaviour
     private void Awake()
     {
         SpawnPositions = GameObject.FindGameObjectWithTag("SpawnPos");
-        trackSpawner = GameObject.FindObjectOfType<TrackSpawner>();
+        trackSpawner = GameObject.FindObjectOfType<GameInitManager>();
     }
 
     private void Start()

@@ -22,8 +22,10 @@ public class Hurdle
     public int pos, power;
 }
 
-public class TrackSpawner : MonoBehaviour
+public class GameInitManager : MonoBehaviour
 {
+    [SerializeField]
+    private ManagerHandler managerHandler;
     // type of game user is playing
     // for first milstone its VSComputer fixed
     public GameType gameType = GameType.VSComputer;

@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoDelay: 0
-  m_progressBar: {fileID: 0}
   m_barFillDuration: 5.5
   managerHandler: {fileID: 4357243929486401437}
 --- !u!114 &4357243929486401437
@@ -109,6 +108,7 @@ MonoBehaviour:
   videoTexture: {fileID: 8400000, guid: 96ab1e7585556b146b3ccd7874dd728f, type: 2}
   startVideo: {fileID: 0}
   ScopeCanvas: {fileID: 0}
+  m_progressBar: {fileID: 0}
   LoginButton: {fileID: 0}
   playWithCompButton: {fileID: 0}
   OpenSettingButton: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  charactersPrefabsList: []
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,11 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c492dae2ab1c6684f89a22397b0a90e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introCanvasHandler: {fileID: 0}
-  appStateManager: {fileID: 0}
-  uIInputHandlerManager: {fileID: 0}
+  introCanvasHandler: {fileID: 4357243929486401435}
+  appStateManager: {fileID: 4357243929486401438}
+  uIInputHandlerManager: {fileID: 4357243929486401439}
   shootSceneStateManager: {fileID: 0}
-  lightingManager: {fileID: 0}
+  lightingManager: {fileID: 5651299337745803641}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0
