@@ -49,6 +49,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aagarge11;
     public Texture2D agarge12;
     public Texture2D aagarge12;
+    public Texture2D agarge13;
+    public Texture2D aagarge13;
+    public Texture2D agarge14;
+    public Texture2D aagarge14;
+    public Texture2D agarge15;
+    public Texture2D aagarge15;
+    public Texture2D agarge16;
+    public Texture2D aagarge16;
+    public Texture2D agarge17;
+    public Texture2D aagarge17;
     public Texture2D abar;
     public Texture2D aabar;
     public Texture2D abar1;
@@ -75,6 +85,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aabar11;
     public Texture2D abar12;
     public Texture2D aabar12;
+    public Texture2D abar13;
+    public Texture2D aabar13;
+    public Texture2D abar14;
+    public Texture2D aabar14;
+    public Texture2D abar15;
+    public Texture2D aabar15;
+    public Texture2D abar16;
+    public Texture2D aabar16;
+    public Texture2D abar17;
+    public Texture2D aabar17;
     public Texture2D acountry_side;
     public Texture2D aacountry_side;
     public Texture2D acountry_side1;
@@ -101,6 +121,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aacountry_side11;
     public Texture2D acountry_side12;
     public Texture2D aacountry_side12;
+    public Texture2D acountry_side13;
+    public Texture2D aacountry_side13;
+    public Texture2D acountry_side14;
+    public Texture2D aacountry_side14;
+    public Texture2D acountry_side15;
+    public Texture2D aacountry_side15;
+    public Texture2D acountry_side16;
+    public Texture2D aacountry_side16;
+    public Texture2D acountry_side17;
+    public Texture2D aacountry_side17;
     public Texture2D atrain;
     public Texture2D aatrain;
     public Texture2D atrain1;
@@ -127,6 +157,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aatrain11;
     public Texture2D atrain12;
     public Texture2D aatrain12;
+    public Texture2D atrain13;
+    public Texture2D aatrain13;
+    public Texture2D atrain14;
+    public Texture2D aatrain14;
+    public Texture2D atrain15;
+    public Texture2D aatrain15;
+    public Texture2D atrain16;
+    public Texture2D aatrain16;
+    public Texture2D atrain17;
+    public Texture2D aatrain17;
     public Texture2D aship;
     public Texture2D aaship;
     public Texture2D aship1;
@@ -153,6 +193,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aaship11;
     public Texture2D aship12;
     public Texture2D aaship12;
+    public Texture2D aship13;
+    public Texture2D aaship13;
+    public Texture2D aship14;
+    public Texture2D aaship14;
+    public Texture2D aship15;
+    public Texture2D aaship15;
+    public Texture2D aship16;
+    public Texture2D aaship16;
+    public Texture2D aship17;
+    public Texture2D aaship17;
     public Texture2D abirdview;
     public Texture2D aaabirdview;
     public Texture2D abirdview1;
@@ -179,6 +229,16 @@ public class LightingManager : MonoBehaviour
     public Texture2D aaabirdview11;
     public Texture2D abirdview12;
     public Texture2D aaabirdview12;
+    public Texture2D abirdview13;
+    public Texture2D aaabirdview13;
+    public Texture2D abirdview14;
+    public Texture2D aaabirdview14;
+    public Texture2D abirdview15;
+    public Texture2D aaabirdview15;
+    public Texture2D abirdview16;
+    public Texture2D aaabirdview16;
+    public Texture2D abirdview17;
+    public Texture2D aaabirdview17;
     public Material garge;
     public Material bar;
     public Material country_side;
@@ -196,12 +256,12 @@ public class LightingManager : MonoBehaviour
 
 
     private Dictionary<EnviromentType, GameObject> enviromentDic = new Dictionary<EnviromentType, GameObject>();
-    private LightmapData[] lightmapDatagarge = new LightmapData[13];
-    private LightmapData[] lightmapDatabar = new LightmapData[13];
-    private LightmapData[] lightmapDatacountry_side = new LightmapData[13];
-    private LightmapData[] lightmapDatatrain = new LightmapData[13];
-    private LightmapData[] lightmapDataship = new LightmapData[13];
-    private LightmapData[] lightmapDatabirdview = new LightmapData[13];
+    private LightmapData[] lightmapDatagarge = new LightmapData[18];
+    private LightmapData[] lightmapDatabar = new LightmapData[18];
+    private LightmapData[] lightmapDatacountry_side = new LightmapData[18];
+    private LightmapData[] lightmapDatatrain = new LightmapData[18];
+    private LightmapData[] lightmapDataship = new LightmapData[18];
+    private LightmapData[] lightmapDatabirdview = new LightmapData[18];
 
     private void Awake()
     {
@@ -262,6 +322,21 @@ public class LightingManager : MonoBehaviour
         lightmapDatagarge[12] = new LightmapData();
         lightmapDatagarge[12].lightmapDir = agarge12;
         lightmapDatagarge[12].lightmapColor = aagarge12;
+        lightmapDatagarge[13] = new LightmapData();
+        lightmapDatagarge[13].lightmapDir = agarge13;
+        lightmapDatagarge[13].lightmapColor = aagarge13;
+        lightmapDatagarge[14] = new LightmapData();
+        lightmapDatagarge[14].lightmapDir = agarge14;
+        lightmapDatagarge[14].lightmapColor = aagarge14;
+        lightmapDatagarge[15] = new LightmapData();
+        lightmapDatagarge[15].lightmapDir = agarge15;
+        lightmapDatagarge[15].lightmapColor = aagarge15;
+        lightmapDatagarge[16] = new LightmapData();
+        lightmapDatagarge[16].lightmapDir = agarge16;
+        lightmapDatagarge[16].lightmapColor = aagarge16;
+        lightmapDatagarge[17] = new LightmapData();
+        lightmapDatagarge[17].lightmapDir = agarge17;
+        lightmapDatagarge[17].lightmapColor = aagarge17;
 
 
         lightmapDatabar[0] = new LightmapData();
@@ -303,6 +378,21 @@ public class LightingManager : MonoBehaviour
         lightmapDatabar[12] = new LightmapData();
         lightmapDatabar[12].lightmapDir = abar12;
         lightmapDatabar[12].lightmapColor = aabar12;
+        lightmapDatabar[13] = new LightmapData();
+        lightmapDatabar[13].lightmapDir = abar13;
+        lightmapDatabar[13].lightmapColor = aabar13;
+        lightmapDatabar[14] = new LightmapData();
+        lightmapDatabar[14].lightmapDir = abar14;
+        lightmapDatabar[14].lightmapColor = aabar14;
+        lightmapDatabar[15] = new LightmapData();
+        lightmapDatabar[15].lightmapDir = abar15;
+        lightmapDatabar[15].lightmapColor = aabar15;
+        lightmapDatabar[16] = new LightmapData();
+        lightmapDatabar[16].lightmapDir = abar16;
+        lightmapDatabar[16].lightmapColor = aabar16;
+        lightmapDatabar[17] = new LightmapData();
+        lightmapDatabar[17].lightmapDir = abar17;
+        lightmapDatabar[17].lightmapColor = aabar17;
 
         lightmapDatacountry_side[0] = new LightmapData();
         lightmapDatacountry_side[0].lightmapDir = acountry_side;
@@ -343,6 +433,21 @@ public class LightingManager : MonoBehaviour
         lightmapDatacountry_side[12] = new LightmapData();
         lightmapDatacountry_side[12].lightmapDir = acountry_side12;
         lightmapDatacountry_side[12].lightmapColor = aacountry_side12;
+        lightmapDatacountry_side[13] = new LightmapData();
+        lightmapDatacountry_side[13].lightmapDir = acountry_side13;
+        lightmapDatacountry_side[13].lightmapColor = aacountry_side13;
+        lightmapDatacountry_side[14] = new LightmapData();
+        lightmapDatacountry_side[14].lightmapDir = acountry_side14;
+        lightmapDatacountry_side[14].lightmapColor = aacountry_side14;
+        lightmapDatacountry_side[15] = new LightmapData();
+        lightmapDatacountry_side[15].lightmapDir = acountry_side15;
+        lightmapDatacountry_side[15].lightmapColor = aacountry_side15;
+        lightmapDatacountry_side[16] = new LightmapData();
+        lightmapDatacountry_side[16].lightmapDir = acountry_side16;
+        lightmapDatacountry_side[16].lightmapColor = aacountry_side16;
+        lightmapDatacountry_side[17] = new LightmapData();
+        lightmapDatacountry_side[17].lightmapDir = acountry_side17;
+        lightmapDatacountry_side[17].lightmapColor = aacountry_side17;
 
 
         lightmapDatatrain[0] = new LightmapData();
@@ -384,6 +489,21 @@ public class LightingManager : MonoBehaviour
         lightmapDatatrain[12] = new LightmapData();
         lightmapDatatrain[12].lightmapDir = atrain12;
         lightmapDatatrain[12].lightmapColor = aatrain12;
+        lightmapDatatrain[13] = new LightmapData();
+        lightmapDatatrain[13].lightmapDir = atrain13;
+        lightmapDatatrain[13].lightmapColor = aatrain13;
+        lightmapDatatrain[14] = new LightmapData();
+        lightmapDatatrain[14].lightmapDir = atrain14;
+        lightmapDatatrain[14].lightmapColor = aatrain14;
+        lightmapDatatrain[15] = new LightmapData();
+        lightmapDatatrain[15].lightmapDir = atrain15;
+        lightmapDatatrain[15].lightmapColor = aatrain15;
+        lightmapDatatrain[16] = new LightmapData();
+        lightmapDatatrain[16].lightmapDir = atrain16;
+        lightmapDatatrain[16].lightmapColor = aatrain16;
+        lightmapDatatrain[17] = new LightmapData();
+        lightmapDatatrain[17].lightmapDir = atrain17;
+        lightmapDatatrain[17].lightmapColor = aatrain17;
 
         lightmapDataship[0] = new LightmapData();
         lightmapDataship[0].lightmapDir = aship;
@@ -424,6 +544,21 @@ public class LightingManager : MonoBehaviour
         lightmapDataship[12] = new LightmapData();
         lightmapDataship[12].lightmapDir = aship12;
         lightmapDataship[12].lightmapColor = aaship12;
+        lightmapDataship[13] = new LightmapData();
+        lightmapDataship[13].lightmapDir = aship13;
+        lightmapDataship[13].lightmapColor = aaship13;
+        lightmapDataship[14] = new LightmapData();
+        lightmapDataship[14].lightmapDir = aship14;
+        lightmapDataship[14].lightmapColor = aaship14;
+        lightmapDataship[15] = new LightmapData();
+        lightmapDataship[15].lightmapDir = aship15;
+        lightmapDataship[15].lightmapColor = aaship15;
+        lightmapDataship[16] = new LightmapData();
+        lightmapDataship[16].lightmapDir = aship16;
+        lightmapDataship[16].lightmapColor = aaship16;
+        lightmapDataship[17] = new LightmapData();
+        lightmapDataship[17].lightmapDir = aship17;
+        lightmapDataship[17].lightmapColor = aaship17;
 
         lightmapDatabirdview[0] = new LightmapData();
         lightmapDatabirdview[0].lightmapDir = abirdview;
@@ -464,6 +599,21 @@ public class LightingManager : MonoBehaviour
         lightmapDatabirdview[12] = new LightmapData();
         lightmapDatabirdview[12].lightmapDir = abirdview12;
         lightmapDatabirdview[12].lightmapColor = aaabirdview12;
+        lightmapDatabirdview[13] = new LightmapData();
+        lightmapDatabirdview[13].lightmapDir = abirdview13;
+        lightmapDatabirdview[13].lightmapColor = aaabirdview13;
+        lightmapDatabirdview[14] = new LightmapData();
+        lightmapDatabirdview[14].lightmapDir = abirdview14;
+        lightmapDatabirdview[14].lightmapColor = aaabirdview14;
+        lightmapDatabirdview[15] = new LightmapData();
+        lightmapDatabirdview[15].lightmapDir = abirdview15;
+        lightmapDatabirdview[15].lightmapColor = aaabirdview15;
+        lightmapDatabirdview[16] = new LightmapData();
+        lightmapDatabirdview[16].lightmapDir = abirdview16;
+        lightmapDatabirdview[16].lightmapColor = aaabirdview16;
+        lightmapDatabirdview[17] = new LightmapData();
+        lightmapDatabirdview[17].lightmapDir = abirdview17;
+        lightmapDatabirdview[17].lightmapColor = aaabirdview17;
 
 
     }
