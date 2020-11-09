@@ -17,7 +17,6 @@ public class ShootSceneScript : MonoBehaviour
     GroupOfPoints[] pointGroup;
     public Canvas loadingSceneCanvas;
     public GameObject character;
-    public LightingManager lightingTest;
     CameraShaker ch;
     Controller con;
 

@@ -161,6 +161,8 @@ GameObject:
   - component: {fileID: 8983866435659143963}
   - component: {fileID: 7729092742949772544}
   - component: {fileID: 5234959666369420718}
+  - component: {fileID: 3945375078670095150}
+  - component: {fileID: 1498361040170460342}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -616,7 +618,441 @@ MonoBehaviour:
   - {fileID: 0}
   loadingSceneCanvas: {fileID: 0}
   character: {fileID: 0}
-  lightingTest: {fileID: 5651299337745803641}
+--- !u!114 &3945375078670095150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2553e1a1df190c941976e7b6e760e534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_environmentPoints:
+    shootPositions:
+    - {fileID: 0}
+    groupOfPoints:
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+  m_barEnvironmentPoints:
+    shootPositions:
+    - {fileID: 0}
+    groupOfPoints:
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+  m_CSEnvironmentPoints:
+    shootPositions:
+    - {fileID: 0}
+    groupOfPoints:
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+  m_trainEnvironmentPoints:
+    shootPositions:
+    - {fileID: 0}
+    groupOfPoints:
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+  m_shipEnvironmentPoints:
+    shootPositions:
+    - {fileID: 0}
+    groupOfPoints:
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+    - startPoint: {fileID: 0}
+      endPoints:
+      - {fileID: 0}
+--- !u!114 &1498361040170460342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f2c063dd0412c44abcc9d3e3c1976c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
+  totalTime: 10
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0
