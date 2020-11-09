@@ -17,12 +17,11 @@ public enum ShootState
 }
 public class ShootSceneStateManager : MonoBehaviour
 {
-    public AudioSource CountDownSound;
     [SerializeField]
     private ManagerHandler managerHandler;
+    public AudioSource CountDownSound;
     public TextMeshProUGUI displayMsg;
     public GameObject SceneManager;
-    public GameInitManager trackSpawner;
     public static ShootSceneStateManager Instance { get; protected set; }
     private bool m_readyFornextTurn;
     private ShootState m_currentState;
@@ -92,7 +91,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 PlayerPrefs.DeleteKey("Turn");
                 PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
             }
-            playerPlaying = trackSpawner.GetPlayer();
+            playerPlaying = managerHandler.gameInitManager.GetPlayer();
             player = playerPlaying?.GetComponent<Player>();
 
             birdViewSceneScript.SetCameraToCurrentPlayer();
@@ -235,7 +234,7 @@ public class ShootSceneStateManager : MonoBehaviour
 
         // check for any winner before other player start playing
         Player winner = null;
-        bool winnerResult = trackSpawner.CheckForWinner(out winner);
+        bool winnerResult = managerHandler.gameInitManager.CheckForWinner(out winner);
         if (winnerResult)
         {
             displayMsg.text = winner.playerName + " is the winner !!!";

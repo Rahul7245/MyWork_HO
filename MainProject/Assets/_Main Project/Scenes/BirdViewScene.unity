@@ -73196,11 +73196,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4357243929486401437, guid: 3543697f13f145b4babca9dae081bf01,
-        type: 3}
-      propertyPath: shootSceneStateManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4357243929486401438, guid: 3543697f13f145b4babca9dae081bf01,
         type: 3}
       propertyPath: appStates.Array.data[0]
@@ -73406,6 +73401,46 @@ PrefabInstance:
       propertyPath: startCam
       value: 
       objectReference: {fileID: 567011075}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: PointsCanvas
+      value: 
+      objectReference: {fileID: 7195910223766716281}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: m_burglar.Array.data[0]
+      value: 
+      objectReference: {fileID: 1608728437109771907}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: m_burglar.Array.data[1]
+      value: 
+      objectReference: {fileID: 1608728436383647435}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: m_burglar.Array.data[2]
+      value: 
+      objectReference: {fileID: 1608728436179934109}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: m_burglar.Array.data[3]
+      value: 
+      objectReference: {fileID: 1608728436917615148}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: m_burglar.Array.data[4]
+      value: 
+      objectReference: {fileID: 1608728435484997543}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: loadingSceneCanvas
+      value: 
+      objectReference: {fileID: 4988949829559932683}
+    - target: {fileID: 5234959666369420718, guid: 3543697f13f145b4babca9dae081bf01,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 4269500809128650954}
     - target: {fileID: 5651299337745803641, guid: 3543697f13f145b4babca9dae081bf01,
         type: 3}
       propertyPath: birdveiw_light
@@ -79513,6 +79548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae91ef1ed77bc924295219312ea3fcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 0}
   PointsCanvas: {fileID: 7195910223766716281}
   m_burglar:
   - {fileID: 1608728437109771907}
@@ -79521,7 +79557,6 @@ MonoBehaviour:
   - {fileID: 1608728436917615148}
   - {fileID: 1608728435484997543}
   loadingSceneCanvas: {fileID: 4988949829559932683}
-  gameManager: {fileID: 0}
   character: {fileID: 4269500809128650954}
   lightingTest: {fileID: 4357243929524212361}
 --- !u!4 &4988949828942907819

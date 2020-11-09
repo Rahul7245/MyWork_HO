@@ -11,10 +11,8 @@ using TMPro;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    /// <summary>
-    /// Instance of track spawner
-    /// </summary>
-    public GameInitManager trackSpawner;
+    [SerializeField]
+    private ManagerHandler managerHandler;
 
     /// <summary>
     /// Instance of ImpactMAnager
@@ -84,7 +82,6 @@ public class SpawnEnemy : MonoBehaviour
     private void Awake()
     {
         SpawnPositions = GameObject.FindGameObjectWithTag("SpawnPos");
-        trackSpawner = GameObject.FindObjectOfType<GameInitManager>();
     }
 
     private void Start()

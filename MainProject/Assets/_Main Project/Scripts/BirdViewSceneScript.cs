@@ -6,15 +6,12 @@ using UnityEngine.Events;
 
 public class BirdViewSceneScript : MonoBehaviour
 {
-    GameInitManager trackSpawner;
+    [SerializeField]
+    private ManagerHandler managerHandler;
     public GameObject readyPlayerPopUp;
     ResetWeapon resetWeapon = new ResetWeapon();
 
-    // Start is called before the first frame update
-    private void Awake()
-    {
-       trackSpawner= gameObject.GetComponent<GameInitManager>();
-    }
+    
     void Start()
     {
         EventManager.AddReloadWeaponInvoker(this);
@@ -27,18 +24,21 @@ public class BirdViewSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void GenerateTracks() {
-        trackSpawner.InstantiateTrack();
-        trackSpawner.InstantiatePlayers();
-        trackSpawner.startTour();
+    public void GenerateTracks()
+    {
+        managerHandler.gameInitManager.InstantiateTrack();
+        managerHandler.gameInitManager.InstantiatePlayers();
+        managerHandler.gameInitManager.startTour();
     }
-    public void endTour() {
+    public void endTour()
+    {
         print("wnd tour called");
-        trackSpawner.endTour();
+        managerHandler.gameInitManager.endTour();
     }
-    public void PlayerTurnTimer() {
+    public void PlayerTurnTimer()
+    {
         StartCoroutine(ResetPopUp());
 
     }
@@ -50,9 +50,10 @@ public class BirdViewSceneScript : MonoBehaviour
         readyPlayerPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "3";
         readyPlayerPopUp.SetActive(false);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.SwitchCamera);
-        
+
     }
-    public void SetReadyPopUpText(string msg, bool forceToShowPopup = false) {
+    public void SetReadyPopUpText(string msg, bool forceToShowPopup = false)
+    {
         if (forceToShowPopup)
         {
             readyPlayerPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "";
@@ -60,17 +61,19 @@ public class BirdViewSceneScript : MonoBehaviour
         }
         readyPlayerPopUp.GetComponentsInChildren<TextMeshProUGUI>()[1].text = msg;
     }
-    public void SwitchScene() {
+    public void SwitchScene()
+    {
         gameObject.GetComponent<SwitchCamera>().ShootCameraEnable(true);
         resetWeapon.Invoke();
 
     }
 
-    public void MovePlayer(int noOfSteps) {
-        trackSpawner.movePlayer(PlayerPrefs.GetInt("Turn"), noOfSteps, true);
+    public void MovePlayer(int noOfSteps)
+    {
+        managerHandler.gameInitManager.movePlayer(PlayerPrefs.GetInt("Turn"), noOfSteps, true);
     }
     public void SetCameraToCurrentPlayer()
     {
-        trackSpawner.setCameraToNormal(PlayerPrefs.GetInt("Turn"));
+        managerHandler.gameInitManager.setCameraToNormal(PlayerPrefs.GetInt("Turn"));
     }
 }

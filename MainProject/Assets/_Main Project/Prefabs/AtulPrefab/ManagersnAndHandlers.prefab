@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 6614074978765538713}
   - component: {fileID: 8983866435659143963}
   - component: {fileID: 7729092742949772544}
+  - component: {fileID: 5234959666369420718}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -215,8 +216,11 @@ MonoBehaviour:
   introCanvasHandler: {fileID: 4357243929486401435}
   appStateManager: {fileID: 4357243929486401438}
   uIInputHandlerManager: {fileID: 4357243929486401439}
-  shootSceneStateManager: {fileID: 0}
+  shootSceneStateManager: {fileID: 8485724608368768118}
   lightingManager: {fileID: 5651299337745803641}
+  gameInitManager: {fileID: 5103235208831850219}
+  spawnEnemy: {fileID: 0}
+  switchCamera: {fileID: 0}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e8d6360382534989239843c52868a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerHandler: {fileID: 0}
+  managerHandler: {fileID: 4357243929486401437}
   gameType: 0
   curve:
     serializedVersion: 2
@@ -545,11 +549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a680f8541cc129489b179c5984df1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountDownSound: {fileID: 1950171862250454166}
   managerHandler: {fileID: 4357243929486401437}
+  CountDownSound: {fileID: 1950171862250454166}
   displayMsg: {fileID: 0}
   SceneManager: {fileID: 0}
-  trackSpawner: {fileID: 5103235208831850219}
 --- !u!114 &6614074978765538713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959fc1046be1d324da226fe2dc201b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
   readyPlayerPopUp: {fileID: 0}
 --- !u!114 &8983866435659143963
 MonoBehaviour:
@@ -587,8 +591,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42be608997bda4f4d90fbfb69ee5a3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
   shootScene: {fileID: 0}
   birdViewCamera: {fileID: 0}
+--- !u!114 &5234959666369420718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae91ef1ed77bc924295219312ea3fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  PointsCanvas: {fileID: 0}
+  m_burglar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  loadingSceneCanvas: {fileID: 0}
+  character: {fileID: 0}
+  lightingTest: {fileID: 5651299337745803641}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0

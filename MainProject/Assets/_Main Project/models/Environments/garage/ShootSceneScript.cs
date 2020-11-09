@@ -9,12 +9,13 @@ using UnityEngine.SceneManagement;
 
 public class ShootSceneScript : MonoBehaviour
 {
+    [SerializeField]
+    private ManagerHandler managerHandler;
     // Start is called before the first frame update
     public GameObject PointsCanvas;
     public Burglar[] m_burglar;
     GroupOfPoints[] pointGroup;
     public Canvas loadingSceneCanvas;
-    public GameObject gameManager;
     public GameObject character;
     public LightingManager lightingTest;
     CameraShaker ch;
@@ -37,7 +38,7 @@ public class ShootSceneScript : MonoBehaviour
     int EnvironmentNum;
     void setEnvironment(EnviromentType enviromentType)
     {
-        lightingTest.ChangeLightingData(enviromentType);
+        managerHandler.lightingManager.ChangeLightingData(enviromentType);
     }
     public void InitializeScene(int en)
     {
@@ -123,8 +124,8 @@ public class ShootSceneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
-        gameManager.GetComponent<SwitchCamera>().ShootCameraEnable(false);
-        lightingTest.ChangeLightingData(EnviromentType.BirdView);
+        managerHandler.switchCamera.ShootCameraEnable(false);
+        managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
 
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
 

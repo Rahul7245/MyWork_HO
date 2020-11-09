@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwitchCamera : MonoBehaviour
 {
+    [SerializeField]
+    private ManagerHandler managerHandler;
     public GameObject shootScene;
     public GameObject birdViewCamera;
     private void Start()
