@@ -223,6 +223,9 @@ MonoBehaviour:
   gameInitManager: {fileID: 5103235208831850219}
   spawnEnemy: {fileID: 0}
   switchCamera: {fileID: 7729092742949772544}
+  shootSceneScript: {fileID: 5234959666369420718}
+  timer: {fileID: 1498361040170460342}
+  birdViewSceneScript: {fileID: 6614074978765538713}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +557,6 @@ MonoBehaviour:
   managerHandler: {fileID: 4357243929486401437}
   CountDownSound: {fileID: 1950171862250454166}
   displayMsg: {fileID: 0}
-  SceneManager: {fileID: 0}
 --- !u!114 &6614074978765538713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f2c063dd0412c44abcc9d3e3c1976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
   timerText: {fileID: 0}
   totalTime: 10
 --- !u!1 &6085688196497485973

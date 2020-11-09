@@ -11,7 +11,6 @@ public class ManagerHandler : MonoBehaviour
     public ShootSceneStateManager shootSceneStateManager;
     public LightingManager lightingManager;
     public GameInitManager gameInitManager;
-    public SpawnEnemy spawnEnemy;
     public SwitchCamera switchCamera;
     public ShootSceneScript shootSceneScript;
     public Timer timer;
