@@ -18,11 +18,12 @@ public class Burglar : MonoBehaviour
        
         anim = GetComponent<Animator>();
         navAgent.updatePosition = true;
-        
+        navAgent.updateRotation = true;
+
     }
     private void Start()
     {
-        navAgent.updateRotation = true;
+       
     }
     // Update is called once per frame
     void Update()
@@ -44,10 +45,10 @@ public class Burglar : MonoBehaviour
     IEnumerator StopRunning()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => navAgent.remainingDistance <= 0.1f|| navAgent.isStopped);
-        navAgent.destination = startPoint.position;
-        //  navAgent.isStopped = true;
-        //  anim.SetTrigger("ShootPosition");
+        yield return new WaitUntil(() => navAgent.remainingDistance <= 2f|| navAgent.isStopped);
+      //  navAgent.destination = startPoint.position;
+          navAgent.isStopped = true;
+          anim.SetTrigger("Crouch");
     }
     public void DieAnimation() {
         navAgent.isStopped = true;
