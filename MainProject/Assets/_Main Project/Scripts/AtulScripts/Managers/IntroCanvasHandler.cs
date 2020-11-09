@@ -12,8 +12,6 @@ public class IntroCanvasHandler : MonoBehaviour
 
     [SerializeField]
     private float videoDelay = 1;
-    [SerializeField]
-	private Slider m_progressBar;
 	[SerializeField]
 	private float m_barFillDuration = 4;
     [SerializeField]
@@ -25,7 +23,7 @@ public class IntroCanvasHandler : MonoBehaviour
     {
         managerHandler.uIInputHandlerManager.videoTexture.DiscardContents();
         managerHandler.uIInputHandlerManager.videoTexture.Release();
-        m_progressBar.onValueChanged.AddListener((value) =>
+        managerHandler.uIInputHandlerManager.m_progressBar.onValueChanged.AddListener((value) =>
         {
             if (value == 1)
             {
@@ -42,8 +40,8 @@ public class IntroCanvasHandler : MonoBehaviour
 
     public void StartLoadingBar () 
 	{
-		m_progressBar.value = 0;
-		m_progressBar.DOValue(1, m_barFillDuration);
+        managerHandler.uIInputHandlerManager.m_progressBar.value = 0;
+        managerHandler.uIInputHandlerManager.m_progressBar.DOValue(1, m_barFillDuration);
         managerHandler.uIInputHandlerManager.startVideo.Stop();
         StartCoroutine(VideoStart(videoDelay));
 	}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4357243929486401438}
   - component: {fileID: 4357243929486401439}
   - component: {fileID: 5651299337745803641}
+  - component: {fileID: 8292962588080183464}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -105,17 +106,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
-  LoginButton: {fileID: 0}
-  playWithCompButton: {fileID: 0}
-  StartGameButton: {fileID: 0}
-  OpenSettingButton: {fileID: 0}
-  OpenCharaSelectionButton: {fileID: 0}
-  HomeButton: {fileID: 0}
-  HomeButtonSetting: {fileID: 0}
-  HomeButtonCharater: {fileID: 0}
   videoTexture: {fileID: 8400000, guid: 96ab1e7585556b146b3ccd7874dd728f, type: 2}
   startVideo: {fileID: 0}
   ScopeCanvas: {fileID: 0}
+  LoginButton: {fileID: 0}
+  playWithCompButton: {fileID: 0}
+  OpenSettingButton: {fileID: 0}
+  OpenCharaSelectionButton: {fileID: 0}
+  StartGameButton: {fileID: 0}
+  HomeButton: {fileID: 0}
+  HomeButtonSetting: {fileID: 0}
+  characterButton_0: {fileID: 0}
+  characterButton_1: {fileID: 0}
+  characterButton_2: {fileID: 0}
+  characterButton_3: {fileID: 0}
+  characterButton_4: {fileID: 0}
+  characterButton_5: {fileID: 0}
+  HomeButtonCharater: {fileID: 0}
+  selectButton: {fileID: 0}
+  CharacterImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CharacterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +327,23 @@ MonoBehaviour:
   country_side_Env: {fileID: 0}
   train_Env: {fileID: 0}
   ship_Env: {fileID: 0}
+--- !u!114 &8292962588080183464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c492dae2ab1c6684f89a22397b0a90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introCanvasHandler: {fileID: 0}
+  appStateManager: {fileID: 0}
+  uIInputHandlerManager: {fileID: 0}
+  shootSceneStateManager: {fileID: 0}
+  lightingManager: {fileID: 0}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0

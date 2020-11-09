@@ -8,20 +8,38 @@ public class UIInputHandlerManager : MonoBehaviour
 {
     [SerializeField]
     private ManagerHandler managerHandler;
-    public Button LoginButton;
-    public Button playWithCompButton;
-    public Button StartGameButton;
-    public Button OpenSettingButton;
-    public Button OpenCharaSelectionButton;
-    public Button HomeButton;
-    public Button HomeButtonSetting;
-    public Button HomeButtonCharater;
     public RenderTexture videoTexture;
     public VideoPlayer startVideo;
-    /// <summary>
-    ///  Game object6s 
-    /// </summary>
     public GameObject ScopeCanvas;
+    [Header("Login screen buttons and UI intups")]
+    public Slider m_progressBar;
+    [Header("Login screen buttons and UI intups")]
+    public Button LoginButton;
+
+    [Header("PlayComputer screen buttons and UI intups")]
+    public Button playWithCompButton;
+    public Button OpenSettingButton;
+    public Button OpenCharaSelectionButton;
+
+    [Header("PlayComputer screen buttons and UI intups")]
+    public Button StartGameButton;
+    public Button HomeButton;
+
+    [Header("Setting Page screen buttons and UI intups")]
+    public Button HomeButtonSetting;
+
+    [Header("Charater selection screen buttons and UI intups")]
+    public CharacterButton characterButton_0;
+    public CharacterButton characterButton_1;
+    public CharacterButton characterButton_2;
+    public CharacterButton characterButton_3;
+    public CharacterButton characterButton_4;
+    public CharacterButton characterButton_5;
+    public Button HomeButtonCharater;
+    public Button selectButton;
+    public List<GameObject> CharacterImages;
+    public List<GameObject> CharacterModels;
+
 
     private void Awake()
     {
@@ -33,6 +51,13 @@ public class UIInputHandlerManager : MonoBehaviour
         HomeButton.onClick.AddListener(HandleLogin);
         HomeButtonSetting.onClick.AddListener(HandleLogin);
         HomeButtonCharater.onClick.AddListener(HandleLogin);
+        // Character selection screen
+        characterButton_0.onClick.AddListener(() => { CharacterButtonClicked(0); });
+        characterButton_1.onClick.AddListener(() => { CharacterButtonClicked(1); });
+        characterButton_2.onClick.AddListener(() => { CharacterButtonClicked(2); });
+        characterButton_3.onClick.AddListener(() => { CharacterButtonClicked(3); });
+        characterButton_4.onClick.AddListener(() => { CharacterButtonClicked(4); });
+        characterButton_5.onClick.AddListener(() => { CharacterButtonClicked(5); });
     }
     private void HandleLogin()
     {
@@ -53,5 +78,24 @@ public class UIInputHandlerManager : MonoBehaviour
     private void OpenCharaterSelection()
     {
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage);
+    }
+
+    private void CharacterButtonClicked(int index)
+    {
+        CharaterClickUIEffet(index);
+    }
+
+    private void CharaterClickUIEffet(int index)
+    {
+        foreach (var item in CharacterImages)
+        {
+            item.SetActive(false);
+        }
+        foreach (var item in CharacterModels)
+        {
+            item.SetActive(false);
+        }
+        CharacterImages[index].SetActive(true);
+        CharacterModels[index].SetActive(true);
     }
 }
