@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField]
+    private ManagerHandler managerHandler;
     public TextMeshProUGUI timerText;
     bool isTimerOn=false;
     public float totalTime = 10f;

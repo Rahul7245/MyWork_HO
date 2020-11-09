@@ -13,6 +13,9 @@ public class ManagerHandler : MonoBehaviour
     public GameInitManager gameInitManager;
     public SpawnEnemy spawnEnemy;
     public SwitchCamera switchCamera;
+    public ShootSceneScript shootSceneScript;
+    public Timer timer;
+    public BirdViewSceneScript birdViewSceneScript;
 
     private void Awake()
     {
