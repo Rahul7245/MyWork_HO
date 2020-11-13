@@ -136,7 +136,7 @@ public class ShootSceneStateManager : MonoBehaviour
                     EnvironmentNum = 0;
                 }
                 Debug.Log("SHOWing ENv " + EnvironmentNum);
-                managerHandler.shootSceneScript.InitializeScene(EnvironmentNum);
+                managerHandler.shootSceneScript.InitializeScene(0);
                 
             }
 

@@ -45,6 +45,7 @@ public class ShootSceneScript : MonoBehaviour
         Debug.Log("EN " + en);
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
+        setBurglarStartPoint2();
         setBurglarStartPoint();
         setBurglarEndPoint();
     }
@@ -66,27 +67,55 @@ public class ShootSceneScript : MonoBehaviour
         }
     }
     List<int> listEndPoints = new List<int>();
+    List<int[]> listOfPoints = new List<int[]>();
+
     void setBurglarStartPoint()
     {
         List<int> list = new List<int> { 19, 12, 0, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 1, 14, 8, 4, 13 };
+
         int rint;
         for (int i = 0; i < 5; i++)
         {
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
-            rint = Random.Range(0, list.Count - 1);
-            m_burglar[i].transform.position = pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
-            m_burglar[i].SetStartPosition(pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform);
-            listEndPoints.Add(list.ElementAt(rint));
-            list.RemoveAt(rint);
+            // rint = Random.Range(0, list.Count - 1);
+           //  m_burglar[i].transform.position = pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
+            // m_burglar[i].SetStartPosition(pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform);
+            // listEndPoints.Add(list.ElementAt(rint));
+            //  list.RemoveAt(rint);
+            Points[] setOfPoints = new Points[4];
+            for (int y = 0; y < 4; y++) {
+                 setOfPoints[y] = pointGroup[EnvironmentNum].groupOfPoints[listOfPoints[i].ElementAt(y)];
+             }
+             m_burglar[i].setPoints(setOfPoints);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
     }
+    
+    void setBurglarStartPoint2() {
+        List<int> list = new List<int> { 19, 12, 0, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 1, 14, 8, 4, 13 };
+        
+        int rint;
+        for (int i = 0; i < 5; i++)
+        {
+            int[] rintarray = new int[4];
+            for (int y = 0; y < 4; y++) {
+
+                rint = Random.Range(0, list.Count - 1);
+                rintarray[y] = list.ElementAt(rint);
+                list.RemoveAt(rint);
+                print(rintarray[y]);
+            }
+            print("------------");
+            listOfPoints.Add(rintarray);
+        }
+
+        }
     void setBurglarEndPoint()
     {
         for (int i = 0; i < 5; i++)
         {
-            if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
-                m_burglar[i].SetDestination(pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints[Random.Range(0, pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count - 1)].transform);
+           // if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
+            m_burglar[i].SetDestination();
         }
         listEndPoints.Clear();
     }
