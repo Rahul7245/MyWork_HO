@@ -7,6 +7,8 @@ public enum PlayerType
     Human,
     Computer
 }
+
+[DisallowMultipleComponent]
 public class Player : MonoBehaviour
 {
     public string playerName = "Player";
