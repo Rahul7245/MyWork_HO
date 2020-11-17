@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 public class CharacterManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class CharacterManager : MonoBehaviour
     public void SelectCharaterForGame()
     {
         managerHandler.gameInitManager.player[0] = managerHandler.uIInputHandlerManager.charactersPrefabsList[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        managerHandler.uIInputHandlerManager.OpenCharaSelectionButton.GetComponent<Image>().sprite = managerHandler.uIInputHandlerManager.charatersSprites[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
     }
 
     public void CharacterButtonClicked(int index)

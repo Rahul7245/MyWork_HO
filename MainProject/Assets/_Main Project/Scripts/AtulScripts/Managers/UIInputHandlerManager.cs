@@ -20,6 +20,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button playWithCompButton;
     public Button OpenSettingButton;
     public Button OpenCharaSelectionButton;
+    public List<Sprite> charatersSprites;
 
     [Header("PlayComputer screen buttons and UI intups")]
     public Button StartGameButton;
