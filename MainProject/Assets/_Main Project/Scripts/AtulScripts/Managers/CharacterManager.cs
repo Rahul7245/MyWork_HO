@@ -8,6 +8,18 @@ public class CharacterManager : MonoBehaviour
     [SerializeField]
     private ManagerHandler managerHandler;
 
+    private void Awake()
+    {
+        if (PlayerPrefManager.HasKey(PlayerPrefKeys.CharacterSeleted_INT))
+        {
+            CharaterClickUIEffet(PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0));
+        }
+        else
+        {
+            CharaterClickUIEffet(0);
+        }
+    }
+
     public void CharacterButtonClicked(int index)
     {
         CharaterClickUIEffet(index);
@@ -25,5 +37,6 @@ public class CharacterManager : MonoBehaviour
         }
         managerHandler.uIInputHandlerManager.CharacterImages[index].SetActive(true);
         managerHandler.uIInputHandlerManager.CharacterModels[index].SetActive(true);
+        PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.CharacterSeleted_INT, index);
     }
 }

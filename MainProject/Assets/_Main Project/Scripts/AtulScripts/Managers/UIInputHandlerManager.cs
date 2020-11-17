@@ -45,14 +45,14 @@ public class UIInputHandlerManager : MonoBehaviour
 
     private void Awake()
     {
-        LoginButton.onClick.AddListener(HandleLogin);
-        playWithCompButton.onClick.AddListener(PlayWithComputer);
-        StartGameButton.onClick.AddListener(HandleStartGame);
-        OpenSettingButton.onClick.AddListener(OpenSettings);
-        OpenCharaSelectionButton.onClick.AddListener(OpenCharaterSelection);
-        HomeButton.onClick.AddListener(HandleLogin);
-        HomeButtonSetting.onClick.AddListener(HandleLogin);
-        HomeButtonCharater.onClick.AddListener(HandleLogin);
+        LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
+        playWithCompButton.onClick.AddListener(managerHandler.homeScreenManager.PlayWithComputer);
+        StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
+        OpenSettingButton.onClick.AddListener(managerHandler.homeScreenManager.OpenSettings);
+        OpenCharaSelectionButton.onClick.AddListener(managerHandler.homeScreenManager.OpenCharaterSelection);
+        HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        HomeButtonCharater.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
         // Character selection screen
         characterButton_0.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(0); });
         characterButton_1.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(1); });
@@ -60,25 +60,5 @@ public class UIInputHandlerManager : MonoBehaviour
         characterButton_3.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(3); });
         characterButton_4.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(4); });
         characterButton_5.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(5); });
-    }
-    private void HandleLogin()
-    {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
-    }
-    private void PlayWithComputer()
-    {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PlayComputer);
-    }
-    private void HandleStartGame()
-    {
-        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
-    }
-    private void OpenSettings()
-    {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_SettingPage);
-    }
-    private void OpenCharaterSelection()
-    {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage);
     }
 }
