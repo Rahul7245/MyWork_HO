@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 5234959666369420718}
   - component: {fileID: 3945375078670095150}
   - component: {fileID: 1498361040170460342}
+  - component: {fileID: 2286527354853831710}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -221,11 +222,11 @@ MonoBehaviour:
   shootSceneStateManager: {fileID: 8485724608368768118}
   lightingManager: {fileID: 5651299337745803641}
   gameInitManager: {fileID: 5103235208831850219}
-  spawnEnemy: {fileID: 0}
   switchCamera: {fileID: 7729092742949772544}
   shootSceneScript: {fileID: 5234959666369420718}
   timer: {fileID: 1498361040170460342}
   birdViewSceneScript: {fileID: 6614074978765538713}
+  characterManager: {fileID: 2286527354853831710}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +341,16 @@ MonoBehaviour:
   aagarge11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
   agarge12: {fileID: 0}
   aagarge12: {fileID: 0}
+  agarge13: {fileID: 0}
+  aagarge13: {fileID: 0}
+  agarge14: {fileID: 0}
+  aagarge14: {fileID: 0}
+  agarge15: {fileID: 0}
+  aagarge15: {fileID: 0}
+  agarge16: {fileID: 0}
+  aagarge16: {fileID: 0}
+  agarge17: {fileID: 0}
+  aagarge17: {fileID: 0}
   abar: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
   aabar: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
   abar1: {fileID: 2800000, guid: 8c6568b412e1ac847829fd5bfedc6c56, type: 3}
@@ -366,6 +377,16 @@ MonoBehaviour:
   aabar11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
   abar12: {fileID: 0}
   aabar12: {fileID: 0}
+  abar13: {fileID: 0}
+  aabar13: {fileID: 0}
+  abar14: {fileID: 0}
+  aabar14: {fileID: 0}
+  abar15: {fileID: 0}
+  aabar15: {fileID: 0}
+  abar16: {fileID: 0}
+  aabar16: {fileID: 0}
+  abar17: {fileID: 0}
+  aabar17: {fileID: 0}
   acountry_side: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aacountry_side: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   acountry_side1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -392,6 +413,16 @@ MonoBehaviour:
   aacountry_side11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   acountry_side12: {fileID: 0}
   aacountry_side12: {fileID: 0}
+  acountry_side13: {fileID: 0}
+  aacountry_side13: {fileID: 0}
+  acountry_side14: {fileID: 0}
+  aacountry_side14: {fileID: 0}
+  acountry_side15: {fileID: 0}
+  aacountry_side15: {fileID: 0}
+  acountry_side16: {fileID: 0}
+  aacountry_side16: {fileID: 0}
+  acountry_side17: {fileID: 0}
+  aacountry_side17: {fileID: 0}
   atrain: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aatrain: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   atrain1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -418,6 +449,16 @@ MonoBehaviour:
   aatrain11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   atrain12: {fileID: 0}
   aatrain12: {fileID: 0}
+  atrain13: {fileID: 0}
+  aatrain13: {fileID: 0}
+  atrain14: {fileID: 0}
+  aatrain14: {fileID: 0}
+  atrain15: {fileID: 0}
+  aatrain15: {fileID: 0}
+  atrain16: {fileID: 0}
+  aatrain16: {fileID: 0}
+  atrain17: {fileID: 0}
+  aatrain17: {fileID: 0}
   aship: {fileID: 2800000, guid: 58a3a964844eaf644b2771e864111a18, type: 3}
   aaship: {fileID: 2800000, guid: 30876d887ab11fb4bb344152d69960a4, type: 3}
   aship1: {fileID: 2800000, guid: c32490c0209157649abe0c4cbafc4a91, type: 3}
@@ -444,6 +485,16 @@ MonoBehaviour:
   aaship11: {fileID: 2800000, guid: 9c3d41964076900488fd8039c15f4196, type: 3}
   aship12: {fileID: 0}
   aaship12: {fileID: 0}
+  aship13: {fileID: 0}
+  aaship13: {fileID: 0}
+  aship14: {fileID: 0}
+  aaship14: {fileID: 0}
+  aship15: {fileID: 0}
+  aaship15: {fileID: 0}
+  aship16: {fileID: 0}
+  aaship16: {fileID: 0}
+  aship17: {fileID: 0}
+  aaship17: {fileID: 0}
   abirdview: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aaabirdview: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   abirdview1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -470,12 +521,22 @@ MonoBehaviour:
   aaabirdview11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   abirdview12: {fileID: 0}
   aaabirdview12: {fileID: 0}
+  abirdview13: {fileID: 0}
+  aaabirdview13: {fileID: 0}
+  abirdview14: {fileID: 0}
+  aaabirdview14: {fileID: 0}
+  abirdview15: {fileID: 0}
+  aaabirdview15: {fileID: 0}
+  abirdview16: {fileID: 0}
+  aaabirdview16: {fileID: 0}
+  abirdview17: {fileID: 0}
+  aaabirdview17: {fileID: 0}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}
   train: {fileID: 2100000, guid: 973a7d7e8d2553245bd046fbd0074fcd, type: 2}
   ship: {fileID: 2100000, guid: 5fd970d609c82ae40be3d7fa0668e13e, type: 2}
-  birdview: {fileID: 2100000, guid: 94ddb10c4a6d0214384446673264584f, type: 2}
+  birdview: {fileID: 0}
   birdveiw_light: {fileID: 0}
   birdveiw_Env: {fileID: 0}
   garge_Env: {fileID: 0}
@@ -1056,6 +1117,19 @@ MonoBehaviour:
   managerHandler: {fileID: 4357243929486401437}
   timerText: {fileID: 0}
   totalTime: 10
+--- !u!114 &2286527354853831710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc198d8e3671f734ba76d16b6533d409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0

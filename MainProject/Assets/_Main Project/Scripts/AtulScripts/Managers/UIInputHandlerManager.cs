@@ -54,12 +54,12 @@ public class UIInputHandlerManager : MonoBehaviour
         HomeButtonSetting.onClick.AddListener(HandleLogin);
         HomeButtonCharater.onClick.AddListener(HandleLogin);
         // Character selection screen
-        characterButton_0.onClick.AddListener(() => { CharacterButtonClicked(0); });
-        characterButton_1.onClick.AddListener(() => { CharacterButtonClicked(1); });
-        characterButton_2.onClick.AddListener(() => { CharacterButtonClicked(2); });
-        characterButton_3.onClick.AddListener(() => { CharacterButtonClicked(3); });
-        characterButton_4.onClick.AddListener(() => { CharacterButtonClicked(4); });
-        characterButton_5.onClick.AddListener(() => { CharacterButtonClicked(5); });
+        characterButton_0.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(0); });
+        characterButton_1.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(1); });
+        characterButton_2.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(2); });
+        characterButton_3.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(3); });
+        characterButton_4.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(4); });
+        characterButton_5.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(5); });
     }
     private void HandleLogin()
     {
@@ -80,24 +80,5 @@ public class UIInputHandlerManager : MonoBehaviour
     private void OpenCharaterSelection()
     {
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage);
-    }
-
-    private void CharacterButtonClicked(int index)
-    {
-        CharaterClickUIEffet(index);
-    }
-
-    private void CharaterClickUIEffet(int index)
-    {
-        foreach (var item in CharacterImages)
-        {
-            item.SetActive(false);
-        }
-        foreach (var item in CharacterModels)
-        {
-            item.SetActive(false);
-        }
-        CharacterImages[index].SetActive(true);
-        CharacterModels[index].SetActive(true);
     }
 }

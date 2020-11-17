@@ -15,6 +15,7 @@ public class ManagerHandler : MonoBehaviour
     public ShootSceneScript shootSceneScript;
     public Timer timer;
     public BirdViewSceneScript birdViewSceneScript;
+    public CharacterManager characterManager;
 
     private void Awake()
     {
