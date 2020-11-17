@@ -7,6 +7,8 @@ using UnityEngine.Video;
 public class UIInputHandlerManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject PopupPrefab;
+    [SerializeField]
     private ManagerHandler managerHandler;
     public RenderTexture videoTexture;
     public VideoPlayer startVideo;
@@ -61,6 +63,14 @@ public class UIInputHandlerManager : MonoBehaviour
         characterButton_3.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(3); });
         characterButton_4.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(4); });
         characterButton_5.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(5); });
-        selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame(); });
+        selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame();
+            ShowPopup(0, Constants.Msg_CharacterSelected);
+        });
+    }
+
+    public void ShowPopup(float delay, string msg)
+    {
+        GameObject obj = Instantiate(PopupPrefab);
+        obj.GetComponent<PopupController>().msgToDisplay.text = msg;
     }
 }

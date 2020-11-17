@@ -10,4 +10,6 @@ public enum PlayerPrefKeys
 public static class Constants
 {
     public const string CharacterSeleted = "CharacterSeleted";
+
+    public const string Msg_CharacterSelected = "Character Selected";
 }
