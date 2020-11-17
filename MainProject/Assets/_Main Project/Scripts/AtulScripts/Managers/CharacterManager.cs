@@ -18,6 +18,12 @@ public class CharacterManager : MonoBehaviour
         {
             CharaterClickUIEffet(0);
         }
+        SelectCharaterForGame();
+    }
+
+    public void SelectCharaterForGame()
+    {
+        managerHandler.gameInitManager.player[0] = managerHandler.uIInputHandlerManager.charactersPrefabsList[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
     }
 
     public void CharacterButtonClicked(int index)

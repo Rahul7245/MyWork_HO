@@ -60,5 +60,6 @@ public class UIInputHandlerManager : MonoBehaviour
         characterButton_3.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(3); });
         characterButton_4.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(4); });
         characterButton_5.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(5); });
+        selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame(); });
     }
 }
