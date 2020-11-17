@@ -915,6 +915,7 @@ GameObject:
   - component: {fileID: 8408729048538274823}
   - component: {fileID: 1962227696305653114}
   - component: {fileID: 8936406955332060324}
+  - component: {fileID: 6861086617300092063}
   m_Layer: 0
   m_Name: character_06_track
   m_TagString: Untagged
@@ -1002,6 +1003,18 @@ MonoBehaviour:
   playerType: 1
   LastPointScored: 0
   PlayerScore: 0
+--- !u!114 &6861086617300092063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428050830789515578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f7ecf18827d0541bde6b11fa44cef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3620568991442433593
 GameObject:
   m_ObjectHideFlags: 0
