@@ -51,7 +51,6 @@ public class ShootSceneStateManager : MonoBehaviour
     }
     public void AfterTour()
     {
-        print("called");
         managerHandler.birdViewSceneScript.endTour();
         ToggleAppState(ShootState.PlayerTurn);
     }
@@ -135,9 +134,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum = 0;
                 }
-                Debug.Log("SHOWing ENv " + EnvironmentNum);
                 managerHandler.shootSceneScript.InitializeScene(0);
-                
             }
 
             ToggleAppState(ShootState.Shooting);

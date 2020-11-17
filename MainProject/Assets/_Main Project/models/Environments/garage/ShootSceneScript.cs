@@ -42,7 +42,6 @@ public class ShootSceneScript : MonoBehaviour
     public void InitializeScene(int en)
     {
         EnvironmentNum = en;
-        Debug.Log("EN " + en);
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
         setBurglarStartPoint2();
@@ -52,7 +51,6 @@ public class ShootSceneScript : MonoBehaviour
 
     void setShootPoint(int en)
     {
-        print(pointGroup[en].shootPositions[0].transform.position);
         character.transform.position = pointGroup[en].shootPositions[0].transform.position;
         ch.gameObject.transform.localRotation = pointGroup[en].shootPositions[0].transform.localRotation;
         con.setMRotations();
@@ -103,9 +101,7 @@ public class ShootSceneScript : MonoBehaviour
                 rint = Random.Range(0, list.Count - 1);
                 rintarray[y] = list.ElementAt(rint);
                 list.RemoveAt(rint);
-                print(rintarray[y]);
             }
-            print("------------");
             listOfPoints.Add(rintarray);
         }
 

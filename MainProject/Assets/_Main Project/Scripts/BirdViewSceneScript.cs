@@ -34,7 +34,6 @@ public class BirdViewSceneScript : MonoBehaviour
     }
     public void endTour()
     {
-        print("wnd tour called");
         managerHandler.gameInitManager.endTour();
     }
     public void PlayerTurnTimer()
