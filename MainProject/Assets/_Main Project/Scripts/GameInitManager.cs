@@ -55,6 +55,28 @@ public class GameInitManager : MonoBehaviour
     public CinemachineVirtualCamera sideVcam;
     public CinemachineVirtualCamera startCam;
 
+    public void SetGameType(GameType gameType)
+    {
+        this.gameType = gameType;
+        switch (gameType)
+        {
+            case GameType.VSComputer:
+                int randomPlayer = Random.Range(0, 6);
+                if(PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0) == randomPlayer)
+                {
+                    randomPlayer += 1;
+                    if(randomPlayer > 5)
+                    {
+                        randomPlayer = 0;
+                    }
+                }
+                GameObject playerObj = managerHandler.uIInputHandlerManager.charactersPrefabsList[randomPlayer];
+                playerObj.GetComponent<Player>().playerName = "Bot";
+                playerObj.GetComponent<Player>().playerType = PlayerType.Computer;
+                player[1] = playerObj;
+                break;
+        }
+    }
     public void startTour() {
         startCam.gameObject.SetActive(true);
         startCam.Priority = 12;

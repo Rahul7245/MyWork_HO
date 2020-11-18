@@ -49,14 +49,26 @@ public class UIInputHandlerManager : MonoBehaviour
     private void Awake()
     {
         LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
-        playWithCompButton.onClick.AddListener(managerHandler.homeScreenManager.PlayWithComputer);
-        StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
+        // Home screen buttons
+        playWithCompButton.onClick.AddListener(() => {
+            managerHandler.homeScreenManager.PlayWithComputer();
+            managerHandler.gameInitManager.SetGameType(GameType.VSComputer);
+        });
         OpenSettingButton.onClick.AddListener(managerHandler.homeScreenManager.OpenSettings);
         OpenCharaSelectionButton.onClick.AddListener(managerHandler.homeScreenManager.OpenCharaterSelection);
+        // Home screen buttons end
+
+        // PlaywithComputer screen buttons
+        StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
         HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        // PlaywithComputer screen buttons end
+
+        // Setting screen buttons
         HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        // Setting screen buttons end
+
+        // Character selection screen buttons
         HomeButtonCharater.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
-        // Character selection screen
         characterButton_0.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(0); });
         characterButton_1.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(1); });
         characterButton_2.onClick.AddListener(() => { managerHandler.characterManager.CharacterButtonClicked(2); });
@@ -66,6 +78,8 @@ public class UIInputHandlerManager : MonoBehaviour
         selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame();
             ShowPopup(0, Constants.Msg_CharacterSelected);
         });
+        // Character selection screen buttons end
+
     }
 
     public void ShowPopup(float delay, string msg)

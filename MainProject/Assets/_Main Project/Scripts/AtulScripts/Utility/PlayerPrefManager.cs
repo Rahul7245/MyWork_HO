@@ -59,6 +59,9 @@ public static class PlayerPrefManager
         string strKey = "";
         switch (key)
         {
+            case PlayerPrefKeys.LocalPlayerName_STR:
+                strKey = Constants.LocalPlayerName;
+                break;
             default:
                 Debug.LogError("No Such Player Pref Available in system");
                 return "";

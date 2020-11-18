@@ -24,7 +24,10 @@ public class CharacterManager : MonoBehaviour
 
     public void SelectCharaterForGame()
     {
-        managerHandler.gameInitManager.player[0] = managerHandler.uIInputHandlerManager.charactersPrefabsList[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        GameObject playerObj = managerHandler.uIInputHandlerManager.charactersPrefabsList[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        playerObj.GetComponent<Player>().playerName = PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.LocalPlayerName_STR, "Rohit");
+        playerObj.GetComponent<Player>().playerType = PlayerType.Human;
+        managerHandler.gameInitManager.player[0] = playerObj;
         managerHandler.uIInputHandlerManager.OpenCharaSelectionButton.GetComponent<Image>().sprite = managerHandler.uIInputHandlerManager.charatersSprites[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
     }
 
