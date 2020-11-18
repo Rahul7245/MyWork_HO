@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using DG.Tweening;
 
 public class UIInputHandlerManager : MonoBehaviour
 {
@@ -86,5 +87,14 @@ public class UIInputHandlerManager : MonoBehaviour
     {
         GameObject obj = Instantiate(PopupPrefab);
         obj.GetComponent<PopupController>().msgToDisplay.text = msg;
+        StartCoroutine(ShowPopupHelper(obj));
+    }
+
+    private IEnumerator ShowPopupHelper(GameObject obj)
+    {
+        yield return null;
+        obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
+        yield return new WaitForSeconds(1);
+        obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(()=> { Destroy(obj); });
     }
 }

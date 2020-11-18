@@ -6,17 +6,5 @@ using TMPro;
 public class PopupController : MonoBehaviour
 {
     public TextMeshProUGUI msgToDisplay;
-    public AnimationEndEvent animationEndEvent;
-    private void Awake()
-    {
-        animationEndEvent.OnAnimationEnd += OnMsgDone;
-    }
-    public void OnMsgDone()
-    {
-        Destroy(this.gameObject);
-    }
-    private void OnDestroy()
-    {
-        animationEndEvent.OnAnimationEnd -= OnMsgDone;
-    }
+    public Transform popUpImage;
 }
