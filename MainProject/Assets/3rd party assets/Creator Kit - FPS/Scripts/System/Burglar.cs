@@ -59,7 +59,7 @@ public class Burglar : MonoBehaviour
     IEnumerator StopRunning()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => navAgent.remainingDistance <= 2f || navAgent.isStopped);
+        yield return new WaitUntil(() => navAgent.remainingDistance <= .1f || navAgent.isStopped);
         //  navAgent.destination = startPoint.position;
         navAgent.isStopped = true;
         anim.SetTrigger("Crouch");
