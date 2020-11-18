@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4e6b38b189954438b3d05cf9d17850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PopupPrefab: {fileID: 0}
   managerHandler: {fileID: 4357243929486401437}
   videoTexture: {fileID: 8400000, guid: 96ab1e7585556b146b3ccd7874dd728f, type: 2}
   startVideo: {fileID: 0}
@@ -273,6 +274,7 @@ MonoBehaviour:
   playWithCompButton: {fileID: 0}
   OpenSettingButton: {fileID: 0}
   OpenCharaSelectionButton: {fileID: 0}
+  charatersSprites: []
   StartGameButton: {fileID: 0}
   HomeButton: {fileID: 0}
   HomeButtonSetting: {fileID: 0}
@@ -317,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e94d6a93b3f40a42abbdfcc0cd23784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
   soundManager: {fileID: 7805030867600021560}
   audioSource: {fileID: 294011741486677816}
   audioClipShip: {fileID: 8300000, guid: d9b211aa8f5727f4cbe5cb3be197052d, type: 3}
@@ -351,16 +354,16 @@ MonoBehaviour:
   aagarge11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
   agarge12: {fileID: 0}
   aagarge12: {fileID: 0}
-  agarge13: {fileID: 0}
-  aagarge13: {fileID: 0}
-  agarge14: {fileID: 0}
-  aagarge14: {fileID: 0}
-  agarge15: {fileID: 0}
-  aagarge15: {fileID: 0}
-  agarge16: {fileID: 0}
-  aagarge16: {fileID: 0}
-  agarge17: {fileID: 0}
-  aagarge17: {fileID: 0}
+  agarge13: {fileID: 2800000, guid: 3f54b2c6097b10a429703819b75b17fc, type: 3}
+  aagarge13: {fileID: 2800000, guid: 587d0cf3f077dd945b15e04c938b6e33, type: 3}
+  agarge14: {fileID: 2800000, guid: 2988bf521466be4488d37ed92e6548b2, type: 3}
+  aagarge14: {fileID: 2800000, guid: 521126e8e74c9404799c4874f3b4a5a8, type: 3}
+  agarge15: {fileID: 2800000, guid: 34bac7a0bdbf1f8429b503787a28da27, type: 3}
+  aagarge15: {fileID: 2800000, guid: d26c2526e5906ec46993bad33a1febfd, type: 3}
+  agarge16: {fileID: 2800000, guid: 4d0eccaa4c3ab624ba63c92a0494c0e8, type: 3}
+  aagarge16: {fileID: 2800000, guid: 091e29cbdc896a945aba56bce8e351bb, type: 3}
+  agarge17: {fileID: 2800000, guid: 99f166e52f960ec4c864500e9f522aa7, type: 3}
+  aagarge17: {fileID: 2800000, guid: 0c16cbd8ef9754846a5aef52496e92bc, type: 3}
   abar: {fileID: 2800000, guid: b130ed33f5572774c8a4c6169ce7b2a7, type: 3}
   aabar: {fileID: 2800000, guid: 2560620944c301c42912b98ffa4f35a1, type: 3}
   abar1: {fileID: 2800000, guid: 8c6568b412e1ac847829fd5bfedc6c56, type: 3}
@@ -387,16 +390,16 @@ MonoBehaviour:
   aabar11: {fileID: 2800000, guid: ca4fc3dcede8fef4db22e43a02a63964, type: 3}
   abar12: {fileID: 0}
   aabar12: {fileID: 0}
-  abar13: {fileID: 0}
-  aabar13: {fileID: 0}
-  abar14: {fileID: 0}
-  aabar14: {fileID: 0}
-  abar15: {fileID: 0}
-  aabar15: {fileID: 0}
-  abar16: {fileID: 0}
-  aabar16: {fileID: 0}
-  abar17: {fileID: 0}
-  aabar17: {fileID: 0}
+  abar13: {fileID: 2800000, guid: 3f54b2c6097b10a429703819b75b17fc, type: 3}
+  aabar13: {fileID: 2800000, guid: 587d0cf3f077dd945b15e04c938b6e33, type: 3}
+  abar14: {fileID: 2800000, guid: 2988bf521466be4488d37ed92e6548b2, type: 3}
+  aabar14: {fileID: 2800000, guid: 521126e8e74c9404799c4874f3b4a5a8, type: 3}
+  abar15: {fileID: 2800000, guid: 34bac7a0bdbf1f8429b503787a28da27, type: 3}
+  aabar15: {fileID: 2800000, guid: d26c2526e5906ec46993bad33a1febfd, type: 3}
+  abar16: {fileID: 2800000, guid: 4d0eccaa4c3ab624ba63c92a0494c0e8, type: 3}
+  aabar16: {fileID: 2800000, guid: 091e29cbdc896a945aba56bce8e351bb, type: 3}
+  abar17: {fileID: 2800000, guid: 99f166e52f960ec4c864500e9f522aa7, type: 3}
+  aabar17: {fileID: 2800000, guid: 0c16cbd8ef9754846a5aef52496e92bc, type: 3}
   acountry_side: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aacountry_side: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   acountry_side1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -423,16 +426,16 @@ MonoBehaviour:
   aacountry_side11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   acountry_side12: {fileID: 0}
   aacountry_side12: {fileID: 0}
-  acountry_side13: {fileID: 0}
-  aacountry_side13: {fileID: 0}
-  acountry_side14: {fileID: 0}
-  aacountry_side14: {fileID: 0}
-  acountry_side15: {fileID: 0}
-  aacountry_side15: {fileID: 0}
-  acountry_side16: {fileID: 0}
-  aacountry_side16: {fileID: 0}
-  acountry_side17: {fileID: 0}
-  aacountry_side17: {fileID: 0}
+  acountry_side13: {fileID: 2800000, guid: a1900dd892c1ef04f84ed150601b71ef, type: 3}
+  aacountry_side13: {fileID: 2800000, guid: 67309348996dbb44bbb47b2c3754b3e6, type: 3}
+  acountry_side14: {fileID: 2800000, guid: 6004e40a0298f8848a93c073d4abbf38, type: 3}
+  aacountry_side14: {fileID: 2800000, guid: 7dc2e1d48dd3b0e49a4c480d5938f43c, type: 3}
+  acountry_side15: {fileID: 2800000, guid: 780ee187e88dcf647b39ec09d33b4374, type: 3}
+  aacountry_side15: {fileID: 2800000, guid: 24fbc2e253b8504479fe08b2d88f42ee, type: 3}
+  acountry_side16: {fileID: 2800000, guid: d5b3b4a3762f9d24abd27703d6daea6e, type: 3}
+  aacountry_side16: {fileID: 2800000, guid: e5ad5ccc23762b5468c1fd5d0496fc40, type: 3}
+  acountry_side17: {fileID: 2800000, guid: 53eee42c6d3498a41a4bcf1b7a2a8268, type: 3}
+  aacountry_side17: {fileID: 2800000, guid: 6a112d842563f1545809ce8a0800a570, type: 3}
   atrain: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aatrain: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   atrain1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -459,16 +462,16 @@ MonoBehaviour:
   aatrain11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   atrain12: {fileID: 0}
   aatrain12: {fileID: 0}
-  atrain13: {fileID: 0}
-  aatrain13: {fileID: 0}
-  atrain14: {fileID: 0}
-  aatrain14: {fileID: 0}
-  atrain15: {fileID: 0}
-  aatrain15: {fileID: 0}
-  atrain16: {fileID: 0}
-  aatrain16: {fileID: 0}
-  atrain17: {fileID: 0}
-  aatrain17: {fileID: 0}
+  atrain13: {fileID: 2800000, guid: a1900dd892c1ef04f84ed150601b71ef, type: 3}
+  aatrain13: {fileID: 2800000, guid: 67309348996dbb44bbb47b2c3754b3e6, type: 3}
+  atrain14: {fileID: 2800000, guid: 6004e40a0298f8848a93c073d4abbf38, type: 3}
+  aatrain14: {fileID: 2800000, guid: 7dc2e1d48dd3b0e49a4c480d5938f43c, type: 3}
+  atrain15: {fileID: 2800000, guid: 780ee187e88dcf647b39ec09d33b4374, type: 3}
+  aatrain15: {fileID: 2800000, guid: 24fbc2e253b8504479fe08b2d88f42ee, type: 3}
+  atrain16: {fileID: 2800000, guid: d5b3b4a3762f9d24abd27703d6daea6e, type: 3}
+  aatrain16: {fileID: 2800000, guid: e5ad5ccc23762b5468c1fd5d0496fc40, type: 3}
+  atrain17: {fileID: 2800000, guid: 53eee42c6d3498a41a4bcf1b7a2a8268, type: 3}
+  aatrain17: {fileID: 2800000, guid: 6a112d842563f1545809ce8a0800a570, type: 3}
   aship: {fileID: 2800000, guid: 58a3a964844eaf644b2771e864111a18, type: 3}
   aaship: {fileID: 2800000, guid: 30876d887ab11fb4bb344152d69960a4, type: 3}
   aship1: {fileID: 2800000, guid: c32490c0209157649abe0c4cbafc4a91, type: 3}
@@ -495,16 +498,16 @@ MonoBehaviour:
   aaship11: {fileID: 2800000, guid: 9c3d41964076900488fd8039c15f4196, type: 3}
   aship12: {fileID: 0}
   aaship12: {fileID: 0}
-  aship13: {fileID: 0}
-  aaship13: {fileID: 0}
-  aship14: {fileID: 0}
-  aaship14: {fileID: 0}
-  aship15: {fileID: 0}
-  aaship15: {fileID: 0}
-  aship16: {fileID: 0}
-  aaship16: {fileID: 0}
-  aship17: {fileID: 0}
-  aaship17: {fileID: 0}
+  aship13: {fileID: 2800000, guid: 24a428bce7c9a2f47900b82676b54a0f, type: 3}
+  aaship13: {fileID: 2800000, guid: 8b79c51fb799d8c4bb589b97934d2f65, type: 3}
+  aship14: {fileID: 2800000, guid: a87718ef1ccb185408f6d92eea624ea3, type: 3}
+  aaship14: {fileID: 2800000, guid: ff45dbcbb5ca60548aa41db00b5df15c, type: 3}
+  aship15: {fileID: 2800000, guid: 4bd9e7ae215910e4f971dc1ee9be43f8, type: 3}
+  aaship15: {fileID: 2800000, guid: bdd97e79517a84046b99d4e741749627, type: 3}
+  aship16: {fileID: 2800000, guid: 29b363bfeec88544f9aa4ca82e416225, type: 3}
+  aaship16: {fileID: 2800000, guid: 19066102e2136f849b8e149eec98595e, type: 3}
+  aship17: {fileID: 2800000, guid: 65c5f99bfa28b7a44bf963628c4b87bb, type: 3}
+  aaship17: {fileID: 2800000, guid: 7cfb08cda31110041acf39fe72991216, type: 3}
   abirdview: {fileID: 2800000, guid: 6b7aa47176c60e7479b1b9ab716a62c2, type: 3}
   aaabirdview: {fileID: 2800000, guid: fe52fd137a57ad44f80532bf4e5953d7, type: 3}
   abirdview1: {fileID: 2800000, guid: 20e34a317f1ffaf4bb40462ebdebe53a, type: 3}
@@ -531,16 +534,16 @@ MonoBehaviour:
   aaabirdview11: {fileID: 2800000, guid: 9b6c15194d2518e448dac7bd7df75308, type: 3}
   abirdview12: {fileID: 0}
   aaabirdview12: {fileID: 0}
-  abirdview13: {fileID: 0}
-  aaabirdview13: {fileID: 0}
-  abirdview14: {fileID: 0}
-  aaabirdview14: {fileID: 0}
-  abirdview15: {fileID: 0}
-  aaabirdview15: {fileID: 0}
-  abirdview16: {fileID: 0}
-  aaabirdview16: {fileID: 0}
-  abirdview17: {fileID: 0}
-  aaabirdview17: {fileID: 0}
+  abirdview13: {fileID: 2800000, guid: a1900dd892c1ef04f84ed150601b71ef, type: 3}
+  aaabirdview13: {fileID: 2800000, guid: 67309348996dbb44bbb47b2c3754b3e6, type: 3}
+  abirdview14: {fileID: 2800000, guid: 6004e40a0298f8848a93c073d4abbf38, type: 3}
+  aaabirdview14: {fileID: 2800000, guid: 7dc2e1d48dd3b0e49a4c480d5938f43c, type: 3}
+  abirdview15: {fileID: 2800000, guid: 780ee187e88dcf647b39ec09d33b4374, type: 3}
+  aaabirdview15: {fileID: 2800000, guid: 24fbc2e253b8504479fe08b2d88f42ee, type: 3}
+  abirdview16: {fileID: 2800000, guid: d5b3b4a3762f9d24abd27703d6daea6e, type: 3}
+  aaabirdview16: {fileID: 2800000, guid: e5ad5ccc23762b5468c1fd5d0496fc40, type: 3}
+  abirdview17: {fileID: 2800000, guid: 53eee42c6d3498a41a4bcf1b7a2a8268, type: 3}
+  aaabirdview17: {fileID: 2800000, guid: 6a112d842563f1545809ce8a0800a570, type: 3}
   garge: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   bar: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   country_side: {fileID: 2100000, guid: 18ecce3473339e9439750ee4e67871a8, type: 2}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 
 public enum EnviromentType
@@ -15,6 +16,7 @@ public enum EnviromentType
 
 public class LightingManager : MonoBehaviour
 {
+    public GameObject mainCamera;
     public GameObject soundManager;
     public AudioSource audioSource;
     public AudioClip audioClipShip;
@@ -625,6 +627,9 @@ public class LightingManager : MonoBehaviour
         switch (enviromentType)
         {
             case EnviromentType.Ship:
+                mainCamera.GetComponent<SunShafts>().enabled = false;
+                mainCamera.GetComponent<ColorCorrectionCurves>().enabled = false;
+                mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDataship;
                 RenderSettings.skybox = ship;
                 soundManager.SetActive(false);
@@ -641,6 +646,9 @@ public class LightingManager : MonoBehaviour
                 enviromentDic[EnviromentType.Ship]?.SetActive(true);
                 break;
             case EnviromentType.Garage:
+                mainCamera.GetComponent<SunShafts>().enabled = false;
+                mainCamera.GetComponent<ColorCorrectionCurves>().enabled = false;
+                mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
                 soundManager.SetActive(false);
@@ -658,6 +666,9 @@ public class LightingManager : MonoBehaviour
                 break;
 
             case EnviromentType.Bar:
+                mainCamera.GetComponent<SunShafts>().enabled = false;
+                mainCamera.GetComponent<ColorCorrectionCurves>().enabled = false;
+                mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatabar;
                 RenderSettings.skybox = bar;
                 soundManager.SetActive(false);
@@ -674,6 +685,9 @@ public class LightingManager : MonoBehaviour
                 enviromentDic[EnviromentType.Bar]?.SetActive(true);
                 break;
             case EnviromentType.CountrySide:
+                mainCamera.GetComponent<SunShafts>().enabled = false;
+                mainCamera.GetComponent<ColorCorrectionCurves>().enabled = false;
+                mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
                 RenderSettings.skybox = country_side;
                 soundManager.SetActive(false);
@@ -690,6 +704,9 @@ public class LightingManager : MonoBehaviour
                 enviromentDic[EnviromentType.CountrySide]?.SetActive(true);
                 break;
             case EnviromentType.Train:
+                mainCamera.GetComponent<SunShafts>().enabled = true;
+                mainCamera.GetComponent<ColorCorrectionCurves>().enabled = true;
+                mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = true;
                 LightmapSettings.lightmaps = lightmapDatatrain;
                 RenderSettings.skybox = train;
                 soundManager.SetActive(false);
