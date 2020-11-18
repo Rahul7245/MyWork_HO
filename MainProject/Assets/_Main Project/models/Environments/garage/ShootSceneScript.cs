@@ -146,12 +146,11 @@ public class ShootSceneScript : MonoBehaviour
     }
     IEnumerator LoadBirdViewScene()
     {
-        yield return new WaitForSeconds(5);
+        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         PointsCanvas.SetActive(false);
         managerHandler.switchCamera.ShootCameraEnable(false);
         managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
-
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
-
     }
 }

@@ -95,6 +95,7 @@ public class ShootSceneStateManager : MonoBehaviour
 
         if (appState.Equals(ShootState.SwitchCamera))
         {
+            managerHandler.shootSceneScript.PointsCanvas.SetActive(false);
             m_currentState = appState;
             if (player != null)
             {
@@ -107,9 +108,6 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
                     StartCoroutine(StartShooting());
-                    /*managerHandler.birdViewSceneScript.SwitchScene();
-                    managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
-                    ToggleAppState(ShootState.StartShooting);*/
                 }
             }
         }
@@ -206,7 +204,7 @@ public class ShootSceneStateManager : MonoBehaviour
             //   VigneteEffect.Instance.ResetVignete();
             managerHandler.shootSceneScript.setBurglerNoneAnimation();
             displayMsg.text = "";
-            managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+            //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
         }
     }
@@ -229,13 +227,11 @@ public class ShootSceneStateManager : MonoBehaviour
         if (winnerResult)
         {
             displayMsg.text = winner.playerName + " is the winner !!!";
-            //managerHandler.birdViewSceneScript.SetReadyPopUpText(winner.playerName + " is the winner !!!", true);
             yield return new WaitForSecondsRealtime(5f);
             managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
         }
         else
         {
-            yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
             ToggleAppState(ShootState.PlayerTurn);
         }
     }
