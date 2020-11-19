@@ -366,6 +366,9 @@ public class LightingManager : MonoBehaviour
         lightmapDatagarge[18] = new LightmapData();
         lightmapDatagarge[18].lightmapDir = agarge18;
         lightmapDatagarge[18].lightmapColor = aagarge18;
+        lightmapDatagarge[19] = new LightmapData();
+        lightmapDatagarge[19].lightmapDir = agarge19;
+        lightmapDatagarge[19].lightmapColor = aagarge19;
 
 
         lightmapDatabar[0] = new LightmapData();
