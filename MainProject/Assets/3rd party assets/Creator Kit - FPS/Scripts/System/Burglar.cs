@@ -13,8 +13,12 @@ public class Burglar : MonoBehaviour
     NavMeshAgent navAgent;
     Animator anim;
     Transform startPoint, end_Point;
+    [SerializeField]
     Points[] groupofPoints;
+    [SerializeField]
     int pathNo = 0;
+    bool inCoroutine = false;
+  
     void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -35,7 +39,22 @@ public class Burglar : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    {if(navAgent.isActiveAndEnabled)
+        if (inCoroutine==false) {
+
+            if (navAgent.remainingDistance <= .1f || navAgent.isStopped)
+            {
+                navAgent.isStopped = true;
+                anim.SetTrigger("Crouch");
+                inCoroutine = true;
+                StartCoroutine(SetPathCoroutine());
+            }
+        }
+            
+    }
+    IEnumerator SetPathCoroutine() {
+        yield return new WaitForSeconds(1f);
+        setNewPath();
     }
     public int getValue()
     {
@@ -49,24 +68,14 @@ public class Burglar : MonoBehaviour
         
        // end_Point = endPoint;
         anim.SetTrigger("Run");
-        StartCoroutine(StopRunning());
+        inCoroutine = false;
     }
     public void SetStartPosition(Transform startPosition)
     {
         startPoint = startPosition;
 
     }
-    IEnumerator StopRunning()
-    {
-        yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => navAgent.remainingDistance <= .1f || navAgent.isStopped);
-        //  navAgent.destination = startPoint.position;
-        navAgent.isStopped = true;
-        anim.SetTrigger("Crouch");
-        yield return new WaitForSeconds(1f);
-        setNewPath();
-
-    }
+   
     public void setNewPath()
     {
         pathNo++;

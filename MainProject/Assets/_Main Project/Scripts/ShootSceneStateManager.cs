@@ -132,7 +132,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum = 0;
                 }
-                managerHandler.shootSceneScript.InitializeScene(EnvironmentNum);
+                managerHandler.shootSceneScript.InitializeScene(0);
             }
 
             ToggleAppState(ShootState.Shooting);
