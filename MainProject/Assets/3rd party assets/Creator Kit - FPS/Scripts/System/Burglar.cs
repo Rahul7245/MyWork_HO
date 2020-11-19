@@ -63,7 +63,7 @@ public class Burglar : MonoBehaviour
         //  navAgent.destination = startPoint.position;
         navAgent.isStopped = true;
         anim.SetTrigger("Crouch");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         setNewPath();
 
     }
