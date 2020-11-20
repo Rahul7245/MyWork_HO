@@ -155,9 +155,10 @@ public class ShootSceneScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
         managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         managerHandler.switchCamera.ShootCameraEnable(false);
         managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
-        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
     }
 }

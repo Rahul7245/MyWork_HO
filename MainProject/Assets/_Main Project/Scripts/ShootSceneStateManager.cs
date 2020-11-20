@@ -203,10 +203,8 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             m_currentState = appState;
-            //   VigneteEffect.Instance.ResetVignete();
             managerHandler.shootSceneScript.setBurglerNoneAnimation();
             displayMsg.text = "";
-            //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
             StartCoroutine(WaitTillTurnOver());
         }
     }
