@@ -42,7 +42,7 @@ public class Burglar : MonoBehaviour
     {if(navAgent.isActiveAndEnabled)
         if (inCoroutine==false) {
 
-            if (navAgent.remainingDistance <= .1f || navAgent.isStopped)
+            if (navAgent.remainingDistance <= .1f /*|| navAgent.isStopped*/)
             {
                 navAgent.isStopped = true;
                 anim.SetTrigger("Crouch");

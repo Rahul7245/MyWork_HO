@@ -87,6 +87,7 @@ public class ShootSceneScript : MonoBehaviour
              m_burglar[i].setPoints(setOfPoints);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
+        listOfPoints.Clear();
     }
     
     void setBurglarStartPoint2() {
