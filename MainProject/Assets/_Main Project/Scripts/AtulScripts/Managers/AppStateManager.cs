@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AppStateManager : MonoBehaviour
 {
-    public float SubStateDelay = 2;
+    public float SubStateDelay = 1.25f;
     [SerializeField]
     private ManagerHandler managerHandler;
     public static AppStateManager instance;

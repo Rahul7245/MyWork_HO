@@ -132,10 +132,12 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum = 0;
                 }
-                managerHandler.shootSceneScript.InitializeScene(EnvironmentNum);
+                StartCoroutine(managerHandler.shootSceneScript.InitializeScene(EnvironmentNum, () => { ToggleAppState(ShootState.Shooting); }));
             }
-
-            ToggleAppState(ShootState.Shooting);
+            else
+            {
+                ToggleAppState(ShootState.Shooting);
+            }
             return;
         }
         else if (appState.Equals(ShootState.Shooting))
@@ -179,7 +181,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             if (player.LastPointScored != 0)
             {
-                if(player.PlayerScore > 21)
+                if (player.PlayerScore > 21)
                 {
                     player.PlayerScore -= player.LastPointScored;
                     setNextTurnFlag(true);

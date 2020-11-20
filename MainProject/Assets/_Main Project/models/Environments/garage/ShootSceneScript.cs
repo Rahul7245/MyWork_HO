@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -39,7 +40,7 @@ public class ShootSceneScript : MonoBehaviour
     {
         managerHandler.lightingManager.ChangeLightingData(enviromentType);
     }
-    public void InitializeScene(int en)
+    public IEnumerator InitializeScene(int en, Action OnComplete = null)
     {
         EnvironmentNum = en;
         setEnvironment((EnviromentType)en);
@@ -47,6 +48,8 @@ public class ShootSceneScript : MonoBehaviour
         setBurglarStartPoint2();
         setBurglarStartPoint();
         setBurglarEndPoint();
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+        OnComplete?.Invoke();
     }
 
     void setShootPoint(int en)
@@ -76,42 +79,44 @@ public class ShootSceneScript : MonoBehaviour
         {
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = false;
             // rint = Random.Range(0, list.Count - 1);
-           //  m_burglar[i].transform.position = pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
+            //  m_burglar[i].transform.position = pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform.position;
             // m_burglar[i].SetStartPosition(pointGroup[EnvironmentNum].groupOfPoints[list.ElementAt(rint)].startPoint.transform);
             // listEndPoints.Add(list.ElementAt(rint));
             //  list.RemoveAt(rint);
             Points[] setOfPoints = new Points[4];
-            for (int y = 0; y < 4; y++) {
-                 setOfPoints[y] = pointGroup[EnvironmentNum].groupOfPoints[listOfPoints[i].ElementAt(y)];
-             }
-             m_burglar[i].setPoints(setOfPoints);
+            for (int y = 0; y < 4; y++)
+            {
+                setOfPoints[y] = pointGroup[EnvironmentNum].groupOfPoints[listOfPoints[i].ElementAt(y)];
+            }
+            m_burglar[i].setPoints(setOfPoints);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
-        listOfPoints.Clear();
     }
-    
-    void setBurglarStartPoint2() {
+
+    void setBurglarStartPoint2()
+    {
         List<int> list = new List<int> { 19, 12, 0, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 1, 14, 8, 4, 13 };
-        
+
         int rint;
         for (int i = 0; i < 5; i++)
         {
             int[] rintarray = new int[4];
-            for (int y = 0; y < 4; y++) {
+            for (int y = 0; y < 4; y++)
+            {
 
-                rint = Random.Range(0, list.Count - 1);
+                rint = UnityEngine.Random.Range(0, list.Count - 1);
                 rintarray[y] = list.ElementAt(rint);
                 list.RemoveAt(rint);
             }
             listOfPoints.Add(rintarray);
         }
 
-        }
+    }
     void setBurglarEndPoint()
     {
         for (int i = 0; i < 5; i++)
         {
-           // if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
+            // if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
             m_burglar[i].SetDestination();
         }
         listEndPoints.Clear();
@@ -150,9 +155,9 @@ public class ShootSceneScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
         managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
-        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         managerHandler.switchCamera.ShootCameraEnable(false);
         managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
+        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
     }
 }
