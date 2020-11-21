@@ -68,7 +68,7 @@ public class Burglar : MonoBehaviour
         navAgent.isStopped = false;
         // end_Point = endPoint;
         anim.SetTrigger("Run");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         inCoroutine = false;
     }
     public void SetStartPosition(Transform startPosition)
