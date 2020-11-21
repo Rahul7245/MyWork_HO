@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     private ManagerHandler managerHandler;
     public TextMeshProUGUI timerText;
     bool isTimerOn=false;
-    public float totalTime = 100f;
+    public float totalTime = 10f;
     float elapsed = 0f;
     // Start is called before the first frame update
 

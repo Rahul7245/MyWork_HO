@@ -91,6 +91,7 @@ public class ShootSceneScript : MonoBehaviour
             m_burglar[i].setPoints(setOfPoints);
             m_burglar[i].GetComponent<NavMeshAgent>().enabled = true;
         }
+      // listOfPoints.Clear();
     }
 
     void setBurglarStartPoint2()
@@ -117,7 +118,7 @@ public class ShootSceneScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             // if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
-            m_burglar[i].SetDestination();
+           StartCoroutine( m_burglar[i].SetDestination());
         }
         listEndPoints.Clear();
     }

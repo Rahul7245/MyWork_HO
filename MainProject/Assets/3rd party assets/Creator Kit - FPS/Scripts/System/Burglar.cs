@@ -39,20 +39,21 @@ public class Burglar : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {if(navAgent.isActiveAndEnabled)
+    {if(navAgent.enabled)
         if (inCoroutine==false) {
 
             if (navAgent.remainingDistance <= .1f /*|| navAgent.isStopped*/)
             {
-                navAgent.isStopped = true;
-                anim.SetTrigger("Crouch");
-                inCoroutine = true;
-                StartCoroutine(SetPathCoroutine());
+                    inCoroutine = true;
+                    StartCoroutine(SetPathCoroutine());
             }
         }
             
     }
     IEnumerator SetPathCoroutine() {
+        navAgent.isStopped = true;
+        anim.SetTrigger("Crouch");
+        
         yield return new WaitForSeconds(1f);
         setNewPath();
     }
@@ -60,14 +61,14 @@ public class Burglar : MonoBehaviour
     {
         return m_value;
     }
-    public void SetDestination()
+   public IEnumerator SetDestination()
     {
-        navAgent.destination = groupofPoints[pathNo].endPoints[0].transform.position;
-
-        navAgent.isStopped = false;
         
-       // end_Point = endPoint;
+        navAgent.destination = groupofPoints[pathNo].endPoints[0].transform.position;
+        navAgent.isStopped = false;
+        // end_Point = endPoint;
         anim.SetTrigger("Run");
+        yield return new WaitForSeconds(3f);
         inCoroutine = false;
     }
     public void SetStartPosition(Transform startPosition)
@@ -82,8 +83,10 @@ public class Burglar : MonoBehaviour
         if (pathNo > 3) {
             pathNo = 0;
         }
+        navAgent.enabled = false;
         gameObject.transform.position = groupofPoints[pathNo].startPoint.transform.position;
-        SetDestination();
+        navAgent.enabled = true;
+        StartCoroutine(SetDestination());
     }
 
     public void NoneAnimation()
