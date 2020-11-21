@@ -12,6 +12,7 @@ public enum AppSubState
     HomeScreen_SettingPage,
     HomeScreen_CharacterSelectionPage,
     HomeScreen_PlayComputer,
+    HomeScreen_PositionAndCap,
     GameScreen_BirdviewMode,
     GameScreen_ShootingMode,
     GameScreen_ScopeMode
