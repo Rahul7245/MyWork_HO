@@ -92,6 +92,11 @@ public class GameInitManager : MonoBehaviour
        // startCam.gameObject.SetActive(true);
         startCam.Priority = 8;
         tourStarted = false;
+        if (hurdlesGroup.Count <= 0) { return; }
+        foreach (var hurdle in hurdlesGroup) {
+            hurdle.SetActive(false);
+        }
+        hurdlesGroup.Clear();
     }
     public static int NoOfPlayerNeeded(GameType gameType)
     {
@@ -428,7 +433,7 @@ public class GameInitManager : MonoBehaviour
 
         return result;
     }
-
+    List<GameObject> hurdlesGroup=new List<GameObject>();
     IEnumerator ShowHurdles(int hurdleNum) {
         m_director.Pause();
         
@@ -439,7 +444,9 @@ public class GameInitManager : MonoBehaviour
 
             GameObject[] track;
             m_tracks.TryGetValue("player_" + i + "_Track", out track);
-            track[hurdleNum].SetActive(true);
+            GameObject h = track[hurdleNum];
+            h.SetActive(true);
+            hurdlesGroup.Add(h);
         }
         hurdleNumber -= 1;
         yield return new WaitForSeconds(2f);
