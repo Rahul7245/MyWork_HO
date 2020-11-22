@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Cinemachine;
 using TMPro;
+using System.Linq;
+using UnityEngine.Playables;
 
 public enum GameType
 {
@@ -54,7 +56,9 @@ public class GameInitManager : MonoBehaviour
     public CinemachineVirtualCamera vcam;
     public CinemachineVirtualCamera sideVcam;
     public CinemachineVirtualCamera startCam;
-
+    CinemachineTrackedDolly m_dollyCam;
+    PlayableDirector m_director;
+    int hurdleNumber ;
     public void SetGameType(GameType gameType)
     {
         this.gameType = gameType;
@@ -77,14 +81,17 @@ public class GameInitManager : MonoBehaviour
                 break;
         }
     }
+    bool tourStarted=false;
     public void startTour() {
         startCam.gameObject.SetActive(true);
         startCam.Priority = 12;
+        tourStarted = true;
     }
     public void endTour()
     {
        // startCam.gameObject.SetActive(true);
         startCam.Priority = 8;
+        tourStarted = false;
     }
     public static int NoOfPlayerNeeded(GameType gameType)
     {
@@ -114,6 +121,10 @@ public class GameInitManager : MonoBehaviour
         {
             playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         }
+        m_dollyCam = startCam.GetCinemachineComponent<CinemachineTrackedDolly>();
+        
+        m_director = startCam.GetComponent<PlayableDirector>();
+        hurdleNumber = no_of_hurdles;
     }
     public void AddResetWeaponListener(UnityAction listener)
     {
@@ -137,9 +148,10 @@ public class GameInitManager : MonoBehaviour
 
 
     }
+    Hurdle[] sortedHurdles;
     public void InstantiateTrack()
     {
-        Hurdle[] hurdles = RandomPowerPosition(0);
+        sortedHurdles = RandomPowerPosition(0);
         for (int j = 1; j <= NoOfPlayerNeeded(gameType); j++)
         {
             GameObject[] playerTrackArr = new GameObject[22];
@@ -157,7 +169,7 @@ public class GameInitManager : MonoBehaviour
                 tc.name = "block_" + i;
                 playerTrackArr[i] = tc;
             }
-            foreach (var hurdle in hurdles)
+            foreach (var hurdle in sortedHurdles)
             {
                 GameObject tc = null;
                 if (hurdle.power % 2 == 1)
@@ -174,6 +186,7 @@ public class GameInitManager : MonoBehaviour
                     tc.transform.parent = playerTrack.transform;
                     tc.name = "block_" + hurdle.pos;
                     playerTrackArr[hurdle.pos] = tc;
+                    tc.SetActive(false);
 
                 }
 
@@ -215,15 +228,27 @@ public class GameInitManager : MonoBehaviour
                 }
 
                 hurdle.power = UnityEngine.Random.Range(1, 6);
+
                 hurdles[i - 1] = hurdle;
 
             }
 
         }
-        m_player_pow.Add("player_" + playerNumber + "_pow", hurdles);
-        return hurdles;
+        Hurdle[] sorted = hurdles.OrderBy(c => c.pos).ToArray();
+        m_player_pow.Add("player_" + playerNumber + "_pow", sorted);
+        return sorted;
 
     }
+    /*Hurdle[] ArrangeInDecendingPosition(Hurdle[] hurdles) {
+        Hurdle[] ret=new Hurdle[no_of_hurdles];
+
+        Hurdle[] sorted = hurdles.OrderBy(c => c.pos).ToArray();
+
+
+
+        return sorted;
+
+    }*/
 
     IEnumerator StartGame()
     {
@@ -402,5 +427,41 @@ public class GameInitManager : MonoBehaviour
         }
 
         return result;
+    }
+
+    IEnumerator ShowHurdles(int hurdleNum) {
+        m_director.Pause();
+        
+        Hurdle[] hurdles;
+        m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
+       
+        for (int i = 1; i <= 2; i++) {
+
+            GameObject[] track;
+            m_tracks.TryGetValue("player_" + i + "_Track", out track);
+            track[hurdleNum].SetActive(true);
+        }
+        hurdleNumber -= 1;
+        yield return new WaitForSeconds(2f);
+        
+        m_director.Play();
+
+
+
+    }
+    
+    private void Update()
+    {
+        if (!tourStarted) {
+            return;
+        }
+        if (hurdleNumber <= 0) {
+            return;
+        }
+        if (m_dollyCam.m_PathPosition >= 4+20-sortedHurdles[hurdleNumber-1].pos)
+        {
+            print("coming here");
+            StartCoroutine(ShowHurdles(sortedHurdles[hurdleNumber - 1].pos));
+        }
     }
 }
