@@ -460,7 +460,6 @@ public class GameInitManager : MonoBehaviour
         }
         if (m_dollyCam.m_PathPosition >= 4+20-sortedHurdles[hurdleNumber-1].pos)
         {
-            print("coming here");
             StartCoroutine(ShowHurdles(sortedHurdles[hurdleNumber - 1].pos));
         }
     }
