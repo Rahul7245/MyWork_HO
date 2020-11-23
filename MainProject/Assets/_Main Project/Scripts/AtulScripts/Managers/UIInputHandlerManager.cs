@@ -54,6 +54,7 @@ public class UIInputHandlerManager : MonoBehaviour
 
     private void Awake()
     {
+        back.onClick.AddListener(managerHandler.appStateManager.BackPressed);
         LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
         // Home screen buttons
         playWithCompButton.onClick.AddListener(managerHandler.homeScreenManager.PlayWithComputer);
