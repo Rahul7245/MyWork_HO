@@ -10783,6 +10783,11 @@ PrefabInstance:
       propertyPath: cardShuffel_.Array.data[1]
       value: 
       objectReference: {fileID: 1751968776}
+    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: cardReveal
+      value: 
+      objectReference: {fileID: 6941092737567666657}
     - target: {fileID: 6719004503517050364, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: m_CSEnvironmentPoints.groupOfPoints.Array.data[0].endPoints.Array.size
@@ -13249,6 +13254,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6941092737567666637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6941092737567666657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3433492918770458807, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73f91ebafed7b246abbe318c1c926c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7195910223766716281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 714994312660635927, guid: e587ce4817ddb324cb9de25302a08ad1,
