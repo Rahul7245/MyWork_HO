@@ -59,6 +59,8 @@ public class CharacterManager : MonoBehaviour
                 managerHandler.gameInitManager.SetGameType(GameType.VSComputer);
                 managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
                 managerHandler.uIInputHandlerManager.cardShuffel_[0].SetActive(true);
+                managerHandler.gameInitManager.player[0].GetComponent<CharacterCustomiser>().capMat.color = Color.red;
+                managerHandler.gameInitManager.player[1].GetComponent<CharacterCustomiser>().capMat.color = Color.white;
                 break;
             case GameType.VSFriend:
                 managerHandler.gameInitManager.SetGameType(GameType.VSFriend);
