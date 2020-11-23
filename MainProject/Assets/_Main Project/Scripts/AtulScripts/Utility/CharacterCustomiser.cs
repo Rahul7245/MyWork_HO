@@ -5,5 +5,5 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class CharacterCustomiser : MonoBehaviour
 {
-    
+    public Material capMat;
 }
