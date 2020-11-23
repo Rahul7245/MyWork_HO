@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7927569928815017620}
   - component: {fileID: 6845952809587903689}
   - component: {fileID: 7370193513857203835}
-  m_Layer: 0
+  - component: {fileID: 1353721325878402023}
+  m_Layer: 5
   m_Name: no_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1353721325878402023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710008125404766385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.057357796, y: 0.00088986335, z: 0.042840548}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &986962017639704123
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +104,8 @@ GameObject:
   m_Component:
   - component: {fileID: 502630837033368705}
   - component: {fileID: 1729116942019210444}
-  m_Layer: 0
+  - component: {fileID: 8095575744986379181}
+  m_Layer: 5
   m_Name: card_suffule_opening02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +147,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8095575744986379181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986962017639704123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73f91ebafed7b246abbe318c1c926c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8065717428372478885
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +170,8 @@ GameObject:
   - component: {fileID: 2575585868640126871}
   - component: {fileID: 6050125192996356331}
   - component: {fileID: 5648113255245568675}
-  m_Layer: 0
+  - component: {fileID: 3621387324272532347}
+  m_Layer: 5
   m_Name: no_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +240,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3621387324272532347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065717428372478885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.057357796, y: 0.00088986335, z: 0.042840548}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1096118273034025571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,27 +268,27 @@ PrefabInstance:
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6748368577114794914, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
@@ -377,27 +418,27 @@ PrefabInstance:
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2435363789157003308, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6748368577114794914, guid: b8e23b68ce7dc324c99cc1767012ca8c,
         type: 3}
