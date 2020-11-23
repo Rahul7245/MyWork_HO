@@ -58,7 +58,10 @@ public class AppStateManager : MonoBehaviour
     }
     public void ToggleApp(AppState appState, AppSubState appSubState)
     {
-        if(StateCR != null)
+        previousState = currentAppState;
+        previousSubState = currentAppSubState;
+
+        if (StateCR != null)
         {
             StopCoroutine(StateCR);
         }
@@ -77,7 +80,6 @@ public class AppStateManager : MonoBehaviour
             StateCR = null;
             yield break;
         }
-        previousState = currentAppState;
         // if have old state first exit then enter bew state
         if (currentState)
         {
@@ -113,7 +115,6 @@ public class AppStateManager : MonoBehaviour
             SubStateCR = null;
             yield break;
         }
-        previousSubState = currentAppSubState;
         // if have old state first exit then enter bew state
         if (currentSubState)
         {
