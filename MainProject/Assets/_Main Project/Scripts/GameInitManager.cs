@@ -11,7 +11,9 @@ using UnityEngine.Playables;
 
 public enum GameType
 {
-    VSComputer
+    VSComputer,
+    VSFriend,
+    VSOnline
 }
 
 public enum HurdleType
@@ -29,8 +31,7 @@ public class GameInitManager : MonoBehaviour
     [SerializeField]
     private ManagerHandler managerHandler;
     // type of game user is playing
-    // for first milstone its VSComputer fixed
-    public GameType gameType = GameType.VSComputer;
+    private GameType gameType;
     public AnimationCurve curve;
     public GameObject startPoint;
     public GameObject trackCube;

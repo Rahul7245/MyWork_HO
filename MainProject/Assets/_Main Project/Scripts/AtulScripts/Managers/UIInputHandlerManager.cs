@@ -19,7 +19,7 @@ public class UIInputHandlerManager : MonoBehaviour
     [Header("Login screen buttons and UI intups")]
     public Button LoginButton;
 
-    [Header("PlayComputer screen buttons and UI intups")]
+    [Header("Home screen buttons and UI intups")]
     public Button playWithCompButton;
     public Button OpenSettingButton;
     public Button OpenCharaSelectionButton;
@@ -47,13 +47,15 @@ public class UIInputHandlerManager : MonoBehaviour
     [Header("List of character prefabs in shooting screen")]
     public List<GameObject> charactersPrefabsList;
 
+    public List<GameObject> cardShuffel_;
+
     private void Awake()
     {
         LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
         // Home screen buttons
         playWithCompButton.onClick.AddListener(() => {
             managerHandler.homeScreenManager.PlayWithComputer();
-            managerHandler.gameInitManager.SetGameType(GameType.VSComputer);
+            managerHandler.characterManager.GamePlayingType(GameType.VSComputer);
         });
         OpenSettingButton.onClick.AddListener(managerHandler.homeScreenManager.OpenSettings);
         OpenCharaSelectionButton.onClick.AddListener(managerHandler.homeScreenManager.OpenCharaterSelection);

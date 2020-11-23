@@ -19,7 +19,8 @@ public class HomeScreenManager : MonoBehaviour
     }
     public void HandleStartGame()
     {
-        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PositionAndCap);
+        //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
     }
     public void OpenSettings()
     {

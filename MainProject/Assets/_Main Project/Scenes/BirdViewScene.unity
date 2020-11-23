@@ -1095,6 +1095,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7651943091019492974}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &357019396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7506151905941668510, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358048794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7651943090670783092, guid: e587ce4817ddb324cb9de25302a08ad1,
@@ -3464,6 +3470,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2436656259738194180, guid: 78e0b3cdfd104fd458f91b3b8e5fbc0f,
     type: 3}
   m_PrefabInstance: {fileID: 1742586542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1751968776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8925816552138786870, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1759217321 stripped
 MonoBehaviour:
@@ -10763,28 +10775,14 @@ PrefabInstance:
       objectReference: {fileID: 346988139}
     - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
-      propertyPath: charactersPrefabsList.Array.data[1]
+      propertyPath: cardShuffel_.Array.data[0]
       value: 
-      objectReference: {fileID: 6860278643335991960, guid: 0747ef1545382264eb6ccd2a8f777ec3,
-        type: 3}
+      objectReference: {fileID: 357019396}
     - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
-      propertyPath: charactersPrefabsList.Array.data[2]
+      propertyPath: cardShuffel_.Array.data[1]
       value: 
-      objectReference: {fileID: 6917178414190173009, guid: 4cffb548b93fdbd4493a16eae66d1bfa,
-        type: 3}
-    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
-        type: 3}
-      propertyPath: charactersPrefabsList.Array.data[3]
-      value: 
-      objectReference: {fileID: 197457330937352232, guid: ec6b52b2ae3a5df4ebf408b4fe5949c3,
-        type: 3}
-    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
-        type: 3}
-      propertyPath: charactersPrefabsList.Array.data[4]
-      value: 
-      objectReference: {fileID: 3525560119963804644, guid: 5da6ba6d9201fc34fb90ec9868a6ca55,
-        type: 3}
+      objectReference: {fileID: 1751968776}
     - target: {fileID: 6719004503517050364, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: m_CSEnvironmentPoints.groupOfPoints.Array.data[0].endPoints.Array.size

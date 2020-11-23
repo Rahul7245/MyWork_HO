@@ -50,4 +50,20 @@ public class CharacterManager : MonoBehaviour
         managerHandler.uIInputHandlerManager.CharacterModels[index].SetActive(true);
         PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.CharacterSeleted_INT, index);
     }
+
+    public void GamePlayingType(GameType gameType)
+    {
+        switch (gameType)
+        {
+            case GameType.VSComputer:
+                managerHandler.gameInitManager.SetGameType(GameType.VSComputer);
+                managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
+                managerHandler.uIInputHandlerManager.cardShuffel_[0].SetActive(true);
+                break;
+            case GameType.VSFriend:
+                managerHandler.gameInitManager.SetGameType(GameType.VSFriend);
+                managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
+                break;
+        }
+    }
 }
