@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f7ecf18827d0541bde6b11fa44cef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capMat: {fileID: 2100000, guid: b61aa803eaa9a3e41b8a1d2d46b872df, type: 2}
 --- !u!1 &847756550445974873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1355,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3897d7d1d3570ee43b455b8a18e507c9, type: 2}
-  - {fileID: 2100000, guid: 888aad9d54340484fbb2f3256f485c72, type: 2}
+  - {fileID: 2100000, guid: b61aa803eaa9a3e41b8a1d2d46b872df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
