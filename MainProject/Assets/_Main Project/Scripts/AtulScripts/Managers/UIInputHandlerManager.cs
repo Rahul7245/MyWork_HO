@@ -95,7 +95,9 @@ public class UIInputHandlerManager : MonoBehaviour
     }
     private void SetRevalCard(GameObject obj)
     {
-        cardReveal.transform.localPosition = obj.transform.localPosition;
+        managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
+        cardReveal.transform.position = obj.transform.position;
+        cardReveal.gameObject.transform.parent.gameObject.SetActive(true);
     }
 
     public void ShowPopup(float delay, string msg)
