@@ -48,6 +48,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public List<GameObject> charactersPrefabsList;
 
     public List<GameObject> cardShuffel_;
+    public AnimationEndEvent cardReveal;
 
     private void Awake()
     {
