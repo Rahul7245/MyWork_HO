@@ -19,7 +19,8 @@ public class AppStateManager : MonoBehaviour
     private SubState currentSubState;
     private Coroutine StateCR;
     private Coroutine SubStateCR;
-
+    private AppState previousState;
+    private AppSubState previousSubState;
     public AppState CurrentAppState
     {
         get
@@ -76,6 +77,7 @@ public class AppStateManager : MonoBehaviour
             StateCR = null;
             yield break;
         }
+        previousState = currentAppState;
         // if have old state first exit then enter bew state
         if (currentState)
         {
@@ -111,6 +113,7 @@ public class AppStateManager : MonoBehaviour
             SubStateCR = null;
             yield break;
         }
+        previousSubState = currentAppSubState;
         // if have old state first exit then enter bew state
         if (currentSubState)
         {
@@ -184,5 +187,10 @@ public class AppStateManager : MonoBehaviour
     {
         Tween tween = canvasGroup.DOFade(amount, m_duration);
         tween.onComplete = ToggleDone;
+    }
+
+    public void BackPressed()
+    {
+        ToggleApp(previousState, previousSubState);
     }
 }

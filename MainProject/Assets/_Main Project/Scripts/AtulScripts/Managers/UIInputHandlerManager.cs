@@ -50,6 +50,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public List<GameObject> cardShuffel_;
     public AnimationEndEvent cardReveal;
     public List<ThreeDObjButton> threeDObjButtons;
+    public Button back;
 
     private void Awake()
     {
