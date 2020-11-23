@@ -49,21 +49,20 @@ public class UIInputHandlerManager : MonoBehaviour
 
     public List<GameObject> cardShuffel_;
     public AnimationEndEvent cardReveal;
+    public List<ThreeDObjButton> threeDObjButtons;
 
     private void Awake()
     {
         LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
         // Home screen buttons
-        playWithCompButton.onClick.AddListener(() => {
-            managerHandler.homeScreenManager.PlayWithComputer();
-            managerHandler.characterManager.GamePlayingType(GameType.VSComputer);
-        });
+        playWithCompButton.onClick.AddListener(managerHandler.homeScreenManager.PlayWithComputer);
         OpenSettingButton.onClick.AddListener(managerHandler.homeScreenManager.OpenSettings);
         OpenCharaSelectionButton.onClick.AddListener(managerHandler.homeScreenManager.OpenCharaterSelection);
         // Home screen buttons end
 
         // PlaywithComputer screen buttons
         StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
+        cardReveal.OnAnimationEnd += managerHandler.homeScreenManager.HandlePlayGame;
         HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
         // PlaywithComputer screen buttons end
 
@@ -83,7 +82,20 @@ public class UIInputHandlerManager : MonoBehaviour
             ShowPopup(0, Constants.Msg_CharacterSelected);
         });
         // Character selection screen buttons end
+        ClickedOnCard();
 
+    }
+
+    private void ClickedOnCard()
+    {
+        foreach (var item in threeDObjButtons)
+        {
+            item.OnClicked += SetRevalCard;
+        }
+    }
+    private void SetRevalCard(GameObject obj)
+    {
+        cardReveal.transform.localPosition = obj.transform.localPosition;
     }
 
     public void ShowPopup(float delay, string msg)

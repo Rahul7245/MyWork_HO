@@ -16,11 +16,17 @@ public class HomeScreenManager : MonoBehaviour
     public void PlayWithComputer()
     {
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PlayComputer);
+        managerHandler.characterManager.GamePlayingType(GameType.VSComputer);
     }
     public void HandleStartGame()
     {
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PositionAndCap);
         //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+    }
+
+    public void HandlePlayGame()
+    {
+        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
     }
     public void OpenSettings()
     {
