@@ -132,7 +132,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum = 0;
                 }
-                StartCoroutine(managerHandler.shootSceneScript.InitializeScene(EnvironmentNum, () => { ToggleAppState(ShootState.Shooting); }));
+                StartCoroutine(managerHandler.shootSceneScript.InitializeScene(4, () => { ToggleAppState(ShootState.Shooting); }));
             }
             else
             {
