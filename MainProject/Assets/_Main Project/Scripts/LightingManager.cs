@@ -272,6 +272,7 @@ public class LightingManager : MonoBehaviour
     public Material ship;
     public Material birdview;
     public GameObject birdveiw_light;
+    public GameObject train_light;
     public GameObject birdveiw_Env;
     public GameObject garge_Env;
     public GameObject bar_Env;
@@ -696,6 +697,7 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipShip;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                train_light.SetActive(false);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
@@ -715,6 +717,7 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipGerag;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                train_light.SetActive(false);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
@@ -735,6 +738,7 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipbar;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                train_light.SetActive(false);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
@@ -754,6 +758,7 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipCS;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                train_light.SetActive(false);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
@@ -773,6 +778,7 @@ public class LightingManager : MonoBehaviour
                 audioSource.clip = audioClipTrain;
                 audioSource.Play();
                 birdveiw_light.SetActive(false);
+                train_light.SetActive(true);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
@@ -788,6 +794,7 @@ public class LightingManager : MonoBehaviour
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
                 birdveiw_light.SetActive(true);
+                train_light.SetActive(false);
                 foreach (var item in enviromentDic)
                 {
                     if (item.Value != null)
