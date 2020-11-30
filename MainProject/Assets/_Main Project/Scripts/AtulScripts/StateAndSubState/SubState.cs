@@ -84,27 +84,13 @@ public abstract class SubState : MonoBehaviour
 
     private IEnumerator SubStateExitTransitionEffect()
     {
-        managerHandler.uIInputHandlerManager.videoTexture.DiscardContents();
-        managerHandler.uIInputHandlerManager.videoTexture.Release();
-        subStateTranistionCanvasGrup.alpha = 0;
+        WaitForSecondsRealtime waitForSecondsRealtime = new WaitForSecondsRealtime(delayBetweenFade);
+        subStateTranistionCanvasGrup.alpha = 1;
         subStateTranistionCanvasGrup.gameObject.SetActive(true);
-        //player.targetCameraAlpha = 0;
-        while(subStateTranistionCanvasGrup.alpha < 1)
-        {
-            yield return null;
-            subStateTranistionCanvasGrup.alpha += Time.fixedDeltaTime;
-        }
-        yield return new WaitForSecondsRealtime(delayBetweenFade);
-        while (subStateTranistionCanvasGrup.alpha > 0)
-        {
-            yield return null;
-            subStateTranistionCanvasGrup.alpha -= Time.fixedDeltaTime;
-        }
+        yield return waitForSecondsRealtime;
         subStateTranistionCanvasGrup.alpha = 0;
         subStateTranistionCanvasGrup.gameObject.SetActive(false);
         currentCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(false);
-        managerHandler.uIInputHandlerManager.videoTexture.DiscardContents();
-        managerHandler.uIInputHandlerManager.videoTexture.Release();
     }
 }

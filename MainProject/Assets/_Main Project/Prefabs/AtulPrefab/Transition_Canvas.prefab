@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4624815690845295987}
   - component: {fileID: 4829246912887464549}
   - component: {fileID: 2521577667398582182}
+  - component: {fileID: 3245481331184997884}
   m_Layer: 5
   m_Name: video seq Image
   m_TagString: Untagged
@@ -94,6 +95,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3245481331184997884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118442788136066694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73f91ebafed7b246abbe318c1c926c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3893999409177472124
 GameObject:
   m_ObjectHideFlags: 0
