@@ -8,6 +8,7 @@ using Cinemachine;
 using TMPro;
 using System.Linq;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public enum GameType
 {
@@ -470,5 +471,11 @@ public class GameInitManager : MonoBehaviour
         {
             StartCoroutine(ShowHurdles(sortedHurdles[hurdleNumber - 1].pos));
         }
+    }
+
+    public void ResetGame()
+    {
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+        SceneManager.LoadScene(0);
     }
 }

@@ -228,7 +228,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             displayMsg.text = winner.playerName + " is the winner !!!";
             yield return new WaitForSecondsRealtime(5f);
-            managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+            managerHandler.gameInitManager.ResetGame();
         }
         else
         {
