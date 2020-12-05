@@ -79,6 +79,9 @@ public class Weapon : MonoBehaviour
     [Header("GameObject")]
     public GameObject Bullet;
 
+    public Bullet bulletPrefab;
+    public BulletTimeController bulletTimeController;
+
 
 
 
@@ -134,6 +137,7 @@ public class Weapon : MonoBehaviour
     public GameObject scopeOvrlay;
     void Awake()
     {
+        bulletTimeController = GameObject.FindObjectOfType<BulletTimeController>();
         impactManager = GameObject.FindObjectOfType<ImpactManager>();
         if (scopeOvrlay)
         {
@@ -297,8 +301,12 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-
-
+                ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
+                var pos = new Vector3[] { EndPoint.position, hitPosition };
+                Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], EndPoint.rotation);
+                bulletInstance.Launch(2, hit.collider.transform, hit.point);
+                bulletTimeController.StartSequence(bulletInstance, hit.point);
+                
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
@@ -308,8 +316,8 @@ public class Weapon : MonoBehaviour
                 PlayerPrefs.SetInt("Score", burglar.getValue());
                 points.Add(PlayerPrefs.GetInt("Score"));
 
-                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-                burglar.DieAnimation();
+                //ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+               // burglar.DieAnimation();
                 //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
                 // customAgent.GetComponent<NavMeshAgent>().isStopped = true;
 
@@ -339,7 +347,7 @@ public class Weapon : MonoBehaviour
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
         }
 
-        if (Bullet != null)
+        /*if (Bullet != null)
         {
             var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };
             var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
@@ -354,7 +362,7 @@ public class Weapon : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
 
 
-        }
+        }*/
         /*if (PrefabRayTrail != null)
         {
             var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };
@@ -677,6 +685,8 @@ public class WeaponEditor : Editor
     SerializedProperty m_PrefabRayTrailProp;
     SerializedProperty m_AmmoDisplayProp;
     SerializedProperty m_bullet;
+    SerializedProperty m_bulletPrefab;
+    SerializedProperty m_bulletTimeController;
 
     void OnEnable()
     {
@@ -698,6 +708,8 @@ public class WeaponEditor : Editor
         m_PrefabRayTrailProp = serializedObject.FindProperty("PrefabRayTrail");
         m_AmmoDisplayProp = serializedObject.FindProperty("AmmoDisplay");
         m_bullet = serializedObject.FindProperty("Bullet");
+        m_bulletPrefab = serializedObject.FindProperty("bulletPrefab");
+        m_bulletTimeController= serializedObject.FindProperty("bulletTimeController");
     }
 
     public override void OnInspectorGUI()
@@ -732,6 +744,8 @@ public class WeaponEditor : Editor
 
         EditorGUILayout.PropertyField(m_AmmoDisplayProp);
         EditorGUILayout.PropertyField(m_bullet);
+        EditorGUILayout.PropertyField(m_bulletPrefab);
+        EditorGUILayout.PropertyField(m_bulletTimeController);
 
         serializedObject.ApplyModifiedProperties();
     }
