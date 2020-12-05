@@ -79,6 +79,9 @@ public class Weapon : MonoBehaviour
     [Header("GameObject")]
     public GameObject Bullet;
 
+    [Header("GameObject")]
+    public GameObject CinemachineBullet;
+
 
 
 
@@ -339,20 +342,24 @@ public class Weapon : MonoBehaviour
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
         }
 
-        if (Bullet != null)
+        if (CinemachineBullet != null)
         {
-            var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };
-            var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
-            bullet.SetActive(true);
-            bullet.transform.position = pos[0];
-            m_ActiveBullets.Add(new ActiveBullets()
+            var pos = new Vector3[] { EndPoint.position, hitPosition };
+            // var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
+            // bullet.SetActive(true);
+            // bullet.transform.position = pos[0];
+            /*m_ActiveBullets.Add(new ActiveBullets()
             {
                 remainingTime = 5f,
                 direction = (pos[1] - pos[0]).normalized,
                 bul = bullet
-            });
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-
+            });*/
+            Vector3 direction = (pos[1] - pos[0]).normalized;
+            Instantiate(new GameObject("try"), pos[0], Quaternion.Euler(direction));
+            GameObject bul = Instantiate(CinemachineBullet, pos[0], Quaternion.LookRotation(direction));
+            bul.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+           // bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+            Debug.DrawLine(pos[0], pos[1], Color.red,100f);
 
         }
         /*if (PrefabRayTrail != null)
@@ -603,7 +610,7 @@ public class Weapon : MonoBehaviour
 
         position = Controller.Instance.WeaponCamera.WorldToScreenPoint(position);
         position = Controller.Instance.MainCamera.ScreenToWorldPoint(position);
-
+       
         return position;
     }
 }
@@ -677,6 +684,7 @@ public class WeaponEditor : Editor
     SerializedProperty m_PrefabRayTrailProp;
     SerializedProperty m_AmmoDisplayProp;
     SerializedProperty m_bullet;
+    SerializedProperty m_CinemachineBullet;
 
     void OnEnable()
     {
@@ -698,6 +706,7 @@ public class WeaponEditor : Editor
         m_PrefabRayTrailProp = serializedObject.FindProperty("PrefabRayTrail");
         m_AmmoDisplayProp = serializedObject.FindProperty("AmmoDisplay");
         m_bullet = serializedObject.FindProperty("Bullet");
+        m_CinemachineBullet = serializedObject.FindProperty("CinemachineBullet");
     }
 
     public override void OnInspectorGUI()
@@ -732,6 +741,7 @@ public class WeaponEditor : Editor
 
         EditorGUILayout.PropertyField(m_AmmoDisplayProp);
         EditorGUILayout.PropertyField(m_bullet);
+        EditorGUILayout.PropertyField(m_CinemachineBullet);
 
         serializedObject.ApplyModifiedProperties();
     }

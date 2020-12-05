@@ -9161,6 +9161,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3934402308459459471, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934402308459459471, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3934402308459459568, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
       propertyPath: m_LocalRotation.x
