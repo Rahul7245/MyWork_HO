@@ -125,7 +125,7 @@ public class ShootSceneScript : MonoBehaviour
 
     public void AddShotEffects()
     {
-        Time.timeScale = 0.6f;
+       // Time.timeScale = 0.6f;
         // VigneteEffect.Instance.VigneteEffectStart();
     }
 
@@ -138,7 +138,7 @@ public class ShootSceneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         DisplayPoints(msg);
-        Time.timeScale = 1f;
+       // Time.timeScale = 1f;
     }
     public void DisplayPoints(string msg)
     {
@@ -161,5 +161,15 @@ public class ShootSceneScript : MonoBehaviour
         managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
         yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+    }
+
+    public void setBurglarSpeed(float speed)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+
+            m_burglar[i].setSpeed(speed);
+
+        }
     }
 }

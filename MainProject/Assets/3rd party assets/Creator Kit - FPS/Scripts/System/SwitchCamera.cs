@@ -21,8 +21,9 @@ public class SwitchCamera : MonoBehaviour
         }
        else
         {
-            shootScene.SetActive(false);
             birdViewCamera.SetActive(true);
+            shootScene.SetActive(false);
+            
         }
 
     }

@@ -57,7 +57,7 @@ public class ImpactManager : MonoBehaviour
       //  print("ImpactData m_position" + m_position);
          m_normal=normal;
          m_material =material;
-        PlayImpact();
+       // PlayImpact();
     }
     public Vector3 GetImpactPosition()
     {

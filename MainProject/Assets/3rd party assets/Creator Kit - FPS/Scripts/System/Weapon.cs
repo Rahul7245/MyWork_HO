@@ -297,22 +297,49 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(r, out hit, 1000.0f, ~(1 << 9), QueryTriggerInteraction.Ignore))
         {
+            if (CinemachineBullet != null)
+            {
+                var pos = new Vector3[] { EndPoint.position, hitPosition };
+                // var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
+                // bullet.SetActive(true);
+                // bullet.transform.position = pos[0];
+                /*m_ActiveBullets.Add(new ActiveBullets()
+                {
+                    remainingTime = 5f,
+                    direction = (pos[1] - pos[0]).normalized,
+                    bul = bullet
+                });*/
+                Vector3 direction = (pos[1] - pos[0]).normalized;
+                GameObject bul = Instantiate(CinemachineBullet, pos[0], Quaternion.LookRotation(direction));
+                //  Time.timeScale = 0.1f;
+                ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
+              //  bul.GetComponent<Rigidbody>().AddForce(transform.forward * 20000, ForceMode.Impulse);
+                ManagerHandler.managerHandler.switchCamera.ShootCameraEnable(false);
+                // bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+                Debug.DrawLine(pos[0], pos[1], Color.red, 100f);
+
+            }
+
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
 
+                
+
+
 
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
-                Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
-                if (PlayerPrefs.HasKey("Score"))
-                {
-                    PlayerPrefs.DeleteKey("Score");
-                }
-                PlayerPrefs.SetInt("Score", burglar.getValue());
-                points.Add(PlayerPrefs.GetInt("Score"));
+                ManagerHandler.managerHandler.timer.stopTimer();
+                /* Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
+                 if (PlayerPrefs.HasKey("Score"))
+                 {
+                     PlayerPrefs.DeleteKey("Score");
+                 }
+                 PlayerPrefs.SetInt("Score", burglar.getValue());
+                 points.Add(PlayerPrefs.GetInt("Score"));
 
-                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-                burglar.DieAnimation();
+                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+                 burglar.DieAnimation();*/
                 //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
                 // customAgent.GetComponent<NavMeshAgent>().isStopped = true;
 
@@ -342,26 +369,7 @@ public class Weapon : MonoBehaviour
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
         }
 
-        if (CinemachineBullet != null)
-        {
-            var pos = new Vector3[] { EndPoint.position, hitPosition };
-            // var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
-            // bullet.SetActive(true);
-            // bullet.transform.position = pos[0];
-            /*m_ActiveBullets.Add(new ActiveBullets()
-            {
-                remainingTime = 5f,
-                direction = (pos[1] - pos[0]).normalized,
-                bul = bullet
-            });*/
-            Vector3 direction = (pos[1] - pos[0]).normalized;
-            Instantiate(new GameObject("try"), pos[0], Quaternion.Euler(direction));
-            GameObject bul = Instantiate(CinemachineBullet, pos[0], Quaternion.LookRotation(direction));
-            bul.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
-           // bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
-            Debug.DrawLine(pos[0], pos[1], Color.red,100f);
-
-        }
+        
         /*if (PrefabRayTrail != null)
         {
             var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };

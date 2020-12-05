@@ -100,4 +100,11 @@ public class Burglar : MonoBehaviour
         anim.SetTrigger("Die");
 
     }
+
+    public void setSpeed(float speed) {
+        
+        navAgent.speed = speed==1?3.5f:speed;
+        anim.speed = speed;
+
+    }
 }

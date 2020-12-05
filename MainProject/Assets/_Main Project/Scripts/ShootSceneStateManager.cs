@@ -132,7 +132,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     EnvironmentNum = 0;
                 }
-                StartCoroutine(managerHandler.shootSceneScript.InitializeScene(EnvironmentNum, () => { ToggleAppState(ShootState.Shooting); }));
+                StartCoroutine(managerHandler.shootSceneScript.InitializeScene(0, () => { ToggleAppState(ShootState.Shooting); }));
             }
             else
             {
@@ -160,7 +160,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             m_currentState = appState;
             CountDownSound.Stop();
-            managerHandler.timer.stopTimer();
+           // managerHandler.timer.stopTimer();
             if (player.playerType == PlayerType.Computer)
             {
                 int computerScore = ShootingBot.BotPlay(Weapon.points.ToArray(), player.PlayerScore);
