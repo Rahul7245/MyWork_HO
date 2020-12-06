@@ -62,6 +62,10 @@ public class Burglar : MonoBehaviour
     }
    public IEnumerator SetDestination()
     {
+        if (!navAgent.isOnNavMesh) {
+            print(gameObject.name);
+        }
+
         if (navAgent.isActiveAndEnabled) {
             navAgent.destination = groupofPoints[pathNo].endPoints[0].transform.position;
             navAgent.isStopped = false;
