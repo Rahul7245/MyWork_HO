@@ -28,6 +28,9 @@ public class ShootSceneStateManager : MonoBehaviour
     GameObject playerPlaying = null;
     Player player = null;
     int EnvironmentNum = -1;
+    public GameObject ConfettiCelebration;
+    public GameObject ConfettiCelebrationCamera;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -227,8 +230,18 @@ public class ShootSceneStateManager : MonoBehaviour
         if (winnerResult)
         {
             displayMsg.text = winner.playerName + " is the winner !!!";
-            yield return new WaitForSecondsRealtime(5f);
+            winner.GetComponent<Animator>().SetBool("fall", true);
+            ConfettiCelebration.SetActive(true);
+            CMCscript cmcs = ConfettiCelebrationCamera.GetComponent<CMCscript>();
+            cmcs.SetLookAtProperty(winner);
+            cmcs.StartRevolution();
+            ConfettiCelebrationCamera.SetActive(true);
+            
+            yield return new WaitForSecondsRealtime(25f);
+            cmcs.StopRevolution();
+            ConfettiCelebration.SetActive(false);
             managerHandler.gameInitManager.ResetGame();
+            ConfettiCelebrationCamera.SetActive(false);
         }
         else
         {
