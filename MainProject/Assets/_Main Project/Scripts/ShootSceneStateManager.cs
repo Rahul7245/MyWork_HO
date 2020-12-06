@@ -230,7 +230,7 @@ public class ShootSceneStateManager : MonoBehaviour
         if (winnerResult)
         {
             displayMsg.text = winner.playerName + " is the winner !!!";
-            winner.GetComponent<Animator>().SetBool("fall", true);
+            winner.GetComponent<Animator>().SetBool("win", true);
             ConfettiCelebration.SetActive(true);
             CMCscript cmcs = ConfettiCelebrationCamera.GetComponent<CMCscript>();
             cmcs.SetLookAtProperty(winner);
@@ -240,8 +240,10 @@ public class ShootSceneStateManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(25f);
             cmcs.StopRevolution();
             ConfettiCelebration.SetActive(false);
+            winner.GetComponent<Animator>().SetBool("win", false);
             managerHandler.gameInitManager.ResetGame();
             ConfettiCelebrationCamera.SetActive(false);
+            
         }
         else
         {
