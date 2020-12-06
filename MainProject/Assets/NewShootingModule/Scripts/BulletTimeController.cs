@@ -97,6 +97,7 @@ public class BulletTimeController : MonoBehaviour
 
 	private TargetTrackingSetup SelectTrackingSetup(Transform trans, TargetTrackingSetup[] setups, Quaternion orientation)
 	{
+		return setups[UnityEngine.Random.Range(0, setups.Length)];
 		clearTracks.Clear();
 		for (int i = 0; i < setups.Length; i++)
 		{

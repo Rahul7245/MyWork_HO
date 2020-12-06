@@ -39,9 +39,8 @@ public class Burglar : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {if(navAgent.enabled)
+    {if(navAgent.isActiveAndEnabled)
         if (inCoroutine==false) {
-
             if (navAgent.remainingDistance <= .1f /*|| navAgent.isStopped*/)
             {
                     inCoroutine = true;
@@ -63,9 +62,11 @@ public class Burglar : MonoBehaviour
     }
    public IEnumerator SetDestination()
     {
+        if (navAgent.isActiveAndEnabled) {
+            navAgent.destination = groupofPoints[pathNo].endPoints[0].transform.position;
+            navAgent.isStopped = false;
+        }
         
-        navAgent.destination = groupofPoints[pathNo].endPoints[0].transform.position;
-        navAgent.isStopped = false;
         // end_Point = endPoint;
         anim.SetTrigger("Run");
         yield return new WaitForSeconds(2.5f);
