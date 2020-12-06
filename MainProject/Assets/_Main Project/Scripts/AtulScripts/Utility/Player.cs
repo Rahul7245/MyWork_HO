@@ -20,4 +20,8 @@ public class Player : MonoBehaviour
     {
         PlayerScore += point;
     }
+    public void SetScore(int point)
+    {
+        PlayerScore = point;
+    }
 }

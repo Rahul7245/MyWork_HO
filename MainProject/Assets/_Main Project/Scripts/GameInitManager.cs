@@ -36,8 +36,10 @@ public class GameInitManager : MonoBehaviour
     public AnimationCurve curve;
     public GameObject startPoint;
     public GameObject trackCube;
-    public GameObject powerCube;
-    public GameObject hurdleCube;
+    public GameObject powerPlusTwo;
+    public GameObject hurdleMinusTwo;
+    public GameObject hurdleSelfDestruct;
+    public GameObject powerExtraChance;
     public GameObject track;
     public GameObject[] player;
     public int no_of_hurdles;
@@ -181,11 +183,25 @@ public class GameInitManager : MonoBehaviour
                 GameObject tc = null;
                 if (hurdle.power % 2 == 1)
                 {
-                    tc = Instantiate(powerCube, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                        if (hurdle.power == 3) {
+                        tc = Instantiate(powerExtraChance, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    }
+                    else
+                    {
+                        tc = Instantiate(powerPlusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    }
+                       
                 }
                 else if (hurdle.power % 2 == 0)
                 {
-                    tc = Instantiate(hurdleCube, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    if (hurdle.power == 4) {
+                        tc = Instantiate(hurdleSelfDestruct, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    }
+                    else
+                    {
+                        tc = Instantiate(hurdleMinusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    }
+                    
                 }
                 if (tc)
                 {
@@ -304,19 +320,26 @@ public class GameInitManager : MonoBehaviour
             if (currentPosition == hurdle.pos)
             {
                 hurdleFound = true;
-                if (hurdle.power == 2 || hurdle.power == 4 || hurdle.power == 6)
+                if (hurdle.power == 2 || hurdle.power == 6)
                 {
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
                     movePlayer(playerNumber, -2, false);
                     return;
                 }
-                else if (hurdle.power == 1 || hurdle.power == 3 || hurdle.power == 5)
+                else if (hurdle.power == 1 || hurdle.power == 5)
                 {
                     _currentPlayer.LastPointScored = 2;
                     _currentPlayer.AddToScore(2);
                     movePlayer(playerNumber, 2, true);
                     return;
+                }
+                else if (hurdle.power == 4)
+                {
+                    PlaySelfDestruct(_currentPlayer);
+                }
+                else if (hurdle.power == 3) {
+                    PlayGettingExtraChance(_currentPlayer);
                 }
             }
         }
@@ -327,7 +350,34 @@ public class GameInitManager : MonoBehaviour
         m_ready = true;
 
     }
+    void PlayGettingExtraChance(Player player) {
+    GameObject effect= ManagerHandler.managerHandler.allEffects.Heart;
+        Instantiate(effect, player.transform.position+Vector3.up, Quaternion.identity);
+        ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
+        ShootSceneStateManager.Instance.setNextTurnFlag(true);
+    }
+   
+    void PlaySelfDestruct(Player player) {
+        GameObject[] effects = new GameObject[2];
+        effects[0] = ManagerHandler.managerHandler.allEffects.DeathSkull;
+        effects[1] = ManagerHandler.managerHandler.allEffects.Blast;
+        foreach (var effect in effects) {
+            Instantiate(effect, player.transform.position+Vector3.up, Quaternion.identity);
+        }
+        StartCoroutine(PlayWaitForSelfDieEffect(player));
 
+    }
+    IEnumerator PlayWaitForSelfDieEffect(Player player) {
+        yield return new WaitForSeconds(1.5f);
+        GameObject[] track;
+        int playerIndex=PlayerPrefs.GetInt("Turn");
+        m_tracks.TryGetValue("player_" + playerIndex + "_Track", out track);
+        player.transform.position = track[0].transform.position;
+        m_player_pos.Remove("player_" + playerIndex);
+        m_player_pos.Add("player_" + playerIndex, 0);
+        yield return new WaitForSeconds(1.5f);
+        ShootSceneStateManager.Instance.setNextTurnFlag(true);
+    }
     public void setCameraToNormal(int turn)
     {
         GameObject current_Player;

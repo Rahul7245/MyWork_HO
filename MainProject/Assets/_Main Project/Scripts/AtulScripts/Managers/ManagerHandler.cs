@@ -18,6 +18,7 @@ public class ManagerHandler : MonoBehaviour
     public CharacterManager characterManager;
     public LoginManager loginManager;
     public HomeScreenManager homeScreenManager;
+    public AllEffects allEffects;
 
     private void Awake()
     {

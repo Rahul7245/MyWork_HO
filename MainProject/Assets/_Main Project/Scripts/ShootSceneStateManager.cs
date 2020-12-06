@@ -30,11 +30,15 @@ public class ShootSceneStateManager : MonoBehaviour
     int EnvironmentNum = -1;
     public GameObject ConfettiCelebration;
     public GameObject ConfettiCelebrationCamera;
+    List<int> playerLoosingChance;
+    public bool playerGettingChance;
 
     // Start is called before the first frame update
     private void Awake()
     {
         Instance = this;
+        playerLoosingChance = new List<int>();
+        playerGettingChance = false;
     }
 
     public void StartGame()
@@ -84,8 +88,15 @@ public class ShootSceneStateManager : MonoBehaviour
             if (PlayerPrefs.HasKey("Turn"))
             {
                 int turn = PlayerPrefs.GetInt("Turn");
-                PlayerPrefs.DeleteKey("Turn");
-                PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
+                if (!playerGettingChance)
+                {
+                    PlayerPrefs.DeleteKey("Turn");
+                    PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
+                }
+                else {
+                    playerGettingChance = false;
+                }
+                
             }
             playerPlaying = managerHandler.gameInitManager.GetPlayer();
             player = playerPlaying?.GetComponent<Player>();
