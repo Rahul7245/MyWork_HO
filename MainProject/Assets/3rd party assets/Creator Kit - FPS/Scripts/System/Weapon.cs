@@ -301,8 +301,10 @@ public class Weapon : MonoBehaviour
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
             {
+                ManagerHandler.managerHandler.timer.stopTimer();
                 ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
                 var pos = new Vector3[] { EndPoint.position, hitPosition };
+                Debug.DrawLine(pos[0], pos[1], Color.red,30f);
                 Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], EndPoint.rotation);
                 bulletInstance.Launch(2, hit.collider.transform, hit.point);
                 bulletTimeController.StartSequence(bulletInstance, hit.point);

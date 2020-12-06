@@ -115,7 +115,12 @@ public class Controller : MonoBehaviour
     }
     void Update()
     {
+#if UNITY_EDITOR
 
+        if (Input.GetMouseButtonUp(0)) {
+            FireButton();
+        }
+#endif
 
         /* if (CanPause && Input.GetButtonDown("Menu"))
          {
@@ -188,7 +193,7 @@ public class Controller : MonoBehaviour
 
             //For Android use touch
 #if UNITY_EDITOR
-            if (Input.mousePosition.x < Screen.width / 2)
+            if (Input.GetKey(KeyCode.LeftAlt))
 #else
             if (Input.mousePosition.x < Screen.width / 2 && Input.touches[0].phase == TouchPhase.Moved)
 #endif
