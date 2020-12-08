@@ -304,9 +304,11 @@ public class Weapon : MonoBehaviour
                 ManagerHandler.managerHandler.timer.stopTimer();
                 ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
                 var pos = new Vector3[] { EndPoint.position, hitPosition };
+                var direction = (pos[1] - pos[0]);
+                print("mag::" + Vector3.Distance(pos[1],pos[0]));
                 Debug.DrawLine(pos[0], pos[1], Color.red,30f);
-                Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], EndPoint.rotation);
-                bulletInstance.Launch(2, hit.collider.transform, hit.point);
+                Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
+                bulletInstance.Launch(4, hit.collider.transform, hit.point);
                 bulletTimeController.StartSequence(bulletInstance, hit.point);
                 
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);

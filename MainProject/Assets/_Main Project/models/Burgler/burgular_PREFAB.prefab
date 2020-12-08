@@ -1066,10 +1066,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.8
+  m_Radius: 0.22178678
+  m_Height: 1.7703167
   m_Direction: 1
-  m_Center: {x: 0.03384, y: 0.89, z: 0.041922}
+  m_Center: {x: 0.033840016, y: 0.87515837, z: 0.18550469}
 --- !u!114 &8186367834041031543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,6 +1083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_value: 1
+  groupofPoints: []
+  pathNo: 0
 --- !u!195 &6372951064685577702
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1092,7 +1094,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3070167803422903230}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 2.5
   m_Acceleration: 20
   avoidancePriority: 50

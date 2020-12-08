@@ -375,7 +375,8 @@ public class GameInitManager : MonoBehaviour
         player.transform.position = track[0].transform.position;
         m_player_pos.Remove("player_" + playerIndex);
         m_player_pos.Add("player_" + playerIndex, 0);
-        yield return new WaitForSeconds(1.5f);
+        player.SetScore(0);
+       yield return new WaitForSeconds(1.5f);
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
     public void setCameraToNormal(int turn)
