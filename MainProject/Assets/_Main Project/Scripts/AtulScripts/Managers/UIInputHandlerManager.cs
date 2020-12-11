@@ -94,7 +94,7 @@ public class UIInputHandlerManager : MonoBehaviour
     {
         foreach (var item in threeDObjButtons)
         {
-            item.enabled = status;
+            item.gameObject.GetComponent<BoxCollider>().enabled = status;
         }
     }
 
