@@ -231,6 +231,7 @@ MonoBehaviour:
   characterManager: {fileID: 2286527354853831710}
   loginManager: {fileID: 2047368728922178736}
   homeScreenManager: {fileID: 8071653703974802449}
+  allEffects: {fileID: 0}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,14 +303,15 @@ MonoBehaviour:
   - {fileID: 0}
   charactersPrefabsList:
   - {fileID: 1533610743830199936, guid: 338778bfd2875be409029b6b0d8fc9c4, type: 3}
-  - {fileID: 6860278643335991960, guid: 0747ef1545382264eb6ccd2a8f777ec3, type: 3}
+  - {fileID: 140176097807831857, guid: aed1a7d8f304c294bab8d522b7047667, type: 3}
   - {fileID: 6917178414190173009, guid: 4cffb548b93fdbd4493a16eae66d1bfa, type: 3}
-  - {fileID: 197457330937352232, guid: ec6b52b2ae3a5df4ebf408b4fe5949c3, type: 3}
+  - {fileID: 5453533397692768542, guid: 90a41c8663aef2d4fb068f22b7ec4631, type: 3}
   - {fileID: 3525560119963804644, guid: 5da6ba6d9201fc34fb90ec9868a6ca55, type: 3}
-  - {fileID: 3428050830789515578, guid: c5705d634f9a81b48ac5c38c5d229471, type: 3}
+  - {fileID: 4712032455984065116, guid: cbeae66d708755f409a67588fb295991, type: 3}
   cardShuffel_:
   - {fileID: 0}
   - {fileID: 0}
+  cardShuffleDone: {fileID: 0}
   cardReveal: {fileID: 0}
   threeDObjButtons:
   - {fileID: 0}
@@ -320,6 +322,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  back: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +591,7 @@ MonoBehaviour:
   ship: {fileID: 2100000, guid: 5fd970d609c82ae40be3d7fa0668e13e, type: 2}
   birdview: {fileID: 0}
   birdveiw_light: {fileID: 0}
+  train_light: {fileID: 0}
   birdveiw_Env: {fileID: 0}
   garge_Env: {fileID: 0}
   bar_Env: {fileID: 0}
@@ -635,10 +639,10 @@ MonoBehaviour:
     type: 3}
   trackCube: {fileID: 5150237030549391728, guid: f1d5ac99bf0a44e45a04b3155891ca5e,
     type: 3}
-  powerCube: {fileID: 5150237030549391728, guid: 62af50f580681bf40a4aef818198c469,
-    type: 3}
-  hurdleCube: {fileID: 5150237030549391728, guid: b081549a9b85a064a9b12b1453c5281b,
-    type: 3}
+  powerPlusTwo: {fileID: 0}
+  hurdleMinusTwo: {fileID: 0}
+  hurdleSelfDestruct: {fileID: 0}
+  powerExtraChance: {fileID: 0}
   track: {fileID: 0}
   player:
   - {fileID: 1533610743830199936, guid: 338778bfd2875be409029b6b0d8fc9c4, type: 3}
@@ -667,6 +671,9 @@ MonoBehaviour:
   managerHandler: {fileID: 4357243929486401437}
   CountDownSound: {fileID: 1950171862250454166}
   displayMsg: {fileID: 0}
+  ConfettiCelebration: {fileID: 0}
+  ConfettiCelebrationCamera: {fileID: 0}
+  playerGettingChance: 0
 --- !u!114 &6614074978765538713
 MonoBehaviour:
   m_ObjectHideFlags: 0

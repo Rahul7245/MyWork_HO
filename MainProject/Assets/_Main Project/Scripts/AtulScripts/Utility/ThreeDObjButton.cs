@@ -8,6 +8,16 @@ public class ThreeDObjButton : MonoBehaviour
 {
     public Action<GameObject> OnClicked;
 
+    private void Awake()
+    {
+        
+    }
+
+    private void Start()
+    {
+        
+    }
+
     private void OnMouseUp()
     {
         OnClicked?.Invoke(this.gameObject);

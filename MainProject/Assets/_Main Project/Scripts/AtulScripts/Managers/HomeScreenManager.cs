@@ -27,6 +27,7 @@ public class HomeScreenManager : MonoBehaviour
     public void HandlePlayGame()
     {
         managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        managerHandler.uIInputHandlerManager.ToggleCardSelection(false);
     }
     public void OpenSettings()
     {

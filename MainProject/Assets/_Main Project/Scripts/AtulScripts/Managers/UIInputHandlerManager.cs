@@ -48,6 +48,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public List<GameObject> charactersPrefabsList;
 
     public List<GameObject> cardShuffel_;
+    public AnimationEndEvent cardShuffleDone;
     public AnimationEndEvent cardReveal;
     public List<ThreeDObjButton> threeDObjButtons;
     public Button back;
@@ -65,6 +66,7 @@ public class UIInputHandlerManager : MonoBehaviour
         // PlaywithComputer screen buttons
         StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
         cardReveal.OnAnimationEnd += managerHandler.homeScreenManager.HandlePlayGame;
+        cardShuffleDone.OnAnimationEnd += () => { ToggleCardSelection(true); };
         HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
         // PlaywithComputer screen buttons end
 
@@ -86,6 +88,14 @@ public class UIInputHandlerManager : MonoBehaviour
         // Character selection screen buttons end
         ClickedOnCard();
 
+    }
+
+    public void ToggleCardSelection(bool status)
+    {
+        foreach (var item in threeDObjButtons)
+        {
+            item.enabled = status;
+        }
     }
 
     private void ClickedOnCard()
