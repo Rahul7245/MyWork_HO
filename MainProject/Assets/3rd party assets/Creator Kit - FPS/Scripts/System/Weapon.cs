@@ -296,7 +296,7 @@ public class Weapon : MonoBehaviour
         Ray r = Controller.Instance.MainCamera.ViewportPointToRay(Vector3.one * 0.5f + (Vector3)spread);
        // Vector3 hitPosition = r.origin + r.direction * 200.0f;
 
-        if (Physics.Raycast(r, out hit, 1000.0f, ~(1 << 9), QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(r, out hit, 1000.0f))
         {
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             if (hit.transform.gameObject.tag == "Burgler")
