@@ -311,7 +311,7 @@ public class Weapon : MonoBehaviour
                 bulletTimeController.StartSequence(bulletInstance, hit.point);
                 
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
-                Burglar burglar = hit.transform.gameObject.GetComponent<Burglar>();
+                Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
                 {
                     PlayerPrefs.DeleteKey("Score");

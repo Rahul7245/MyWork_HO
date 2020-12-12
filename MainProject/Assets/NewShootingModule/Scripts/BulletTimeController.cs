@@ -146,7 +146,7 @@ public class BulletTimeController : MonoBehaviour
 				dollyInstance.InitDolly(trackInstance, hitTransform.transform);
 				//ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
 				ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(1f);
-				hitTransform.GetComponent<Burglar>().DieAnimation();
+				hitTransform.GetComponentInParent<Burglar>().DieAnimation();
 				timeScaleController.SlowDownTime();
 			}
 		}
