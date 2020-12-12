@@ -294,7 +294,7 @@ public class Weapon : MonoBehaviour
 
         RaycastHit hit;
         Ray r = Controller.Instance.MainCamera.ViewportPointToRay(Vector3.one * 0.5f + (Vector3)spread);
-        Vector3 hitPosition = r.origin + r.direction * 200.0f;
+       // Vector3 hitPosition = r.origin + r.direction * 200.0f;
 
         if (Physics.Raycast(r, out hit, 1000.0f, ~(1 << 9), QueryTriggerInteraction.Ignore))
         {
@@ -303,12 +303,11 @@ public class Weapon : MonoBehaviour
             {
                 ManagerHandler.managerHandler.timer.stopTimer();
                 ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
-                var pos = new Vector3[] { EndPoint.position, hitPosition };
+                var pos = new Vector3[] { EndPoint.position, hit.point };
                 var direction = (pos[1] - pos[0]);
-                print("mag::" + Vector3.Distance(pos[1],pos[0]));
                 Debug.DrawLine(pos[0], pos[1], Color.red,30f);
                 Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
-                bulletInstance.Launch(4, hit.collider.transform, hit.point);
+                bulletInstance.Launch(direction.magnitude>20?6:2, hit.collider.transform, hit.point);
                 bulletTimeController.StartSequence(bulletInstance, hit.point);
                 
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
@@ -337,8 +336,8 @@ public class Weapon : MonoBehaviour
             }
 
             //if too close, the trail effect would look weird if it arced to hit the wall, so only correct it if far
-            if (hit.distance > 5.0f)
-                hitPosition = hit.point;
+            /*if (hit.distance > 5.0f)
+                hitPosition = hit.point;*/
 
             //this is a target
             if (hit.collider.gameObject.layer == 10)

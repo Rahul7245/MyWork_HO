@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private float shootingForce;
     private Vector3 direction;
     private Vector3 hitPoint;
+    CapsuleCollider collider;
 
     public void Launch(float shootingForce, Transform hitTransform, Vector3 hitPoint)
     {
@@ -20,6 +21,7 @@ public class Bullet : MonoBehaviour
         this.hitTransform = hitTransform;
         this.shootingForce = shootingForce;
         this.hitPoint = hitPoint;
+        this.collider = hitTransform.GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -31,7 +33,8 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(direction * shootingForce * Time.deltaTime, Space.World);
+        Vector3 translate =(new Vector3(collider.bounds.center.x, hitPoint.y, collider.bounds.center.z) -gameObject.transform.position).normalized;
+        transform.Translate(translate * shootingForce * Time.deltaTime, Space.World);
     }
 
     private void CheckDistanceToEnemy()
