@@ -11875,6 +11875,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7670896425048859398, guid: 660122ec673f0974cb6c3e1d3921c731,
         type: 3}
+    - target: {fileID: 3255027371997999161, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: hurdleSkip
+      value: 
+      objectReference: {fileID: 7670896425048859398, guid: 41c2466d1ca807d4dbdc377297c70b1d,
+        type: 3}
     - target: {fileID: 3474405488617317195, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: readyPlayerPopUp
@@ -14233,7 +14239,7 @@ PrefabInstance:
     - target: {fileID: 6941092737749390596, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 354.00024
+      value: 354.00018
       objectReference: {fileID: 0}
     - target: {fileID: 6941092737824610149, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -14671,7 +14677,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6941092737567666637}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f64895eca39508043a84204280077a41, type: 3}
   m_Name: 
@@ -14683,7 +14689,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6941092737567666637}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f64895eca39508043a84204280077a41, type: 3}
   m_Name: 

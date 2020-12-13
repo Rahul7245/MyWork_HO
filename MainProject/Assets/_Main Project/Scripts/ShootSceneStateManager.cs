@@ -65,6 +65,7 @@ public class ShootSceneStateManager : MonoBehaviour
     {
         if (m_currentState == appState)
         {
+            if(m_currentState!=ShootState.PlayerTurn)
             return;
         }
         if (appState.Equals(ShootState.Start))
@@ -92,14 +93,21 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     PlayerPrefs.DeleteKey("Turn");
                     PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
+                    playerPlaying = managerHandler.gameInitManager.GetPlayer();
+                    player = playerPlaying?.GetComponent<Player>();
+                    if (player.GetSkip()) {
+                        player.SetSkip(false);
+                        ToggleAppState(ShootState.PlayerTurn);
+                        return;
+                      
+                    }
                 }
                 else {
                     playerGettingChance = false;
                 }
                 
             }
-            playerPlaying = managerHandler.gameInitManager.GetPlayer();
-            player = playerPlaying?.GetComponent<Player>();
+            
 
             managerHandler.birdViewSceneScript.SetCameraToCurrentPlayer();
             displayMsg.text = player.playerName + "`s Turn";

@@ -40,6 +40,7 @@ public class GameInitManager : MonoBehaviour
     public GameObject hurdleMinusTwo;
     public GameObject hurdleSelfDestruct;
     public GameObject powerExtraChance;
+    public GameObject hurdleSkip;
     public GameObject track;
     public GameObject[] player;
     public int no_of_hurdles;
@@ -163,7 +164,7 @@ public class GameInitManager : MonoBehaviour
         sortedHurdles = RandomPowerPosition(0);
         for (int j = 1; j <= NoOfPlayerNeeded(gameType); j++)
         {
-            GameObject[] playerTrackArr = new GameObject[22];
+            GameObject[] playerTrackArr = new GameObject[23];
             GameObject playerTrack = new GameObject("player_" + j + "_Track");
             Vector3 pos = new Vector3(10, 0, 0);
             GameObject st = Instantiate(startPoint, pos + new Vector3(j * 5 + 3, 0, 0), Quaternion.identity);
@@ -171,7 +172,7 @@ public class GameInitManager : MonoBehaviour
             st.transform.parent = playerTrack.transform;
             st.name = "start_pos_" + j;
             playerTrackArr[0] = st;
-            for (int i = 1; i <= 21; i++)
+            for (int i = 1; i <= 22; i++)
             {
                 GameObject tc = Instantiate(trackCube, pos + new Vector3(0, 0, i * trackDistance), Quaternion.identity);
                 tc.transform.parent = playerTrack.transform;
@@ -197,7 +198,11 @@ public class GameInitManager : MonoBehaviour
                     if (hurdle.power == 4) {
                         tc = Instantiate(hurdleSelfDestruct, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                     }
-                    else
+                    if (hurdle.power == 6)
+                    {
+                        tc = Instantiate(hurdleSkip, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                    }
+                    else if (hurdle.power == 2)
                     {
                         tc = Instantiate(hurdleMinusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                     }
@@ -320,7 +325,7 @@ public class GameInitManager : MonoBehaviour
             if (currentPosition == hurdle.pos)
             {
                 hurdleFound = true;
-                if (hurdle.power == 2 || hurdle.power == 6)
+                if (hurdle.power == 2 )
                 {
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
@@ -338,12 +343,21 @@ public class GameInitManager : MonoBehaviour
                 {
                     PlaySelfDestruct(_currentPlayer);
                 }
+                else if (hurdle.power == 6)
+                {
+                    _currentPlayer.SetSkip(true);
+                    ShootSceneStateManager.Instance.setNextTurnFlag(true);
+                }
                 else if (hurdle.power == 3) {
                     PlayGettingExtraChance(_currentPlayer);
                 }
             }
         }
-        if (!hurdleFound)
+        if (_currentPlayer.PlayerScore==21) {
+            _currentPlayer.AddToScore(1);
+            movePlayer(playerNumber, 1, true);
+        }
+       else if (!hurdleFound)
         {
             ShootSceneStateManager.Instance.setNextTurnFlag(true);
         }
