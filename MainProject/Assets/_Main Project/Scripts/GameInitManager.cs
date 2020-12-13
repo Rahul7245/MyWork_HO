@@ -235,7 +235,7 @@ public class GameInitManager : MonoBehaviour
             {
                 Hurdle hurdle = new Hurdle();
                 hurdle.pos = UnityEngine.Random.Range(2, 20);
-                hurdle.power = UnityEngine.Random.Range(1, 6);
+                hurdle.power = UnityEngine.Random.Range(1, 7);
                 hurdles[i - 1] = hurdle;
             }
             else
