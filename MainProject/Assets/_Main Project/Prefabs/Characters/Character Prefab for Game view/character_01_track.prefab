@@ -672,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533610743830199936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.6, y: 0, z: 0}
+  m_LocalPosition: {x: 18, y: 0, z: 0}
   m_LocalScale: {x: 270, y: 250, z: 295.812}
   m_Children:
   - {fileID: 6877670273127261707}
@@ -741,10 +741,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ceed391b48a984e9418bb94b6486b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Rahul
-  playerType: 0
+  playerName: Bot
+  playerType: 1
   LastPointScored: 0
   PlayerScore: 0
+  Skip: 0
 --- !u!114 &-24343967625564104
 MonoBehaviour:
   m_ObjectHideFlags: 0

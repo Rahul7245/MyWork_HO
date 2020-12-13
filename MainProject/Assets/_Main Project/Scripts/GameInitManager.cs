@@ -41,12 +41,17 @@ public class GameInitManager : MonoBehaviour
     public GameObject hurdleSelfDestruct;
     public GameObject powerExtraChance;
     public GameObject hurdleSkip;
+    public GameObject rivalSkip;
+    public GameObject rivalKill;
+    public GameObject rivalhelp;
+    public GameObject rivalSendBack;
     public GameObject track;
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
     public GameObject[] playerPositionCanvas;
     public GameObject currentPlayerCanvas;
+    public GameObject RivalPopup;
     // Start is called before the first frame update
     Dictionary<string, GameObject[]> m_tracks = new Dictionary<string, GameObject[]>();
     Dictionary<string, GameObject> m_players = new Dictionary<string, GameObject>();
@@ -182,32 +187,42 @@ public class GameInitManager : MonoBehaviour
             foreach (var hurdle in sortedHurdles)
             {
                 GameObject tc = null;
-                if (hurdle.power % 2 == 1)
+                if(hurdle.power == 1)
                 {
-                        if (hurdle.power == 3) {
-                        tc = Instantiate(powerExtraChance, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                    }
-                    else
-                    {
-                        tc = Instantiate(powerPlusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                    }
-                       
+                    tc = Instantiate(powerPlusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                 }
-                else if (hurdle.power % 2 == 0)
+                else if (hurdle.power == 3)
                 {
-                    if (hurdle.power == 4) {
-                        tc = Instantiate(hurdleSelfDestruct, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                    }
-                    if (hurdle.power == 6)
-                    {
-                        tc = Instantiate(hurdleSkip, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                    }
-                    else if (hurdle.power == 2)
-                    {
-                        tc = Instantiate(hurdleMinusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                    }
-                    
+                    tc = Instantiate(powerExtraChance, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                }else if (hurdle.power == 4)
+                {
+                    tc = Instantiate(hurdleSelfDestruct, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                 }
+                if (hurdle.power == 6)
+                {
+                    tc = Instantiate(hurdleSkip, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                }
+                else if (hurdle.power == 2)
+                {
+                    tc = Instantiate(hurdleMinusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                }
+                else if (hurdle.power == 5)
+                {
+                    tc = Instantiate(rivalSkip, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                }
+                else if (hurdle.power == 7)
+                {
+                    tc = Instantiate(rivalKill, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
+                }
+                else if (hurdle.power == 8)
+                {
+
+                }
+                else if (hurdle.power == 9)
+                {
+
+                }
+               
                 if (tc)
                 {
                     Destroy(playerTrackArr[hurdle.pos]);
@@ -235,7 +250,7 @@ public class GameInitManager : MonoBehaviour
             {
                 Hurdle hurdle = new Hurdle();
                 hurdle.pos = UnityEngine.Random.Range(2, 20);
-                hurdle.power = UnityEngine.Random.Range(1, 7);
+                hurdle.power = UnityEngine.Random.Range(5, 8);
                 hurdles[i - 1] = hurdle;
             }
             else
@@ -255,7 +270,7 @@ public class GameInitManager : MonoBehaviour
                     break;
                 }
 
-                hurdle.power = UnityEngine.Random.Range(1, 6);
+                hurdle.power = UnityEngine.Random.Range(5, 8);
 
                 hurdles[i - 1] = hurdle;
 
@@ -332,7 +347,7 @@ public class GameInitManager : MonoBehaviour
                     movePlayer(playerNumber, -2, false);
                     return;
                 }
-                else if (hurdle.power == 1 || hurdle.power == 5)
+                else if (hurdle.power == 1 )
                 {
                     _currentPlayer.LastPointScored = 2;
                     _currentPlayer.AddToScore(2);
@@ -341,7 +356,7 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 4)
                 {
-                    PlaySelfDestruct(_currentPlayer);
+                    PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
                 }
                 else if (hurdle.power == 6)
                 {
@@ -350,6 +365,21 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 3) {
                     PlayGettingExtraChance(_currentPlayer);
+                }
+                else if (hurdle.power == 5)
+                {
+                   /* _currentPlayer.SetSkip(true);
+                    ShootSceneStateManager.Instance.setNextTurnFlag(true);*/
+                    GetOppPlayer().GetComponent<Player>().SetSkip(true);
+                    ShootSceneStateManager.Instance.setNextTurnFlag(true);
+                }
+                else if (hurdle.power == 7)
+                {
+                   // PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
+                    PlaySelfDestruct(GetOppPlayer().GetComponent<Player>(),
+                        PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1);
+
+
                 }
             }
         }
@@ -371,22 +401,22 @@ public class GameInitManager : MonoBehaviour
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
    
-    void PlaySelfDestruct(Player player) {
+    void PlaySelfDestruct(Player player,int playerNum) {
         GameObject[] effects = new GameObject[2];
         effects[0] = ManagerHandler.managerHandler.allEffects.DeathSkull;
         effects[1] = ManagerHandler.managerHandler.allEffects.Blast;
         foreach (var effect in effects) {
-            Instantiate(effect, player.transform.position+Vector3.up, Quaternion.identity);
+            Instantiate(effect, player.gameObject.transform.position+Vector3.up, Quaternion.identity);
         }
-        StartCoroutine(PlayWaitForSelfDieEffect(player));
+        StartCoroutine(PlayWaitForSelfDieEffect(player,playerNum));
 
     }
-    IEnumerator PlayWaitForSelfDieEffect(Player player) {
+    IEnumerator PlayWaitForSelfDieEffect(Player player,int playerNum) {
         yield return new WaitForSeconds(1.5f);
         GameObject[] track;
-        int playerIndex=PlayerPrefs.GetInt("Turn");
+        int playerIndex = playerNum;
         m_tracks.TryGetValue("player_" + playerIndex + "_Track", out track);
-        player.transform.position = track[0].transform.position;
+        player.gameObject.transform.position = track[0].transform.position;
         m_player_pos.Remove("player_" + playerIndex);
         m_player_pos.Add("player_" + playerIndex, 0);
         player.SetScore(0);
@@ -479,6 +509,17 @@ public class GameInitManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         int playerIndex = PlayerPrefs.GetInt("Turn");
+        GameObject player = null;
+        m_players.TryGetValue("player_" + playerIndex, out player);
+        return player;
+    }
+
+    public GameObject GetOppPlayer()
+    {
+        int playerIndex = PlayerPrefs.GetInt("Turn")+1;
+        if (playerIndex > 2) {
+            playerIndex = 1;
+        }
         GameObject player = null;
         m_players.TryGetValue("player_" + playerIndex, out player);
         return player;

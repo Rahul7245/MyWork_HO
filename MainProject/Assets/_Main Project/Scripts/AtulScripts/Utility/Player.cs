@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     public int PlayerScore = 0;
     public Hurdle[] hurdles;
     public bool Skip=false;
+    private void Start()
+    {
+        Skip = false;
+    }
     public void AddToScore(int point)
     {
         PlayerScore += point;
