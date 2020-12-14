@@ -166,7 +166,7 @@ public class GameInitManager : MonoBehaviour
     Hurdle[] sortedHurdles;
     public void InstantiateTrack()
     {
-        sortedHurdles = RandomPowerPosition(0);
+        sortedHurdles = RandomPowerPosition2();
         for (int j = 1; j <= NoOfPlayerNeeded(gameType); j++)
         {
             GameObject[] playerTrackArr = new GameObject[23];
@@ -240,7 +240,33 @@ public class GameInitManager : MonoBehaviour
         }
 
     }
-    Hurdle[] RandomPowerPosition(int playerNumber)
+    Hurdle[] RandomPowerPosition2()
+    {
+        Hurdle[] hurdles = new Hurdle[6];
+        List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7 };
+        hurdleList.Add(Random.Range(1, 3));
+        List<int> randomTracks = new List<int> {19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
+        for (int i = 0; i < 6; i++) {
+           int num = Random.Range(0, randomTracks.Count);
+            Hurdle hurdle = new Hurdle();
+            hurdle.pos = randomTracks[num];
+            randomTracks.RemoveAt(num);
+            hurdle.power = hurdleList[i];
+            hurdles[i] = hurdle;
+        }
+       
+
+        Hurdle[] sorted = hurdles.OrderBy(c => c.pos).ToArray();
+        m_player_pow.Add("player_" + "0" + "_pow", sorted);
+        for (int i = 0; i < 6; i++)
+        {
+            print("pos:" + sorted[i].pos + "pow:" + sorted[i].power);
+        }
+        return sorted;
+
+
+    }
+        Hurdle[] RandomPowerPosition(int playerNumber)
     {
         Hurdle[] hurdles = new Hurdle[no_of_hurdles];
 
