@@ -7,6 +7,7 @@ public class AllEffects : MonoBehaviour
     public GameObject DeathSkull;
     public GameObject Blast;
     public GameObject Heart;
+    public GameObject HeartBreak;
     // Start is called before the first frame update
     void Start()
     {

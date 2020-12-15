@@ -368,6 +368,7 @@ public class GameInitManager : MonoBehaviour
                 hurdleFound = true;
                 if (hurdle.power == 2 )
                 {
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
                     movePlayer(playerNumber, -2, false);
@@ -375,6 +376,7 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 1 )
                 {
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     _currentPlayer.LastPointScored = 2;
                     _currentPlayer.AddToScore(2);
                     movePlayer(playerNumber, 2, true);
@@ -382,28 +384,30 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 4)
                 {
-                    PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine( PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn")));
                 }
                 else if (hurdle.power == 6)
                 {
-                    _currentPlayer.SetSkip(true);
-                    ShootSceneStateManager.Instance.setNextTurnFlag(true);
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine(PlaySkipChance(_currentPlayer));
                 }
                 else if (hurdle.power == 3) {
-                    PlayGettingExtraChance(_currentPlayer);
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine(PlayGettingExtraChance(_currentPlayer));
                 }
                 else if (hurdle.power == 5)
                 {
-                   /* _currentPlayer.SetSkip(true);
-                    ShootSceneStateManager.Instance.setNextTurnFlag(true);*/
-                    GetOppPlayer().GetComponent<Player>().SetSkip(true);
-                    ShootSceneStateManager.Instance.setNextTurnFlag(true);
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    setCameraToNormal(PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1);
+                    StartCoroutine(PlaySkipChance(GetOppPlayer().GetComponent<Player>()));
                 }
                 else if (hurdle.power == 7)
                 {
-                   // PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
-                    PlaySelfDestruct(GetOppPlayer().GetComponent<Player>(),
-                        PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1);
+                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    // PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
+                    StartCoroutine( PlaySelfDestruct(GetOppPlayer().GetComponent<Player>(),
+                        PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1));
 
 
                 }
@@ -420,14 +424,33 @@ public class GameInitManager : MonoBehaviour
         m_ready = true;
 
     }
-    void PlayGettingExtraChance(Player player) {
-    GameObject effect= ManagerHandler.managerHandler.allEffects.Heart;
+    IEnumerator ShowHurdle(int playerNum,int hurdleNum) {
+        GameObject[] track;
+        m_tracks.TryGetValue("player_" + playerNum + "_Track", out track);
+        GameObject h = track[hurdleNum];
+        h.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        h.SetActive(false);
+    }
+    IEnumerator PlayGettingExtraChance(Player player) {
+        yield return new WaitForSeconds(1f);
+        GameObject effect= ManagerHandler.managerHandler.allEffects.Heart;
         Instantiate(effect, player.transform.position+Vector3.up, Quaternion.identity);
         ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
-   
-    void PlaySelfDestruct(Player player,int playerNum) {
+    IEnumerator PlaySkipChance(Player player)
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject effect = ManagerHandler.managerHandler.allEffects.HeartBreak;
+        Instantiate(effect, player.transform.position + Vector3.up, Quaternion.identity);
+        player.SetSkip(true);
+        ShootSceneStateManager.Instance.setNextTurnFlag(true);
+    }
+
+    IEnumerator PlaySelfDestruct(Player player,int playerNum) {
+        setCameraToNormal(playerNum);
+        yield return new WaitForSeconds(1f);
         GameObject[] effects = new GameObject[2];
         effects[0] = ManagerHandler.managerHandler.allEffects.DeathSkull;
         effects[1] = ManagerHandler.managerHandler.allEffects.Blast;
