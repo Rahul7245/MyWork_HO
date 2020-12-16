@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     bool isTimerOn=false;
     public float totalTime = 10f;
     float elapsed = 0f;
+    public Image timerFilling;
     // Start is called before the first frame update
 
     private void Start()
@@ -22,7 +23,8 @@ public class Timer : MonoBehaviour
     {
         if (!isTimerOn) { return; }
         elapsed += Time.deltaTime;
-
+        if((totalTime - elapsed)>=0)
+        timerFilling.fillAmount = (totalTime - elapsed) / totalTime;
         timerText.text = (totalTime-(int)elapsed).ToString();
         if (elapsed >= totalTime) {
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
@@ -30,17 +32,18 @@ public class Timer : MonoBehaviour
         }
         
     }
-   float scaleTime=1f;
+
+    float scaleTime=1f;
     float scaleElapsedTime = 0f;
     private void LateUpdate()
     {
 
         if (!isTimerOn) { return; }
         scaleElapsedTime += Time.deltaTime;
-        timerText.gameObject.transform.localScale += new Vector3(5,5,5) * Time.deltaTime;
+        //timerText.gameObject.transform.localScale += new Vector3(5,5,5) * Time.deltaTime;
         if (scaleElapsedTime >= scaleTime)
         {
-            timerText.gameObject.transform.localScale = new Vector3(2, 2, 2);
+           // timerText.gameObject.transform.localScale = new Vector3(2, 2, 2);
             scaleElapsedTime = 0;
         }
 
