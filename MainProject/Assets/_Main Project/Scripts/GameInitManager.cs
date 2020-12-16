@@ -461,11 +461,13 @@ public class GameInitManager : MonoBehaviour
 
     }
     IEnumerator PlayWaitForSelfDieEffect(Player player,int playerNum) {
+        player.gameObject.GetComponent<Animator>().SetBool("death", true);
         yield return new WaitForSeconds(1.5f);
         GameObject[] track;
         int playerIndex = playerNum;
         m_tracks.TryGetValue("player_" + playerIndex + "_Track", out track);
         player.gameObject.transform.position = track[0].transform.position;
+        player.gameObject.GetComponent<Animator>().SetBool("death", false);
         m_player_pos.Remove("player_" + playerIndex);
         m_player_pos.Add("player_" + playerIndex, 0);
         player.SetScore(0);
