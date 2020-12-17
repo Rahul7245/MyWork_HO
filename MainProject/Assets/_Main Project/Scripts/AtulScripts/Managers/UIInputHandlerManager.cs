@@ -52,6 +52,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public AnimationEndEvent cardReveal;
     public List<ThreeDObjButton> threeDObjButtons;
     public Button back;
+    public Button shootButton;
 
     private void Awake()
     {

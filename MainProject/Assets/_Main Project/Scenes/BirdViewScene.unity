@@ -6134,6 +6134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1958777872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6702231872025848302, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958777867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1965948966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7651943092275555912, guid: e587ce4817ddb324cb9de25302a08ad1,
@@ -13468,6 +13480,11 @@ PrefabInstance:
       propertyPath: cardShuffleDone
       value: 
       objectReference: {fileID: 6941092737567666667}
+    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: shootButton
+      value: 
+      objectReference: {fileID: 1958777872}
     - target: {fileID: 6306852576909261135, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: allEffects

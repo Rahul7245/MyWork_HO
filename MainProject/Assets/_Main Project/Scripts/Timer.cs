@@ -49,12 +49,13 @@ public class Timer : MonoBehaviour
 
     }
    public void startTimer() {
+        managerHandler.uIInputHandlerManager.shootButton.interactable = true;
         isTimerOn = true;
     }
    public void stopTimer()
     {
+        managerHandler.uIInputHandlerManager.shootButton.interactable = false;
         isTimerOn = false;
         elapsed = 0f;
-
     }
 }
