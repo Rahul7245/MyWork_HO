@@ -250,6 +250,8 @@ public class GameInitManager : MonoBehaviour
            int num = Random.Range(0, randomTracks.Count);
             Hurdle hurdle = new Hurdle();
             int hurdleNum= randomTracks[num];
+            print((hurdleNum - 1) + "  " + hurdleNum + "  " + (hurdleNum + 1));
+            
             if (randomTracks.Contains(hurdleNum + 1))
             {
                 randomTracks.Remove(hurdleNum + 1);
@@ -259,7 +261,11 @@ public class GameInitManager : MonoBehaviour
                 randomTracks.Remove(hurdleNum - 1);
             }
             hurdle.pos = hurdleNum;
-            randomTracks.RemoveAt(num);
+            randomTracks.Remove(hurdleNum);
+            /*  foreach (var item in randomTracks) {
+                  print(i);
+              }*/
+
             hurdle.power = hurdleList[i];
             hurdles[i] = hurdle;
         }
