@@ -249,7 +249,16 @@ public class GameInitManager : MonoBehaviour
         for (int i = 0; i < 6; i++) {
            int num = Random.Range(0, randomTracks.Count);
             Hurdle hurdle = new Hurdle();
-            hurdle.pos = randomTracks[num];
+            int hurdleNum= randomTracks[num];
+            if (randomTracks.Contains(hurdleNum + 1))
+            {
+                randomTracks.Remove(hurdleNum + 1);
+            }
+            if (randomTracks.Contains(hurdleNum - 1))
+            {
+                randomTracks.Remove(hurdleNum - 1);
+            }
+            hurdle.pos = hurdleNum;
             randomTracks.RemoveAt(num);
             hurdle.power = hurdleList[i];
             hurdles[i] = hurdle;
