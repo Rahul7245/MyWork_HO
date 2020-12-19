@@ -48,6 +48,13 @@ public class ShootSceneScript : MonoBehaviour
         setBurglarStartPoint2();
         setBurglarStartPoint();
         setBurglarEndPoint();
+        if (en == 1 || en == 2 || en == 4)
+        {
+            setBurglarSpeed(4.5f);
+        }
+        else {
+            setBurglarSpeed(3.5f);
+        }
         yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         OnComplete?.Invoke();
     }

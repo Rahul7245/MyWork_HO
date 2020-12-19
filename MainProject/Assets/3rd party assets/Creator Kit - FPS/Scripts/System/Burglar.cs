@@ -106,7 +106,7 @@ public class Burglar : MonoBehaviour
 
     }
     public void setSpeed(float speed) {
-        navAgent.speed = speed == 1 ? 3.5f:speed;
-        anim.speed = speed;
+        navAgent.speed = speed;
+        anim.speed = speed>1?1f:speed;
     }
 }
