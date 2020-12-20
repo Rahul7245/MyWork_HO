@@ -42,6 +42,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     public IEnumerator InitializeScene(int en, Action OnComplete = null)
     {
+        en = 0;
         EnvironmentNum = en;
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
@@ -53,7 +54,7 @@ public class ShootSceneScript : MonoBehaviour
             setBurglarSpeed(4.5f);
         }
         else {
-            setBurglarSpeed(3.5f);
+            setBurglarSpeed(1f);
         }
         yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         OnComplete?.Invoke();

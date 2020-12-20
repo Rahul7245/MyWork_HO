@@ -250,7 +250,6 @@ public class GameInitManager : MonoBehaviour
            int num = Random.Range(0, randomTracks.Count);
             Hurdle hurdle = new Hurdle();
             int hurdleNum= randomTracks[num];
-            print((hurdleNum - 1) + "  " + hurdleNum + "  " + (hurdleNum + 1));
             
             if (randomTracks.Contains(hurdleNum + 1))
             {

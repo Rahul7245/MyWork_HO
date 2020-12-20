@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfe05e41dddeab4199a7d2a16a5c521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowTimeScale: 0.1
+  slowTimeScale: 0.3
 --- !u!114 &264497423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,8 +1567,8 @@ MonoBehaviour:
     avaliableDolly: {fileID: 5075031780560834203, guid: 70e3165dac0f1be4082a92f2e64864ec,
       type: 3}
   shootingController: {fileID: 0}
-  distanceToChangeCamera: 0.8
-  finishingCameraDuration: 6
+  distanceToChangeCamera: 1.2
+  finishingCameraDuration: 4
 --- !u!1 &265555365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7651943091098395595, guid: e587ce4817ddb324cb9de25302a08ad1,

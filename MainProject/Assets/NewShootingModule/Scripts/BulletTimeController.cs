@@ -145,12 +145,12 @@ public class BulletTimeController : MonoBehaviour
 				CreateDolly(selectedTrackingSetup);
 				dollyInstance.InitDolly(trackInstance, hitTransform.transform);
 				//ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-				ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(3.5f);
-				hitTransform.GetComponentInParent<Burglar>().DieAnimation();
+				
+				
 				timeScaleController.SlowDownTime();
 			}
 		}
-		StartCoroutine(FinishSequence());
+		StartCoroutine(FinishSequence(hitTransform));
 	}
 
 	private void DestroyCinemachineSetup()
@@ -159,9 +159,12 @@ public class BulletTimeController : MonoBehaviour
 		Destroy(dollyInstance.gameObject);
 	}
 
-	private IEnumerator FinishSequence()
+	private IEnumerator FinishSequence(Transform hitTransform)
 	{
-		yield return new WaitForSecondsRealtime(finishingCameraDuration);
+		yield return new WaitForSecondsRealtime(finishingCameraDuration / 3);
+		hitTransform.GetComponentInParent<Burglar>().DieAnimation(); 
+		ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(3.5f);
+		yield return new WaitForSecondsRealtime(2*finishingCameraDuration/3);
 		ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
 		cameraBrain.gameObject.SetActive(false);
 		//shootingController.gameObject.SetActive(true);
