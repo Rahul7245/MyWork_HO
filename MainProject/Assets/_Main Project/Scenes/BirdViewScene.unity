@@ -11625,6 +11625,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3934402307238251859, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
+        type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3934402308459459471, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
       propertyPath: near clip plane
@@ -11633,7 +11638,7 @@ PrefabInstance:
     - target: {fileID: 3934402308459459471, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3934402308459459471, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
@@ -11684,6 +11689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BeforeStackBundles.Array.data[0].assemblyQualifiedName
       value: Distortion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934402308655164057, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
+        type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4406471498653776900, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
@@ -12014,6 +12024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Priority
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986382104002694007, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
+        type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4986382104892623564, guid: 3d3e70fe0ccb84d48b8583b4af7932c5,
         type: 3}
