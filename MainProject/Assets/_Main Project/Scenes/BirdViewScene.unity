@@ -1748,12 +1748,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7651943091019492974}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &330770835 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 9122963725576620362, guid: 074212fed92b08a42aeab2d2677c606f,
-    type: 3}
-  m_PrefabInstance: {fileID: 77184924898358065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337668874
 GameObject:
   m_ObjectHideFlags: 0
@@ -11667,6 +11661,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 074212fed92b08a42aeab2d2677c606f, type: 3}
+--- !u!82 &77184924898358066 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2754370967311501036, guid: 074212fed92b08a42aeab2d2677c606f,
+    type: 3}
+  m_PrefabInstance: {fileID: 77184924898358065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132149608658161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7417499379867064991, guid: e587ce4817ddb324cb9de25302a08ad1,
@@ -15164,7 +15164,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSourceEnv
       value: 
-      objectReference: {fileID: 330770835}
+      objectReference: {fileID: 77184924898358066}
     - target: {fileID: 8724780267108855467, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15240,7 +15240,8 @@ PrefabInstance:
       propertyPath: timerFilling
       value: 
       objectReference: {fileID: 108138719}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7605314391397656804, guid: 674995742771fbc4aaeed856adbaf81f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 674995742771fbc4aaeed856adbaf81f, type: 3}
 --- !u!1001 &6941092737567666637
 PrefabInstance:
