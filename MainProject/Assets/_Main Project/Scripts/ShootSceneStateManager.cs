@@ -19,7 +19,6 @@ public class ShootSceneStateManager : MonoBehaviour
 {
     [SerializeField]
     private ManagerHandler managerHandler;
-    public AudioSource CountDownSound;
     public TextMeshProUGUI displayMsg;
     public static ShootSceneStateManager Instance { get; protected set; }
     private bool m_readyFornextTurn;
@@ -168,7 +167,6 @@ public class ShootSceneStateManager : MonoBehaviour
             if (player.playerType == PlayerType.Human)
             {
                 managerHandler.timer.totalTime = 10;
-                CountDownSound.Play();
                 managerHandler.timer.startTimer();
             }
             else
@@ -181,7 +179,6 @@ public class ShootSceneStateManager : MonoBehaviour
         else if (appState.Equals(ShootState.Shoot_Complete))
         {
             m_currentState = appState;
-            CountDownSound.Stop();
             managerHandler.timer.stopTimer();
             if (player.playerType == PlayerType.Computer)
             {

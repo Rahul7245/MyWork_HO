@@ -17,13 +17,6 @@ public enum EnviromentType
 public class LightingManager : MonoBehaviour
 {
     public GameObject mainCamera;
-    public GameObject soundManager;
-    public AudioSource audioSource;
-    public AudioClip audioClipShip;
-    public AudioClip audioClipTrain;
-    public AudioClip audioClipGerag;
-    public AudioClip audioClipCS;
-    public AudioClip audioClipbar;
     public ManagerHandler managerHandler;
     public Texture2D agarge;
     public Texture2D aagarge;
@@ -693,9 +686,7 @@ public class LightingManager : MonoBehaviour
                 mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDataship;
                 RenderSettings.skybox = ship;
-                soundManager.SetActive(false);
-                audioSource.clip = audioClipShip;
-                audioSource.Play();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_ShipView);
                 birdveiw_light.SetActive(false);
                 train_light.SetActive(false);
                 foreach (var item in enviromentDic)
@@ -713,9 +704,7 @@ public class LightingManager : MonoBehaviour
                 mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatagarge;
                 RenderSettings.skybox = garge;
-                soundManager.SetActive(false);
-                audioSource.clip = audioClipGerag;
-                audioSource.Play();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_GeragView);
                 birdveiw_light.SetActive(false);
                 train_light.SetActive(false);
                 foreach (var item in enviromentDic)
@@ -734,9 +723,7 @@ public class LightingManager : MonoBehaviour
                 mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatabar;
                 RenderSettings.skybox = bar;
-                soundManager.SetActive(false);
-                audioSource.clip = audioClipbar;
-                audioSource.Play();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BarView);
                 birdveiw_light.SetActive(false);
                 train_light.SetActive(false);
                 foreach (var item in enviromentDic)
@@ -754,9 +741,7 @@ public class LightingManager : MonoBehaviour
                 mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = false;
                 LightmapSettings.lightmaps = lightmapDatacountry_side;
                 RenderSettings.skybox = country_side;
-                soundManager.SetActive(false);
-                audioSource.clip = audioClipCS;
-                audioSource.Play();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_CSView);
                 birdveiw_light.SetActive(false);
                 train_light.SetActive(false);
                 foreach (var item in enviromentDic)
@@ -774,9 +759,7 @@ public class LightingManager : MonoBehaviour
                 mainCamera.GetComponent<VignetteAndChromaticAberration>().enabled = true;
                 LightmapSettings.lightmaps = lightmapDatatrain;
                 RenderSettings.skybox = train;
-                soundManager.SetActive(false);
-                audioSource.clip = audioClipTrain;
-                audioSource.Play();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_TrainView);
                 birdveiw_light.SetActive(false);
                 train_light.SetActive(true);
                 foreach (var item in enviromentDic)
@@ -789,8 +772,7 @@ public class LightingManager : MonoBehaviour
                 enviromentDic[EnviromentType.Train]?.SetActive(true);
                 break;
             case EnviromentType.BirdView:
-                audioSource.Stop();
-                soundManager.SetActive(true);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView);
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
                 birdveiw_light.SetActive(true);

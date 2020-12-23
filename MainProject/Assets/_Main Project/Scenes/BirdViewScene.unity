@@ -1748,6 +1748,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7651943091019492974}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &330770835 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9122963725576620362, guid: 074212fed92b08a42aeab2d2677c606f,
+    type: 3}
+  m_PrefabInstance: {fileID: 77184924898358065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337668874
 GameObject:
   m_ObjectHideFlags: 0
@@ -11667,6 +11673,12 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 77184924898358065}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &77184924898358067 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7665150635940074262, guid: 074212fed92b08a42aeab2d2677c606f,
+    type: 3}
+  m_PrefabInstance: {fileID: 77184924898358065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132149608658161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7417499379867064991, guid: e587ce4817ddb324cb9de25302a08ad1,
@@ -15165,6 +15177,21 @@ PrefabInstance:
       propertyPath: audioSourceEnv
       value: 
       objectReference: {fileID: 77184924898358066}
+    - target: {fileID: 7399744829326111329, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: AS_Env
+      value: 
+      objectReference: {fileID: 77184924898358066}
+    - target: {fileID: 7399744829326111329, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: AS_BackGround
+      value: 
+      objectReference: {fileID: 330770835}
+    - target: {fileID: 7399744829326111329, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: AS_AnimEf
+      value: 
+      objectReference: {fileID: 77184924898358067}
     - target: {fileID: 8724780267108855467, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15734,7 +15761,7 @@ PrefabInstance:
     - target: {fileID: 6941092737749390596, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 354.00018
+      value: 354.00012
       objectReference: {fileID: 0}
     - target: {fileID: 6941092737786254689, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
