@@ -38,6 +38,12 @@ public enum AudioCLips
     AC_Hurdule_Rival_Help,
     AC_Hurdule_Rival_Back,
     AC_BgMusic,
+    AC_Win,
+    AC_Running_track,
+    AC_Timmer,
+    AC_SlowMotion,
+    AC_Die,
+    AC_Shoot,
 
 }
 
@@ -80,7 +86,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip AC_Hurdule_Rival_skip;
     public AudioClip AC_Hurdule_Rival_Help;
     public AudioClip AC_Hurdule_Rival_Back;
-
+    public AudioClip AC_Win;
+    public AudioClip AC_Running_track;
+    public AudioClip AC_Timmer;
+    public AudioClip AC_SlowMotion;
+    public AudioClip AC_Die;
+    public AudioClip AC_Shoot;
 
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips)
     {
@@ -182,6 +193,24 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Hurdule_Rival_Back:
                         SetAudioClip(AC_Hurdule_Rival_Back, AS_AnimEf);
                         break;
+                    case AudioCLips.AC_Win:
+                        SetAudioClip(AC_Win, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Running_track:
+                        SetAudioClip(AC_Running_track, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Timmer:
+                        SetAudioClip(AC_Timmer, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_SlowMotion:
+                        SetAudioClip(AC_SlowMotion, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Die:
+                        SetAudioClip(AC_Die, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Shoot:
+                        SetAudioClip(AC_Shoot, AS_AnimEf);
+                        break;                
                 }
                 break;
             case AudioSourceType.BG:
