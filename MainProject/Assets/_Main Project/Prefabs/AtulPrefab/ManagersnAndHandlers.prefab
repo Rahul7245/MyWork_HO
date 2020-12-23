@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 2286527354853831710}
   - component: {fileID: 2047368728922178736}
   - component: {fileID: 8071653703974802449}
+  - component: {fileID: 959081947867993267}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -323,6 +324,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   back: {fileID: 0}
+  shootButton: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +645,11 @@ MonoBehaviour:
   hurdleMinusTwo: {fileID: 0}
   hurdleSelfDestruct: {fileID: 0}
   powerExtraChance: {fileID: 0}
+  hurdleSkip: {fileID: 0}
+  rivalSkip: {fileID: 0}
+  rivalKill: {fileID: 0}
+  rivalhelp: {fileID: 0}
+  rivalSendBack: {fileID: 0}
   track: {fileID: 0}
   player:
   - {fileID: 1533610743830199936, guid: 338778bfd2875be409029b6b0d8fc9c4, type: 3}
@@ -653,6 +660,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentPlayerCanvas: {fileID: 0}
+  RivalPopup: {fileID: 0}
   vcam: {fileID: 0}
   sideVcam: {fileID: 0}
   startCam: {fileID: 0}
@@ -1173,6 +1181,7 @@ MonoBehaviour:
   managerHandler: {fileID: 4357243929486401437}
   timerText: {fileID: 0}
   totalTime: 10
+  timerFilling: {fileID: 0}
 --- !u!114 &2286527354853831710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1221,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
+--- !u!114 &959081947867993267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b380bde0545676245b8d100e63454e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0
