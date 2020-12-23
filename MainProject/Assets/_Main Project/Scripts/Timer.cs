@@ -28,9 +28,9 @@ public class Timer : MonoBehaviour
         timerText.text = (totalTime-(int)elapsed).ToString();
         if (elapsed >= totalTime) {
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-           // stopTimer();
+            managerHandler.uIInputHandlerManager.shootButton.gameObject.SetActive(false);
         }
-        
+
     }
 
     float scaleTime=1f;
@@ -49,12 +49,12 @@ public class Timer : MonoBehaviour
 
     }
    public void startTimer() {
-        managerHandler.uIInputHandlerManager.shootButton.interactable = true;
+        managerHandler.uIInputHandlerManager.shootButton.gameObject.SetActive(true);
         isTimerOn = true;
     }
    public void stopTimer()
     {
-        managerHandler.uIInputHandlerManager.shootButton.interactable = false;
+        managerHandler.uIInputHandlerManager.shootButton.gameObject.SetActive(false);
         isTimerOn = false;
         elapsed = 0f;
     }
