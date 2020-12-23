@@ -14,7 +14,7 @@ public enum BotLevel
 public class ShootingBot
 {
     // Limits for bot levels //
-    private static int easyBotLowerThreshold = 0;
+    private static int easyBotLowerThreshold = 1;
     private static int easyBotUpperThreshold = 2;
     private static int mediumBotLowerThreshold = 2;
     private static int mediumBotUpperThreshold = 4;
