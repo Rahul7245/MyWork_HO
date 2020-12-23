@@ -17,10 +17,27 @@ public enum AudioCLips
     AC_ShipView,
     AC_TrainView,
     AC_GeragView,
-    AC_CSView,
     AC_BarView,
+    AC_CountrysideView,
+    AC_Pages,
     AC_AnimEff,
-    AC_BgMusic
+    AC_CSView,
+    AC_Character01_selection,
+    AC_Character02_selection,
+    AC_Character03_selection,
+    AC_Character04_selection,
+    AC_Character05_selection,
+    AC_Character06_selection,
+    AC_Hurdule_Self_die,
+    AC_Hurdule_Self_add2,
+    AC_Hurdule_Self_sub2,
+    AC_Hurdule_Self_Skip,
+    AC_Hurdule_Self_life,
+    AC_Hurdule_Rival_die,
+    AC_Hurdule_Rival_skip,
+    AC_Hurdule_Rival_Help,
+    AC_Hurdule_Rival_Back,
+    AC_BgMusic,
 
 }
 
@@ -35,8 +52,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip AC_ShipView;
     public AudioClip AC_TrainView;
     public AudioClip AC_GeragView;
-    public AudioClip AC_CSView;
     public AudioClip AC_BarView;
+    public AudioClip AC_CountrysideView;
+    public AudioClip AC_Pages;
+    public AudioClip AC_CSView;
+
 
     // Background Audio 
     public AudioSource AS_BackGround;
@@ -45,6 +65,22 @@ public class AudioManager : MonoBehaviour
     // Animation Effcet Audio 
     public AudioSource AS_AnimEf;
     public AudioClip AC_AnEf;
+    public AudioClip AC_Character01_selection;
+    public AudioClip AC_Character02_selection;
+    public AudioClip AC_Character03_selection;
+    public AudioClip AC_Character04_selection;
+    public AudioClip AC_Character05_selection;
+    public AudioClip AC_Character06_selection;
+    public AudioClip AC_Hurdule_Self_die;
+    public AudioClip AC_Hurdule_Self_add2;
+    public AudioClip AC_Hurdule_Self_sub2;
+    public AudioClip AC_Hurdule_Self_Skip;
+    public AudioClip AC_Hurdule_Self_life;
+    public AudioClip AC_Hurdule_Rival_die;
+    public AudioClip AC_Hurdule_Rival_skip;
+    public AudioClip AC_Hurdule_Rival_Help;
+    public AudioClip AC_Hurdule_Rival_Back;
+
 
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips)
     {
@@ -101,6 +137,51 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_AnimEff:
                         SetAudioClip(AC_AnEf, AS_AnimEf);
                         break;
+                    case AudioCLips.AC_Character01_selection:
+                        SetAudioClip(AC_Character01_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Character02_selection:
+                        SetAudioClip(AC_Character02_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Character03_selection:
+                        SetAudioClip(AC_Character03_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Character04_selection:
+                        SetAudioClip(AC_Character04_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Character05_selection:
+                        SetAudioClip(AC_Character05_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Character06_selection:
+                        SetAudioClip(AC_Character06_selection, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Self_die:
+                        SetAudioClip(AC_Hurdule_Self_die, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Self_add2:
+                        SetAudioClip(AC_Hurdule_Self_add2, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Self_sub2:
+                        SetAudioClip(AC_Hurdule_Self_sub2, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Self_Skip:
+                        SetAudioClip(AC_Hurdule_Self_Skip, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Self_life:
+                        SetAudioClip(AC_Hurdule_Self_life, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Rival_die:
+                        SetAudioClip(AC_Hurdule_Rival_die, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Rival_skip:
+                        SetAudioClip(AC_Hurdule_Rival_skip, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Rival_Help:
+                        SetAudioClip(AC_Hurdule_Rival_Help, AS_AnimEf);
+                        break;
+                    case AudioCLips.AC_Hurdule_Rival_Back:
+                        SetAudioClip(AC_Hurdule_Rival_Back, AS_AnimEf);
+                        break;
                 }
                 break;
             case AudioSourceType.BG:
@@ -120,9 +201,6 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_BirdView:
                         SetAudioClip(AC_BirdView, AS_Env);
                         break;
-                    case AudioCLips.AC_CSView:
-                        SetAudioClip(AC_CSView, AS_Env);
-                        break;
                     case AudioCLips.AC_GeragView:
                         SetAudioClip(AC_GeragView, AS_Env);
                         break;
@@ -132,6 +210,13 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_TrainView:
                         SetAudioClip(AC_TrainView, AS_Env);
                         break;
+                    case AudioCLips.AC_CountrysideView:
+                        SetAudioClip(AC_CountrysideView, AS_Env);
+                        break;
+                    case AudioCLips.AC_Pages:
+                        SetAudioClip(AC_Pages, AS_Env);
+                        break;
+                    
                 }
                 break;
 
