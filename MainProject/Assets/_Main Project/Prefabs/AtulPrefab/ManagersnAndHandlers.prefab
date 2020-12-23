@@ -233,6 +233,7 @@ MonoBehaviour:
   loginManager: {fileID: 2047368728922178736}
   homeScreenManager: {fileID: 8071653703974802449}
   allEffects: {fileID: 0}
+  audioManager: {fileID: 959081947867993267}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,6 +1234,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b380bde0545676245b8d100e63454e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  audioSourceEnv: {fileID: 0}
+  audioClipBirdView: {fileID: 8300000, guid: 6700fb97cdb33954e884082baff48d3a, type: 3}
+  audioClipShipView: {fileID: 8300000, guid: d9b211aa8f5727f4cbe5cb3be197052d, type: 3}
+  audioClipTrainView: {fileID: 8300000, guid: f0fad1538a90e9a479cd0bae83536098, type: 3}
+  audioClipGeragView: {fileID: 8300000, guid: a6c2ad153054c7042a4264d2278b931e, type: 3}
+  audioClipCSView: {fileID: 8300000, guid: 97f30a6d15273714986f10171c73a8d5, type: 3}
+  audioClipbarView: {fileID: 8300000, guid: c1bb9c5a77b5d9e469f91cb062afe6c4, type: 3}
 --- !u!1 &6085688196497485973
 GameObject:
   m_ObjectHideFlags: 0

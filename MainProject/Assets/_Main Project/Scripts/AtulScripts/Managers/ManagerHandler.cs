@@ -19,6 +19,7 @@ public class ManagerHandler : MonoBehaviour
     public LoginManager loginManager;
     public HomeScreenManager homeScreenManager;
     public AllEffects allEffects;
+    public AudioManager audioManager;
 
     private void Awake()
     {

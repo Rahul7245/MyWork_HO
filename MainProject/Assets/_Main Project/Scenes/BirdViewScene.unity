@@ -1748,6 +1748,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7651943091019492974}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &330770835 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9122963725576620362, guid: 074212fed92b08a42aeab2d2677c606f,
+    type: 3}
+  m_PrefabInstance: {fileID: 77184924898358065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337668874
 GameObject:
   m_ObjectHideFlags: 0
@@ -15154,6 +15160,11 @@ PrefabInstance:
       propertyPath: m_shipEnvironmentPoints.groupOfPoints.Array.data[19].endPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2122067507}
+    - target: {fileID: 7399744829326111329, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: audioSourceEnv
+      value: 
+      objectReference: {fileID: 330770835}
     - target: {fileID: 8724780267108855467, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: m_LocalPosition.x

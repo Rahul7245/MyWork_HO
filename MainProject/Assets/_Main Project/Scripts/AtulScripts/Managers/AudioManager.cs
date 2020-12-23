@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private ManagerHandler managerHandler;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Enviroment Audio 
+    public AudioSource audioSourceEnv;
+    public AudioClip audioClipBirdView;
+    public AudioClip audioClipShipView;
+    public AudioClip audioClipTrainView;
+    public AudioClip audioClipGeragView;
+    public AudioClip audioClipCSView;
+    public AudioClip audioClipbarView;
 }
