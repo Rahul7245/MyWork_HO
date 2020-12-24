@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 2286527354853831710}
   - component: {fileID: 2047368728922178736}
   - component: {fileID: 8071653703974802449}
-  - component: {fileID: 959081947867993267}
+  - component: {fileID: 9204778978924036432}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -88,7 +88,7 @@ MonoBehaviour:
   loginManager: {fileID: 2047368728922178736}
   homeScreenManager: {fileID: 8071653703974802449}
   allEffects: {fileID: 0}
-  audioManager: {fileID: 959081947867993267}
+  audioManager: {fileID: 0}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
-  CountDownSound: {fileID: 0}
   displayMsg: {fileID: 0}
   ConfettiCelebration: {fileID: 0}
   ConfettiCelebrationCamera: {fileID: 0}
@@ -1070,7 +1069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
---- !u!114 &959081947867993267
+--- !u!114 &9204778978924036432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1084,13 +1083,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerHandler: {fileID: 4357243929486401437}
   AS_Env: {fileID: 0}
-  AC_BirdView: {fileID: 8300000, guid: 6700fb97cdb33954e884082baff48d3a, type: 3}
-  AC_ShipView: {fileID: 8300000, guid: d9b211aa8f5727f4cbe5cb3be197052d, type: 3}
-  AC_TrainView: {fileID: 8300000, guid: f0fad1538a90e9a479cd0bae83536098, type: 3}
-  AC_GeragView: {fileID: 8300000, guid: a6c2ad153054c7042a4264d2278b931e, type: 3}
-  AC_CSView: {fileID: 8300000, guid: 97f30a6d15273714986f10171c73a8d5, type: 3}
-  AC_BarView: {fileID: 8300000, guid: c1bb9c5a77b5d9e469f91cb062afe6c4, type: 3}
+  AC_BirdView: {fileID: 8300000, guid: c40a97d76355eec4c8a03a27c2f84b6c, type: 3}
+  AC_ShipView: {fileID: 8300000, guid: 39b13d75c6e78064bb293bb3f76139e8, type: 3}
+  AC_TrainView: {fileID: 8300000, guid: 33e1e276429577e45b3014a842545be7, type: 3}
+  AC_GeragView: {fileID: 8300000, guid: e7179c9f4eae2f54297ffedd41db4baa, type: 3}
+  AC_BarView: {fileID: 8300000, guid: 37d45033bb83d4d4b97d34129e99405d, type: 3}
+  AC_Pages: {fileID: 8300000, guid: 21dbc301022c24d41bff788ab1db9933, type: 3}
+  AC_CSView: {fileID: 8300000, guid: b7a5ed9aaf5f7824dba71e36d80f296e, type: 3}
   AS_BackGround: {fileID: 0}
   AC_BG: {fileID: 8300000, guid: 0224212383b48e34f9821691bacd3b92, type: 3}
   AS_AnimEf: {fileID: 0}
-  AC_AnEf: {fileID: 0}
+  AC_Character01_selection: {fileID: 8300000, guid: 4ffbd6478862b104ca93f98efba5cb17,
+    type: 3}
+  AC_Character02_selection: {fileID: 8300000, guid: 7122fa1de933d49489661ca34d35ec5e,
+    type: 3}
+  AC_Character03_selection: {fileID: 8300000, guid: 544e3a5652a30d44f91a719a2df5db3e,
+    type: 3}
+  AC_Character04_selection: {fileID: 8300000, guid: 8a9d3e2a7fdc67144ae0f3d0d15bf54f,
+    type: 3}
+  AC_Character05_selection: {fileID: 8300000, guid: b637354242016024898defadcafb5c3f,
+    type: 3}
+  AC_Character06_selection: {fileID: 8300000, guid: 21b5e57f32112c3419592633bbda6591,
+    type: 3}
+  AC_Hurdule_Self_die: {fileID: 8300000, guid: 7ede8d5c956daf5498587482a68c59ad, type: 3}
+  AC_Hurdule_Self_add2: {fileID: 8300000, guid: e3472d80920727d45b778d583395edd6,
+    type: 3}
+  AC_Hurdule_Self_sub2: {fileID: 8300000, guid: 9df3a6d96f18e624e96aa26eaa1a6d21,
+    type: 3}
+  AC_Hurdule_Self_Skip: {fileID: 8300000, guid: 549787fc82f12dc4391aa98f718f7aa0,
+    type: 3}
+  AC_Hurdule_Self_life: {fileID: 8300000, guid: ad80c57f298f2fd45a7d919b5ce31a3c,
+    type: 3}
+  AC_Hurdule_Rival_die: {fileID: 8300000, guid: 3f5e79b2fb9a0d54e868677d56b0e054,
+    type: 3}
+  AC_Hurdule_Rival_skip: {fileID: 8300000, guid: 1738fcc2ae02b5e4b9cf04bf0b638c4b,
+    type: 3}
+  AC_Hurdule_Rival_Help: {fileID: 8300000, guid: 9b7c6fdd70b14cb48915ecd0e1e15e95,
+    type: 3}
+  AC_Hurdule_Rival_Back: {fileID: 8300000, guid: b0ac2b75adc372d4f86804ff24325d3d,
+    type: 3}
+  AC_Win: {fileID: 8300000, guid: 665370cbbd8be4a4598fbdcb4b9df7db, type: 3}
+  AC_Running_track: {fileID: 8300000, guid: 40d84b0395e2bc445b140c0886db9158, type: 3}
+  AC_Timmer: {fileID: 8300000, guid: f720f6009753f344281d518b02d2f97f, type: 3}
+  AC_SlowMotion: {fileID: 8300000, guid: 799552b2dc4d08746b004d58581aebd5, type: 3}
+  AC_Die: {fileID: 8300000, guid: e8516eb52b41f004b87863b0bf00fa6c, type: 3}
+  AC_Shoot: {fileID: 8300000, guid: 3772b3640c9994e4cb3262ea88e10284, type: 3}

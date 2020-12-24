@@ -18,9 +18,7 @@ public enum AudioCLips
     AC_TrainView,
     AC_GeragView,
     AC_BarView,
-    AC_CountrysideView,
     AC_Pages,
-    AC_AnimEff,
     AC_CSView,
     AC_Character01_selection,
     AC_Character02_selection,
@@ -59,7 +57,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip AC_TrainView;
     public AudioClip AC_GeragView;
     public AudioClip AC_BarView;
-    public AudioClip AC_CountrysideView;
     public AudioClip AC_Pages;
     public AudioClip AC_CSView;
 
@@ -70,7 +67,6 @@ public class AudioManager : MonoBehaviour
 
     // Animation Effcet Audio 
     public AudioSource AS_AnimEf;
-    public AudioClip AC_AnEf;
     public AudioClip AC_Character01_selection;
     public AudioClip AC_Character02_selection;
     public AudioClip AC_Character03_selection;
@@ -145,9 +141,6 @@ public class AudioManager : MonoBehaviour
             case AudioSourceType.ANIMEF:
                 switch (audioCLips)
                 {
-                    case AudioCLips.AC_AnimEff:
-                        SetAudioClip(AC_AnEf, AS_AnimEf);
-                        break;
                     case AudioCLips.AC_Character01_selection:
                         SetAudioClip(AC_Character01_selection, AS_AnimEf);
                         break;
@@ -238,9 +231,6 @@ public class AudioManager : MonoBehaviour
                         break;
                     case AudioCLips.AC_TrainView:
                         SetAudioClip(AC_TrainView, AS_Env);
-                        break;
-                    case AudioCLips.AC_CountrysideView:
-                        SetAudioClip(AC_CountrysideView, AS_Env);
                         break;
                     case AudioCLips.AC_Pages:
                         SetAudioClip(AC_Pages, AS_Env);
