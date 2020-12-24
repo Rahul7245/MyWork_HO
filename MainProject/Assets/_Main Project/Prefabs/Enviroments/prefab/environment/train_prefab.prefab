@@ -19027,51 +19027,6 @@ CapsuleCollider:
   m_Height: 7.6
   m_Direction: 1
   m_Center: {x: 0.07, y: 3.4, z: 0.01}
---- !u!1 &3725392637816177064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3725392637816177066}
-  - component: {fileID: 3725392637816177067}
-  m_Layer: 0
-  m_Name: WindZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &3725392637816177066
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725392637816177064}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -23.260233, y: 3.262398, z: 19.440006}
-  m_LocalScale: {x: 0.39114007, y: 0.39114, z: 0.39114007}
-  m_Children: []
-  m_Father: {fileID: 6193408805811845371}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!182 &3725392637816177067
-WindZone:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725392637816177064}
-  m_Enabled: 1
-  m_Mode: 0
-  m_Radius: 20
-  m_WindMain: 1
-  m_WindTurbulence: 1
-  m_WindPulseMagnitude: 0.5
-  m_WindPulseFrequency: 0.01
 --- !u!1 &3725392637919552788
 GameObject:
   m_ObjectHideFlags: 0
@@ -19232,7 +19187,7 @@ Transform:
   - {fileID: 3725392638002021596}
   - {fileID: 3725392638001957224}
   m_Father: {fileID: 6193408805811845371}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3725392638001572594
 GameObject:
@@ -31325,7 +31280,6 @@ Transform:
   m_Children:
   - {fileID: 3426864529118840204}
   - {fileID: 6193408805654021302}
-  - {fileID: 3725392637816177066}
   - {fileID: 3725392637996364350}
   m_Father: {fileID: 677817156581872339}
   m_RootOrder: 4
