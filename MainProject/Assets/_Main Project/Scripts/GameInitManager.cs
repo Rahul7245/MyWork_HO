@@ -216,10 +216,11 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 8)
                 {
-
+                    tc = Instantiate(rivalhelp, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                 }
                 else if (hurdle.power == 9)
                 {
+                    tc = Instantiate(rivalSendBack, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
 
                 }
                
@@ -243,8 +244,10 @@ public class GameInitManager : MonoBehaviour
     Hurdle[] RandomPowerPosition2()
     {
         Hurdle[] hurdles = new Hurdle[6];
-        List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7 };
-        hurdleList.Add(Random.Range(1, 3));
+         List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7};
+        // List<int> hurdleList = new List<int> { 9, 9, 9, 9, 9 };
+        List<int> hur = new List<int>() {1,2,8,9 };
+        hurdleList.Add(hur[Random.Range(0,hur.Count)]);
         List<int> randomTracks = new List<int> {19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
         for (int i = 0; i < 6; i++) {
            int num = Random.Range(0, randomTracks.Count);
@@ -374,7 +377,7 @@ public class GameInitManager : MonoBehaviour
         Hurdle[] hurdles;
         bool hurdleFound = false;
         m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
-        Player _currentPlayer = GetPlayer().GetComponent<Player>();
+        Player _currentPlayer = GetPlayer(playerNumber).GetComponent<Player>();
         foreach (var hurdle in hurdles)
         {
             if (currentPosition == hurdle.pos)
@@ -385,7 +388,7 @@ public class GameInitManager : MonoBehaviour
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
-                    movePlayer(playerNumber, -2, false);
+                    movePlayer(playerNumber, 2, false);
                     return;
                 }
                 else if (hurdle.power == 1 )
@@ -424,6 +427,17 @@ public class GameInitManager : MonoBehaviour
                         PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1));
 
 
+                }
+                else if (hurdle.power == 8|| hurdle.power == 9)
+                {
+                    StartCoroutine(ShowHurdle(playerNumber, hurdle.pos));
+                    ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected = PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1;
+                    ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
+                    if (hurdle.power == 9) {
+                        ManagerHandler.managerHandler.shootSceneStateManager.isforward = false;
+                    }
+
+                    ShootSceneStateManager.Instance.setNextTurnFlag(true);
                 }
             }
         }
@@ -501,12 +515,21 @@ public class GameInitManager : MonoBehaviour
     }
     public int movePlayer(int playerNumber, int steps, bool movingForward)
     {
+        setCameraToNormal(playerNumber);
         sideVcam.m_Priority = 11;
         GameObject current_Player;
         m_players.TryGetValue("player_" + playerNumber, out current_Player);
         int pos;
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
-        pos += steps;
+        if (movingForward)
+        {
+            pos = (pos + steps) > 21 ? pos : (pos + steps);
+        }
+        else
+        {
+            pos = (pos - steps) < 0 ? pos : (pos - steps);
+        }
+       // pos += (movingForward? steps:(0-steps));
         playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
         currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
@@ -571,9 +594,9 @@ public class GameInitManager : MonoBehaviour
 
         // GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>().Reset();
     }
-    public GameObject GetPlayer()
+    public GameObject GetPlayer(int playerIndex)
     {
-        int playerIndex = PlayerPrefs.GetInt("Turn");
+       // int playerIndex = PlayerPrefs.GetInt("Turn");
         GameObject player = null;
         m_players.TryGetValue("player_" + playerIndex, out player);
         return player;

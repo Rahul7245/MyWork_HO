@@ -31,6 +31,8 @@ public class ShootSceneStateManager : MonoBehaviour
     public GameObject ConfettiCelebrationCamera;
     List<int> playerLoosingChance;
     public bool playerGettingChance;
+    public int playerGettingAffected;
+    public bool isforward;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,6 +40,7 @@ public class ShootSceneStateManager : MonoBehaviour
         Instance = this;
         playerLoosingChance = new List<int>();
         playerGettingChance = false;
+        playerGettingAffected = 0;
     }
 
     public void StartGame()
@@ -92,7 +95,9 @@ public class ShootSceneStateManager : MonoBehaviour
                 {
                     PlayerPrefs.DeleteKey("Turn");
                     PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
-                    playerPlaying = managerHandler.gameInitManager.GetPlayer();
+                    isforward = true;
+                    playerGettingAffected = PlayerPrefs.GetInt("Turn");
+                    playerPlaying = managerHandler.gameInitManager.GetPlayer(PlayerPrefs.GetInt("Turn"));
                     player = playerPlaying?.GetComponent<Player>();
                     if (player.GetSkip()) {
                         player.SetSkip(false);
@@ -187,7 +192,8 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             player.LastPointScored = PlayerPrefs.GetInt("Score");
-            player.AddToScore(PlayerPrefs.GetInt("Score"));
+            ManagerHandler.managerHandler.gameInitManager.GetPlayer(playerGettingAffected)
+                .GetComponent<Player>().AddToScore(PlayerPrefs.GetInt("Score"));
             if (PlayerPrefs.GetInt("Score") > 0)
             {
                 managerHandler.shootSceneScript.AddShotEffects();
