@@ -1676,10 +1676,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642c5fb23bba1f745956bd6e4733d4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBetweenFade: 1.5
+  showEnterTransition: 0
   showExitTransition: 0
   appSubState: 4
   currentCanvasGrup: {fileID: 179788796258986227}
   subStateTranistionCanvasGrup: {fileID: 0}
+  player: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!1 &2902782715294578865
 GameObject:
@@ -3389,7 +3392,7 @@ GameObject:
   - component: {fileID: 2096286321281787567}
   - component: {fileID: 4385394576729924679}
   - component: {fileID: 6365151832951664101}
-  - component: {fileID: 7235906714842857799}
+  - component: {fileID: 3036822236997024908}
   m_Layer: 5
   m_Name: OnOff
   m_TagString: Untagged
@@ -3457,7 +3460,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7235906714842857799
+--- !u!114 &3036822236997024908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3466,7 +3469,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7175641643457418995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4294afdabee442c4eac9cc86951fdfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3496,10 +3499,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6365151832951664101}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  imageOn: {fileID: 6349613714893066518}
+  imageOff: {fileID: 5620100602194096633}
 --- !u!1 &7228931903588842018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,7 +3914,7 @@ GameObject:
   - component: {fileID: 165519795247175305}
   - component: {fileID: 1198987652635422996}
   - component: {fileID: 512550346000288550}
-  - component: {fileID: 8912845694423496412}
+  - component: {fileID: 2981849897351643970}
   m_Layer: 5
   m_Name: OnOff
   m_TagString: Untagged
@@ -3977,7 +3982,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8912845694423496412
+--- !u!114 &2981849897351643970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3986,7 +3991,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7719605956272653342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4294afdabee442c4eac9cc86951fdfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -4016,10 +4021,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 512550346000288550}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  imageOn: {fileID: 7864133065273372665}
+  imageOff: {fileID: 7889056738369040046}
 --- !u!1 &7998804022216788076
 GameObject:
   m_ObjectHideFlags: 0

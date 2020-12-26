@@ -31,6 +31,8 @@ public class UIInputHandlerManager : MonoBehaviour
 
     [Header("Setting Page screen buttons and UI intups")]
     public Button HomeButtonSetting;
+    public ToggleButton musicToggle;
+    public ToggleButton soundToggle;
 
     [Header("Charater selection screen buttons and UI intups")]
     public CharacterButton characterButton_0;
@@ -73,6 +75,25 @@ public class UIInputHandlerManager : MonoBehaviour
 
         // Setting screen buttons
         HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
+        {
+            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.MusicToggle_STR, "true"));
+            musicToggle.SetDefault(status);
+        }
+        musicToggle.OnBtnToggled += (status) => {
+            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
+            PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.MusicToggle_STR, status.ToString());
+        };
+        if (PlayerPrefManager.HasKey(PlayerPrefKeys.SoundToggle_STR))
+        {
+            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.SoundToggle_STR, "true"));
+            soundToggle.SetDefault(status);
+        }
+        soundToggle.OnBtnToggled += (status) => {
+            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, status);
+            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.UI, status);
+            PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.SoundToggle_STR, status.ToString());
+        };
         // Setting screen buttons end
 
         // Character selection screen buttons
@@ -88,7 +109,6 @@ public class UIInputHandlerManager : MonoBehaviour
         });
         // Character selection screen buttons end
         ClickedOnCard();
-
     }
 
     public void ToggleCardSelection(bool status)
