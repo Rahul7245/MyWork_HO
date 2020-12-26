@@ -70,6 +70,12 @@ public static class PlayerPrefManager
         {
             case PlayerPrefKeys.CharacterSeleted_INT:
                 return PlayerPrefs.HasKey(Constants.CharacterSeleted);
+            case PlayerPrefKeys.LocalPlayerName_STR:
+                return PlayerPrefs.HasKey(Constants.LocalPlayerName);
+            case PlayerPrefKeys.MusicToggle_STR:
+                return PlayerPrefs.HasKey(Constants.MusicToggle);
+            case PlayerPrefKeys.SoundToggle_STR:
+                return PlayerPrefs.HasKey(Constants.SoundToggle);
             default:
                 return false;
         }
