@@ -244,8 +244,8 @@ public class GameInitManager : MonoBehaviour
     Hurdle[] RandomPowerPosition2()
     {
         Hurdle[] hurdles = new Hurdle[6];
-        // List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7};
-         List<int> hurdleList = new List<int> { 9, 9, 9, 9, 9 };
+         List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7};
+        // List<int> hurdleList = new List<int> { 9, 9, 9, 9, 9 };
         List<int> hur = new List<int>() {1,2,8,9 };
         hurdleList.Add(hur[Random.Range(0,hur.Count)]);
         List<int> randomTracks = new List<int> {19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
@@ -661,7 +661,7 @@ public class GameInitManager : MonoBehaviour
         if (hurdleNumber <= 0) {
             return;
         }
-        if (m_dollyCam.m_PathPosition >= 4+20-sortedHurdles[hurdleNumber-1].pos)
+        if (m_dollyCam.m_PathPosition >= 23+20-sortedHurdles[hurdleNumber-1].pos)
         {
             StartCoroutine(ShowHurdles(sortedHurdles[hurdleNumber - 1].pos));
         }
