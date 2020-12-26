@@ -13791,6 +13791,16 @@ PrefabInstance:
       propertyPath: shootButton
       value: 
       objectReference: {fileID: 1958777872}
+    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: musicToggle
+      value: 
+      objectReference: {fileID: 6941092737567666670}
+    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: soundToggle
+      value: 
+      objectReference: {fileID: 6941092737567666669}
     - target: {fileID: 6306852576909261135, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: allEffects
@@ -16540,6 +16550,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6941092737567666637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6941092737567666669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5365830794075534361, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4294afdabee442c4eac9cc86951fdfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6941092737567666670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5274313020928003031, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4294afdabee442c4eac9cc86951fdfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7651943091019492974
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -52,74 +52,107 @@ public class AudioManager : MonoBehaviour
     private ManagerHandler managerHandler;
 
     // Enviroment Audio 
-    public AudioSource AS_Env;
-    public AudioClip AC_BirdView;
-    public AudioClip AC_ShipView;
-    public AudioClip AC_TrainView;
-    public AudioClip AC_GeragView;
-    public AudioClip AC_BarView;
-    public AudioClip AC_CSView;
-    public AudioClip AC_Pages;
+    [SerializeField]
+    private AudioSource AS_Env;
+    [SerializeField]
+    private AudioClip AC_BirdView;
+    [SerializeField]
+    private AudioClip AC_ShipView;
+    [SerializeField]
+    private AudioClip AC_TrainView;
+    [SerializeField]
+    private AudioClip AC_GeragView;
+    [SerializeField]
+    private AudioClip AC_BarView;
+    [SerializeField]
+    private AudioClip AC_CSView;
+    [SerializeField]
+    private AudioClip AC_Pages;
 
 
     // Background Audio 
-    public AudioSource AS_BG;
-    public AudioClip AC_BG;
+    [SerializeField]
+    private AudioSource AS_BG;
+    [SerializeField]
+    private AudioClip AC_BG;
 
     // Animation Effcet Audio 
-    public AudioSource AS_AnimEf;
-    public AudioClip AC_Character01_selection;
-    public AudioClip AC_Character02_selection;
-    public AudioClip AC_Character03_selection;
-    public AudioClip AC_Character04_selection;
-    public AudioClip AC_Character05_selection;
-    public AudioClip AC_Character06_selection;
-    public AudioClip AC_Hurdule_Self_die;
-    public AudioClip AC_Hurdule_Self_add2;
-    public AudioClip AC_Hurdule_Self_sub2;
-    public AudioClip AC_Hurdule_Self_Skip;
-    public AudioClip AC_Hurdule_Self_life;
-    public AudioClip AC_Hurdule_Rival_die;
-    public AudioClip AC_Hurdule_Rival_skip;
-    public AudioClip AC_Hurdule_Rival_Help;
-    public AudioClip AC_Hurdule_Rival_Back;
-    public AudioClip AC_Win;
-    public AudioClip AC_Running_track;
-    public AudioClip AC_Timmer;
-    public AudioClip AC_SlowMotion;
-    public AudioClip AC_Die;
-    public AudioClip AC_Shoot;
+    [SerializeField]
+    private AudioSource AS_AnimEf;
+    [SerializeField]
+    private AudioClip AC_Character01_selection;
+    [SerializeField]
+    private AudioClip AC_Character02_selection;
+    [SerializeField]
+    private AudioClip AC_Character03_selection;
+    [SerializeField]
+    private AudioClip AC_Character04_selection;
+    [SerializeField]
+    private AudioClip AC_Character05_selection;
+    [SerializeField]
+    private AudioClip AC_Character06_selection;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Self_die;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Self_add2;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Self_sub2;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Self_Skip;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Self_life;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Rival_die;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Rival_skip;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Rival_Help;
+    [SerializeField]
+    private AudioClip AC_Hurdule_Rival_Back;
+    [SerializeField]
+    private AudioClip AC_Win;
+    [SerializeField]
+    private AudioClip AC_Running_track;
+    [SerializeField]
+    private AudioClip AC_Timmer;
+    [SerializeField]
+    private AudioClip AC_SlowMotion;
+    [SerializeField]
+    private AudioClip AC_Die;
+    [SerializeField]
+    private AudioClip AC_Shoot;
 
     // UI audio 
-    public AudioSource AS_UI;
-    public AudioClip AC_Btn_Click;
+    [SerializeField]
+    private AudioSource AS_UI;
+    [SerializeField]
+    private AudioClip AC_Btn_Click;
 
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips, bool loopClip = false)
     {
-        
+
         SetCip(audioSource, audioCLips, loopClip);
         PlayAudioSource(audioSource);
     }
-
-    public void StopAudioSource(AudioSourceType audioSourceType)
+    public void ToggleAudioSource(AudioSourceType audioSourceType, bool status)
     {
         switch (audioSourceType)
         {
             case AudioSourceType.ANIMEF:
-                AS_AnimEf.Stop();
-                AS_AnimEf.gameObject.SetActive(false);
+                //AS_AnimEf.gameObject.SetActive(status);
+                AS_AnimEf.mute = !status;
                 break;
             case AudioSourceType.BG:
-                AS_BG.Stop();
-                AS_BG.gameObject.SetActive(false);
+                //AS_BG.gameObject.SetActive(status);
+                AS_BG.mute = !status;
                 break;
             case AudioSourceType.ENV:
-                AS_Env.Stop();
-                AS_Env.gameObject.SetActive(false);
+                //AS_Env.gameObject.SetActive(status);
+                AS_Env.mute = !status;
                 break;
             case AudioSourceType.UI:
-                AS_UI.Stop();
-                AS_UI.gameObject.SetActive(false);
+                //AS_UI.gameObject.SetActive(status);
+                AS_UI.mute = !status;
                 break;
         }
     }
