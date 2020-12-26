@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     }
     public void AddToScore(int point)
     {
+        if (((PlayerScore + point) > 21) || ((PlayerScore + point) < 0)) {
+            return;
+        }
         PlayerScore += point;
     }
     public void SetScore(int point)
