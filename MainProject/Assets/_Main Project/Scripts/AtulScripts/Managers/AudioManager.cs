@@ -8,7 +8,8 @@ public enum AudioSourceType
 {
     ENV = 0,
     BG,
-    ANIMEF
+    ANIMEF,
+    UI
 }
 
 public enum AudioCLips
@@ -42,7 +43,7 @@ public enum AudioCLips
     AC_SlowMotion,
     AC_Die,
     AC_Shoot,
-
+    AC_Btn_Click
 }
 
 public class AudioManager : MonoBehaviour
@@ -57,12 +58,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip AC_TrainView;
     public AudioClip AC_GeragView;
     public AudioClip AC_BarView;
-    public AudioClip AC_Pages;
     public AudioClip AC_CSView;
+    public AudioClip AC_Pages;
 
 
     // Background Audio 
-    public AudioSource AS_BackGround;
+    public AudioSource AS_BG;
     public AudioClip AC_BG;
 
     // Animation Effcet Audio 
@@ -89,6 +90,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip AC_Die;
     public AudioClip AC_Shoot;
 
+    // UI audio 
+    public AudioSource AS_UI;
+    public AudioClip AC_Btn_Click;
+
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips, bool loopClip = false)
     {
         
@@ -105,12 +110,16 @@ public class AudioManager : MonoBehaviour
                 AS_AnimEf.gameObject.SetActive(false);
                 break;
             case AudioSourceType.BG:
-                AS_BackGround.Stop();
-                AS_BackGround.gameObject.SetActive(false);
+                AS_BG.Stop();
+                AS_BG.gameObject.SetActive(false);
                 break;
             case AudioSourceType.ENV:
                 AS_Env.Stop();
                 AS_Env.gameObject.SetActive(false);
+                break;
+            case AudioSourceType.UI:
+                AS_UI.Stop();
+                AS_UI.gameObject.SetActive(false);
                 break;
         }
     }
@@ -124,14 +133,18 @@ public class AudioManager : MonoBehaviour
 
                 break;
             case AudioSourceType.BG:
-                AS_BackGround.gameObject.SetActive(true);
-                AS_BackGround.Play();
+                AS_BG.gameObject.SetActive(true);
+                AS_BG.Play();
 
                 break;
             case AudioSourceType.ENV:
                 AS_Env.gameObject.SetActive(true);
                 AS_Env.Play();
 
+                break;
+            case AudioSourceType.UI:
+                AS_UI.gameObject.SetActive(true);
+                AS_UI.Play();
                 break;
         }
     }
@@ -211,7 +224,7 @@ public class AudioManager : MonoBehaviour
                 switch (audioCLips)
                 {
                     case AudioCLips.AC_BgMusic:
-                        SetAudioClip(AC_BG, AS_BackGround, loopClip);
+                        SetAudioClip(AC_BG, AS_BG, loopClip);
                         break;
                 }
                 break;
@@ -236,7 +249,15 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Pages:
                         SetAudioClip(AC_Pages, AS_Env, loopClip);
                         break;
-                    
+
+                }
+                break;
+            case AudioSourceType.UI:
+                switch (audioCLips)
+                {
+                    case AudioCLips.AC_Btn_Click:
+                        SetAudioClip(AC_Btn_Click, AS_UI, loopClip);
+                        break;
                 }
                 break;
 
