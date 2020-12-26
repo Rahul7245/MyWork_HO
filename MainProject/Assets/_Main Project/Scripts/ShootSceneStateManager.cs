@@ -193,7 +193,7 @@ public class ShootSceneStateManager : MonoBehaviour
 
             player.LastPointScored = PlayerPrefs.GetInt("Score");
             ManagerHandler.managerHandler.gameInitManager.GetPlayer(playerGettingAffected)
-                .GetComponent<Player>().AddToScore(PlayerPrefs.GetInt("Score"));
+                .GetComponent<Player>().AddToScore(isforward? PlayerPrefs.GetInt("Score"): (0-PlayerPrefs.GetInt("Score")));
             if (PlayerPrefs.GetInt("Score") > 0)
             {
                 managerHandler.shootSceneScript.AddShotEffects();
