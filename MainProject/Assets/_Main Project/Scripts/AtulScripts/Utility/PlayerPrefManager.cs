@@ -58,6 +58,12 @@ public static class PlayerPrefManager
             case PlayerPrefKeys.LocalPlayerName_STR:
                 strKey = Constants.LocalPlayerName;
                 break;
+            case PlayerPrefKeys.MusicToggle_STR:
+                strKey = Constants.MusicToggle;
+                break;
+            case PlayerPrefKeys.SoundToggle_STR:
+                strKey = Constants.SoundToggle;
+                break;
             default:
                 Debug.LogError("No Such Player Pref Available in system");
                 return "";

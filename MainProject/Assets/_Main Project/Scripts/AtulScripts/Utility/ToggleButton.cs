@@ -16,6 +16,7 @@ public class ToggleButton : Button
 
     public void SetDefault(bool status)
     {
+        Debug.Log("## Turing : " + status);
         isTurnOn = !status;
         ToggleLogic();
     }

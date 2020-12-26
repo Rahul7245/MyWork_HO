@@ -74,26 +74,31 @@ public class UIInputHandlerManager : MonoBehaviour
         // PlaywithComputer screen buttons end
 
         // Setting screen buttons
+
         HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
-        if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
-        {
-            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.MusicToggle_STR, "true"));
-            musicToggle.SetDefault(status);
-        }
+
         musicToggle.OnBtnToggled += (status) => {
+            Debug.Log("!! musicToggle.OnBtnToggled called ");
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
             PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.MusicToggle_STR, status.ToString());
         };
-        if (PlayerPrefManager.HasKey(PlayerPrefKeys.SoundToggle_STR))
+        if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
         {
-            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.SoundToggle_STR, "true"));
-            soundToggle.SetDefault(status);
+            Debug.Log("@@@ Has muis key");
+            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.MusicToggle_STR, "true"));
+            musicToggle.SetDefault(status);
         }
         soundToggle.OnBtnToggled += (status) => {
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, status);
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.UI, status);
             PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.SoundToggle_STR, status.ToString());
         };
+        if (PlayerPrefManager.HasKey(PlayerPrefKeys.SoundToggle_STR))
+        {
+            bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.SoundToggle_STR, "true"));
+            soundToggle.SetDefault(status);
+        }
+        
         // Setting screen buttons end
 
         // Character selection screen buttons
@@ -109,6 +114,11 @@ public class UIInputHandlerManager : MonoBehaviour
         });
         // Character selection screen buttons end
         ClickedOnCard();
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void ToggleCardSelection(bool status)
