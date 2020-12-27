@@ -265,8 +265,9 @@ public class Weapon : MonoBehaviour
         
         m_Animator.SetTrigger("fire");
 
-        m_Source.pitch = Random.Range(0.7f, 1.0f);
-        m_Source.PlayOneShot(FireAudioClip);
+        /*m_Source.pitch = Random.Range(0.7f, 1.0f);
+        m_Source.PlayOneShot(FireAudioClip);*/
+
 
         CameraShaker.Instance.Shake(0.2f, 0.05f * advancedSettings.screenShakeMultiplier);
 
@@ -309,7 +310,6 @@ public class Weapon : MonoBehaviour
                 Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
                 bulletInstance.Launch(direction.magnitude>20?8:4, hit.collider.transform, hit.point);
                 bulletTimeController.StartSequence(bulletInstance, hit.point);
-                
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
@@ -318,27 +318,12 @@ public class Weapon : MonoBehaviour
                 }
                 PlayerPrefs.SetInt("Score", burglar.getValue());
                 points.Add(PlayerPrefs.GetInt("Score"));
-
-                //ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-               // burglar.DieAnimation();
-                //  CustomAgent customAgent = hit.transform.gameObject.GetComponent<CustomAgent>();
-                // customAgent.GetComponent<NavMeshAgent>().isStopped = true;
-
-                //  bvalue = burglar.getValue();
-                //  customAgent.DieEffect();
-                //  StartCoroutine(DelayPopup());
-
                 ScopeDisable();
             }
             else
             {
                 ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             }
-
-            //if too close, the trail effect would look weird if it arced to hit the wall, so only correct it if far
-            /*if (hit.distance > 5.0f)
-                hitPosition = hit.point;*/
-
             //this is a target
             if (hit.collider.gameObject.layer == 10)
             {
@@ -349,43 +334,10 @@ public class Weapon : MonoBehaviour
         else {
             ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
         }
-
-        /*if (Bullet != null)
-        {
-            var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };
-            var bullet = PoolSystem.Instance.GetInstance<GameObject>(Bullet);
-            bullet.SetActive(true);
-            bullet.transform.position = pos[0];
-            m_ActiveBullets.Add(new ActiveBullets()
-            {
-                remainingTime = 5f,
-                direction = (pos[1] - pos[0]).normalized,
-                bul = bullet
-            });
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-
-
-        }*/
-        /*if (PrefabRayTrail != null)
-        {
-            var pos = new Vector3[] { GetCorrectedMuzzlePlace(), hitPosition };
-            var trail = PoolSystem.Instance.GetInstance<LineRenderer>(PrefabRayTrail);
-            trail.gameObject.SetActive(true);
-            trail.SetPositions(pos);
-            
-            m_ActiveTrails.Add(new ActiveTrail()
-            {
-                remainingTime = 0.3f,
-                direction = (pos[1] - pos[0]).normalized,
-                renderer = trail
-            });
-        }*/
     }
 
     IEnumerator DelayPopup()
     {
-       // yield return new WaitForSeconds(2f);
-       // impactManager.InvokeTheEvent(bvalue);
         yield return new WaitForSeconds(3f);
         print("DelayPopup");
         impactManager.OkButtonClick();
@@ -466,38 +418,9 @@ public class Weapon : MonoBehaviour
         if (m_ShotTimer > 0)
             m_ShotTimer -= Time.deltaTime;
 
-        /*Vector3[] pos = new Vector3[2];
-        for (int i = 0; i < m_ActiveTrails.Count; ++i)
-        {
-            var activeTrail = m_ActiveTrails[i];
-            
-            activeTrail.renderer.GetPositions(pos);
-            activeTrail.remainingTime -= Time.deltaTime;
-
-            pos[0] += activeTrail.direction * 50.0f * Time.deltaTime;
-            pos[1] += activeTrail.direction * 50.0f * Time.deltaTime;
-            
-            m_ActiveTrails[i].renderer.SetPositions(pos);
-            
-            if (m_ActiveTrails[i].remainingTime <= 0.0f)
-            {
-                m_ActiveTrails[i].renderer.gameObject.SetActive(false);
-                m_ActiveTrails.RemoveAt(i);
-                i--;
-            }
-        }*/
         Vector3[] pos = new Vector3[2];
         for (int i = 0; i < m_ActiveBullets.Count; ++i)
         {
-            /*var activeTrail = m_ActiveBullets[i];
-
-            activeTrail.GetPositions(pos);
-            activeTrail.remainingTime -= Time.deltaTime;
-
-            pos[0] += activeTrail.direction * 50.0f * Time.deltaTime;
-            pos[1] += activeTrail.direction * 50.0f * Time.deltaTime;
-
-            m_ActiveBullets[i].renderer.SetPositions(pos);*/
             var activeBullet = m_ActiveBullets[i];
 
             activeBullet.remainingTime -= Time.deltaTime;
@@ -536,31 +459,6 @@ public class Weapon : MonoBehaviour
                     Reload();
             }
         }
-       /* if (Input.GetButtonDown("Fire2"))
-        {
-            m_Animator.SetBool("scope", !m_Animator.GetBool("scope"));
-            if (m_Animator.GetBool("scope"))
-                StartCoroutine(ScopeEnable());
-            else
-            {
-                scopeOvrlay.SetActive(false);
-                Controller.Instance.MainCamera.fieldOfView = 60;
-                Controller.Instance.WeaponCamera.gameObject.SetActive(true);
-            }
-        }*/
-       /* if (triggerDown)
-        {
-            if (triggerType == TriggerType.Auto)
-            {
-                if (!m_ShotDone)
-                {
-                    m_ShotDone = true;
-                    Fire();
-                }
-            }
-            else
-                Fire();
-        }*/
     }
     public void OnFireButtonClick() {
         Fire();

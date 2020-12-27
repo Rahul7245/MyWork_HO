@@ -121,14 +121,6 @@ public class Controller : MonoBehaviour
             FireButton();
         }
 #endif
-
-        /* if (CanPause && Input.GetButtonDown("Menu"))
-         {
-             PauseMenu.Instance.Display();
-         }*/
-
-        // FullscreenMap.Instance.gameObject.SetActive(Input.GetButton("Map"));
-
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
 
@@ -157,40 +149,6 @@ public class Controller : MonoBehaviour
         Vector3 move = Vector3.zero;
         if (!m_IsPaused && !LockControl)
         {
-            // Jump (we do it first as 
-            /* if (m_Grounded && Input.GetButtonDown("Jump"))
-             {
-                 m_VerticalSpeed = JumpSpeed;
-                 m_Grounded = false;
-                 loosedGrounding = true;
-                 FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
-             }*/
-
-            // bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
-            //float actualSpeed = running ? RunningSpeed : PlayerSpeed;
-
-            /*if (loosedGrounding)
-            {
-                m_SpeedAtJump = actualSpeed;
-            }*/
-
-            // Move around with WASD
-            /*move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-             if (move.sqrMagnitude > 1.0f)
-                 move.Normalize();
-
-             float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
-
-             move = move * usedSpeed * Time.deltaTime;
-
-             move = transform.TransformDirection(move);
-             m_CharacterController.Move(move);*/
-
-            // Turn player
-            /* if (Input.touchCount > 1) {
-                 return;
-             }*/
-
             //For Android use touch
 #if UNITY_EDITOR
             if (Input.GetKey(KeyCode.LeftAlt))
@@ -198,30 +156,15 @@ public class Controller : MonoBehaviour
             if (Input.mousePosition.x < Screen.width / 2 && Input.touches[0].phase == TouchPhase.Moved)
 #endif
             {
-             //   Debug.LogError("Rahul Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y"));
-                /*  if (Input.touchCount > 1) {
-                      Debug.LogError("Rahul touchCount Mouse X:" + Input.GetAxis("Mouse X") + "Mouse Y:" + Input.GetAxis("Mouse Y")+"touchPhase:"+
-                          Input.touches[1].phase);
-
-                  }*/
                 float turnPlayer = Input.GetAxis("Mouse X");
                 if (turnPlayer > 6) turnPlayer = m_turnX;
                 if (turnPlayer < -6) turnPlayer = m_turnX;
                 m_turnX = turnPlayer;
                 turnPlayer = turnPlayer * MouseSensitivity * (MainCamera.fieldOfView / 100);
                 m_HorizontalAngle = m_HorizontalAngle + turnPlayer;
-
-
                 if (m_HorizontalAngle > 360) m_HorizontalAngle -= 360.0f;
                 if (m_HorizontalAngle < 0) m_HorizontalAngle += 360.0f;
-
                 Vector3 currentAngles = CameraPosition.transform.localEulerAngles;
-
-
-                //  CameraPosition.transform.localEulerAngles = currentAngles;
-
-
-
                 // Camera look up/down
                 var turnCam = -Input.GetAxis("Mouse Y");
                 if (turnCam > 6) turnCam = m_turnY;
@@ -233,58 +176,9 @@ public class Controller : MonoBehaviour
                 currentAngles.x = m_VerticalAngle;
                 currentAngles.y = m_HorizontalAngle;
                 CameraPosition.transform.localEulerAngles = currentAngles;
-
-
             }
-            // m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
-
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
-
-            /*  if (Input.GetButton("Reload"))
-                  m_Weapons[m_CurrentWeapon].Reload();
-
-              if (Input.GetAxis("Mouse ScrollWheel") < 0)
-              {
-                  ChangeWeapon(m_CurrentWeapon - 1);
-              }
-              else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-              {
-                  ChangeWeapon(m_CurrentWeapon + 1);
-              }*/
-
-            //Key input to change weapon
-
-            /* for (int i = 0; i < 10; ++i)
-             {
-                 if (Input.GetKeyDown(KeyCode.Alpha0 + i))
-                 {
-                     int num = 0;
-                     if (i == 0)
-                         num = 10;
-                     else
-                         num = i - 1;
-
-                     if (num < m_Weapons.Count)
-                     {
-                         ChangeWeapon(num);
-                     }
-                 }
-             }*/
         }
-
-        // Fall down / gravity
-        /*m_VerticalSpeed = m_VerticalSpeed - 10.0f * Time.deltaTime;
-        if (m_VerticalSpeed < -10.0f)
-            m_VerticalSpeed = -10.0f; // max fall speed
-        var verticalMove = new Vector3(0, m_VerticalSpeed * Time.deltaTime, 0);
-        var flag = m_CharacterController.Move(verticalMove);
-        if ((flag & CollisionFlags.Below) != 0)
-            m_VerticalSpeed = 0;
-
-        if (!wasGrounded && m_Grounded)
-        {
-            FootstepPlayer.PlayClip(LandingAudioClip, 0.8f, 1.1f);
-        }*/
     }
     public void FireButton()
     {
