@@ -122,14 +122,8 @@ public class GameInitManager : MonoBehaviour
 
     void Start()
     {
-        /*InstantiateTrack();
-        InstantiatePlayers();*/
-
         m_turn = 1;
         m_ready = true;
-        //askingPlayer = true;
-        //Ready_popup.GetComponentInChildren<Text>().text = "Are you Ready Player_"+turn;
-        //   StartCoroutine(StartGame());
         EventManager.AddShootListener(movePlayerListener);
 
         foreach (var playerPosCan in playerPositionCanvas)
@@ -245,7 +239,6 @@ public class GameInitManager : MonoBehaviour
     {
         Hurdle[] hurdles = new Hurdle[6];
          List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7};
-        // List<int> hurdleList = new List<int> { 9, 9, 9, 9, 9 };
         List<int> hur = new List<int>() {1,2,8,9 };
         hurdleList.Add(hur[Random.Range(0,hur.Count)]);
         List<int> randomTracks = new List<int> {19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
@@ -264,15 +257,9 @@ public class GameInitManager : MonoBehaviour
             }
             hurdle.pos = hurdleNum;
             randomTracks.Remove(hurdleNum);
-            /*  foreach (var item in randomTracks) {
-                  print(i);
-              }*/
-
             hurdle.power = hurdleList[i];
             hurdles[i] = hurdle;
         }
-       
-
         Hurdle[] sorted = hurdles.OrderBy(c => c.pos).ToArray();
         m_player_pow.Add("player_" + "0" + "_pow", sorted);
         for (int i = 0; i < 6; i++)
@@ -325,16 +312,6 @@ public class GameInitManager : MonoBehaviour
         return sorted;
 
     }
-    /*Hurdle[] ArrangeInDecendingPosition(Hurdle[] hurdles) {
-        Hurdle[] ret=new Hurdle[no_of_hurdles];
-
-        Hurdle[] sorted = hurdles.OrderBy(c => c.pos).ToArray();
-
-
-
-        return sorted;
-
-    }*/
 
     IEnumerator StartGame()
     {
@@ -354,14 +331,12 @@ public class GameInitManager : MonoBehaviour
 
     void movePlayerListener(int stepsToMove)
     {
-        print("movePlayerListener");
         if (!m_ready)
         {
             return;
         }
         m_ready = false;
         m_askingPlayer = false;
-        Debug.Log("!@# TrackSpwaner movePlayerListener called with steps : " + stepsToMove);
         movePlayer(m_turn, stepsToMove, true);
         sideVcam.m_Priority = 11;
         //  CheckForHurdle(turn,pos);
@@ -389,6 +364,7 @@ public class GameInitManager : MonoBehaviour
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
                     movePlayer(playerNumber, 2, false);
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_sub2);
                     return;
                 }
                 else if (hurdle.power == 1 )
@@ -397,36 +373,39 @@ public class GameInitManager : MonoBehaviour
                     _currentPlayer.LastPointScored = 2;
                     _currentPlayer.AddToScore(2);
                     movePlayer(playerNumber, 2, true);
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_add2);
                     return;
                 }
                 else if (hurdle.power == 4)
                 {
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     StartCoroutine( PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn")));
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_die);
                 }
                 else if (hurdle.power == 6)
                 {
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     StartCoroutine(PlaySkipChance(_currentPlayer));
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_Skip);
                 }
                 else if (hurdle.power == 3) {
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     StartCoroutine(PlayGettingExtraChance(_currentPlayer));
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_life);
                 }
                 else if (hurdle.power == 5)
                 {
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
                     setCameraToNormal(PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1);
                     StartCoroutine(PlaySkipChance(GetOppPlayer().GetComponent<Player>()));
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_skip);
                 }
                 else if (hurdle.power == 7)
                 {
                     StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
-                    // PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn"));
                     StartCoroutine( PlaySelfDestruct(GetOppPlayer().GetComponent<Player>(),
                         PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1));
-
-
+                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_die);
                 }
                 else if (hurdle.power == 8|| hurdle.power == 9)
                 {
@@ -435,8 +414,12 @@ public class GameInitManager : MonoBehaviour
                     ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
                     if (hurdle.power == 9) {
                         ManagerHandler.managerHandler.shootSceneStateManager.isforward = false;
+                        managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_Back);
                     }
-
+                    else
+                    {
+                        managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_Help);
+                    }
                     ShootSceneStateManager.Instance.setNextTurnFlag(true);
                 }
             }
