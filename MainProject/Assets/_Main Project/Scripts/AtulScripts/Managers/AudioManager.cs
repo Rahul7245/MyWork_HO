@@ -141,18 +141,74 @@ public class AudioManager : MonoBehaviour
             case AudioSourceType.ANIMEF:
                 //AS_AnimEf.gameObject.SetActive(status);
                 AS_AnimEf.mute = !status;
+                if (status)
+                {
+                    if (!AS_AnimEf.isPlaying)
+                    {
+                        AS_AnimEf.Play();
+                    }
+                }
+                else
+                {
+                    if (AS_AnimEf.isPlaying)
+                    {
+                        AS_AnimEf.Stop();
+                    }
+                }
                 break;
             case AudioSourceType.BG:
                 //AS_BG.gameObject.SetActive(status);
                 AS_BG.mute = !status;
+                if (status)
+                {
+                    if (!AS_BG.isPlaying)
+                    {
+                        AS_BG.Play();
+                    }
+                }
+                else
+                {
+                    if (AS_BG.isPlaying)
+                    {
+                        AS_BG.Stop();
+                    }
+                }
                 break;
             case AudioSourceType.ENV:
                 //AS_Env.gameObject.SetActive(status);
                 AS_Env.mute = !status;
+                if (status)
+                {
+                    if (!AS_Env.isPlaying)
+                    {
+                        AS_Env.Play();
+                    }
+                }
+                else
+                {
+                    if (AS_Env.isPlaying)
+                    {
+                        AS_Env.Stop();
+                    }
+                }
                 break;
             case AudioSourceType.UI:
                 //AS_UI.gameObject.SetActive(status);
                 AS_UI.mute = !status;
+                if (status)
+                {
+                    if (!AS_UI.isPlaying)
+                    {
+                        AS_UI.Play();
+                    }
+                }
+                else
+                {
+                    if (AS_UI.isPlaying)
+                    {
+                        AS_UI.Stop();
+                    }
+                }
                 break;
         }
     }

@@ -28,6 +28,7 @@ public class HomeScreenManager : MonoBehaviour
     {
         managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
         managerHandler.uIInputHandlerManager.ToggleCardSelection(false);
+        managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
     }
     public void OpenSettings()
     {

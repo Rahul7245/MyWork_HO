@@ -78,15 +78,19 @@ public class UIInputHandlerManager : MonoBehaviour
         HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
 
         musicToggle.OnBtnToggled += (status) => {
-            Debug.Log("!! musicToggle.OnBtnToggled called ");
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
             PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.MusicToggle_STR, status.ToString());
         };
         if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
         {
-            Debug.Log("@@@ Has muis key");
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
             bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.MusicToggle_STR, "true"));
             musicToggle.SetDefault(status);
+        }
+        else
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
+            musicToggle.SetDefault(true);
         }
         soundToggle.OnBtnToggled += (status) => {
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, status);
@@ -114,11 +118,6 @@ public class UIInputHandlerManager : MonoBehaviour
         });
         // Character selection screen buttons end
         ClickedOnCard();
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void ToggleCardSelection(bool status)

@@ -772,7 +772,7 @@ public class LightingManager : MonoBehaviour
                 enviromentDic[EnviromentType.Train]?.SetActive(true);
                 break;
             case EnviromentType.BirdView:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView);
+                //managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView);
                 LightmapSettings.lightmaps = lightmapDatabirdview;
                 RenderSettings.skybox = birdview;
                 birdveiw_light.SetActive(true);

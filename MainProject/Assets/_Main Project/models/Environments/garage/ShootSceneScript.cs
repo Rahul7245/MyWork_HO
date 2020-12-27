@@ -169,6 +169,7 @@ public class ShootSceneScript : MonoBehaviour
         managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
         yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+        managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
     }
 
     public void setBurglarSpeed(float speed)
