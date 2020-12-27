@@ -254,6 +254,7 @@ public class ShootSceneStateManager : MonoBehaviour
             displayMsg.text = winner.playerName + " is the winner !!!";
             winner.GetComponent<Animator>().SetBool("win", true);
             ConfettiCelebration.SetActive(true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Win, false);
             CMCscript cmcs = ConfettiCelebrationCamera.GetComponent<CMCscript>();
             cmcs.SetLookAtProperty(winner);
             cmcs.StartRevolution();
