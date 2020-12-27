@@ -11,6 +11,6 @@ public class LoginManager : MonoBehaviour
 
     public void HandleLogin()
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+        managerHandler.homeScreenManager.GoToHomeScreenHomePage();
     }
 }

@@ -669,7 +669,7 @@ public class GameInitManager : MonoBehaviour
 
     public void ResetGame()
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+        managerHandler.homeScreenManager.GoToHomeScreenHomePage();
         SceneManager.LoadScene(0);
     }
 }

@@ -9,9 +9,10 @@ public class HomeScreenManager : MonoBehaviour
     [SerializeField]
     private ManagerHandler managerHandler;
 
-    public void GoToHomeScreen()
+    public void GoToHomeScreenHomePage()
     {
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+        managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
     }
     public void PlayWithComputer()
     {

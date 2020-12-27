@@ -70,12 +70,12 @@ public class UIInputHandlerManager : MonoBehaviour
         StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
         cardReveal.OnAnimationEnd += managerHandler.homeScreenManager.HandlePlayGame;
         cardShuffleDone.OnAnimationEnd += () => { ToggleCardSelection(true); };
-        HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreenHomePage);
         // PlaywithComputer screen buttons end
 
         // Setting screen buttons
 
-        HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreen);
+        HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreenHomePage);
 
         musicToggle.OnBtnToggled += (status) => {
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
@@ -107,7 +107,7 @@ public class UIInputHandlerManager : MonoBehaviour
 
         // Character selection screen buttons
         HomeButtonCharater.onClick.AddListener(()=> {
-            managerHandler.homeScreenManager.GoToHomeScreen();
+            managerHandler.homeScreenManager.GoToHomeScreenHomePage();
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, false);
         });
         characterButton_0.onClick.AddListener(() => {
