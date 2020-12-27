@@ -543,11 +543,12 @@ public class GameInitManager : MonoBehaviour
                {
                    current_Player.GetComponent<Animator>().SetBool("jump", true);
                    current_Player.GetComponent<DustEffect>().PlayParticle();
-               //     print("Animation started");
+                   managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Running_track, true);
            }).OnComplete(() =>
            {
                current_Player.GetComponent<Animator>().SetBool("jump", false);
                current_Player.GetComponent<DustEffect>().StopParticle();
+               managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_None, true);
 
            }).SetEase(curve);
             StartCoroutine(animationtimer(playerNumber, pos, current_Player));

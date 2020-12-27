@@ -103,7 +103,6 @@ public class ShootSceneStateManager : MonoBehaviour
                         player.SetSkip(false);
                         ToggleAppState(ShootState.PlayerTurn);
                         return;
-                      
                     }
                 }
                 else {

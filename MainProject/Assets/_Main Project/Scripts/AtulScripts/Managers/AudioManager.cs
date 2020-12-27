@@ -14,6 +14,7 @@ public enum AudioSourceType
 
 public enum AudioCLips
 {
+    AC_None = 0,
     AC_BirdView,
     AC_ShipView,
     AC_TrainView,
@@ -305,7 +306,10 @@ public class AudioManager : MonoBehaviour
                         break;
                     case AudioCLips.AC_Shoot:
                         SetAudioClip(AC_Shoot, AS_AnimEf, loopClip);
-                        break;                
+                        break;
+                    case AudioCLips.AC_None:
+                        SetAudioClip(null, AS_AnimEf, loopClip);
+                        break;
                 }
                 break;
             case AudioSourceType.BG:
@@ -313,6 +317,9 @@ public class AudioManager : MonoBehaviour
                 {
                     case AudioCLips.AC_BgMusic:
                         SetAudioClip(AC_BG, AS_BG, loopClip);
+                        break;
+                    case AudioCLips.AC_None:
+                        SetAudioClip(null, AS_BG, loopClip);
                         break;
                 }
                 break;
@@ -337,7 +344,9 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Pages:
                         SetAudioClip(AC_Pages, AS_Env, loopClip);
                         break;
-
+                    case AudioCLips.AC_None:
+                        SetAudioClip(null, AS_Env, loopClip);
+                        break;
                 }
                 break;
             case AudioSourceType.UI:
@@ -345,6 +354,9 @@ public class AudioManager : MonoBehaviour
                 {
                     case AudioCLips.AC_Btn_Click:
                         SetAudioClip(AC_Btn_Click, AS_UI, loopClip);
+                        break;
+                    case AudioCLips.AC_None:
+                        SetAudioClip(null, AS_UI, loopClip);
                         break;
                 }
                 break;
@@ -356,7 +368,6 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loopClip;
         if (audioSource.isPlaying)
             audioSource.Stop();
-        if(audioClip != null)
-            audioSource.clip = audioClip;
+        audioSource.clip = audioClip;
     }
 }
