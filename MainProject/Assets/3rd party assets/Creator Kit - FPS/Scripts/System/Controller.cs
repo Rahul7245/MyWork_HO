@@ -15,6 +15,7 @@ public class AmmoInventoryEntry
 
 public class Controller : MonoBehaviour
 {
+    public ManagerHandler managerHandler;
     //Urg that's ugly, maybe find a better way
     public static Controller Instance { get; protected set; }
 
@@ -183,6 +184,7 @@ public class Controller : MonoBehaviour
     public void FireButton()
     {
         m_Weapons[m_CurrentWeapon].OnFireButtonClick();
+        managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot, false);
     }
     public void ScopeButton()
     {
