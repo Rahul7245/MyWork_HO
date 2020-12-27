@@ -144,10 +144,8 @@ public class BulletTimeController : MonoBehaviour
 				CreateEnemyPath(hitTransform, activeBullet.transform, selectedTrackingSetup.avaliableTrack);
 				CreateDolly(selectedTrackingSetup);
 				dollyInstance.InitDolly(trackInstance, hitTransform.transform);
-				//ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-				
-				
 				timeScaleController.SlowDownTime();
+				ManagerHandler.managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_SlowMotion);
 			}
 		}
 		StartCoroutine(FinishSequence(hitTransform));
