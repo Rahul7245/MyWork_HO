@@ -103,7 +103,7 @@ public class Burglar : MonoBehaviour
     {
         navAgent.isStopped = true;
         anim.SetTrigger("Die");
-
+        ManagerHandler.managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Die, false);
     }
     public void setSpeed(float speed) {
         navAgent.speed = speed;
