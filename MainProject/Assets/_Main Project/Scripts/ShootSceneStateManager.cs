@@ -173,6 +173,7 @@ public class ShootSceneStateManager : MonoBehaviour
             {
                 managerHandler.timer.totalTime = 10;
                 managerHandler.timer.startTimer();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Timmer, false);
             }
             else
             {
