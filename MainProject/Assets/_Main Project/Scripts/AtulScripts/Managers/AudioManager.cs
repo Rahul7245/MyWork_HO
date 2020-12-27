@@ -130,7 +130,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips, bool loopClip = false)
     {
-
         SetCip(audioSource, audioCLips, loopClip);
         PlayAudioSource(audioSource);
     }
