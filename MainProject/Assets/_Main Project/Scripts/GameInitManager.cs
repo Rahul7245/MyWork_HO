@@ -506,7 +506,7 @@ public class GameInitManager : MonoBehaviour
         m_player_pos.TryGetValue("player_" + playerNumber, out pos);
         if (movingForward)
         {
-            pos = (pos + steps) > 21 ? pos : (pos + steps);
+            pos = (pos + steps) > 22 ? pos : (pos + steps);
         }
         else
         {

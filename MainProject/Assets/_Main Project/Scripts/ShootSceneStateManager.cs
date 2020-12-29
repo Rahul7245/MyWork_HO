@@ -192,8 +192,6 @@ public class ShootSceneStateManager : MonoBehaviour
             }
 
             player.LastPointScored = PlayerPrefs.GetInt("Score");
-            ManagerHandler.managerHandler.gameInitManager.GetPlayer(playerGettingAffected)
-                .GetComponent<Player>().AddToScore(isforward? PlayerPrefs.GetInt("Score"): (0-PlayerPrefs.GetInt("Score")));
             if (PlayerPrefs.GetInt("Score") > 0)
             {
                 managerHandler.shootSceneScript.AddShotEffects();
@@ -206,15 +204,7 @@ public class ShootSceneStateManager : MonoBehaviour
         {
             if (player.LastPointScored != 0)
             {
-                if (player.PlayerScore > 21)
-                {
-                    player.PlayerScore -= player.LastPointScored;
-                    setNextTurnFlag(true);
-                }
-                else
-                {
                     managerHandler.birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
-                }
             }
             else
             {

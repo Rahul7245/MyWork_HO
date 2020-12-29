@@ -69,8 +69,15 @@ public class BirdViewSceneScript : MonoBehaviour
 
     public void MovePlayer(int noOfSteps)
     {
-        managerHandler.gameInitManager.movePlayer(managerHandler.shootSceneStateManager.playerGettingAffected, 
+      bool shouldMove=  managerHandler.gameInitManager.GetPlayer(managerHandler.shootSceneStateManager.playerGettingAffected)
+               .GetComponent<Player>().AddToScore(managerHandler.shootSceneStateManager.isforward ? PlayerPrefs.GetInt("Score") : (0 - PlayerPrefs.GetInt("Score")));
+        if (shouldMove) {
+            managerHandler.gameInitManager.movePlayer(managerHandler.shootSceneStateManager.playerGettingAffected,
             noOfSteps, managerHandler.shootSceneStateManager.isforward);
+        }
+        else {
+            managerHandler.shootSceneStateManager.setNextTurnFlag(true);
+        }
     }
     public void SetCameraToCurrentPlayer()
     {

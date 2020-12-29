@@ -21,12 +21,17 @@ public class Player : MonoBehaviour
     {
         Skip = false;
     }
-    public void AddToScore(int point)
+    public bool AddToScore(int point)
     {
+        if (PlayerScore == 21&&point==1) {
+            PlayerScore += point;
+            return true;
+        }
         if (((PlayerScore + point) > 21) || ((PlayerScore + point) < 0)) {
-            return;
+            return false;
         }
         PlayerScore += point;
+        return true;
     }
     public void SetScore(int point)
     {
