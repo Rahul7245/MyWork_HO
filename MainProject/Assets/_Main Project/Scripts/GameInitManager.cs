@@ -238,11 +238,31 @@ public class GameInitManager : MonoBehaviour
     Hurdle[] RandomPowerPosition2()
     {
         Hurdle[] hurdles = new Hurdle[6];
-         List<int> hurdleList = new List<int>{ 3, 4, 5, 6, 7};
+        List<int> randomTracks = new List<int> { 19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
+
+        {//for rival kill assign after 10
+            int posForRivalKill = Random.Range(11, 20);
+            if (randomTracks.Contains(posForRivalKill - 1))
+            {
+                randomTracks.Remove(posForRivalKill - 1);
+            }
+            randomTracks.Remove(posForRivalKill);
+            if (randomTracks.Contains(posForRivalKill + 1))
+            {
+                randomTracks.Remove(posForRivalKill + 1);
+            }
+            Hurdle hurdle = new Hurdle();
+            hurdle.pos = posForRivalKill;
+            hurdle.power = 7;
+            hurdles[0] = hurdle;
+        } 
+        
+
+        List<int> hurdleList = new List<int>{7/*dummy:not used*/, 3, 4, 5, 6};
         List<int> hur = new List<int>() {1,2,8,9 };
         hurdleList.Add(hur[Random.Range(0,hur.Count)]);
-        List<int> randomTracks = new List<int> {19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
-        for (int i = 0; i < 6; i++) {
+        
+        for (int i = 1; i < 6; i++) {
            int num = Random.Range(0, randomTracks.Count);
             Hurdle hurdle = new Hurdle();
             int hurdleNum= randomTracks[num];
