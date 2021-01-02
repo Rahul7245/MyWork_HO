@@ -300,16 +300,17 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(r, out hit, 1000.0f))
         {
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
+            var pos = new Vector3[] { EndPoint.position, hit.point };
+            var direction = (pos[1] - pos[0]);
+            Debug.DrawLine(pos[0], pos[1], Color.red, 30f);
+            Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
+            bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
+            bulletTimeController.StartSequence(bulletInstance, hit.point);
+            ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
             if (hit.transform.gameObject.tag == "Burgler")
             {
                 ManagerHandler.managerHandler.timer.stopTimer();
-                ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
-                var pos = new Vector3[] { EndPoint.position, hit.point };
-                var direction = (pos[1] - pos[0]);
-                Debug.DrawLine(pos[0], pos[1], Color.red,30f);
-                Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
-                bulletInstance.Launch(direction.magnitude>20?8:4, hit.collider.transform, hit.point);
-                bulletTimeController.StartSequence(bulletInstance, hit.point);
+                
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
@@ -320,7 +321,7 @@ public class Weapon : MonoBehaviour
                 points.Add(PlayerPrefs.GetInt("Score"));
                 ScopeDisable();
             }
-            else
+           /* else
             {
                 var pos = new Vector3[] { EndPoint.position, hit.point };
                 var direction = (pos[1] - pos[0]);
@@ -328,7 +329,7 @@ public class Weapon : MonoBehaviour
                 bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
                 bulletTimeController.StartSequence(bulletInstance, hit.point);
               //  ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
-            }
+            }*/
             //this is a target
             if (hit.collider.gameObject.layer == 10)
             {
