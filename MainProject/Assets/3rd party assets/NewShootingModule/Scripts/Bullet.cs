@@ -23,10 +23,20 @@ public class Bullet : MonoBehaviour
         this.hitPoint = hitPoint;
         this.collider = hitTransform.GetComponent<CapsuleCollider>();
     }
-
+   float totalTrackTime=1f;
+    float elapsedTime =0f;
     private void Update()
     {
-        Move();
+        if (elapsedTime < totalTrackTime) {
+            elapsedTime += Time.fixedDeltaTime;
+            print(":::::::::::::Move:::::::::::::::");
+            Move();
+        }
+        else {  
+            Move1();
+            print(":::::::::::::Move::::::11111:::::::::");
+        }
+        
         Rotate();
         CheckDistanceToEnemy();
     }
@@ -34,7 +44,12 @@ public class Bullet : MonoBehaviour
     private void Move()
     {
         Vector3 translate =(new Vector3(collider.bounds.center.x, hitPoint.y, collider.bounds.center.z) -gameObject.transform.position).normalized;
+        direction = translate;
         transform.Translate(translate * shootingForce * Time.deltaTime, Space.World);
+    }
+    private void Move1()
+    {
+        transform.Translate(direction * shootingForce * Time.deltaTime, Space.World);
     }
 
     private void CheckDistanceToEnemy()

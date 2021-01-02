@@ -159,10 +159,10 @@ public class BulletTimeController : MonoBehaviour
 
 	private IEnumerator FinishSequence(Transform hitTransform)
 	{
-		yield return new WaitForSecondsRealtime(finishingCameraDuration / 3);
+		yield return new WaitForSecondsRealtime(finishingCameraDuration / 4);
 		hitTransform.GetComponentInParent<Burglar>().DieAnimation(); 
 		ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(3.5f);
-		yield return new WaitForSecondsRealtime(2*finishingCameraDuration/3);
+		yield return new WaitForSecondsRealtime(3*finishingCameraDuration/4);
 		ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
 		cameraBrain.gameObject.SetActive(false);
 		//shootingController.gameObject.SetActive(true);
