@@ -13,7 +13,8 @@ public class Bullet : MonoBehaviour
     private Vector3 direction;
     private Vector3 hitPoint;
     CapsuleCollider collider;
-    BoxCollider boxCollider;
+    Collider boxCollider;
+    
 
     public void Launch(float shootingForce, Transform hitTransform, Vector3 hitPoint)
     {
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
         if(hitTransform.gameObject.tag== "Burgler")
         this.collider = hitTransform.GetComponent<CapsuleCollider>();
         else
-        boxCollider = hitTransform.GetComponent<BoxCollider>();
+        boxCollider = hitTransform.GetComponent<Collider>();
     }
    float totalTrackTime=1f;
     float elapsedTime =0f;
