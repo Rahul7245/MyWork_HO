@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     private Vector3 direction;
     private Vector3 hitPoint;
     CapsuleCollider collider;
+    BoxCollider boxCollider;
 
     public void Launch(float shootingForce, Transform hitTransform, Vector3 hitPoint)
     {
@@ -21,22 +22,31 @@ public class Bullet : MonoBehaviour
         this.hitTransform = hitTransform;
         this.shootingForce = shootingForce;
         this.hitPoint = hitPoint;
+        if(hitTransform.gameObject.tag== "Burgler")
         this.collider = hitTransform.GetComponent<CapsuleCollider>();
+        else
+        boxCollider = hitTransform.GetComponent<BoxCollider>();
     }
    float totalTrackTime=1f;
     float elapsedTime =0f;
     private void Update()
     {
-        if (elapsedTime < totalTrackTime) {
-            elapsedTime += Time.fixedDeltaTime;
-            print(":::::::::::::Move:::::::::::::::");
-            Move();
+        if (collider)
+        {
+            if (elapsedTime < totalTrackTime)
+            {
+                elapsedTime += Time.fixedDeltaTime;
+                Move();
+            }
+            else
+            {
+                Move1();
+            }
         }
-        else {  
+        if (boxCollider) {
             Move1();
-            print(":::::::::::::Move::::::11111:::::::::");
+
         }
-        
         Rotate();
         CheckDistanceToEnemy();
     }

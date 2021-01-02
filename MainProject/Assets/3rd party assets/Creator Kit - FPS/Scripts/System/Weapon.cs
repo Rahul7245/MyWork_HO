@@ -322,7 +322,12 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
+                var pos = new Vector3[] { EndPoint.position, hit.point };
+                var direction = (pos[1] - pos[0]);
+                Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
+                bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
+                bulletTimeController.StartSequence(bulletInstance, hit.point);
+              //  ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
             }
             //this is a target
             if (hit.collider.gameObject.layer == 10)
