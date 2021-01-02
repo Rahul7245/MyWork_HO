@@ -307,10 +307,9 @@ public class Weapon : MonoBehaviour
             bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
             bulletTimeController.StartSequence(bulletInstance, hit.point);
             ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
+            ManagerHandler.managerHandler.timer.stopTimer();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                ManagerHandler.managerHandler.timer.stopTimer();
-                
                 impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
