@@ -69,14 +69,14 @@ namespace GammaXR
 
             private void Configure()
             {
-                throw new NotImplementedException();
+                instance = this;
+                m_AudioTable = new Hashtable();
+                m_JobsTable = new Hashtable();
             }
 
             private void Dispose()
             {
-                instance = this;
-                m_AudioTable = new Hashtable();
-                m_JobsTable = new Hashtable();
+                
             }
 
             private void GenrateAudioTable()
