@@ -43,7 +43,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 960, y: 31.731537, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3121723084532130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,6 +137,8 @@ MonoBehaviour:
   StartGameButton: {fileID: 0}
   HomeButton: {fileID: 0}
   HomeButtonSetting: {fileID: 0}
+  musicToggle: {fileID: 0}
+  soundToggle: {fileID: 0}
   characterButton_0: {fileID: 0}
   characterButton_1: {fileID: 0}
   characterButton_2: {fileID: 0}
@@ -530,6 +533,8 @@ MonoBehaviour:
   ConfettiCelebration: {fileID: 0}
   ConfettiCelebrationCamera: {fileID: 0}
   playerGettingChance: 0
+  playerGettingAffected: 0
+  isforward: 0
 --- !u!114 &6614074978765538713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,9 +1093,9 @@ MonoBehaviour:
   AC_TrainView: {fileID: 8300000, guid: 33e1e276429577e45b3014a842545be7, type: 3}
   AC_GeragView: {fileID: 8300000, guid: e7179c9f4eae2f54297ffedd41db4baa, type: 3}
   AC_BarView: {fileID: 8300000, guid: 37d45033bb83d4d4b97d34129e99405d, type: 3}
-  AC_Pages: {fileID: 8300000, guid: 21dbc301022c24d41bff788ab1db9933, type: 3}
   AC_CSView: {fileID: 8300000, guid: b7a5ed9aaf5f7824dba71e36d80f296e, type: 3}
-  AS_BackGround: {fileID: 0}
+  AC_Pages: {fileID: 8300000, guid: 21dbc301022c24d41bff788ab1db9933, type: 3}
+  AS_BG: {fileID: 0}
   AC_BG: {fileID: 8300000, guid: 0224212383b48e34f9821691bacd3b92, type: 3}
   AS_AnimEf: {fileID: 0}
   AC_Character01_selection: {fileID: 8300000, guid: 4ffbd6478862b104ca93f98efba5cb17,
@@ -1128,3 +1133,50 @@ MonoBehaviour:
   AC_SlowMotion: {fileID: 8300000, guid: 799552b2dc4d08746b004d58581aebd5, type: 3}
   AC_Die: {fileID: 8300000, guid: e8516eb52b41f004b87863b0bf00fa6c, type: 3}
   AC_Shoot: {fileID: 8300000, guid: 3772b3640c9994e4cb3262ea88e10284, type: 3}
+  AS_UI: {fileID: 0}
+  AC_Btn_Click: {fileID: 0}
+--- !u!1 &7881940382541917130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3121723084532130}
+  - component: {fileID: 3760309632379771140}
+  m_Layer: 0
+  m_Name: AudioSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3121723084532130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881940382541917130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4357243929486401436}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3760309632379771140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881940382541917130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87226f8efcf915140a048145a5c542db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  audioTracks: []
