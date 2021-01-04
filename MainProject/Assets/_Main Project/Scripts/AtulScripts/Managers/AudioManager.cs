@@ -49,6 +49,10 @@ public enum AudioCLips
 
 public class AudioManager : MonoBehaviour
 {
+    private AudioCLips previousAC_Env;
+    private AudioCLips previousAC_Bg;
+    private AudioCLips previousAC_Anim;
+    private AudioCLips previousAC_Ui;
     [SerializeField]
     private ManagerHandler managerHandler;
 
@@ -132,50 +136,27 @@ public class AudioManager : MonoBehaviour
     public void PlayAudio(AudioSourceType audioSource, AudioCLips audioCLips, bool loopClip = false)
     {
         SetCip(audioSource, audioCLips, loopClip);
-        PlayAudioSource(audioSource);
+        PlayAudioSource(audioSource, audioCLips);
     }
     public void ToggleAudioSource(AudioSourceType audioSourceType, bool status)
     {
         switch (audioSourceType)
         {
             case AudioSourceType.ANIMEF:
-                //AS_AnimEf.gameObject.SetActive(status);
                 AS_AnimEf.mute = !status;
-                if (status)
+                if (!status && AS_AnimEf.isPlaying)
                 {
-                    if (!AS_AnimEf.isPlaying)
-                    {
-                        AS_AnimEf.Play();
-                    }
-                }
-                else
-                {
-                    if (AS_AnimEf.isPlaying)
-                    {
-                        AS_AnimEf.Stop();
-                    }
+                    AS_AnimEf.Stop();
                 }
                 break;
             case AudioSourceType.BG:
-                //AS_BG.gameObject.SetActive(status);
                 AS_BG.mute = !status;
-                if (status)
+                if (!status && AS_BG.isPlaying)
                 {
-                    if (!AS_BG.isPlaying)
-                    {
-                        AS_BG.Play();
-                    }
-                }
-                else
-                {
-                    if (AS_BG.isPlaying)
-                    {
-                        AS_BG.Stop();
-                    }
+                    AS_BG.Stop();
                 }
                 break;
             case AudioSourceType.ENV:
-                //AS_Env.gameObject.SetActive(status);
                 AS_Env.mute = !status;
                 if (status)
                 {
@@ -193,47 +174,116 @@ public class AudioManager : MonoBehaviour
                 }
                 break;
             case AudioSourceType.UI:
-                //AS_UI.gameObject.SetActive(status);
                 AS_UI.mute = !status;
-                if (status)
+                if(!status && AS_UI.isPlaying)
                 {
-                    if (!AS_UI.isPlaying)
-                    {
-                        AS_UI.Play();
-                    }
-                }
-                else
-                {
-                    if (AS_UI.isPlaying)
-                    {
-                        AS_UI.Stop();
-                    }
+                    AS_UI.Stop();
                 }
                 break;
         }
     }
-    private void PlayAudioSource(AudioSourceType audioSourceType)
+    private void PlayAudioSource(AudioSourceType audioSourceType, AudioCLips audioCLips)
     {
         switch (audioSourceType)
         {
             case AudioSourceType.ANIMEF:
-                AS_AnimEf.gameObject.SetActive(true);
-                AS_AnimEf.Play();
+                if(previousAC_Anim == audioCLips)
+                {
+                    if (!AS_AnimEf.gameObject.activeInHierarchy)
+                    {
+                        AS_AnimEf.gameObject.SetActive(true);
+                        AS_AnimEf.Play();
+                    }
+                    else
+                    {
+                        if (!AS_AnimEf.isPlaying)
+                        {
+                            AS_AnimEf.gameObject.SetActive(true);
+                            AS_AnimEf.Play();
+                        }
+                    }
+                }
+                else
+                {
+                    previousAC_Anim = audioCLips;
+                    AS_AnimEf.gameObject.SetActive(true);
+                    AS_AnimEf.Play();
+                }
 
                 break;
             case AudioSourceType.BG:
-                AS_BG.gameObject.SetActive(true);
-                AS_BG.Play();
+                if(previousAC_Bg == audioCLips)
+                {
+                    if (!AS_BG.gameObject.activeInHierarchy)
+                    {
+                        AS_BG.gameObject.SetActive(true);
+                        AS_BG.Play();
+                    }
+                    else
+                    {
+                        if (!AS_BG.isPlaying)
+                        {
+                            AS_BG.gameObject.SetActive(true);
+                            AS_BG.Play();
+                        }
+                    }
+                }
+                else
+                {
+                    previousAC_Bg = audioCLips;
+                    AS_BG.gameObject.SetActive(true);
+                    AS_BG.Play();
+                }
 
                 break;
             case AudioSourceType.ENV:
-                AS_Env.gameObject.SetActive(true);
-                AS_Env.Play();
+                if(previousAC_Env == audioCLips)
+                {
+                    if (!AS_Env.gameObject.activeInHierarchy)
+                    {
+                        AS_Env.gameObject.SetActive(true);
+                        AS_Env.Play();
+                    }
+                    else
+                    {
+                        if (!AS_Env.isPlaying)
+                        {
+                            AS_Env.gameObject.SetActive(true);
+                            AS_Env.Play();
+                        }
+                    }
+                }
+                else
+                {
+                    previousAC_Env = audioCLips;
+                    AS_Env.gameObject.SetActive(true);
+                    AS_Env.Play();
+                }
 
                 break;
             case AudioSourceType.UI:
-                AS_UI.gameObject.SetActive(true);
-                AS_UI.Play();
+                if(previousAC_Ui == audioCLips)
+                {
+                    if (!AS_UI.gameObject.activeInHierarchy)
+                    {
+                        AS_UI.gameObject.SetActive(true);
+                        AS_UI.Play();
+                    }
+                    else
+                    {
+                        if (!AS_UI.isPlaying)
+                        {
+                            AS_UI.gameObject.SetActive(true);
+                            AS_UI.Play();
+                        }
+                    }
+                }
+                else
+                {
+                    previousAC_Ui = audioCLips;
+                    AS_UI.gameObject.SetActive(true);
+                    AS_UI.Play();
+                }
                 break;
         }
     }
@@ -242,6 +292,7 @@ public class AudioManager : MonoBehaviour
         switch (audioSource)
         {
             case AudioSourceType.ANIMEF:
+                previousAC_Anim = audioCLips;
                 switch (audioCLips)
                 {
                     case AudioCLips.AC_Character01_selection:
@@ -313,6 +364,7 @@ public class AudioManager : MonoBehaviour
                 }
                 break;
             case AudioSourceType.BG:
+                previousAC_Bg = audioCLips;
                 switch (audioCLips)
                 {
                     case AudioCLips.AC_BgMusic:
@@ -324,6 +376,7 @@ public class AudioManager : MonoBehaviour
                 }
                 break;
             case AudioSourceType.ENV:
+                previousAC_Env = audioCLips;
                 switch (audioCLips)
                 {
                     case AudioCLips.AC_BarView:
@@ -353,6 +406,7 @@ public class AudioManager : MonoBehaviour
                 }
                 break;
             case AudioSourceType.UI:
+                previousAC_Ui = audioCLips;
                 switch (audioCLips)
                 {
                     case AudioCLips.AC_Btn_Click:
@@ -369,8 +423,6 @@ public class AudioManager : MonoBehaviour
     private void SetAudioClip(AudioClip audioClip , AudioSource audioSource, bool loopClip)
     {
         audioSource.loop = loopClip;
-        if (audioSource.isPlaying)
-            audioSource.Stop();
         audioSource.clip = audioClip;
     }
 }
