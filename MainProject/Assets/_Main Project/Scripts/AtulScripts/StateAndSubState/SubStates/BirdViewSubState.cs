@@ -6,7 +6,7 @@ public class BirdViewSubState : SubState
 {
     private void Awake()
     {
-        AnimationEndEvent animationEndEvent = subStateTranistionCanvasGrup.GetComponentInChildren<AnimationEndEvent>();
+        AnimationEvents animationEndEvent = subStateTranistionCanvasGrup.GetComponentInChildren<AnimationEvents>();
         if (animationEndEvent)
         {
             animationEndEvent.OnAnimationEnd += () => { subStateTranistionCanvasGrup.gameObject.SetActive(false); };

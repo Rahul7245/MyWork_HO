@@ -50,8 +50,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public List<GameObject> charactersPrefabsList;
 
     public List<GameObject> cardShuffel_;
-    public AnimationEndEvent cardShuffleDone;
-    public AnimationEndEvent cardReveal;
+    public AnimationEvents cardShuffleDone;
+    public AnimationEvents cardReveal;
     public List<ThreeDObjButton> threeDObjButtons;
     public Button back;
     public Button shootButton;
