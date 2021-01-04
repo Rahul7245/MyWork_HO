@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,34 +10,34 @@ public class HomeScreenManager : MonoBehaviour
     [SerializeField]
     private ManagerHandler managerHandler;
 
-    public void GoToHomeScreenHomePage()
+    public void GoToHomeScreenHomePage(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_HomePage, OnCompleteTx);
         managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
     }
-    public void PlayWithComputer()
+    public void PlayWithComputer(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PlayComputer);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PlayComputer, OnCompleteTx);
         managerHandler.characterManager.GamePlayingType(GameType.VSComputer);
     }
-    public void HandleStartGame()
+    public void HandleStartGame(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PositionAndCap);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PositionAndCap, OnCompleteTx);
         //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
     }
 
-    public void HandlePlayGame()
+    public void HandlePlayGame(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode, OnCompleteTx);
         managerHandler.uIInputHandlerManager.ToggleCardSelection(false);
         managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
     }
-    public void OpenSettings()
+    public void OpenSettings(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_SettingPage);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_SettingPage, OnCompleteTx);
     }
-    public void OpenCharaterSelection()
+    public void OpenCharaterSelection(Action OnCompleteTx)
     {
-        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage);
+        managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage, OnCompleteTx);
     }
 }

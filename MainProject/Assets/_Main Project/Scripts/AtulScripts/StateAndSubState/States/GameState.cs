@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameState : State
 {
-    public override IEnumerator OnEnter()
+    public override void OnEnter()
     {
-        yield return managerHandler.GetComponent<MonoBehaviour>().StartCoroutine(base.OnEnter());
+        base.OnEnter();
         managerHandler.shootSceneStateManager.StartGame();
     }
 }

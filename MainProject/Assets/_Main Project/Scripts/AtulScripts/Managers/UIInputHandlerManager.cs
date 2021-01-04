@@ -61,21 +61,21 @@ public class UIInputHandlerManager : MonoBehaviour
         back.onClick.AddListener(managerHandler.appStateManager.BackPressed);
         LoginButton.onClick.AddListener(managerHandler.loginManager.HandleLogin);
         // Home screen buttons
-        playWithCompButton.onClick.AddListener(managerHandler.homeScreenManager.PlayWithComputer);
-        OpenSettingButton.onClick.AddListener(managerHandler.homeScreenManager.OpenSettings);
-        OpenCharaSelectionButton.onClick.AddListener(managerHandler.homeScreenManager.OpenCharaterSelection);
+        playWithCompButton.onClick.AddListener(()=> { managerHandler.homeScreenManager.PlayWithComputer(null); });
+        OpenSettingButton.onClick.AddListener(()=> { managerHandler.homeScreenManager.OpenSettings(null); });
+        OpenCharaSelectionButton.onClick.AddListener(()=> { managerHandler.homeScreenManager.OpenCharaterSelection(null); });
         // Home screen buttons end
 
         // PlaywithComputer screen buttons
-        StartGameButton.onClick.AddListener(managerHandler.homeScreenManager.HandleStartGame);
-        cardReveal.OnAnimationEnd += managerHandler.homeScreenManager.HandlePlayGame;
+        StartGameButton.onClick.AddListener(()=> { managerHandler.homeScreenManager.HandleStartGame(null); });
+        cardReveal.OnAnimationEnd += () => { managerHandler.homeScreenManager.HandlePlayGame(null); };
         cardShuffleDone.OnAnimationEnd += () => { ToggleCardSelection(true); };
-        HomeButton.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreenHomePage);
+        HomeButton.onClick.AddListener(()=> { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); });
         // PlaywithComputer screen buttons end
 
         // Setting screen buttons
 
-        HomeButtonSetting.onClick.AddListener(managerHandler.homeScreenManager.GoToHomeScreenHomePage);
+        HomeButtonSetting.onClick.AddListener(()=> { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); });
 
         musicToggle.OnBtnToggled += (status) => {
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
@@ -107,7 +107,7 @@ public class UIInputHandlerManager : MonoBehaviour
 
         // Character selection screen buttons
         HomeButtonCharater.onClick.AddListener(()=> {
-            managerHandler.homeScreenManager.GoToHomeScreenHomePage();
+            managerHandler.homeScreenManager.GoToHomeScreenHomePage(null);
             managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, false);
         });
         characterButton_0.onClick.AddListener(() => {

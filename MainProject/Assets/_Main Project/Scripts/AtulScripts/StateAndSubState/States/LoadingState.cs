@@ -10,9 +10,9 @@ public class LoadingState : State
         appState = AppState.LoadingScreen;
     }
 
-    public override IEnumerator OnEnter()
+    public override void OnEnter()
     {
-        yield return managerHandler.GetComponent<MonoBehaviour>().StartCoroutine(base.OnEnter());
+        base.OnEnter();
         managerHandler.introCanvasHandler.StartLoadingBar();
     }
 }

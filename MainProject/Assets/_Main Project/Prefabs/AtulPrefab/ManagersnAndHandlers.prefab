@@ -91,6 +91,7 @@ MonoBehaviour:
   homeScreenManager: {fileID: 8071653703974802449}
   allEffects: {fileID: 0}
   audioManager: {fileID: 9204778978924036432}
+  videoTransistionManager: {fileID: 7964718908653891612}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,6 +1180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf05d5c5242da24429c80abfb8eb02ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  transitionParent: {fileID: 0}
+  transistionCanGup: {fileID: 0}
+  animationEvents: {fileID: 0}
+  debug: 0
 --- !u!1 &7881940382541917130
 GameObject:
   m_ObjectHideFlags: 0

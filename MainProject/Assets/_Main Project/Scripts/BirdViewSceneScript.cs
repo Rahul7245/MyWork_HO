@@ -64,7 +64,6 @@ public class BirdViewSceneScript : MonoBehaviour
     {
         gameObject.GetComponent<SwitchCamera>().ShootCameraEnable(true);
         resetWeapon.Invoke();
-
     }
 
     public void MovePlayer(int noOfSteps)

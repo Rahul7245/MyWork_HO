@@ -67,8 +67,8 @@ public class ShootSceneStateManager : MonoBehaviour
     {
         if (m_currentState == appState)
         {
-            if(m_currentState!=ShootState.PlayerTurn)
-            return;
+            if (m_currentState != ShootState.PlayerTurn)
+                return;
         }
         if (appState.Equals(ShootState.Start))
         {
@@ -99,19 +99,18 @@ public class ShootSceneStateManager : MonoBehaviour
                     playerGettingAffected = PlayerPrefs.GetInt("Turn");
                     playerPlaying = managerHandler.gameInitManager.GetPlayer(PlayerPrefs.GetInt("Turn"));
                     player = playerPlaying?.GetComponent<Player>();
-                    if (player.GetSkip()) {
+                    if (player.GetSkip())
+                    {
                         player.SetSkip(false);
                         ToggleAppState(ShootState.PlayerTurn);
                         return;
                     }
                 }
-                else {
+                else
+                {
                     playerGettingChance = false;
                 }
-                
             }
-            
-
             managerHandler.birdViewSceneScript.SetCameraToCurrentPlayer();
             displayMsg.text = player.playerName + "`s Turn";
             managerHandler.birdViewSceneScript.SetReadyPopUpText(player.playerName + "`s Turn");
@@ -131,8 +130,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 }
                 else
                 {
-                    managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
-                    StartCoroutine(StartShooting());
+                    managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode, StartShooting, true);
                 }
             }
         }
@@ -163,7 +161,6 @@ public class ShootSceneStateManager : MonoBehaviour
             {
                 ToggleAppState(ShootState.Shooting);
             }
-            return;
         }
         else if (appState.Equals(ShootState.Shooting))
         {
@@ -199,12 +196,11 @@ public class ShootSceneStateManager : MonoBehaviour
             managerHandler.shootSceneScript.CameraEffect(player.playerName + " Shot " + player.LastPointScored);
             managerHandler.shootSceneScript.LoadScene();
         }
-
         else if (appState.Equals(ShootState.Result))
         {
             if (player.LastPointScored != 0)
             {
-                    managerHandler.birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
+                managerHandler.birdViewSceneScript.MovePlayer(PlayerPrefs.GetInt("Score"));
             }
             else
             {
@@ -224,11 +220,9 @@ public class ShootSceneStateManager : MonoBehaviour
         }
     }
 
-    private IEnumerator StartShooting()
+    private void StartShooting()
     {
-        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
         managerHandler.birdViewSceneScript.SwitchScene();
-        //managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_ShootingMode);
         ToggleAppState(ShootState.StartShooting);
     }
 
@@ -249,14 +243,14 @@ public class ShootSceneStateManager : MonoBehaviour
             cmcs.SetLookAtProperty(winner);
             cmcs.StartRevolution();
             ConfettiCelebrationCamera.SetActive(true);
-            
+
             yield return new WaitForSecondsRealtime(25f);
             cmcs.StopRevolution();
             ConfettiCelebration.SetActive(false);
             winner.GetComponent<Animator>().SetBool("win", false);
             managerHandler.gameInitManager.ResetGame();
             ConfettiCelebrationCamera.SetActive(false);
-            
+
         }
         else
         {

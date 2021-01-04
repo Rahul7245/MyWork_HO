@@ -1,11 +1,12 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AppStateManager : MonoBehaviour
 {
-    public float SubStateDelay = 1.25f;
+    public float SubStateDelay = 1.00f;
     [SerializeField]
     private ManagerHandler managerHandler;
     public static AppStateManager instance;
@@ -17,8 +18,7 @@ public class AppStateManager : MonoBehaviour
     [SerializeField]
     private AppSubState currentAppSubState;
     private SubState currentSubState;
-    private Coroutine StateCR;
-    private Coroutine SubStateCR;
+
     private AppState previousState;
     private AppSubState previousSubState;
     public AppState CurrentAppState
@@ -37,6 +37,9 @@ public class AppStateManager : MonoBehaviour
         }
     }
 
+
+    #region Unity Functions
+
     void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -49,98 +52,83 @@ public class AppStateManager : MonoBehaviour
             instance = this;
         }
     }
-
     // Use this for initialization
     void Start()
     {
         currentState = appStates[0];
-        ToggleApp(AppState.LoadingScreen, AppSubState.None);
+        ToggleApp(AppState.LoadingScreen, AppSubState.None, null);
     }
-    public void ToggleApp(AppState appState, AppSubState appSubState)
+
+    #endregion
+
+    #region Public Functions 
+
+    public void ToggleApp(AppState appState, AppSubState appSubState, Action OnCompleteTx, bool _showTransistion = false)
+    {
+        if (!_showTransistion)
+        {
+            ToggleHelper(appState, appSubState, OnCompleteTx);
+        }
+        else
+        {
+            managerHandler.videoTransistionManager.animationEvents.OnAimationMid += ()=> 
+            { 
+                ToggleHelper(appState, appSubState, OnCompleteTx);
+                managerHandler.videoTransistionManager.animationEvents.OnAimationMid = null;
+            };
+            managerHandler.videoTransistionManager.StartTranistion();
+        }
+    }
+
+    #endregion
+
+    #region Private Functions
+
+    private void ToggleHelper(AppState appState, AppSubState appSubState, Action OnCompleteTx)
     {
         previousState = currentAppState;
         previousSubState = currentAppSubState;
-
-        if (StateCR != null)
-        {
-            StopCoroutine(StateCR);
-        }
-        StateCR = StartCoroutine(ToggleAppState(appState));
-        if (SubStateCR != null)
-        {
-            StopCoroutine(StateCR);
-        }
-        SubStateCR = StartCoroutine(ToggleAppSubState(appState, appSubState));
+        ToggleAppState(appState);
+        ToggleAppSubState(appState, appSubState, OnCompleteTx);
     }
 
-    private IEnumerator ToggleAppState(AppState appState)
+    private void ToggleAppState(AppState appState)
     {
         if (currentAppState == appState)
         {
-            StateCR = null;
-            yield break;
+            return;
         }
         // if have old state first exit then enter bew state
         if (currentState)
         {
-            if (currentState.ShowExitTransition)
-            {
-                yield return StartCoroutine(currentState.OnExit());
-            }
-            else
-            {
-                StartCoroutine(currentState.OnExit());
-            }
+            currentState.OnExit();
         }
         currentAppState = appState;
         currentState = GetTheState(appState);
         if (currentState)
         {
-            if (currentState.ShowEnterTransition)
-            {
-                yield return StartCoroutine(currentState.OnEnter());
-            }
-            else
-            {
-                StartCoroutine(currentState.OnEnter());
-            }
+            currentState.OnEnter();
         }
-        StateCR = null;
     }
 
-    private IEnumerator ToggleAppSubState(AppState appState, AppSubState appSubState)
+    private void ToggleAppSubState(AppState appState, AppSubState appSubState, Action OnCompleteTx)
     {
         if (currentAppSubState == appSubState)
         {
-            SubStateCR = null;
-            yield break;
+            return;
         }
         // if have old state first exit then enter bew state
         if (currentSubState)
         {
-            if (currentSubState.ShowExitTransition)
-            {
-                yield return StartCoroutine(currentSubState.OnExit());
-            }
-            else
-            {
-                StartCoroutine(currentSubState.OnExit());
-            }
+            currentSubState.OnExit();
         }
         currentAppSubState = appSubState;
         currentSubState = GetTheSubState(appState, appSubState);
         if (currentSubState)
         {
-            if (currentSubState.ShowEnterTransition)
-            {
-                yield return StartCoroutine(currentSubState.OnEnter());
-            }
-            else
-            {
-                StartCoroutine(currentSubState.OnEnter());
-            }
+            currentSubState.OnEnter();
         }
-        SubStateCR = null;
+        OnCompleteTx?.Invoke();
     }
 
     private State GetTheState(AppState state)
@@ -192,6 +180,8 @@ public class AppStateManager : MonoBehaviour
 
     public void BackPressed()
     {
-        ToggleApp(previousState, previousSubState);
+        ToggleApp(previousState, previousSubState, null);
     }
+
+    #endregion
 }

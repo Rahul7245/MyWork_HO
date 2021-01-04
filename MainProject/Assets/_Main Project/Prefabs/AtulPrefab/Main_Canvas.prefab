@@ -260,6 +260,21 @@ PrefabInstance:
       propertyPath: managerHandler
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6224546363388796287, guid: 599976abaef35124db6f35e295fa930e,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224546363388796287, guid: 599976abaef35124db6f35e295fa930e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224546363388796287, guid: 599976abaef35124db6f35e295fa930e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 599976abaef35124db6f35e295fa930e, type: 3}
 --- !u!224 &5031654887475519397 stripped
@@ -275,6 +290,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5031654888924658510}
     m_Modifications:
+    - target: {fileID: 1344839460898041507, guid: 35f69fc032d78294988d12ed24497a93,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -49.87805
+      objectReference: {fileID: 0}
     - target: {fileID: 2607501407605241120, guid: 35f69fc032d78294988d12ed24497a93,
         type: 3}
       propertyPath: m_Layer
@@ -520,6 +540,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6995211554680998830, guid: 35f69fc032d78294988d12ed24497a93,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995211554680998830, guid: 35f69fc032d78294988d12ed24497a93,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995211554680998830, guid: 35f69fc032d78294988d12ed24497a93,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6995211554859213968, guid: 35f69fc032d78294988d12ed24497a93,
         type: 3}
       propertyPath: m_Layer
@@ -714,6 +749,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428409104587539427, guid: ba88d2ed3f2fe2a44872dd5316500fa7,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428409104587539427, guid: ba88d2ed3f2fe2a44872dd5316500fa7,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428409104587539427, guid: ba88d2ed3f2fe2a44872dd5316500fa7,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 1428409104587539430, guid: ba88d2ed3f2fe2a44872dd5316500fa7,
         type: 3}
@@ -1025,6 +1075,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoginScreen_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2416737873762910918, guid: 1ed6fe1f80a64514083b707f6c762e96,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416737873762910918, guid: 1ed6fe1f80a64514083b707f6c762e96,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416737873762910918, guid: 1ed6fe1f80a64514083b707f6c762e96,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 2416737873762910923, guid: 1ed6fe1f80a64514083b707f6c762e96,
         type: 3}
       propertyPath: managerHandler
@@ -1143,27 +1208,52 @@ PrefabInstance:
     - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174242127903669919, guid: 9e638070d0f29984d83b9bccdc957f02,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 408844388507845947, guid: 9e638070d0f29984d83b9bccdc957f02,
         type: 3}
       propertyPath: m_Name
       value: Transistion_Canvas_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508186630082214507, guid: 9e638070d0f29984d83b9bccdc957f02,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508186630082214507, guid: 9e638070d0f29984d83b9bccdc957f02,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e638070d0f29984d83b9bccdc957f02, type: 3}

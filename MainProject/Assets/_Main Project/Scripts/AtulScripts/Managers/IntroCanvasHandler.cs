@@ -27,7 +27,7 @@ public class IntroCanvasHandler : MonoBehaviour
         {
             if (value == 1)
             {
-                managerHandler.appStateManager.ToggleApp(AppState.LoginScreen, AppSubState.LoginScreen_LoginPage);
+                managerHandler.appStateManager.ToggleApp(AppState.LoginScreen, AppSubState.LoginScreen_LoginPage,null);
                 managerHandler.uIInputHandlerManager.startVideo.Stop();
             }
         });

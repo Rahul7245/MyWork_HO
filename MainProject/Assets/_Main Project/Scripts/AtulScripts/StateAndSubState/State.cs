@@ -15,17 +15,11 @@ public enum AppState
 public abstract class State : MonoBehaviour
 {
     [SerializeField]
-    private bool showEnterTransition = false;
-    [SerializeField]
-    private bool showExitTransition = false;
-    [SerializeField]
     protected AppState appState;
     [SerializeField]
     protected List<SubState> appSubStates;
     [SerializeField]
     protected CanvasGroup currentCanvasGrup;
-    [SerializeField]
-    protected CanvasGroup stateTranistionCanvasGrup;
     [SerializeField]
     protected ManagerHandler managerHandler;
 
@@ -53,23 +47,18 @@ public abstract class State : MonoBehaviour
         }
     }
 
-    public bool ShowExitTransition { get => showExitTransition;}
-    public bool ShowEnterTransition { get => showEnterTransition;}
-
     protected virtual void Awake()
     {
         //CurrentScreenGameObject.SetActive(false);
     }
-    public virtual IEnumerator OnEnter()
+    public virtual void OnEnter()
     {
         currentCanvasGrup.alpha = 1;
         CurrentScreenGameObject.SetActive(true);
-        yield return null;
     }
-    public virtual IEnumerator OnExit()
+    public virtual void OnExit()
     {
         currentCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(false);
-        yield return null;
     }
 }

@@ -11,6 +11,6 @@ public class LoginManager : MonoBehaviour
 
     public void HandleLogin()
     {
-        managerHandler.homeScreenManager.GoToHomeScreenHomePage();
+        managerHandler.homeScreenManager.GoToHomeScreenHomePage(null);
     }
 }

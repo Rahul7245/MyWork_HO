@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEditor.UI;
 
 namespace GammaXR
 {
@@ -15,6 +14,12 @@ namespace GammaXR
             public CanvasGroup transistionCanGup;
             public AnimationEvents animationEvents;
             public bool debug;
+            public bool isTransistionRunning
+            {
+                get { return m_CR; }
+            }
+
+            private bool m_CR;
 
             #region Unity Functions
 
@@ -34,12 +39,17 @@ namespace GammaXR
 
             public void StartTranistion()
             {
-
+                Log("StartTranistion Called !!!");
+                m_CR = true;
+                transistionCanGup.alpha = 1;
+                transitionParent.SetActive(true);
             }
 
             public void StopTranistion()
             {
-
+                Log("StopTranistion Called !!!");
+                m_CR = false; 
+                ResetTransistionCanvas();
             }
 
             #endregion
@@ -48,25 +58,24 @@ namespace GammaXR
 
             private void Configure()
             {
+                Log("Configure Called !!!");
                 instance = this;
                 ResetTransistionCanvas();
-
+                animationEvents.OnAnimationEnd += ResetTransistionCanvas;
             }
 
             private void ResetTransistionCanvas()
             {
+                Log("ResetTransistionCanvas Called !!!");
                 transistionCanGup.alpha = 0;
                 transitionParent.SetActive(false);
             }
 
             private void Dispose()
             {
-
-            }
-
-            private void GenrateAudioTable()
-            {
-
+                Log("Dispose Called !!!");
+                ResetTransistionCanvas();
+                animationEvents.OnAnimationEnd -= ResetTransistionCanvas;
             }
 
             private void Log(string _msg)
@@ -86,6 +95,7 @@ namespace GammaXR
                 }
                 Debug.LogWarning("[VideoTransistionManager]: " + _msg);
             }
+
             #endregion
         }
     }

@@ -22,12 +22,6 @@ public enum AppSubState
 public abstract class SubState : MonoBehaviour
 {
     [SerializeField]
-    private float delayBetweenFade = 1.5f;
-    [SerializeField]
-    private bool showEnterTransition = false;
-    [SerializeField]
-    private bool showExitTransition = false;
-    [SerializeField]
     protected AppSubState appSubState;
     [SerializeField]
     protected CanvasGroup currentCanvasGrup;
@@ -54,43 +48,20 @@ public abstract class SubState : MonoBehaviour
         }
     }
 
-    public bool ShowExitTransition { get => showExitTransition; }
-    public bool ShowEnterTransition { get => showEnterTransition; }
-
     protected virtual void Awake()
     {
         //CurrentScreenGameObject.SetActive(false);
     }
 
-    public virtual IEnumerator OnEnter()
+    public virtual void OnEnter()
     {
         currentCanvasGrup.alpha = 1;
         CurrentScreenGameObject.SetActive(true);
-        yield return null;
     }
-    public  virtual IEnumerator OnExit()
+    public  virtual void OnExit()
     {
-        if (showExitTransition)
-        {
-            yield return StartCoroutine(SubStateExitTransitionEffect());
-        }
-        else
-        {
-            currentCanvasGrup.alpha = 0;
-            CurrentScreenGameObject.SetActive(false);
-        }
-        yield return null;
-    }
-
-    private IEnumerator SubStateExitTransitionEffect()
-    {
-        WaitForSecondsRealtime waitForSecondsRealtime = new WaitForSecondsRealtime(delayBetweenFade);
-        subStateTranistionCanvasGrup.alpha = 1;
-        subStateTranistionCanvasGrup.gameObject.SetActive(true);
-        yield return waitForSecondsRealtime;
-        subStateTranistionCanvasGrup.alpha = 0;
-        subStateTranistionCanvasGrup.gameObject.SetActive(false);
         currentCanvasGrup.alpha = 0;
         CurrentScreenGameObject.SetActive(false);
     }
+
 }

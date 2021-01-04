@@ -42,7 +42,6 @@ public class ShootSceneScript : MonoBehaviour
     }
     public IEnumerator InitializeScene(int en, Action OnComplete = null)
     {
-       
         EnvironmentNum = en;
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
@@ -163,13 +162,16 @@ public class ShootSceneScript : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
-        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode);
+        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode,
+            ()=> {
+                managerHandler.switchCamera.ShootCameraEnable(false);
+                managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
+            },
+            true
+            );
         yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
-        managerHandler.switchCamera.ShootCameraEnable(false);
-        managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
-        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
-        managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
     }
 
     public void setBurglarSpeed(float speed)
