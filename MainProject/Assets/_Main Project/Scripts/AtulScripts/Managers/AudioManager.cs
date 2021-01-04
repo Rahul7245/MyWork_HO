@@ -332,6 +332,9 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_BirdView:
                         SetAudioClip(AC_BirdView, AS_Env, loopClip);
                         break;
+                    case AudioCLips.AC_CSView:
+                        SetAudioClip(AC_CSView, AS_Env, loopClip);
+                        break;
                     case AudioCLips.AC_GeragView:
                         SetAudioClip(AC_GeragView, AS_Env, loopClip);
                         break;
