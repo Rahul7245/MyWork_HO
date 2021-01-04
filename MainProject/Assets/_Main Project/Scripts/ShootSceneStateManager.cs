@@ -194,7 +194,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 managerHandler.shootSceneScript.AddShotEffects();
             }
             managerHandler.shootSceneScript.CameraEffect(player.playerName + " Shot " + player.LastPointScored);
-            managerHandler.shootSceneScript.LoadScene();
+            managerHandler.shootSceneScript.LoadScene(player.playerType == PlayerType.Computer);
         }
         else if (appState.Equals(ShootState.Result))
         {

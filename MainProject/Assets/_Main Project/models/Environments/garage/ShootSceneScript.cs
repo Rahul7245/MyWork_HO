@@ -154,23 +154,27 @@ public class ShootSceneScript : MonoBehaviour
         PointsCanvas.GetComponentInChildren<TextMeshProUGUI>().text = msg;
 
     }
-    public void LoadScene()
+    public void LoadScene(bool _isComp)
     {
-        StartCoroutine(LoadBirdViewScene());
+        StartCoroutine(LoadBirdViewScene(_isComp));
     }
-    IEnumerator LoadBirdViewScene()
+    IEnumerator LoadBirdViewScene(bool _isComp)
     {
         yield return new WaitForSeconds(5);
         PointsCanvas.SetActive(false);
-        managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode,
-            ()=> {
+        if (!_isComp)
+        {
+            managerHandler.appStateManager.ToggleApp(AppState.GameScreen, AppSubState.GameScreen_BirdviewMode,
+            () => {
                 managerHandler.switchCamera.ShootCameraEnable(false);
                 managerHandler.lightingManager.ChangeLightingData(EnviromentType.BirdView);
                 managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_BirdView, true);
             },
             true
             );
-        yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+            yield return new WaitForSecondsRealtime(AppStateManager.instance.SubStateDelay);
+        }
+        
         ShootSceneStateManager.Instance.ToggleAppState(ShootState.Result);
     }
 
