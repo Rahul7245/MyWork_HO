@@ -12830,6 +12830,16 @@ PrefabInstance:
       propertyPath: birdViewCamera
       value: 
       objectReference: {fileID: 1563844541}
+    - target: {fileID: 393544770746291918, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: transitionParent
+      value: 
+      objectReference: {fileID: 6941092737567666672}
+    - target: {fileID: 393544770746291918, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: transistionCanGup
+      value: 
+      objectReference: {fileID: 6941092737567666671}
     - target: {fileID: 1460163476645046146, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: AS_Env
@@ -16986,6 +16996,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4294afdabee442c4eac9cc86951fdfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &6941092737567666671 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 6824211092471154385, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6941092737567666672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5840306474211113329, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7651943091019492974
 PrefabInstance:
   m_ObjectHideFlags: 0
