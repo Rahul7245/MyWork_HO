@@ -141,9 +141,9 @@ public class BulletTimeController : MonoBehaviour
 			var selectedTrackingSetup = SelectTrackingSetup(hitTransform, enemyTrackingSetup, rotation);
 			if (selectedTrackingSetup != null)
 			{
-				CreateEnemyPath(hitTransform, activeBullet.transform, selectedTrackingSetup.avaliableTrack);
+				CreateEnemyPath(hitTransform.GetComponentInParent<Burglar>() ? hitTransform:activeBullet.transform, activeBullet.transform, selectedTrackingSetup.avaliableTrack);
 				CreateDolly(selectedTrackingSetup);
-				dollyInstance.InitDolly(trackInstance, hitTransform.transform);
+				dollyInstance.InitDolly(trackInstance, hitTransform.GetComponentInParent<Burglar>() ? hitTransform : activeBullet.transform);
 				timeScaleController.SlowDownTime();
 				ManagerHandler.managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_SlowMotion);
 			}
@@ -159,11 +159,14 @@ public class BulletTimeController : MonoBehaviour
 
 	private IEnumerator FinishSequence(Transform hitTransform)
 	{
+		
+		
+		hitTransform.GetComponentInParent<Burglar>()?.DieAnimation();
+		yield return new WaitForSecondsRealtime(finishingCameraDuration / 4);
 		Destroy(activeBullet.gameObject);
-		//yield return new WaitForSecondsRealtime(finishingCameraDuration / 4);
-		hitTransform.GetComponentInParent<Burglar>()?.DieAnimation(); 
 		ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(3.5f);
 		yield return new WaitForSecondsRealtime(3*finishingCameraDuration/4);
+		
 		ShootSceneStateManager.Instance.ToggleAppState(ShootState.Shoot_Complete);
 		cameraBrain.gameObject.SetActive(false);
 		//shootingController.gameObject.SetActive(true);
