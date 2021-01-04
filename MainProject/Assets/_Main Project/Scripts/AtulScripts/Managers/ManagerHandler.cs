@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GammaXR.TransistionEffect;
 using UnityEngine;
 
 public class ManagerHandler : MonoBehaviour
@@ -20,6 +19,7 @@ public class ManagerHandler : MonoBehaviour
     public HomeScreenManager homeScreenManager;
     public AllEffects allEffects;
     public AudioManager audioManager;
+    public VideoTransistionManager videoTransistionManager;
 
     private void Awake()
     {

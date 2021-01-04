@@ -10,18 +10,17 @@ namespace GammaXR
         {
             // members 
             public static VideoTransistionManager instance;
+            public ManagerHandler managerHandler;
             public GameObject transitionParent;
             public CanvasGroup transistionCanGup;
+            public AnimationEvents animationEvents;
             public bool debug;
 
             #region Unity Functions
 
             private void Awake()
             {
-                if (!instance)
-                {
-                    Configure();
-                }
+                Configure();
             }
 
             private void OnDisable()
@@ -50,6 +49,14 @@ namespace GammaXR
             private void Configure()
             {
                 instance = this;
+                ResetTransistionCanvas();
+
+            }
+
+            private void ResetTransistionCanvas()
+            {
+                transistionCanGup.alpha = 0;
+                transitionParent.SetActive(false);
             }
 
             private void Dispose()
