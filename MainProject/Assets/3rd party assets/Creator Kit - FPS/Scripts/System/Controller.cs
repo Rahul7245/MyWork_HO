@@ -71,7 +71,6 @@ public class Controller : MonoBehaviour
     {
         /*Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;*/
-
         m_IsPaused = false;
         m_Grounded = true;
 
@@ -154,7 +153,7 @@ public class Controller : MonoBehaviour
 #if UNITY_EDITOR
             if (Input.GetKey(KeyCode.LeftAlt))
 #else
-            if (Input.mousePosition.x < Screen.width / 2 && Input.touches[0].phase == TouchPhase.Moved)
+            if (Input.mousePosition.x < (4*Screen.width / 5) && Input.touches[0].phase == TouchPhase.Moved)
 #endif
             {
                 float turnPlayer = Input.GetAxis("Mouse X");

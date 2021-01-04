@@ -20,6 +20,7 @@ public class ManagerHandler : MonoBehaviour
     public AllEffects allEffects;
     public AudioManager audioManager;
     public VideoTransistionManager videoTransistionManager;
+    public Controller controller;
 
     private void Awake()
     {
