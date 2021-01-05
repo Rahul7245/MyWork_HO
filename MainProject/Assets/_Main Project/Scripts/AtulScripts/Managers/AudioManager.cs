@@ -44,7 +44,15 @@ public enum AudioCLips
     AC_SlowMotion,
     AC_Die,
     AC_Shoot,
-    AC_Btn_Click
+    AC_Btn_Click,
+    AC_Shoot0,
+    AC_Shoot1,
+    AC_Shoot2,
+    AC_Shoot3,
+    AC_Shoot4,
+    AC_Shoot5,
+    AC_Vedio_Start,
+    AC_Vedio_Png
 }
 
 public class AudioManager : MonoBehaviour
@@ -72,6 +80,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip AC_CSView;
     [SerializeField]
+    private AudioClip AC_Vedio_Start;
+    [SerializeField] 
     private AudioClip AC_Pages;
 
 
@@ -124,6 +134,20 @@ public class AudioManager : MonoBehaviour
     private AudioClip AC_SlowMotion;
     [SerializeField]
     private AudioClip AC_Die;
+    [SerializeField]
+    private AudioClip AC_Shoot0;
+    [SerializeField]
+    private AudioClip AC_Shoot1;
+    [SerializeField]
+    private AudioClip AC_Shoot2;
+    [SerializeField]
+    private AudioClip AC_Shoot3;
+    [SerializeField]
+    private AudioClip AC_Shoot4;
+    [SerializeField]
+    private AudioClip AC_Shoot5;
+    [SerializeField]
+    private AudioClip AC_Vedio_Png;
     [SerializeField]
     private AudioClip AC_Shoot;
 
@@ -358,9 +382,30 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Shoot:
                         SetAudioClip(AC_Shoot, AS_AnimEf, loopClip);
                         break;
+                    case AudioCLips.AC_Shoot0:
+                        SetAudioClip(AC_Shoot0, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Shoot1:
+                        SetAudioClip(AC_Shoot1, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Shoot2:
+                        SetAudioClip(AC_Shoot2, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Shoot3:
+                        SetAudioClip(AC_Shoot3, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Shoot4:
+                        SetAudioClip(AC_Shoot4, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Shoot5:
+                        SetAudioClip(AC_Shoot5, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_Vedio_Png:
+                        SetAudioClip(AC_Vedio_Png, AS_AnimEf, loopClip);
+                        break;
                     case AudioCLips.AC_None:
                         SetAudioClip(null, AS_AnimEf, loopClip);
-                        break;
+                        break; 
                 }
                 break;
             case AudioSourceType.BG:
@@ -400,9 +445,13 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Pages:
                         SetAudioClip(AC_Pages, AS_Env, loopClip);
                         break;
+                    case AudioCLips.AC_Vedio_Start:
+                        SetAudioClip(AC_Vedio_Start, AS_Env, loopClip);
+                        break;
                     case AudioCLips.AC_None:
                         SetAudioClip(null, AS_Env, loopClip);
                         break;
+                    
                 }
                 break;
             case AudioSourceType.UI:
