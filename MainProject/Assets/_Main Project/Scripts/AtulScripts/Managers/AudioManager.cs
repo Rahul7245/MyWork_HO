@@ -81,19 +81,6 @@ public class AudioManager : MonoBehaviour
     private AudioClip AC_CSView;
     [SerializeField]
     private AudioClip AC_Vedio_Start;
-    [SerializeField] 
-    private AudioClip AC_Pages;
-
-
-    // Background Audio 
-    [SerializeField]
-    private AudioSource AS_BG;
-    [SerializeField]
-    private AudioClip AC_BG;
-
-    // Animation Effcet Audio 
-    [SerializeField]
-    private AudioSource AS_AnimEf;
     [SerializeField]
     private AudioClip AC_Character01_selection;
     [SerializeField]
@@ -107,6 +94,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip AC_Character06_selection;
     [SerializeField]
+    private AudioClip AC_Pages;
+
+
+    // Background Audio 
+    [SerializeField]
+    private AudioSource AS_BG;
+    [SerializeField]
+    private AudioClip AC_BG;
+
+    // Animation Effcet Audio 
+    [SerializeField]
+    private AudioSource AS_AnimEf;
+    [SerializeField] 
     private AudioClip AC_Hurdule_Self_die;
     [SerializeField]
     private AudioClip AC_Hurdule_Self_add2;
@@ -319,24 +319,6 @@ public class AudioManager : MonoBehaviour
                 previousAC_Anim = audioCLips;
                 switch (audioCLips)
                 {
-                    case AudioCLips.AC_Character01_selection:
-                        SetAudioClip(AC_Character01_selection, AS_AnimEf, loopClip);
-                        break;
-                    case AudioCLips.AC_Character02_selection:
-                        SetAudioClip(AC_Character02_selection, AS_AnimEf, loopClip);
-                        break;
-                    case AudioCLips.AC_Character03_selection:
-                        SetAudioClip(AC_Character03_selection, AS_AnimEf, loopClip);
-                        break;
-                    case AudioCLips.AC_Character04_selection:
-                        SetAudioClip(AC_Character04_selection, AS_AnimEf, loopClip);
-                        break;
-                    case AudioCLips.AC_Character05_selection:
-                        SetAudioClip(AC_Character05_selection, AS_AnimEf, loopClip);
-                        break;
-                    case AudioCLips.AC_Character06_selection:
-                        SetAudioClip(AC_Character06_selection, AS_AnimEf, loopClip);
-                        break;
                     case AudioCLips.AC_Hurdule_Self_die:
                         SetAudioClip(AC_Hurdule_Self_die, AS_AnimEf, loopClip);
                         break;
@@ -448,10 +430,30 @@ public class AudioManager : MonoBehaviour
                     case AudioCLips.AC_Vedio_Start:
                         SetAudioClip(AC_Vedio_Start, AS_Env, loopClip);
                         break;
+                    case AudioCLips.AC_Character01_selection:
+                        SetAudioClip(AC_Character01_selection, AS_Env, loopClip);
+                        break;
+                    case AudioCLips.AC_Character02_selection:
+                        SetAudioClip(AC_Character02_selection, AS_Env, loopClip);
+                        break;
+                    case AudioCLips.AC_Character03_selection:
+                        SetAudioClip(AC_Character03_selection, AS_Env, loopClip);
+                        break;
+                    case AudioCLips.AC_Character04_selection:
+                        SetAudioClip(AC_Character04_selection, AS_Env, loopClip);                  
+                        break;
+                    case AudioCLips.AC_Character05_selection:
+                        SetAudioClip(AC_Character05_selection, AS_Env, loopClip);
+                        break;
+                    case AudioCLips.AC_Character06_selection:
+                        SetAudioClip(AC_Character06_selection, AS_Env, loopClip);
+                        break;
                     case AudioCLips.AC_None:
                         SetAudioClip(null, AS_Env, loopClip);
                         break;
-                    
+                        
+
+
                 }
                 break;
             case AudioSourceType.UI:

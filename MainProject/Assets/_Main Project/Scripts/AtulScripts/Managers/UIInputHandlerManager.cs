@@ -116,27 +116,27 @@ public class UIInputHandlerManager : MonoBehaviour
         });
         characterButton_0.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(0);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character01_selection, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character01_selection, true);
         });
         characterButton_1.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(1);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character02_selection, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character02_selection, true);
         });
         characterButton_2.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(2);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character03_selection);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character03_selection, true);
         });
         characterButton_3.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(3);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character04_selection, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character04_selection, true);
         });
         characterButton_4.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(4);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character05_selection, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character05_selection, true);
         });
         characterButton_5.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(5);
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Character06_selection, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character06_selection, true);
         });
         selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame();
             ShowPopup(0, Constants.Msg_CharacterSelected);
