@@ -184,6 +184,7 @@ public class Controller : MonoBehaviour
     {
         m_Weapons[m_CurrentWeapon].OnFireButtonClick();
         managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot, false);
+        InactiveScope();
     }
     public void ScopeButton()
     {

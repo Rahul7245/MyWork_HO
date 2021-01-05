@@ -102,7 +102,11 @@ public class UIInputHandlerManager : MonoBehaviour
             bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.SoundToggle_STR, "true"));
             soundToggle.SetDefault(status);
         }
-        
+        else
+        {
+            soundToggle.SetDefault(true);
+        }
+
         // Setting screen buttons end
 
         // Character selection screen buttons
