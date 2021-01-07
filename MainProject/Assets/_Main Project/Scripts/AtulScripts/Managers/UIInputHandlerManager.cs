@@ -83,13 +83,13 @@ public class UIInputHandlerManager : MonoBehaviour
         };
         if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
         {
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Vedio_Start, true);
             bool status = bool.Parse(PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.MusicToggle_STR, "true"));
             musicToggle.SetDefault(status);
         }
         else
         {
-            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Vedio_Start, true);
             musicToggle.SetDefault(true);
         }
         soundToggle.OnBtnToggled += (status) => {

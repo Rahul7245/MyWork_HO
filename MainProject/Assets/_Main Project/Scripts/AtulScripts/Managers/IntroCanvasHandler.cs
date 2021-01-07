@@ -29,6 +29,7 @@ public class IntroCanvasHandler : MonoBehaviour
             {
                 managerHandler.appStateManager.ToggleApp(AppState.LoginScreen, AppSubState.LoginScreen_LoginPage,null);
                 managerHandler.uIInputHandlerManager.startVideo.Stop();
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Pages, true);
             }
         });
     }
