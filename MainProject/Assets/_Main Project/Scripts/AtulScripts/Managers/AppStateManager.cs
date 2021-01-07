@@ -76,6 +76,11 @@ public class AppStateManager : MonoBehaviour
                 ToggleHelper(appState, appSubState, OnCompleteTx);
                 managerHandler.videoTransistionManager.animationEvents.OnAimationMid = null;
             };
+            managerHandler.videoTransistionManager.animationEvents.OnAnimationStart += () =>
+            {
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Vedio_Png, false);
+                managerHandler.videoTransistionManager.animationEvents.OnAnimationStart = null;
+            };
             managerHandler.videoTransistionManager.StartTranistion();
         }
     }
