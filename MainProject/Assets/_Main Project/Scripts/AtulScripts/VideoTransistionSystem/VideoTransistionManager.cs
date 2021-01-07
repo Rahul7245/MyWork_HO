@@ -30,7 +30,7 @@ namespace GammaXR
 
             private void OnDisable()
             {
-                Dispose();
+                //Dispose();
             }
 
             #endregion
