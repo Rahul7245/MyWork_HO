@@ -38,6 +38,31 @@ public class HomeScreenManager : MonoBehaviour
     }
     public void OpenCharaterSelection(Action OnCompleteTx)
     {
+        int charIndex = PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0);
+        if (charIndex == 0)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character01_selection, true);
+        }
+        if (charIndex == 1)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character02_selection, true);
+        }
+        if (charIndex == 2)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character03_selection, true);
+        }
+        if (charIndex == 3)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character04_selection, true);
+        }
+        if (charIndex == 4)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character05_selection, true);
+        }
+        if (charIndex == 5)
+        {
+            managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character06_selection, true);
+        }
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_CharacterSelectionPage, OnCompleteTx);
     }
 }
