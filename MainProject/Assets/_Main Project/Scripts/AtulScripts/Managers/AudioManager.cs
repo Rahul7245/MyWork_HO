@@ -162,44 +162,48 @@ public class AudioManager : MonoBehaviour
         SetCip(audioSource, audioCLips, loopClip);
         PlayAudioSource(audioSource, audioCLips);
     }
-    public void ToggleAudioSource(AudioSourceType audioSourceType, bool status)
+    public void MuteAudioSource(AudioSourceType audioSourceType, bool status)
     {
         switch (audioSourceType)
         {
             case AudioSourceType.ANIMEF:
                 AS_AnimEf.mute = !status;
-                if (!status && AS_AnimEf.isPlaying)
+                break;
+            case AudioSourceType.BG:
+                AS_BG.mute = !status;
+                break;
+            case AudioSourceType.ENV:
+                AS_Env.mute = !status;
+                break;
+            case AudioSourceType.UI:
+                AS_UI.mute = !status;
+                break;
+        }
+    }
+    public void StopAudioSource(AudioSourceType audioSourceType)
+    {
+        switch (audioSourceType)
+        {
+            case AudioSourceType.ANIMEF:
+                if (AS_AnimEf.isPlaying)
                 {
                     AS_AnimEf.Stop();
                 }
                 break;
             case AudioSourceType.BG:
-                AS_BG.mute = !status;
-                if (!status && AS_BG.isPlaying)
+                if (AS_BG.isPlaying)
                 {
                     AS_BG.Stop();
                 }
                 break;
             case AudioSourceType.ENV:
-                AS_Env.mute = !status;
-                if (status)
+                if (AS_Env.isPlaying)
                 {
-                    if (!AS_Env.isPlaying)
-                    {
-                        AS_Env.Play();
-                    }
-                }
-                else
-                {
-                    if (AS_Env.isPlaying)
-                    {
-                        AS_Env.Stop();
-                    }
+                    AS_Env.Stop();
                 }
                 break;
             case AudioSourceType.UI:
-                AS_UI.mute = !status;
-                if(!status && AS_UI.isPlaying)
+                if (AS_UI.isPlaying)
                 {
                     AS_UI.Stop();
                 }

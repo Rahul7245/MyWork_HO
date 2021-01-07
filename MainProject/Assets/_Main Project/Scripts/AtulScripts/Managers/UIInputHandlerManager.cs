@@ -78,7 +78,7 @@ public class UIInputHandlerManager : MonoBehaviour
         HomeButtonSetting.onClick.AddListener(()=> { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); });
 
         musicToggle.OnBtnToggled += (status) => {
-            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ENV, status);
+            managerHandler.audioManager.MuteAudioSource(AudioSourceType.ENV, status);
             PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.MusicToggle_STR, status.ToString());
         };
         if (PlayerPrefManager.HasKey(PlayerPrefKeys.MusicToggle_STR))
@@ -93,8 +93,8 @@ public class UIInputHandlerManager : MonoBehaviour
             musicToggle.SetDefault(true);
         }
         soundToggle.OnBtnToggled += (status) => {
-            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, status);
-            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.UI, status);
+            managerHandler.audioManager.MuteAudioSource(AudioSourceType.ANIMEF, status);
+            managerHandler.audioManager.MuteAudioSource(AudioSourceType.UI, status);
             PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.SoundToggle_STR, status.ToString());
         };
         if (PlayerPrefManager.HasKey(PlayerPrefKeys.SoundToggle_STR))
@@ -112,7 +112,6 @@ public class UIInputHandlerManager : MonoBehaviour
         // Character selection screen buttons
         HomeButtonCharater.onClick.AddListener(()=> {
             managerHandler.homeScreenManager.GoToHomeScreenHomePage(null);
-            managerHandler.audioManager.ToggleAudioSource(AudioSourceType.ANIMEF, false);
         });
         characterButton_0.onClick.AddListener(() => {
             managerHandler.characterManager.CharacterButtonClicked(0);
