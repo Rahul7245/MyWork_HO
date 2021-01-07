@@ -15,7 +15,7 @@ public class ShootingBot
 {
     // Limits for bot levels //
     private static int easyBotLowerThreshold = 1;
-    private static int easyBotUpperThreshold = 2;
+    private static int easyBotUpperThreshold = 3;
     private static int mediumBotLowerThreshold = 2;
     private static int mediumBotUpperThreshold = 4;
     private static int hardBotLowerThreshold = 4;
