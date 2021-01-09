@@ -48,13 +48,15 @@ public class UIInputHandlerManager : MonoBehaviour
 
     [Header("List of character prefabs in shooting screen")]
     public List<GameObject> charactersPrefabsList;
-
     public List<GameObject> cardShuffel_;
     public AnimationEvents cardShuffleDone;
     public AnimationEvents cardReveal;
     public List<ThreeDObjButton> threeDObjButtons;
     public Button back;
     public Button shootButton;
+    [Header("List of buttons on Birdview screen")]
+    public Button settingButton;
+    public Button exitButton;
 
     private void Awake()
     {
