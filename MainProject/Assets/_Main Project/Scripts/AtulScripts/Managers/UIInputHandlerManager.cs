@@ -60,6 +60,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button birdViewExitButton;
     public CharactersProperty currentPlayingChar;
     public List<Sprite> PlayersPlayingImages;
+    public GameObject PlayerListHolder;
+    public GameObject charaterPropertyPrefab;
     [Header("List of items on Birdview screen")]
     public GameObject inputBlocker;
     public Button shootButton;
