@@ -13,10 +13,10 @@ public class AppStateManager : MonoBehaviour
     [SerializeField]
     private List<State> appStates;
     [SerializeField]
-    private AppState currentAppState;
+    private static AppState currentAppState = AppState.LoadingScreen;
     private State currentState;
     [SerializeField]
-    private AppSubState currentAppSubState;
+    private static AppSubState currentAppSubState = AppSubState.None;
     private SubState currentSubState;
 
     private AppState previousState;
@@ -56,7 +56,7 @@ public class AppStateManager : MonoBehaviour
     void Start()
     {
         currentState = appStates[0];
-        ToggleApp(AppState.LoadingScreen, AppSubState.None, null);
+        ToggleApp(currentAppState, CurrentAppSubState, null);
     }
 
     #endregion
