@@ -172,7 +172,13 @@ public class UIInputHandlerManager : MonoBehaviour
         shootButton.onClick.AddListener(() => { inputBlocker.SetActive(true); });
         // end 
     }
-
+    private void Start()
+    {
+        foreach (Transform item in PlayerListHolder.transform)
+        {
+            Destroy(item.gameObject);
+        }
+    }
     public void ToggleCardSelection(bool status)
     {
         foreach (var item in threeDObjButtons)

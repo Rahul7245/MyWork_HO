@@ -9,6 +9,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using GammaXR.UI;
 
 public enum GameType
 {
@@ -89,6 +90,13 @@ public class GameInitManager : MonoBehaviour
                 playerObj.GetComponent<Player>().PlayerName = "Bot";
                 playerObj.GetComponent<Player>().playerType = PlayerType.Computer;
                 player[1] = playerObj;
+                GameObject ob = Instantiate(managerHandler.uIInputHandlerManager.charaterPropertyPrefab, managerHandler.uIInputHandlerManager.PlayerListHolder.transform, false);
+                playerObj.GetComponent<Player>().charactersProperty = 
+                    ob.GetComponent<CharactersProperty>();
+                playerObj.GetComponent<Player>().charactersProperty.
+                    SetDeafult(managerHandler.uIInputHandlerManager.
+            PlayersPlayingImages[randomPlayer], playerObj.GetComponent<Player>().PlayerName,
+            playerObj.GetComponent<Player>().PlayerScore.ToString());
                 break;
         }
     }
