@@ -39,6 +39,7 @@ public class ShootingBot
                 if(botScore > 17)
                 {
                     x = Random.Range(1, mediumBotUpperThreshold);
+                    x = AboutToWin(x, botScore); 
                 }
                 else
                 {
@@ -49,6 +50,7 @@ public class ShootingBot
                 if (botScore > 15)
                 {
                     x = Random.Range((21- botScore)-1 , (21 - botScore));
+                    x = AboutToWin(x, botScore);
                 }
                 x = Random.Range(hardBotLowerThreshold, hardBotUpperThreshold);
                 break;
@@ -132,6 +134,18 @@ public class ShootingBot
         return botLevel;
     }
 
+    static int winingShot = 0;
+    private static int AboutToWin(int x, int botScore)
+    {
+        if (winingShot < 2)
+        {
+            return x;
+        }
+        else
+        {
+            return 21 - botScore;
+        }
+    }
     /// <summary>
     /// This is the main function which makes the bot play
     /// </summary>
