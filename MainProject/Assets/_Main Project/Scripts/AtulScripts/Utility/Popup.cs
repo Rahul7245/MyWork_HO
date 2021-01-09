@@ -9,9 +9,9 @@ namespace GammaXR
 {
     namespace Popup
     {
-        public class PopupPrefabList : MonoBehaviour
+        public class Popup : MonoBehaviour
         {
-            public static PopupPrefabList instance;
+            public static Popup instance;
             [SerializeField]
             private ManagerHandler managerHandler;
             [SerializeField]
@@ -57,7 +57,7 @@ namespace GammaXR
                     btn_One.onClick.AddListener(() => {
                         btnOneAct();
                         // after doing the action must close the popup
-                        obj.transform.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
+                        obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
                     });
                 }
                 // setting the btn two action  
@@ -68,12 +68,12 @@ namespace GammaXR
                         btn_Two.onClick.AddListener(() => { 
                             btnTwoAct();
                             // after doing the action must close the popup
-                            obj.transform.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
+                            obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
                         });
                     }
                     else
                     {
-                        btn_Two.onClick.AddListener(() => { obj.transform.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); }); });
+                        btn_Two.onClick.AddListener(() => { obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); }); });
                     }
                 }
                 // after setting all the btn action the msg text show the popup

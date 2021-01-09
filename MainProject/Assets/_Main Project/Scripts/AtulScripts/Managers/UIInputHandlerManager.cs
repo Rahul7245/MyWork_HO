@@ -149,7 +149,7 @@ public class UIInputHandlerManager : MonoBehaviour
         // birdview screen buttons actions
         birdViewExitButton.onClick.AddListener(()=> 
         {
-            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Two_Btn_Popup, Constants.Msg_WantToExitGame, 1, () => { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); }, null); 
+            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Two_Btn_Popup, Constants.Msg_WantToExitGame, 1, () => { managerHandler.gameInitManager.ResetGame(); }, null); 
         });
         birdViewSettingButton.onClick.AddListener(() =>
         { 

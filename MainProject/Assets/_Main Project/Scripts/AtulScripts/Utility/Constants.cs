@@ -18,5 +18,5 @@ public static class Constants
     public const string SoundToggle = "SoundToggle";
 
     public const string Msg_CharacterSelected = "Character Selected";
-    public const string Msg_WantToExitGame = "You really wanna exit the game \nthis means you will lose teh game";
+    public const string Msg_WantToExitGame = "You really wanna exit the game \nthis means you will lose the game";
 }
