@@ -279,8 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43363994380b13d4aa8fcb2397ca57ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showEnterTransition: 0
-  showExitTransition: 0
   appState: 3
   appSubStates:
   - {fileID: 9129620436818030111}
@@ -289,7 +287,6 @@ MonoBehaviour:
   - {fileID: 8623131502900469533}
   - {fileID: 2627170053832082136}
   currentCanvasGrup: {fileID: 1428409104587539436}
-  stateTranistionCanvasGrup: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!95 &1428409104257473810
 Animator:
