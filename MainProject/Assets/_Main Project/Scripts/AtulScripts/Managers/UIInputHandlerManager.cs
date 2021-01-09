@@ -143,7 +143,9 @@ public class UIInputHandlerManager : MonoBehaviour
             managerHandler.characterManager.CharacterButtonClicked(5);
             managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character06_selection, true);
         });
-        selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame();
+        selectButton.onClick.AddListener(() => 
+        { 
+            managerHandler.characterManager.SelectCharaterForGame();
             managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Popup, Constants.Msg_CharacterSelected);
         });
         // Character selection screen buttons end
@@ -186,5 +188,6 @@ public class UIInputHandlerManager : MonoBehaviour
         managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
         cardReveal.transform.position = obj.transform.position;
         cardReveal.gameObject.transform.parent.gameObject.SetActive(true);
+        managerHandler.characterManager.SelectCharaterForGame();
     }
 }

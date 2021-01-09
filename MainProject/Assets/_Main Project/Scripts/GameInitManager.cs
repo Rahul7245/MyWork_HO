@@ -46,6 +46,7 @@ public class GameInitManager : MonoBehaviour
     public GameObject rivalhelp;
     public GameObject rivalSendBack;
     public GameObject track;
+    [HideInInspector]
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
