@@ -270,7 +270,7 @@ public class ShootSceneStateManager : MonoBehaviour
             cmcs.StartRevolution();
             ConfettiCelebrationCamera.SetActive(true);
 
-            yield return new WaitForSecondsRealtime(25f);
+            yield return new WaitForSecondsRealtime(13f);
             cmcs.StopRevolution();
             ConfettiCelebration.SetActive(false);
             winner.GetComponent<Animator>().SetBool("win", false);
