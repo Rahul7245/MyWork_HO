@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 2047368728922178736}
   - component: {fileID: 8071653703974802449}
   - component: {fileID: 9204778978924036432}
+  - component: {fileID: 4624738290167494240}
   m_Layer: 0
   m_Name: ManagersnAndHandlers
   m_TagString: Untagged
@@ -92,6 +93,8 @@ MonoBehaviour:
   allEffects: {fileID: 0}
   audioManager: {fileID: 9204778978924036432}
   videoTransistionManager: {fileID: 7964718908653891612}
+  controller: {fileID: 0}
+  popupPrefabList: {fileID: 4624738290167494240}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +189,8 @@ MonoBehaviour:
   - {fileID: 0}
   back: {fileID: 0}
   shootButton: {fileID: 0}
+  settingButton: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,10 +1101,7 @@ MonoBehaviour:
   AC_GeragView: {fileID: 8300000, guid: e7179c9f4eae2f54297ffedd41db4baa, type: 3}
   AC_BarView: {fileID: 8300000, guid: 37d45033bb83d4d4b97d34129e99405d, type: 3}
   AC_CSView: {fileID: 8300000, guid: b7a5ed9aaf5f7824dba71e36d80f296e, type: 3}
-  AC_Pages: {fileID: 8300000, guid: 21dbc301022c24d41bff788ab1db9933, type: 3}
-  AS_BG: {fileID: 0}
-  AC_BG: {fileID: 8300000, guid: 0224212383b48e34f9821691bacd3b92, type: 3}
-  AS_AnimEf: {fileID: 0}
+  AC_Vedio_Start: {fileID: 0}
   AC_Character01_selection: {fileID: 8300000, guid: 4ffbd6478862b104ca93f98efba5cb17,
     type: 3}
   AC_Character02_selection: {fileID: 8300000, guid: 7122fa1de933d49489661ca34d35ec5e,
@@ -1112,6 +1114,10 @@ MonoBehaviour:
     type: 3}
   AC_Character06_selection: {fileID: 8300000, guid: 21b5e57f32112c3419592633bbda6591,
     type: 3}
+  AC_Pages: {fileID: 8300000, guid: 21dbc301022c24d41bff788ab1db9933, type: 3}
+  AS_BG: {fileID: 0}
+  AC_BG: {fileID: 8300000, guid: 0224212383b48e34f9821691bacd3b92, type: 3}
+  AS_AnimEf: {fileID: 0}
   AC_Hurdule_Self_die: {fileID: 8300000, guid: 7ede8d5c956daf5498587482a68c59ad, type: 3}
   AC_Hurdule_Self_add2: {fileID: 8300000, guid: e3472d80920727d45b778d583395edd6,
     type: 3}
@@ -1134,9 +1140,32 @@ MonoBehaviour:
   AC_Timmer: {fileID: 8300000, guid: f720f6009753f344281d518b02d2f97f, type: 3}
   AC_SlowMotion: {fileID: 8300000, guid: 799552b2dc4d08746b004d58581aebd5, type: 3}
   AC_Die: {fileID: 8300000, guid: e8516eb52b41f004b87863b0bf00fa6c, type: 3}
+  AC_Shoot0: {fileID: 0}
+  AC_Shoot1: {fileID: 0}
+  AC_Shoot2: {fileID: 0}
+  AC_Shoot3: {fileID: 0}
+  AC_Shoot4: {fileID: 0}
+  AC_Shoot5: {fileID: 0}
+  AC_Vedio_Png: {fileID: 0}
   AC_Shoot: {fileID: 8300000, guid: 3772b3640c9994e4cb3262ea88e10284, type: 3}
   AS_UI: {fileID: 0}
   AC_Btn_Click: {fileID: 0}
+--- !u!114 &4624738290167494240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357243929486401434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cd6c12b645c0649936caa376baafe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerHandler: {fileID: 4357243929486401437}
+  popupPrefabs:
+  - {fileID: 1210313902354277031, guid: 2cc1ea1b9e471f948a12d1c2533a0d54, type: 3}
+  - {fileID: 1210313902354277031, guid: 0f4e37a21935a1c4baa69a0500c2c545, type: 3}
 --- !u!1 &5804244631558302804
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class PopupController : MonoBehaviour
+namespace GammaXR
 {
-    public TextMeshProUGUI msgToDisplay;
-    public Transform popUpImage;
+    namespace Popup
+    {
+        public enum PopupType
+        {
+            Msg_Popup = 0,
+            Msg_Two_Btn_Popup
+        }
+
+        public class PopupController : MonoBehaviour
+        {
+            public TextMeshProUGUI msgToDisplay;
+            public Transform popUpImage;
+            public Button btn_One;
+            public Button btn_Two;
+        }
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using DG.Tweening;
+using GammaXR.Popup;
 
 public class UIInputHandlerManager : MonoBehaviour
 {
@@ -55,8 +56,8 @@ public class UIInputHandlerManager : MonoBehaviour
     public Button back;
     public Button shootButton;
     [Header("List of buttons on Birdview screen")]
-    public Button settingButton;
-    public Button exitButton;
+    public Button birdViewSettingButton;
+    public Button birdViewExitButton;
 
     private void Awake()
     {
@@ -140,10 +141,20 @@ public class UIInputHandlerManager : MonoBehaviour
             managerHandler.audioManager.PlayAudio(AudioSourceType.ENV, AudioCLips.AC_Character06_selection, true);
         });
         selectButton.onClick.AddListener(() => { managerHandler.characterManager.SelectCharaterForGame();
-            ShowPopup(0, Constants.Msg_CharacterSelected);
+            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Popup, Constants.Msg_CharacterSelected);
         });
         // Character selection screen buttons end
         ClickedOnCard();
+
+        // birdview screen buttons actions
+        birdViewExitButton.onClick.AddListener(()=> 
+        {
+            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Two_Btn_Popup, Constants.Msg_WantToExitGame, 1, () => { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); }, null); 
+        });
+        birdViewSettingButton.onClick.AddListener(() =>
+        { 
+            managerHandler.homeScreenManager.OpenSettings(null);
+        });
     }
 
     public void ToggleCardSelection(bool status)
@@ -166,20 +177,5 @@ public class UIInputHandlerManager : MonoBehaviour
         managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
         cardReveal.transform.position = obj.transform.position;
         cardReveal.gameObject.transform.parent.gameObject.SetActive(true);
-    }
-
-    public void ShowPopup(float delay, string msg)
-    {
-        GameObject obj = Instantiate(PopupPrefab);
-        obj.GetComponent<PopupController>().msgToDisplay.text = msg;
-        StartCoroutine(ShowPopupHelper(obj));
-    }
-
-    private IEnumerator ShowPopupHelper(GameObject obj)
-    {
-        yield return null;
-        obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
-        yield return new WaitForSeconds(1);
-        obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(()=> { Destroy(obj); });
     }
 }

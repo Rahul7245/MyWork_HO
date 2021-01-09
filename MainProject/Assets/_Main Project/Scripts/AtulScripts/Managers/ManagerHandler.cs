@@ -1,4 +1,5 @@
-﻿using GammaXR.TransistionEffect;
+﻿using GammaXR.Popup;
+using GammaXR.TransistionEffect;
 using UnityEngine;
 
 public class ManagerHandler : MonoBehaviour
@@ -21,6 +22,7 @@ public class ManagerHandler : MonoBehaviour
     public AudioManager audioManager;
     public VideoTransistionManager videoTransistionManager;
     public Controller controller;
+    public PopupPrefabList popupPrefabList;
 
     private void Awake()
     {
