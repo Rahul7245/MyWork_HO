@@ -8,6 +8,7 @@ public class CMCscript : MonoBehaviour
 {
     // Start is called before the first frame update
     bool is_revolving;
+    public float speed ;
     public CinemachineVirtualCamera confettiCamera;
     CinemachineTrackedDolly m_dollyCam;
    // PlayableDirector m_director;
@@ -20,9 +21,9 @@ public class CMCscript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {  
         if (is_revolving == true) {
-            m_dollyCam.m_PathPosition += 0.5f * Time.fixedDeltaTime;
+            m_dollyCam.m_PathPosition += speed * Time.fixedDeltaTime;
         }
     }
     public void SetLookAtProperty(Player player) {
