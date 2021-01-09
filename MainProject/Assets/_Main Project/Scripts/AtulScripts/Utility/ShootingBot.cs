@@ -143,6 +143,7 @@ public class ShootingBot
         }
         else
         {
+            winingShot = 0;
             return 21 - botScore;
         }
     }
