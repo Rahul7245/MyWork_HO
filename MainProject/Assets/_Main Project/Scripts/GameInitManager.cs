@@ -50,8 +50,8 @@ public class GameInitManager : MonoBehaviour
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
-    public GameObject[] playerPositionCanvas;
-    public GameObject currentPlayerCanvas;
+    //public GameObject[] playerPositionCanvas;
+    //public GameObject currentPlayerCanvas;
     public GameObject RivalPopup;
     // Start is called before the first frame update
     Dictionary<string, GameObject[]> m_tracks = new Dictionary<string, GameObject[]>();
@@ -86,7 +86,7 @@ public class GameInitManager : MonoBehaviour
                     }
                 }
                 GameObject playerObj = managerHandler.uIInputHandlerManager.charactersPrefabsList[randomPlayer];
-                playerObj.GetComponent<Player>().playerName = "Bot";
+                playerObj.GetComponent<Player>().PlayerName = "Bot";
                 playerObj.GetComponent<Player>().playerType = PlayerType.Computer;
                 player[1] = playerObj;
                 break;
@@ -127,10 +127,10 @@ public class GameInitManager : MonoBehaviour
         m_ready = true;
         EventManager.AddShootListener(movePlayerListener);
 
-        foreach (var playerPosCan in playerPositionCanvas)
+        /*foreach (var playerPosCan in playerPositionCanvas)
         {
             playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
-        }
+        }*/
         m_dollyCam = startCam.GetCinemachineComponent<CinemachineTrackedDolly>();
         
         m_director = startCam.GetComponent<PlayableDirector>();
@@ -534,9 +534,9 @@ public class GameInitManager : MonoBehaviour
             pos = (pos - steps) < 0 ? pos : (pos - steps);
         }
        // pos += (movingForward? steps:(0-steps));
-        playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
-        currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
-        currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
+        //playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
+        /*currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
+        currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();*/
         GameObject[] track;
         m_tracks.TryGetValue("player_" + playerNumber + "_Track", out track);
         if (movingForward)

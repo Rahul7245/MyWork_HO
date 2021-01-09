@@ -112,8 +112,8 @@ public class ShootSceneStateManager : MonoBehaviour
                 }
             }
             managerHandler.birdViewSceneScript.SetCameraToCurrentPlayer();
-            displayMsg.text = player.playerName + "`s Turn";
-            managerHandler.birdViewSceneScript.SetReadyPopUpText(player.playerName + "`s Turn");
+            displayMsg.text = player.PlayerName + "`s Turn";
+            managerHandler.birdViewSceneScript.SetReadyPopUpText(player.PlayerName + "`s Turn");
             managerHandler.birdViewSceneScript.PlayerTurnTimer();
         }
 
@@ -125,7 +125,7 @@ public class ShootSceneStateManager : MonoBehaviour
             {
                 if (player.playerType == PlayerType.Computer)
                 {
-                    displayMsg.text = player.playerName + " is Playing";
+                    displayMsg.text = player.PlayerName + " is Playing";
                     ToggleAppState(ShootState.StartShooting);
                 }
                 else
@@ -194,7 +194,7 @@ public class ShootSceneStateManager : MonoBehaviour
                 managerHandler.shootSceneScript.AddShotEffects();
             }
             PlayShootAudio(player.LastPointScored);
-            managerHandler.shootSceneScript.CameraEffect(player.playerName + " Shot " + player.LastPointScored);
+            managerHandler.shootSceneScript.CameraEffect(player.PlayerName + " Shot " + player.LastPointScored);
             managerHandler.shootSceneScript.LoadScene(player.playerType == PlayerType.Computer);
         }
         else if (appState.Equals(ShootState.Result))
@@ -262,7 +262,7 @@ public class ShootSceneStateManager : MonoBehaviour
         bool winnerResult = managerHandler.gameInitManager.CheckForWinner(out winner);
         if (winnerResult)
         {
-            displayMsg.text = winner.playerName + " is the winner !!!";
+            displayMsg.text = winner.PlayerName + " is the winner !!!";
             winner.GetComponent<Animator>().SetBool("win", true);
             ConfettiCelebration.SetActive(true);
             managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Win, false);

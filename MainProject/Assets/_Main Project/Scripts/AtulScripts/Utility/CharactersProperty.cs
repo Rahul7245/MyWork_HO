@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 namespace GammaXR
 {
@@ -8,9 +9,12 @@ namespace GammaXR
     {
         public class CharactersProperty : MonoBehaviour
         {
-            public Image CharImage;
-            public TextMeshProUGUI CharName;
-            public TextMeshProUGUI CharPoints;
+            [SerializeField]
+            private Image CharImage;
+            [SerializeField]
+            private TextMeshProUGUI CharName;
+            [SerializeField]
+            private TextMeshProUGUI CharPoints;
 
             public void SetDeafult(Sprite charSprite, string charName, string charPoint)
             {

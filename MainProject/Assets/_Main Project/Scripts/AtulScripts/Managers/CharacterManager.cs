@@ -24,14 +24,31 @@ public class CharacterManager : MonoBehaviour
 
     public void SelectCharaterForGame()
     {
-        GameObject playerObj = managerHandler.uIInputHandlerManager.charactersPrefabsList[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        GameObject playerObj = managerHandler.
+            uIInputHandlerManager.
+            charactersPrefabsList[PlayerPrefManager.
+            GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
         if(playerObj == null)
             playerObj = managerHandler.uIInputHandlerManager.charactersPrefabsList[0];
-        playerObj.GetComponent<Player>().playerName = PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.LocalPlayerName_STR, "Rohit");
+        playerObj.GetComponent<Player>().PlayerName = 
+            PlayerPrefManager.GetPlayerPrefString(PlayerPrefKeys.LocalPlayerName_STR, "Rohit");
         playerObj.GetComponent<Player>().playerType = PlayerType.Human;
-        playerObj.GetComponent<Player>().charactersProperty = managerHandler.uIInputHandlerManager.currentPlayingChar;
+        playerObj.GetComponent<Player>().charactersProperty = 
+            managerHandler.uIInputHandlerManager.currentPlayingChar;
         managerHandler.gameInitManager.player[0] = playerObj;
-        managerHandler.uIInputHandlerManager.OpenCharaSelectionButton.GetComponent<Image>().sprite = managerHandler.uIInputHandlerManager.charatersSprites[PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        managerHandler.uIInputHandlerManager.
+            OpenCharaSelectionButton.GetComponent<Image>().sprite = 
+            managerHandler.uIInputHandlerManager.
+            charatersSprites[PlayerPrefManager.
+            GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)];
+        playerObj.GetComponent<Player>().charactersProperty = 
+            managerHandler.uIInputHandlerManager.currentPlayingChar;
+        playerObj.GetComponent<Player>().charactersProperty.
+            SetDeafult(managerHandler.uIInputHandlerManager.
+            PlayersPlayingImages
+            [PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0)],
+            playerObj.GetComponent<Player>().PlayerName,
+            playerObj.GetComponent<Player>().PlayerScore.ToString());
     }
 
     public void CharacterButtonClicked(int index)

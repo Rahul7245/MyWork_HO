@@ -188,9 +188,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   back: {fileID: 0}
+  birdViewSettingButton: {fileID: 0}
+  birdViewExitButton: {fileID: 0}
+  currentPlayingChar: {fileID: 0}
+  PlayersPlayingImages:
+  - {fileID: 21300000, guid: 131548fd65446b74eabe3134b06abf52, type: 3}
+  - {fileID: 21300000, guid: 477db3e4ef373fc409560fd5ca363ed6, type: 3}
+  - {fileID: 21300000, guid: 8adda0a80c4b83c4aa891cd4bf59b155, type: 3}
+  - {fileID: 21300000, guid: 7afd13ab2036ab04682e6a3d560f7930, type: 3}
+  - {fileID: 21300000, guid: d445356f494b8bb4cba1d09495cfcbf4, type: 3}
+  - {fileID: 21300000, guid: c58fb72021408e94b89d8e674c7ddb04, type: 3}
+  inputBlocker: {fileID: 0}
   shootButton: {fileID: 0}
-  settingButton: {fileID: 0}
-  exitButton: {fileID: 0}
 --- !u!114 &5651299337745803641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,10 +524,6 @@ MonoBehaviour:
   - {fileID: 3428050830789515578, guid: c5705d634f9a81b48ac5c38c5d229471, type: 3}
   no_of_hurdles: 4
   Ready_popup: {fileID: 0}
-  playerPositionCanvas:
-  - {fileID: 0}
-  - {fileID: 0}
-  currentPlayerCanvas: {fileID: 0}
   RivalPopup: {fileID: 0}
   vcam: {fileID: 0}
   sideVcam: {fileID: 0}

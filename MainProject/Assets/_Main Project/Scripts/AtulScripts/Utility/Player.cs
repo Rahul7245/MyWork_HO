@@ -1,6 +1,5 @@
 ﻿using GammaXR.UI;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum PlayerType
@@ -12,15 +11,24 @@ public enum PlayerType
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour
 {
-    public string playerName = "Player";
+    private string playerName = "Player";
     public PlayerType playerType;
     public int LastPointScored;
     public int PlayerScore = 0;
     public Hurdle[] hurdles;
     public bool Skip=false;
+    [HideInInspector]
     public CharactersProperty charactersProperty;
+
+    public string PlayerName { get => playerName; set => playerName = value; }
+
     private void Start()
     {
+        PlayerScore = 0;
+        if (charactersProperty != null)
+        {
+            charactersProperty.SetPoint(PlayerScore.ToString());
+        }
         Skip = false;
     }
     public bool AddToScore(int point)
@@ -33,11 +41,19 @@ public class Player : MonoBehaviour
             return false;
         }
         PlayerScore += point;
+        if (charactersProperty != null)
+        {
+            charactersProperty.SetPoint(PlayerScore.ToString());
+        }
         return true;
     }
     public void SetScore(int point)
     {
         PlayerScore = point;
+        if (charactersProperty != null)
+        {
+            charactersProperty.SetPoint(PlayerScore.ToString());
+        }
     }
 
     public void SetSkip(bool skip)
