@@ -188,6 +188,5 @@ public class UIInputHandlerManager : MonoBehaviour
         managerHandler.uIInputHandlerManager.cardShuffel_.ForEach((x) => { x.SetActive(false); });
         cardReveal.transform.position = obj.transform.position;
         cardReveal.gameObject.transform.parent.gameObject.SetActive(true);
-        managerHandler.characterManager.SelectCharaterForGame();
     }
 }

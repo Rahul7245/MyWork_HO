@@ -17,6 +17,7 @@ public class HomeScreenManager : MonoBehaviour
     }
     public void PlayWithComputer(Action OnCompleteTx)
     {
+        managerHandler.characterManager.SelectCharaterForGame();
         managerHandler.appStateManager.ToggleApp(AppState.HomeScreen, AppSubState.HomeScreen_PlayComputer, OnCompleteTx);
         managerHandler.characterManager.GamePlayingType(GameType.VSComputer);
     }
