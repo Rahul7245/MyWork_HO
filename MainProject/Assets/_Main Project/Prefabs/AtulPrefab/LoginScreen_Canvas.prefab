@@ -117,7 +117,6 @@ MonoBehaviour:
   appSubStates:
   - {fileID: 6701934512675267558}
   currentCanvasGrup: {fileID: 2416737873762910916}
-  stateTranistionCanvasGrup: {fileID: 0}
   managerHandler: {fileID: 0}
 --- !u!225 &2416737873762910916
 CanvasGroup:
@@ -202,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -51.525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2254017647324073540, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
+        type: 3}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2254017647356758173, guid: c52cdf3f6c3d6f04c8bf109bb149e533,
         type: 3}
