@@ -299,7 +299,7 @@ public class GameInitManager : MonoBehaviour
 
 
     }
-        Hurdle[] RandomPowerPosition(int playerNumber)
+    Hurdle[] RandomPowerPosition(int playerNumber)
     {
         Hurdle[] hurdles = new Hurdle[no_of_hurdles];
 
