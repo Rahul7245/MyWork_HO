@@ -238,7 +238,7 @@ public class GameInitManager : MonoBehaviour
     Hurdle[] RandomPowerPosition2()
     {
         Hurdle[] hurdles = new Hurdle[6];
-        List<int> randomTracks = new List<int> { 19, 12, 18, 2, 11, 17, 5, 7, 16, 10, 6, 15, 3, 9, 14, 8, 4, 13 };
+        List<int> randomTracks = new List<int> { 19, 12, 18, 11, 17, 5, 7, 16, 10, 6, 15, 9, 14, 8, 4, 13 };
 
         {//for rival kill assign after 10
             int posForRivalKill = Random.Range(11, 20);
