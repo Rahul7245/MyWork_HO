@@ -78,7 +78,7 @@ public class UIInputHandlerManager : MonoBehaviour
 
         // Setting screen buttons
 
-        HomeButtonSetting.onClick.AddListener(()=> { managerHandler.homeScreenManager.GoToHomeScreenHomePage(null); });
+        HomeButtonSetting.onClick.AddListener(managerHandler.appStateManager.BackPressed);
 
         musicToggle.OnBtnToggled += (status) => {
             managerHandler.audioManager.MuteAudioSource(AudioSourceType.ENV, status);
@@ -155,6 +155,8 @@ public class UIInputHandlerManager : MonoBehaviour
         { 
             managerHandler.homeScreenManager.OpenSettings(null);
         });
+
+        // bird view buttons end 
     }
 
     public void ToggleCardSelection(bool status)

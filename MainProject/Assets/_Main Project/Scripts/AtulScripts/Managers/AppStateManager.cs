@@ -85,6 +85,17 @@ public class AppStateManager : MonoBehaviour
         }
     }
 
+    public void ToggleFade(CanvasGroup canvasGroup, float amount, float m_duration = 0.5f, TweenCallback ToggleDone = null)
+    {
+        Tween tween = canvasGroup.DOFade(amount, m_duration);
+        tween.onComplete = ToggleDone;
+    }
+
+    public void BackPressed()
+    {
+        ToggleApp(previousState, previousSubState, null);
+    }
+
     #endregion
 
     #region Private Functions
@@ -175,17 +186,6 @@ public class AppStateManager : MonoBehaviour
         }
 
         return null;
-    }
-
-    public void ToggleFade(CanvasGroup canvasGroup, float amount, float m_duration = 0.5f, TweenCallback ToggleDone = null)
-    {
-        Tween tween = canvasGroup.DOFade(amount, m_duration);
-        tween.onComplete = ToggleDone;
-    }
-
-    public void BackPressed()
-    {
-        ToggleApp(previousState, previousSubState, null);
     }
 
     #endregion
