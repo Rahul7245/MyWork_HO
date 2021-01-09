@@ -248,6 +248,7 @@ public class ShootSceneStateManager : MonoBehaviour
     }
     private void StartShooting()
     {
+        managerHandler.uIInputHandlerManager.inputBlocker.SetActive(false);
         managerHandler.birdViewSceneScript.SwitchScene();
         ToggleAppState(ShootState.StartShooting);
     }

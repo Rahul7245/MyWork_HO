@@ -14290,6 +14290,11 @@ PrefabInstance:
       propertyPath: birdViewExitButton
       value: 
       objectReference: {fileID: 6941092737567666675}
+    - target: {fileID: 6306852576909261133, guid: 674995742771fbc4aaeed856adbaf81f,
+        type: 3}
+      propertyPath: inputBlocker
+      value: 
+      objectReference: {fileID: 6941092737567666676}
     - target: {fileID: 6306852576909261135, guid: 674995742771fbc4aaeed856adbaf81f,
         type: 3}
       propertyPath: allEffects
@@ -16424,6 +16429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2d_char_Image_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5128313840102071012, guid: 4d0e03532357ed046b50fc26e19000ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5195876811890799192, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
       propertyPath: m_IsActive
@@ -16745,6 +16755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 261.388
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175966310317413777, guid: 4d0e03532357ed046b50fc26e19000ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8202656444223537145, guid: 4d0e03532357ed046b50fc26e19000ce,
         type: 3}
@@ -17208,6 +17223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6941092737567666676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1550087604645382565, guid: 4d0e03532357ed046b50fc26e19000ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6941092737567666637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7651943091019492974
 PrefabInstance:
   m_ObjectHideFlags: 0
