@@ -163,6 +163,7 @@ public class BulletTimeController : MonoBehaviour
 		
 		hitTransform.GetComponentInParent<Burglar>()?.DieAnimation();
 		yield return new WaitForSecondsRealtime(finishingCameraDuration / 4);
+		ImpactManager.Instance.PlayImpact();
 		Destroy(activeBullet.gameObject);
 		ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(3.5f);
 		yield return new WaitForSecondsRealtime(3*finishingCameraDuration/4);

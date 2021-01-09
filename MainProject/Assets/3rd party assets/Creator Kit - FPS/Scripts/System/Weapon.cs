@@ -310,7 +310,7 @@ public class Weapon : MonoBehaviour
             ManagerHandler.managerHandler.timer.stopTimer();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                impactManager.ImpactData(hit.point, hit.normal, renderer == null ? null : renderer.sharedMaterial);
+                impactManager.ImpactData(hit.point, hit.normal, false, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
                 if (PlayerPrefs.HasKey("Score"))
                 {
@@ -318,9 +318,13 @@ public class Weapon : MonoBehaviour
                 }
                 PlayerPrefs.SetInt("Score", burglar.getValue());
                 points.Add(PlayerPrefs.GetInt("Score"));
-                ScopeDisable();
+               
             }
-           
+            else {
+                impactManager.ImpactData(hit.point, hit.normal, true, renderer == null ? null : renderer.sharedMaterial);
+
+            }
+            ScopeDisable();
             //this is a target
             if (hit.collider.gameObject.layer == 10)
             {

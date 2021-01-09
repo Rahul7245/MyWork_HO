@@ -31,6 +31,7 @@ public class ImpactManager : MonoBehaviour
     Vector3 m_position;
     Vector3 m_normal; 
     Material m_material = null;
+    bool m_stationary;
     public int m_points = 0;
     // Start is called before the first frame update
 
@@ -43,21 +44,23 @@ public class ImpactManager : MonoBehaviour
     void Start()
     {
         PointsCanvas.SetActive(false);
-        // PoolSystem.Instance.InitPool(DefaultSettings.ParticlePrefab, 3);
+         PoolSystem.Instance.InitPool(DefaultSettings.ParticlePrefab, 1);
         foreach (var impactSettings in ImpactSettings)
         {
             PoolSystem.Instance.InitPool(impactSettings.ParticlePrefab, 1);
+            if(impactSettings.TargetMaterial)
             m_SettingLookup.Add(impactSettings.TargetMaterial, impactSettings);
         }
         EventManager.AddShotInvoker(this);
         EventManager.AddCameraSwitchInvoker(this);
     }
-    public void ImpactData(Vector3 position, Vector3 normal, Material material = null) {
+    public void ImpactData(Vector3 position, Vector3 normal, bool stationary, Material material = null) {
          m_position=position;
       //  print("ImpactData m_position" + m_position);
          m_normal=normal;
          m_material =material;
-        PlayImpact();
+        m_stationary = stationary;
+        //PlayImpact();
     }
     public Vector3 GetImpactPosition()
     {
@@ -74,7 +77,10 @@ public class ImpactManager : MonoBehaviour
         ImpactSetting setting = null;
         if (m_material == null || !m_SettingLookup.TryGetValue(m_material, out setting))
         {
-            setting = ImpactSettings[0];
+            if (!m_stationary)
+                setting = ImpactSettings[0];
+            else
+                setting = DefaultSettings;
         }
         
         var sys =  PoolSystem.Instance.GetInstance<ParticleSystem>(setting.ParticlePrefab);
@@ -84,11 +90,11 @@ public class ImpactManager : MonoBehaviour
         sys.gameObject.SetActive(true);
         sys.Play();
 
-        var source = WorldAudioPool.GetWorldSFXSource();
+        /*var source = WorldAudioPool.GetWorldSFXSource();
 
         source.transform.position = m_position;
         source.pitch = Random.Range(0.8f, 1.1f);
-        source.PlayOneShot(setting.ImpactSound);
+        source.PlayOneShot(setting.ImpactSound);*/
     }
    public void AddShotEventListener(UnityAction<int> listener) {
 
