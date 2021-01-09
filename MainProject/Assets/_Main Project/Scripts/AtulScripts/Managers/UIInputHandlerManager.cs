@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using DG.Tweening;
 using GammaXR.Popup;
+using GammaXR.UI;
 
 public class UIInputHandlerManager : MonoBehaviour
 {
@@ -57,6 +58,7 @@ public class UIInputHandlerManager : MonoBehaviour
     [Header("List of buttons on Birdview screen")]
     public Button birdViewSettingButton;
     public Button birdViewExitButton;
+    public CharactersProperty currentPlayingChar;
     [Header("List of items on Birdview screen")]
     public GameObject inputBlocker;
     public Button shootButton;

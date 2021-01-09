@@ -2,16 +2,27 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CharactersProperty : MonoBehaviour
+namespace GammaXR
 {
-    public Image CharImage;
-    public TextMeshProUGUI CharName;
-    public TextMeshProUGUI CharPoints;
-
-    public void SetDeafult(Sprite charSprite, string charName, string charPoints)
+    namespace UI
     {
-        CharImage.sprite = charSprite;
-        CharName.text = charName;
-        CharPoints.text = charPoints;
+        public class CharactersProperty : MonoBehaviour
+        {
+            public Image CharImage;
+            public TextMeshProUGUI CharName;
+            public TextMeshProUGUI CharPoints;
+
+            public void SetDeafult(Sprite charSprite, string charName, string charPoint)
+            {
+                CharImage.sprite = charSprite;
+                CharName.text = charName;
+                CharPoints.text = charPoint;
+            }
+            public void SetPoint(string charPoint)
+            {
+                CharPoints.text = charPoint;
+            }
+        }
     }
 }
+

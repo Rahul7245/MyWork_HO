@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GammaXR.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public int PlayerScore = 0;
     public Hurdle[] hurdles;
     public bool Skip=false;
+    public CharactersProperty charactersProperty;
     private void Start()
     {
         Skip = false;
