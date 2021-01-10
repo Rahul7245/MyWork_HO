@@ -90,6 +90,18 @@ namespace GammaXR
                 // after setting all the btn action the msg text show the popup
                 obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
             }
+
+            private void ShowRivalPopup(List<Player> players,Action ONSelectAct, float visbleDuration)
+            {
+                if(players == null && players.Count < 1)
+                {
+                    return;
+                }
+                foreach (var item in players)
+                {
+
+                }
+            }
         }
     }
 }
