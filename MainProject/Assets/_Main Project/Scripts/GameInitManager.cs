@@ -70,7 +70,7 @@ public class GameInitManager : MonoBehaviour
     public CinemachineVirtualCamera startCam;
     CinemachineTrackedDolly m_dollyCam;
     PlayableDirector m_director;
-    int hurdleNumber ;
+    int hurdleNumber;
     public void SetGameType(GameType gameType)
     {
         this.gameType = gameType;
@@ -78,10 +78,10 @@ public class GameInitManager : MonoBehaviour
         {
             case GameType.VSComputer:
                 int randomPlayer = Random.Range(0, 6);
-                if(PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0) == randomPlayer)
+                if (PlayerPrefManager.GetPlayerPrefInt(PlayerPrefKeys.CharacterSeleted_INT, 0) == randomPlayer)
                 {
                     randomPlayer += 1;
-                    if(randomPlayer > 5)
+                    if (randomPlayer > 5)
                     {
                         randomPlayer = 0;
                     }
@@ -91,7 +91,7 @@ public class GameInitManager : MonoBehaviour
                 playerObj.GetComponent<Player>().playerType = PlayerType.Computer;
                 player[1] = playerObj;
                 GameObject ob = Instantiate(managerHandler.uIInputHandlerManager.charaterPropertyPrefab, managerHandler.uIInputHandlerManager.PlayerListHolder.transform, false);
-                playerObj.GetComponent<Player>().charactersProperty = 
+                playerObj.GetComponent<Player>().charactersProperty =
                     ob.GetComponent<CharactersProperty>();
                 playerObj.GetComponent<Player>().charactersProperty.
                     SetDeafult(managerHandler.uIInputHandlerManager.
@@ -100,19 +100,21 @@ public class GameInitManager : MonoBehaviour
                 break;
         }
     }
-    bool tourStarted=false;
-    public void startTour() {
+    bool tourStarted = false;
+    public void startTour()
+    {
         startCam.gameObject.SetActive(true);
         startCam.Priority = 12;
         tourStarted = true;
     }
     public void endTour()
     {
-       // startCam.gameObject.SetActive(true);
+        // startCam.gameObject.SetActive(true);
         startCam.Priority = 8;
         tourStarted = false;
         if (hurdlesGroup.Count <= 0) { return; }
-        foreach (var hurdle in hurdlesGroup) {
+        foreach (var hurdle in hurdlesGroup)
+        {
             hurdle.SetActive(false);
         }
         hurdlesGroup.Clear();
@@ -140,7 +142,7 @@ public class GameInitManager : MonoBehaviour
             playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         }*/
         m_dollyCam = startCam.GetCinemachineComponent<CinemachineTrackedDolly>();
-        
+
         m_director = startCam.GetComponent<PlayableDirector>();
         hurdleNumber = no_of_hurdles;
     }
@@ -190,14 +192,15 @@ public class GameInitManager : MonoBehaviour
             foreach (var hurdle in sortedHurdles)
             {
                 GameObject tc = null;
-                if(hurdle.power == 1)
+                if (hurdle.power == 1)
                 {
                     tc = Instantiate(powerPlusTwo, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                 }
                 else if (hurdle.power == 3)
                 {
                     tc = Instantiate(powerExtraChance, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
-                }else if (hurdle.power == 4)
+                }
+                else if (hurdle.power == 4)
                 {
                     tc = Instantiate(hurdleSelfDestruct, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
                 }
@@ -226,7 +229,7 @@ public class GameInitManager : MonoBehaviour
                     tc = Instantiate(rivalSendBack, pos + new Vector3(0, 0, hurdle.pos * trackDistance), Quaternion.identity);
 
                 }
-               
+
                 if (tc)
                 {
                     Destroy(playerTrackArr[hurdle.pos]);
@@ -274,8 +277,8 @@ public class GameInitManager : MonoBehaviour
         for (int i = 1; i < 6; i++) {
            int num = Random.Range(0, randomTracks.Count);
             Hurdle hurdle = new Hurdle();
-            int hurdleNum= randomTracks[num];
-            
+            int hurdleNum = randomTracks[num];
+
             if (randomTracks.Contains(hurdleNum + 1))
             {
                 randomTracks.Remove(hurdleNum + 1);
@@ -381,24 +384,25 @@ public class GameInitManager : MonoBehaviour
         Hurdle[] hurdles;
         bool hurdleFound = false;
         m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
-        Player _currentPlayer = GetPlayer(playerNumber).GetComponent<Player>();
+        Player _currentPlayer = GetPlayer(
+            ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected).GetComponent<Player>();
         foreach (var hurdle in hurdles)
         {
             if (currentPosition == hurdle.pos)
             {
                 hurdleFound = true;
-                if (hurdle.power == 2 )
+                if (hurdle.power == 2)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
                     _currentPlayer.LastPointScored = -2;
                     _currentPlayer.AddToScore(-2);
                     movePlayer(playerNumber, 2, false);
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_sub2);
                     return;
                 }
-                else if (hurdle.power == 1 )
+                else if (hurdle.power == 1)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
                     _currentPlayer.LastPointScored = 2;
                     _currentPlayer.AddToScore(2);
                     movePlayer(playerNumber, 2, true);
@@ -407,41 +411,52 @@ public class GameInitManager : MonoBehaviour
                 }
                 else if (hurdle.power == 4)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
-                    StartCoroutine( PlaySelfDestruct(_currentPlayer, PlayerPrefs.GetInt("Turn")));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
+                    StartCoroutine(PlaySelfDestruct(_currentPlayer, ManagerHandler.managerHandler.shootSceneStateManager.currentPlayer));
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_die);
                 }
                 else if (hurdle.power == 6)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
                     StartCoroutine(PlaySkipChance(_currentPlayer));
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_Skip);
                 }
-                else if (hurdle.power == 3) {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
+                else if (hurdle.power == 3)
+                {
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
                     StartCoroutine(PlayGettingExtraChance(_currentPlayer));
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_life);
                 }
                 else if (hurdle.power == 5)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
-                    setCameraToNormal(PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1);
-                    StartCoroutine(PlaySkipChance(GetOppPlayer().GetComponent<Player>()));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
+
+                    StartCoroutine(PlaySkipChance(GetPlayer(
+                           ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1).GetComponent<Player>()));
+
+                    setCameraToNormal(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected);
+           
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_skip);
                 }
                 else if (hurdle.power == 7)
                 {
-                    StartCoroutine(ShowHurdle(PlayerPrefs.GetInt("Turn"), hurdle.pos));
-                    StartCoroutine( PlaySelfDestruct(GetOppPlayer().GetComponent<Player>(),
-                        PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1));
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
+                    StartCoroutine(PlaySelfDestruct(GetPlayer(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1).GetComponent<Player>(),
+                        ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1));
+
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_die);
                 }
-                else if (hurdle.power == 8|| hurdle.power == 9)
+                else if (hurdle.power == 8 || hurdle.power == 9)
                 {
-                    StartCoroutine(ShowHurdle(playerNumber, hurdle.pos));
-                    ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected = PlayerPrefs.GetInt("Turn") == 1 ? 2 : 1;
-                    ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
-                    if (hurdle.power == 9) {
+                    StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
+                    RS temp = new RS();
+
+                    temp.currentPlayer = ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected;
+                    temp.affectedPlayer = (ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1);
+
+                    ManagerHandler.managerHandler.shootSceneStateManager.rivalStreak.Add(temp);
+                    if (hurdle.power == 9)
+                    {
                         ManagerHandler.managerHandler.shootSceneStateManager.isforward = false;
                         managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Rival_Back);
                     }
@@ -453,18 +468,20 @@ public class GameInitManager : MonoBehaviour
                 }
             }
         }
-        if (_currentPlayer.PlayerScore==21) {
+        if (_currentPlayer.PlayerScore == 21)
+        {
             _currentPlayer.AddToScore(1);
             movePlayer(playerNumber, 1, true);
         }
-       else if (!hurdleFound)
+        else if (!hurdleFound)
         {
             ShootSceneStateManager.Instance.setNextTurnFlag(true);
         }
         m_ready = true;
 
     }
-    IEnumerator ShowHurdle(int playerNum,int hurdleNum) {
+    IEnumerator ShowHurdle(int playerNum, int hurdleNum)
+    {
         GameObject[] track;
         m_tracks.TryGetValue("player_" + playerNum + "_Track", out track);
         GameObject h = track[hurdleNum];
@@ -472,10 +489,11 @@ public class GameInitManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         h.SetActive(false);
     }
-    IEnumerator PlayGettingExtraChance(Player player) {
+    IEnumerator PlayGettingExtraChance(Player player)
+    {
         yield return new WaitForSeconds(1f);
-        GameObject effect= ManagerHandler.managerHandler.allEffects.Heart;
-        Instantiate(effect, player.transform.position+Vector3.up, Quaternion.identity);
+        GameObject effect = ManagerHandler.managerHandler.allEffects.Heart;
+        Instantiate(effect, player.transform.position + Vector3.up, Quaternion.identity);
         ManagerHandler.managerHandler.shootSceneStateManager.playerGettingChance = true;
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
@@ -488,19 +506,22 @@ public class GameInitManager : MonoBehaviour
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
 
-    IEnumerator PlaySelfDestruct(Player player,int playerNum) {
+    IEnumerator PlaySelfDestruct(Player player, int playerNum)
+    {
         setCameraToNormal(playerNum);
         yield return new WaitForSeconds(1f);
         GameObject[] effects = new GameObject[2];
         effects[0] = ManagerHandler.managerHandler.allEffects.DeathSkull;
         effects[1] = ManagerHandler.managerHandler.allEffects.Blast;
-        foreach (var effect in effects) {
-            Instantiate(effect, player.gameObject.transform.position+Vector3.up, Quaternion.identity);
+        foreach (var effect in effects)
+        {
+            Instantiate(effect, player.gameObject.transform.position + Vector3.up, Quaternion.identity);
         }
-        StartCoroutine(PlayWaitForSelfDieEffect(player,playerNum));
+        StartCoroutine(PlayWaitForSelfDieEffect(player, playerNum));
 
     }
-    IEnumerator PlayWaitForSelfDieEffect(Player player,int playerNum) {
+    IEnumerator PlayWaitForSelfDieEffect(Player player, int playerNum)
+    {
         player.gameObject.GetComponent<Animator>().SetBool("death", true);
         yield return new WaitForSeconds(1.5f);
         GameObject[] track;
@@ -511,7 +532,7 @@ public class GameInitManager : MonoBehaviour
         m_player_pos.Remove("player_" + playerIndex);
         m_player_pos.Add("player_" + playerIndex, 0);
         player.SetScore(0);
-       yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);
         ShootSceneStateManager.Instance.setNextTurnFlag(true);
     }
     public void setCameraToNormal(int turn)
@@ -541,7 +562,7 @@ public class GameInitManager : MonoBehaviour
         {
             pos = (pos - steps) < 0 ? pos : (pos - steps);
         }
-       // pos += (movingForward? steps:(0-steps));
+        // pos += (movingForward? steps:(0-steps));
         //playerPositionCanvas[playerNumber - 1].GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();
         /*currentPlayerCanvas.GetComponentInChildren<Image>().sprite = playerPositionCanvas[playerNumber - 1].GetComponentInChildren<Image>().sprite;
         currentPlayerCanvas.GetComponentInChildren<TextMeshProUGUI>().text = pos.ToString();*/
@@ -556,13 +577,13 @@ public class GameInitManager : MonoBehaviour
                    current_Player.GetComponent<Animator>().SetBool("jump", true);
                    current_Player.GetComponent<DustEffect>().PlayParticle();
                    managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Running_track, true);
-           }).OnComplete(() =>
-           {
-               current_Player.GetComponent<Animator>().SetBool("jump", false);
-               current_Player.GetComponent<DustEffect>().StopParticle();
-               managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_None, true);
+               }).OnComplete(() =>
+               {
+                   current_Player.GetComponent<Animator>().SetBool("jump", false);
+                   current_Player.GetComponent<DustEffect>().StopParticle();
+                   managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_None, true);
 
-           }).SetEase(curve);
+               }).SetEase(curve);
             StartCoroutine(animationtimer(playerNumber, pos, current_Player));
         }
         else
@@ -609,7 +630,7 @@ public class GameInitManager : MonoBehaviour
     }
     public GameObject GetPlayer(int playerIndex)
     {
-       // int playerIndex = PlayerPrefs.GetInt("Turn");
+        // int playerIndex = PlayerPrefs.GetInt("Turn");
         GameObject player = null;
         m_players.TryGetValue("player_" + playerIndex, out player);
         return player;
@@ -617,8 +638,9 @@ public class GameInitManager : MonoBehaviour
 
     public GameObject GetOppPlayer()
     {
-        int playerIndex = PlayerPrefs.GetInt("Turn")+1;
-        if (playerIndex > 2) {
+        int playerIndex = PlayerPrefs.GetInt("Turn") + 1;
+        if (playerIndex > 2)
+        {
             playerIndex = 1;
         }
         GameObject player = null;
@@ -642,14 +664,16 @@ public class GameInitManager : MonoBehaviour
 
         return result;
     }
-    List<GameObject> hurdlesGroup=new List<GameObject>();
-    IEnumerator ShowHurdles(int hurdleNum) {
+    List<GameObject> hurdlesGroup = new List<GameObject>();
+    IEnumerator ShowHurdles(int hurdleNum)
+    {
         m_director.Pause();
-        
+
         Hurdle[] hurdles;
         m_player_pow.TryGetValue("player_0"/* + playerNumber*/ + "_pow", out hurdles);
-       
-        for (int i = 1; i <= 2; i++) {
+
+        for (int i = 1; i <= 2; i++)
+        {
 
             GameObject[] track;
             m_tracks.TryGetValue("player_" + i + "_Track", out track);
@@ -659,22 +683,24 @@ public class GameInitManager : MonoBehaviour
         }
         hurdleNumber -= 1;
         yield return new WaitForSeconds(2f);
-        
+
         m_director.Play();
 
 
 
     }
-    
+
     private void Update()
     {
-        if (!tourStarted) {
+        if (!tourStarted)
+        {
             return;
         }
-        if (hurdleNumber <= 0) {
+        if (hurdleNumber <= 0)
+        {
             return;
         }
-        if (m_dollyCam.m_PathPosition >= 23+20-sortedHurdles[hurdleNumber-1].pos)
+        if (m_dollyCam.m_PathPosition >= 23 + 20 - sortedHurdles[hurdleNumber - 1].pos)
         {
             StartCoroutine(ShowHurdles(sortedHurdles[hurdleNumber - 1].pos));
         }

@@ -15,6 +15,10 @@ public enum ShootState
     Shoot_Complete,
     Result
 }
+public class RS {
+   public int currentPlayer;
+  public int affectedPlayer;
+}
 public class ShootSceneStateManager : MonoBehaviour
 {
     [SerializeField]
@@ -31,7 +35,8 @@ public class ShootSceneStateManager : MonoBehaviour
     public GameObject ConfettiCelebrationCamera;
     List<int> playerLoosingChance;
     public bool playerGettingChance;
-    public int playerGettingAffected;
+    public int currentPlayer, playerGettingAffected;
+    public List<RS> rivalStreak = new List<RS>();
     public bool isforward;
 
     // Start is called before the first frame update
@@ -91,13 +96,13 @@ public class ShootSceneStateManager : MonoBehaviour
             if (PlayerPrefs.HasKey("Turn"))
             {
                 int turn = PlayerPrefs.GetInt("Turn");
-                if (!playerGettingChance)
+                if (!playerGettingChance && rivalStreak.Count < 1)
                 {
                     PlayerPrefs.DeleteKey("Turn");
                     PlayerPrefs.SetInt("Turn", (turn + 1) > totalPlayer ? 1 : (turn + 1));
                     isforward = true;
-                    playerGettingAffected = PlayerPrefs.GetInt("Turn");
-                    playerPlaying = managerHandler.gameInitManager.GetPlayer(PlayerPrefs.GetInt("Turn"));
+                    currentPlayer = playerGettingAffected = PlayerPrefs.GetInt("Turn");
+                    playerPlaying = managerHandler.gameInitManager.GetPlayer(currentPlayer);
                     player = playerPlaying?.GetComponent<Player>();
                     if (player.GetSkip())
                     {
@@ -105,6 +110,13 @@ public class ShootSceneStateManager : MonoBehaviour
                         ToggleAppState(ShootState.PlayerTurn);
                         return;
                     }
+                }
+                else if (rivalStreak.Count > 0) {
+                    currentPlayer = rivalStreak[0].currentPlayer;
+                    playerGettingAffected = rivalStreak[0].affectedPlayer;
+                    rivalStreak.RemoveAt(0);
+                    playerPlaying = managerHandler.gameInitManager.GetPlayer(currentPlayer);
+                    player = playerPlaying?.GetComponent<Player>();
                 }
                 else
                 {

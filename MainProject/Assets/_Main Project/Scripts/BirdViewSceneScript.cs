@@ -80,6 +80,6 @@ public class BirdViewSceneScript : MonoBehaviour
     }
     public void SetCameraToCurrentPlayer()
     {
-        managerHandler.gameInitManager.setCameraToNormal(PlayerPrefs.GetInt("Turn"));
+        managerHandler.gameInitManager.setCameraToNormal(ManagerHandler.managerHandler.shootSceneStateManager.currentPlayer);
     }
 }
