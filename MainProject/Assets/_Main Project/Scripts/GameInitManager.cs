@@ -412,7 +412,7 @@ public class GameInitManager : MonoBehaviour
                 else if (hurdle.power == 4)
                 {
                     StartCoroutine(ShowHurdle(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected, hurdle.pos));
-                    StartCoroutine(PlaySelfDestruct(_currentPlayer, ManagerHandler.managerHandler.shootSceneStateManager.currentPlayer));
+                    StartCoroutine(PlaySelfDestruct(_currentPlayer, ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected));
                     managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Hurdule_Self_die);
                 }
                 else if (hurdle.power == 6)

@@ -54,7 +54,9 @@ public class Bullet : MonoBehaviour
 
     private void Move()
     {
-        Vector3 translate =(new Vector3(collider.bounds.center.x, hitPoint.y, collider.bounds.center.z) -gameObject.transform.position).normalized;
+        Vector3 finalPos = new Vector3(collider.bounds.center.x, hitPoint.y, collider.bounds.center.z);
+        Vector3 translate =(finalPos -gameObject.transform.position).normalized;
+        ImpactManager.Instance.ChangePosition(finalPos);
         direction = translate;
         transform.Translate(translate * shootingForce * Time.deltaTime, Space.World);
     }

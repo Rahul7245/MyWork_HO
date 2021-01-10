@@ -299,6 +299,7 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(r, out hit, 1000.0f))
         {
+            ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
             Renderer renderer = hit.collider.GetComponentInChildren<Renderer>();
             var pos = new Vector3[] { EndPoint.position, hit.point };
             var direction = (pos[1] - pos[0]);
@@ -306,7 +307,7 @@ public class Weapon : MonoBehaviour
             Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
             bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
             bulletTimeController.StartSequence(bulletInstance, hit.point);
-            ManagerHandler.managerHandler.shootSceneScript.setBurglarSpeed(0.01f);
+           
             ManagerHandler.managerHandler.timer.stopTimer();
             if (hit.transform.gameObject.tag == "Burgler")
             {

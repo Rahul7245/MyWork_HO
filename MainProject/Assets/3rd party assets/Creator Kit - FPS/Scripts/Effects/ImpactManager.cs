@@ -62,6 +62,9 @@ public class ImpactManager : MonoBehaviour
         m_stationary = stationary;
         //PlayImpact();
     }
+    public void ChangePosition(Vector3 position) {
+        m_position = position;
+    }
     public Vector3 GetImpactPosition()
     {
         return m_position;
