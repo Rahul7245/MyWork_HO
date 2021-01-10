@@ -9,6 +9,12 @@ namespace GammaXR
 {
     namespace Popup
     {
+        public enum PopupType
+        {
+            Msg_Popup = 0,
+            Msg_Two_Btn_Popup,
+            Rival_Popup
+        }
         public class Popup : MonoBehaviour
         {
             public static Popup instance;
@@ -37,14 +43,19 @@ namespace GammaXR
                         break;
                 }
             }
-
             private void ShowMsgPopup(string msg, float visbleDuration = 1)
             {
                 GameObject obj = Instantiate(PopupPrefab);
                 obj.GetComponent<PopupController>().msgToDisplay.text = msg;
                 StartCoroutine(ShowPopupHelper(obj, visbleDuration));
             }
-
+            private IEnumerator ShowPopupHelper(GameObject obj, float visbleDuration = 1)
+            {
+                yield return null;
+                obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
+                yield return new WaitForSeconds(visbleDuration);
+                obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
+            }
             private void ShowTwoBtnPopup(string msg, float visbleDuration = 1, Action btnOneAct = null, Action btnTwoAct = null)
             {
                 GameObject obj = Instantiate(PopupPrefab);
@@ -78,14 +89,6 @@ namespace GammaXR
                 }
                 // after setting all the btn action the msg text show the popup
                 obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
-            }
-
-            private IEnumerator ShowPopupHelper(GameObject obj, float visbleDuration = 1)
-            {
-                yield return null;
-                obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
-                yield return new WaitForSeconds(visbleDuration);
-                obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
             }
         }
     }
