@@ -22,7 +22,7 @@ public class ManagerHandler : MonoBehaviour
     public AudioManager audioManager;
     public VideoTransistionManager videoTransistionManager;
     public Controller controller;
-    public Popup popupPrefabList;
+    public Popup popupManager;
 
     private void Awake()
     {

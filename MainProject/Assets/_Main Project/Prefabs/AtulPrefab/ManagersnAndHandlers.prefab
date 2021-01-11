@@ -94,7 +94,7 @@ MonoBehaviour:
   audioManager: {fileID: 9204778978924036432}
   videoTransistionManager: {fileID: 7964718908653891612}
   controller: {fileID: 0}
-  popupPrefabList: {fileID: 4624738290167494240}
+  popupManager: {fileID: 4624738290167494240}
 --- !u!114 &4357243929486401438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +547,7 @@ MonoBehaviour:
   ConfettiCelebration: {fileID: 0}
   ConfettiCelebrationCamera: {fileID: 0}
   playerGettingChance: 0
+  currentPlayer: 0
   playerGettingAffected: 0
   isforward: 0
 --- !u!114 &6614074978765538713

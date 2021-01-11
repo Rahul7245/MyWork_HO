@@ -10,6 +10,7 @@ using System.Linq;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using GammaXR.UI;
+using GammaXR.Popup;
 
 public enum GameType
 {
@@ -51,10 +52,7 @@ public class GameInitManager : MonoBehaviour
     public GameObject[] player;
     public int no_of_hurdles;
     public Canvas Ready_popup;
-    //public GameObject[] playerPositionCanvas;
-    //public GameObject currentPlayerCanvas;
     public GameObject RivalPopup;
-    // Start is called before the first frame update
     Dictionary<string, GameObject[]> m_tracks = new Dictionary<string, GameObject[]>();
     Dictionary<string, GameObject> m_players = new Dictionary<string, GameObject>();
     Dictionary<string, int> m_player_pos = new Dictionary<string, int>();
@@ -71,6 +69,7 @@ public class GameInitManager : MonoBehaviour
     CinemachineTrackedDolly m_dollyCam;
     PlayableDirector m_director;
     int hurdleNumber;
+    private List<Player> players = new List<Player>();
     public void SetGameType(GameType gameType)
     {
         this.gameType = gameType;
@@ -136,11 +135,6 @@ public class GameInitManager : MonoBehaviour
         m_turn = 1;
         m_ready = true;
         EventManager.AddShootListener(movePlayerListener);
-
-        /*foreach (var playerPosCan in playerPositionCanvas)
-        {
-            playerPosCan.GetComponentInChildren<TextMeshProUGUI>().text = "0";
-        }*/
         m_dollyCam = startCam.GetCinemachineComponent<CinemachineTrackedDolly>();
 
         m_director = startCam.GetComponent<PlayableDirector>();
@@ -159,8 +153,10 @@ public class GameInitManager : MonoBehaviour
             if (m_tracks.TryGetValue("player_" + i + "_Track", out obj))
             {
                 GameObject pl = Instantiate(player[i - 1], obj[0].transform.position + new Vector3(0, characterYaxisOffset, 0), Quaternion.identity);
+                pl.GetComponent<Player>().ID = i;
                 pl.name = "player_" + i;
                 m_players.Add("player_" + i, pl);
+                players.Add(pl.GetComponent<Player>());
                 m_player_pos.Add("player_" + i, 0);
 
             }
@@ -452,7 +448,9 @@ public class GameInitManager : MonoBehaviour
                     RS temp = new RS();
 
                     temp.currentPlayer = ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected;
-                    temp.affectedPlayer = (ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1);
+                    Player player = null;
+                    managerHandler.popupManager.ShowPopup(PopupType.Rival_Popup, null, players, 1, null, null,(p)=> { player = p; });
+                    temp.affectedPlayer = player.ID; /*(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1);*/
 
                     ManagerHandler.managerHandler.shootSceneStateManager.rivalStreak.Add(temp);
                     if (hurdle.power == 9)

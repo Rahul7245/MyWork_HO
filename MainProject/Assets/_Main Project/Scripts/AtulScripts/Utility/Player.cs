@@ -11,6 +11,7 @@ public enum PlayerType
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour
 {
+    public int ID;
     private string playerName = "Player";
     public PlayerType playerType;
     public int LastPointScored;

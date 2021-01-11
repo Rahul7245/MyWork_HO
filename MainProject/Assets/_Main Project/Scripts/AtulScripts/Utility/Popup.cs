@@ -29,7 +29,7 @@ namespace GammaXR
                 instance = this;
             }
 
-            public void ShowPopup(PopupType popupType, string msg, float visbleDuration = 1, Action yesBtnAct = null, Action noBtnAct = null)
+            public void ShowPopup(PopupType popupType, string msg, List<Player> players = null, float visbleDuration = 1, Action yesBtnAct = null, Action noBtnAct = null, Action<Player> ONSelectAct=null)
             {
                 switch (popupType)
                 {
@@ -40,6 +40,10 @@ namespace GammaXR
                     case PopupType.Msg_Two_Btn_Popup:
                         PopupPrefab = popupPrefabs[1];
                         ShowTwoBtnPopup(msg, visbleDuration, yesBtnAct, noBtnAct);
+                        break;
+                    case PopupType.Rival_Popup:
+                        PopupPrefab = popupPrefabs[0];
+                        ShowRivalPopup(players, ONSelectAct, visbleDuration);
                         break;
                 }
             }
@@ -91,16 +95,16 @@ namespace GammaXR
                 obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
             }
 
-            private void ShowRivalPopup(List<Player> players,Action ONSelectAct, float visbleDuration)
+            private void ShowRivalPopup(List<Player> players,Action<Player> ONSelectAct = null, float visbleDuration = 1)
             {
-                if(players == null && players.Count < 1)
-                {
-                    return;
-                }
-                foreach (var item in players)
-                {
+                GameObject obj = Instantiate(PopupPrefab);
+                obj.GetComponent<PopupController>().msgToDisplay.text = "Rival Selected is "+ players[0].PlayerName;
+                StartCoroutine(ShowPopupHelper(obj, visbleDuration));
+                if(managerHandler.shootSceneStateManager.playerGettingAffected != players[0].ID)
+                    ONSelectAct?.Invoke(players[0]);
+                else
+                    ONSelectAct?.Invoke(players[1]);
 
-                }
             }
         }
     }

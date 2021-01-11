@@ -151,7 +151,7 @@ public class UIInputHandlerManager : MonoBehaviour
         selectButton.onClick.AddListener(() => 
         { 
             managerHandler.characterManager.SelectCharaterForGame();
-            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Popup, Constants.Msg_CharacterSelected);
+            managerHandler.popupManager.ShowPopup(PopupType.Msg_Popup, Constants.Msg_CharacterSelected);
         });
         // Character selection screen buttons end
         ClickedOnCard();
@@ -159,7 +159,7 @@ public class UIInputHandlerManager : MonoBehaviour
         // birdview screen buttons actions
         birdViewExitButton.onClick.AddListener(()=> 
         {
-            managerHandler.popupPrefabList.ShowPopup(PopupType.Msg_Two_Btn_Popup, Constants.Msg_WantToExitGame, 1, () => { managerHandler.gameInitManager.ResetGame(); }, null); 
+            managerHandler.popupManager.ShowPopup(PopupType.Msg_Two_Btn_Popup, Constants.Msg_WantToExitGame, null, 1, () => { managerHandler.gameInitManager.ResetGame(); }, null);
         });
         birdViewSettingButton.onClick.AddListener(() =>
         { 
