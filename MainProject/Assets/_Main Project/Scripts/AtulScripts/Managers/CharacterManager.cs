@@ -69,6 +69,27 @@ public class CharacterManager : MonoBehaviour
         managerHandler.uIInputHandlerManager.CharacterImages[index].SetActive(true);
         managerHandler.uIInputHandlerManager.CharacterModels[index].SetActive(true);
         PlayerPrefManager.SetPlayerPref(PlayerPrefKeys.CharacterSeleted_INT, index);
+        switch (index)
+        {
+            case 0:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char00_Dis;
+                break;
+            case 1:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char01_Dis;
+                break;
+            case 2:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char02_Dis;
+                break;
+            case 3:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char03_Dis;
+                break;
+            case 4:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char04_Dis;
+                break;
+            case 5:
+                managerHandler.uIInputHandlerManager.characterDiscription.text = Constants.Msg_Char05_Dis;
+                break;
+        }
     }
 
     public void GamePlayingType(GameType gameType)

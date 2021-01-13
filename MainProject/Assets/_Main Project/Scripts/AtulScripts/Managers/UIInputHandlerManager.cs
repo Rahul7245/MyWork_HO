@@ -6,6 +6,7 @@ using UnityEngine.Video;
 using DG.Tweening;
 using GammaXR.Popup;
 using GammaXR.UI;
+using TMPro;
 
 public class UIInputHandlerManager : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class UIInputHandlerManager : MonoBehaviour
     public ToggleButton soundToggle;
 
     [Header("Charater selection screen buttons and UI intups")]
+    public TextMeshProUGUI characterDiscription;
     public CharacterButton characterButton_0;
     public CharacterButton characterButton_1;
     public CharacterButton characterButton_2;
