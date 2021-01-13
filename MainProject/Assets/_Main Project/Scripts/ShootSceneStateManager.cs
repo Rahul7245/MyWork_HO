@@ -236,22 +236,22 @@ public class ShootSceneStateManager : MonoBehaviour
         switch (score) {
             case 0:
                 print("playerPlaying audio");
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot0, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot0, false);
                 break;
             case 1:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot1, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot1, false);
                 break;
             case 2:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot2, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot2, false);
                 break;
             case 3:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot3, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot3, false);
                 break;
             case 4:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot4, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot4, false);
                 break;
             case 5:
-                managerHandler.audioManager.PlayAudio(AudioSourceType.UI, AudioCLips.AC_Shoot5, false);
+                managerHandler.audioManager.PlayAudio(AudioSourceType.ANIMEF, AudioCLips.AC_Shoot5, false);
                 break;
 
         }
