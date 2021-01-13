@@ -52,6 +52,8 @@ public enum AudioCLips
     AC_Shoot4,
     AC_Shoot5,
     AC_Vedio_Start,
+    AC_CardAnim,
+    AC_CardAnimShow,
     AC_Vedio_Png
 }
 
@@ -149,8 +151,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip AC_Vedio_Png;
     [SerializeField]
+    private AudioClip AC_CardAnim;
+    [SerializeField]
+    private AudioClip AC_CardAnimShow;
+    [SerializeField]
     private AudioClip AC_Shoot;
-
+    
     // UI audio 
     [SerializeField]
     private AudioSource AS_UI;
@@ -391,7 +397,13 @@ public class AudioManager : MonoBehaviour
                         break;
                     case AudioCLips.AC_None:
                         SetAudioClip(null, AS_AnimEf, loopClip);
-                        break; 
+                        break;
+                    case AudioCLips.AC_CardAnim:
+                        SetAudioClip(null, AS_AnimEf, loopClip);
+                        break;
+                    case AudioCLips.AC_CardAnimShow:
+                        SetAudioClip(null, AS_AnimEf, loopClip);
+                        break;      
                 }
                 break;
             case AudioSourceType.BG:
