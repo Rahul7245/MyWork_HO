@@ -22,6 +22,8 @@ namespace GammaXR
             private ManagerHandler managerHandler;
             [SerializeField]
             private List<GameObject> popupPrefabs;
+            [SerializeField]
+            private GameObject playerInfoPrefab;
             private GameObject PopupPrefab;
 
             private void Awake()
@@ -42,7 +44,7 @@ namespace GammaXR
                         ShowTwoBtnPopup(msg, visbleDuration, yesBtnAct, noBtnAct);
                         break;
                     case PopupType.Rival_Popup:
-                        PopupPrefab = popupPrefabs[0];
+                        PopupPrefab = popupPrefabs[2];
                         ShowRivalPopup(players, ONSelectAct, visbleDuration);
                         break;
                 }
@@ -98,12 +100,19 @@ namespace GammaXR
             private void ShowRivalPopup(List<Player> players,Action<Player> ONSelectAct = null, float visbleDuration = 1)
             {
                 GameObject obj = Instantiate(PopupPrefab);
-                obj.GetComponent<PopupController>().msgToDisplay.text = "Rival Selected is "+ players[0].PlayerName;
                 StartCoroutine(ShowPopupHelper(obj, visbleDuration));
-                if(managerHandler.shootSceneStateManager.playerGettingAffected != players[0].ID)
-                    ONSelectAct?.Invoke(players[0]);
-                else
-                    ONSelectAct?.Invoke(players[1]);
+                foreach (var item in players)
+                {
+                    GameObject tempGobj = Instantiate(playerInfoPrefab, obj.GetComponent<RivalPopupController>().listHolder.transform, false);
+                    tempGobj.GetComponent<PlayerInfo>().SetPlayerInfo(item.playerSprite, item.PlayerName,
+                        () => 
+                        {
+                            ONSelectAct?.Invoke(item);
+                            obj.GetComponent<RivalPopupController>().popUpImage.
+                            DOScale(0, 0.5f).
+                            OnComplete(() => { Destroy(obj); }); 
+                        });
+                }
 
             }
         }

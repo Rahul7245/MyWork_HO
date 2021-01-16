@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public int PlayerScore = 0;
     public Hurdle[] hurdles;
     public bool Skip=false;
+    public Sprite playerSprite;
     [HideInInspector]
     public CharactersProperty charactersProperty;
 

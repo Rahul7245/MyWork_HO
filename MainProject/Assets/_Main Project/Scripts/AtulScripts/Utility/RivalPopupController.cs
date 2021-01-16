@@ -4,6 +4,6 @@ using UnityEngine;
 public class RivalPopupController : MonoBehaviour
 {
     public Action<Player> selectedPrefab;
-    public GameObject HatPrefab;
+    public Transform popUpImage;
     public GameObject listHolder;
 }

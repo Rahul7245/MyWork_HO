@@ -1156,6 +1156,8 @@ MonoBehaviour:
   AC_Shoot4: {fileID: 8300000, guid: 5c77779e5fe06154ba81cc081a14516a, type: 3}
   AC_Shoot5: {fileID: 8300000, guid: ba72f97b3d4f9f8489cae33efa517e4d, type: 3}
   AC_Vedio_Png: {fileID: 8300000, guid: ec089cbf1486bd643af107fa77fb62af, type: 3}
+  AC_CardAnim: {fileID: 0}
+  AC_CardAnimShow: {fileID: 0}
   AC_Shoot: {fileID: 8300000, guid: 3772b3640c9994e4cb3262ea88e10284, type: 3}
   AS_UI: {fileID: 0}
   AC_Btn_Click: {fileID: 8300000, guid: c0ba47b9a498370459797f4d8f79435f, type: 3}
@@ -1175,6 +1177,8 @@ MonoBehaviour:
   popupPrefabs:
   - {fileID: 1210313902354277031, guid: 2cc1ea1b9e471f948a12d1c2533a0d54, type: 3}
   - {fileID: 1210313902354277031, guid: 0f4e37a21935a1c4baa69a0500c2c545, type: 3}
+  playerInfoPrefab: {fileID: 1210313902354277031, guid: 1b3099d4d9765b2449c2a4d9fce73b81,
+    type: 3}
 --- !u!1 &5804244631558302804
 GameObject:
   m_ObjectHideFlags: 0
