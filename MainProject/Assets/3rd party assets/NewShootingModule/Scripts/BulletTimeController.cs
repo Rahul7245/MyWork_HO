@@ -114,7 +114,7 @@ public class BulletTimeController : MonoBehaviour
 		return path.CheckIfPathISClear(trans, Vector3.Distance(trans.position, targetPosition), orientation);
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if (!activeBullet)
 			return;
