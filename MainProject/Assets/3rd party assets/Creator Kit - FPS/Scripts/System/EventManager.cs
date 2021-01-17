@@ -8,13 +8,12 @@ using UnityEngine.Events;
 public static class EventManager
 {
     static ImpactManager shotInvoker;
-    static UnityAction<int>[] shotListeners=new UnityAction<int>[2];
+    static List<UnityAction<int>> shotListeners=new List<UnityAction<int>>();
     static ImpactManager cameraSwitchInvoker;
     static UnityAction<bool> cameraSwitchListener;
 
     static BirdViewSceneScript reloadWeaponInvoker;
     static UnityAction reloadWeaponListener;
-   static int i=0;
     public static void  AddShotInvoker(ImpactManager script) 
     {
         shotInvoker = script;
@@ -27,11 +26,10 @@ public static class EventManager
     public static void AddShootListener(UnityAction<int> listener_to_register)
     {
         Console.WriteLine("shotListeners::");
-        shotListeners[i] = listener_to_register;
-        i++;
+        shotListeners.Add(listener_to_register);
         if (shotInvoker != null)
         {
-            shotInvoker.AddShotEventListener(shotListeners[shotListeners.Length]);
+            shotInvoker.AddShotEventListener(shotListeners[shotListeners.Count]);
         }
     }
     public static void AddCameraSwitchInvoker(ImpactManager script)
