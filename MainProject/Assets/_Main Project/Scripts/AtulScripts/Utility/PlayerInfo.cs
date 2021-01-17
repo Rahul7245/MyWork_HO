@@ -10,6 +10,7 @@ public class PlayerInfo : MonoBehaviour
     public Button btn;
     public TextMeshProUGUI playerName;
     public Image playerImage;
+    public Player player = null;
 
     private void SetPlayerImage(Sprite _sprite)
     {
@@ -19,12 +20,12 @@ public class PlayerInfo : MonoBehaviour
     {
         playerName.text = _name;
     }
-    private void SetBtnEvent(Action btnEvent)
+    private void SetBtnEvent(Action<Player> btnEvent)
     {
-        btn.onClick.AddListener(()=> { btnEvent?.Invoke(); });
+        btn.onClick.AddListener(()=> { btnEvent?.Invoke(player); });
     }
 
-    public void SetPlayerInfo(Sprite _sprite, string _name, Action btnEvent)
+    public void SetPlayerInfo(Sprite _sprite, string _name, Action<Player> btnEvent)
     {
         SetPlayerImage(_sprite);
         SetPlayerName(_name);

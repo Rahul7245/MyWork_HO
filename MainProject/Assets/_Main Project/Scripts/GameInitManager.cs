@@ -57,6 +57,7 @@ public class GameInitManager : MonoBehaviour
     Dictionary<string, GameObject> m_players = new Dictionary<string, GameObject>();
     Dictionary<string, int> m_player_pos = new Dictionary<string, int>();
     Dictionary<string, Hurdle[]> m_player_pow = new Dictionary<string, Hurdle[]>();
+    List<Player> listOfPlayers = new List<Player>();
     int m_turn;
     bool m_ready, m_askingPlayer;
 
@@ -158,6 +159,7 @@ public class GameInitManager : MonoBehaviour
                 m_players.Add("player_" + i, pl);
                 players.Add(pl.GetComponent<Player>());
                 m_player_pos.Add("player_" + i, 0);
+                listOfPlayers.Add(pl.GetComponent<Player>());
 
             }
         }
@@ -449,7 +451,14 @@ public class GameInitManager : MonoBehaviour
 
                     temp.currentPlayer = ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected;
                     Player player = null;
-                    managerHandler.popupManager.ShowPopup(PopupType.Rival_Popup, null, players, 1, null, null,(p)=> { player = p; });
+                    List<Player> playerList = new List<Player>();
+                    for (int i = 1; i <= m_players.Count; i++) {
+                        if (i == temp.currentPlayer) {
+                            continue;
+                        }
+                        playerList.Add(listOfPlayers[i-1]);
+                    }
+                    managerHandler.popupManager.ShowPopup(PopupType.Rival_Popup, null, playerList, 10, null, null,(p)=> { player = p; });
                     temp.affectedPlayer = player.ID; /*(ManagerHandler.managerHandler.shootSceneStateManager.playerGettingAffected == 1 ? 2 : 1);*/
 
                     ManagerHandler.managerHandler.shootSceneStateManager.rivalStreak.Add(temp);

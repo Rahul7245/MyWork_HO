@@ -60,7 +60,7 @@ namespace GammaXR
                 yield return null;
                 obj.GetComponent<PopupController>().popUpImage.DOScale(1, 0.5f);
                 yield return new WaitForSeconds(visbleDuration);
-                dfaultAftion?.Invoke();
+               // dfaultAftion?.Invoke();
                 obj.GetComponent<PopupController>().popUpImage.DOScale(0, 0.5f).OnComplete(() => { Destroy(obj); });
             }
             private void ShowTwoBtnPopup(string msg, float visbleDuration = 1, Action btnOneAct = null, Action btnTwoAct = null)
@@ -100,15 +100,19 @@ namespace GammaXR
 
             private void ShowRivalPopup(List<Player> players,Action<Player> ONSelectAct = null, float visbleDuration = 1)
             {
+                ONSelectAct.Invoke(players[0]);
+                return;
                 GameObject obj = Instantiate(PopupPrefab);
                 StartCoroutine(ShowPopupHelper(obj, visbleDuration,()=> { ONSelectAct?.Invoke(null); }));
+                
                 foreach (var item in players)
                 {
                     GameObject tempGobj = Instantiate(playerInfoPrefab, obj.GetComponent<RivalPopupController>().listHolder.transform, false);
+                    tempGobj.GetComponent<PlayerInfo>().player = item;
                     tempGobj.GetComponent<PlayerInfo>().SetPlayerInfo(item.playerSprite, item.PlayerName,
-                        () => 
+                        (p) => 
                         {
-                            ONSelectAct?.Invoke(item);
+                            ONSelectAct?.Invoke(p);
                             obj.GetComponent<RivalPopupController>().popUpImage.
                             DOScale(0, 0.5f).
                             OnComplete(() => { Destroy(obj); }); 
