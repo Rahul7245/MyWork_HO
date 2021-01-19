@@ -305,7 +305,7 @@ public class Weapon : MonoBehaviour
             var direction = (pos[1] - pos[0]);
             Debug.DrawLine(pos[0], pos[1], Color.red, 30f);
             Bullet bulletInstance = Instantiate(bulletPrefab, pos[0], Quaternion.LookRotation(direction.normalized));
-            bulletInstance.Launch(direction.magnitude > 20 ? 8 : 4, hit.collider.transform, hit.point);
+            bulletInstance.Launch(direction.magnitude > 20 ? 10 : 4, hit.collider.transform, hit.point);
             bulletTimeController.StartSequence(bulletInstance, hit.point);
            
             ManagerHandler.managerHandler.timer.stopTimer();

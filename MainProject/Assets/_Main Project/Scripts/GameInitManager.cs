@@ -579,7 +579,7 @@ public class GameInitManager : MonoBehaviour
         {
 
             current_Player.transform.GetComponent<Rigidbody>().DOMove(
-            track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), (float)steps * .7f + .8f).OnStart(() =>
+            track[pos].transform.position + new Vector3(0, characterYaxisOffset, 0), (float)steps * .5f + .8f).OnStart(() =>
                {
                    current_Player.GetComponent<Animator>().SetBool("jump", true);
                    current_Player.GetComponent<DustEffect>().PlayParticle();
