@@ -185,7 +185,7 @@ public class ShootSceneStateManager : MonoBehaviour
             }
             else
             {
-                managerHandler.timer.totalTime = UnityEngine.Random.Range(2, 5);
+                managerHandler.timer.totalTime = UnityEngine.Random.Range(1, 3);
                 managerHandler.timer.startTimer();
             }
 
