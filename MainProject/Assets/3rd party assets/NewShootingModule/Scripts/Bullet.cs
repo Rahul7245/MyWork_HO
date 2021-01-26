@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     private Vector3 hitPoint;
     CapsuleCollider collider;
     Collider boxCollider;
+    private Vector3 startPoint;
+    float totalDistance=0f;
     
 
     public void Launch(float shootingForce, Transform hitTransform, Vector3 hitPoint)
@@ -27,6 +29,10 @@ public class Bullet : MonoBehaviour
         this.collider = hitTransform.GetComponent<CapsuleCollider>();
         else
         boxCollider = hitTransform.GetComponent<Collider>();
+    }
+    public void setStartingPoint(Vector3 st_pt) {
+        this.startPoint = st_pt;
+        totalDistance = Vector3.Distance(this.hitPoint, this.startPoint);
     }
    float totalTrackTime=1f;
     float elapsedTime =0f;
@@ -50,6 +56,7 @@ public class Bullet : MonoBehaviour
         }
         Rotate();
         CheckDistanceToEnemy();
+        //checkDistanceToStartPoint();
     }
 
     private void Move()
@@ -68,7 +75,7 @@ public class Bullet : MonoBehaviour
     private void CheckDistanceToEnemy()
     {
         float distance = Vector3.Distance(transform.position, hitPoint);
-        if(distance <= 0.1 && !isEnemyShot)
+        if(distance <= 0.3 && !isEnemyShot)
         {
             EnemyController enemy = hitTransform.GetComponentInParent<EnemyController>();
             if (enemy)
@@ -77,7 +84,11 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-
+    public bool checkDistanceToStartPoint(float minDistance) {
+      float currDis=  Vector3.Distance(gameObject.transform.position, startPoint);
+        print("currDis::" + currDis + "totalDis" + totalDistance);
+        return ((totalDistance-minDistance) < currDis);
+    }
     private void Rotate()
     {
         visualTransform.Rotate(Vector3.forward, 1200 * Time.deltaTime, Space.Self);

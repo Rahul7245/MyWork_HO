@@ -125,6 +125,7 @@ public class BulletTimeController : MonoBehaviour
 
 	private bool CheckIfBulletIsNearTarget()
 	{
+		return activeBullet.checkDistanceToStartPoint(distanceToChangeCamera);
 		return Vector3.Distance(activeBullet.transform.position, targetPosition) < distanceToChangeCamera;
 	}
 
