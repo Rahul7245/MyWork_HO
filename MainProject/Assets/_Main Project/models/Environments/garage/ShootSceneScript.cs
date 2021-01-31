@@ -42,6 +42,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     public IEnumerator InitializeScene(int en, Action OnComplete = null)
     {
+        en = 0;
         EnvironmentNum = en;
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
@@ -125,7 +126,7 @@ public class ShootSceneScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             // if (pointGroup[EnvironmentNum].groupOfPoints[listEndPoints[i]].endPoints.Count > 0)
-            StartCoroutine(m_burglar[i].SetDestination());
+            StartCoroutine(m_burglar[i].SetDestination(true));
         }
         listEndPoints.Clear();
     }

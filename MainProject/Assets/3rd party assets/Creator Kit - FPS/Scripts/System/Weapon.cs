@@ -312,8 +312,9 @@ public class Weapon : MonoBehaviour
             ManagerHandler.managerHandler.timer.stopTimer();
             if (hit.transform.gameObject.tag == "Burgler")
             {
-                impactManager.ImpactData(hit.point, hit.normal, false, renderer == null ? null : renderer.sharedMaterial);
                 Burglar burglar = hit.transform.gameObject.GetComponentInParent<Burglar>();
+                burglar.stopCoursing();
+                impactManager.ImpactData(hit.point, hit.normal, false, renderer == null ? null : renderer.sharedMaterial);
                 if (PlayerPrefs.HasKey("Score"))
                 {
                     PlayerPrefs.DeleteKey("Score");

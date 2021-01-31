@@ -17,7 +17,7 @@ public class Burglar : MonoBehaviour
     Points[] groupofPoints;
     [SerializeField]
     int pathNo = 0;
-    bool inCoroutine = false;
+    bool inCoroutine = false,setCourse=false;
   
     void Awake()
     {
@@ -54,13 +54,14 @@ public class Burglar : MonoBehaviour
         anim.SetTrigger("Crouch");
         
         yield return new WaitForSeconds(1f);
+        if (setCourse == true)
         setNewPath();
     }
     public int getValue()
     {
         return m_value;
     }
-   public IEnumerator SetDestination()
+   public IEnumerator SetDestination(bool set_course=false)
     {
         if (!navAgent.isOnNavMesh) {
             print(gameObject.name);
@@ -73,6 +74,9 @@ public class Burglar : MonoBehaviour
         
         // end_Point = endPoint;
         anim.SetTrigger("Run");
+        if (set_course == true) {
+            setCourse = true;
+        }
         yield return new WaitForSeconds(2.5f);
         inCoroutine = false;
     }
@@ -108,5 +112,8 @@ public class Burglar : MonoBehaviour
     public void setSpeed(float speed) {
         navAgent.speed = speed;
         anim.speed = speed>1?1f:speed;
+    }
+    public void stopCoursing() {
+        setCourse = false;
     }
 }
