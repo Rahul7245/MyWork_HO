@@ -42,7 +42,7 @@ public class ShootSceneScript : MonoBehaviour
     }
     public IEnumerator InitializeScene(int en, Action OnComplete = null)
     {
-        en = 0;
+        //en = 0;
         EnvironmentNum = en;
         setEnvironment((EnviromentType)en);
         setShootPoint(en);
